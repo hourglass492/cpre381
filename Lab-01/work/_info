@@ -1,0 +1,61 @@
+m255
+K4
+z2
+!s11e vcom 2020.2 2020.04, Apr 19 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dU:/CPRE381/Lab-01
+T_opt
+!s110 1597954170
+V0E[=;QlbU3o73NKChBT1>3
+04 5 8 work adder behavior 1
+=1-0050569bad16-5f3ed879-103-1588
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2020.2;71
+Eadder
+Z1 w1597953900
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 0
+R0
+Z4 8Adder.vhd
+Z5 FAdder.vhd
+l0
+L26 1
+Vie]<j?[Y^l8Q3D=EIIC_:0
+!s100 ?M@C[n:@^fhmgGDG`5ibH3
+Z6 OL;C;2020.2;71
+32
+Z7 !s110 1597954121
+!i10b 1
+Z8 !s108 1597954121.000000
+Z9 !s90 -reportprogress|300|-work|work|Adder.vhd|
+Z10 !s107 Adder.vhd|
+!i113 0
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Abehavior
+R2
+R3
+DEx4 work 5 adder 0 22 ie]<j?[Y^l8Q3D=EIIC_:0
+!i122 0
+l36
+L35 11
+V;1<0UOS7@[zPo1R`OK7WI2
+!s100 cB67aGlEFcN>h>lDnF1Sh3
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12
