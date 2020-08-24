@@ -12,7 +12,7 @@ end Einstein;
 
 architecture structure of Einstein is
   
-  -- Describe the component entities as defined in Adder.vhd 
+  
   -- and Multiplier.vhd (not strictly necessary).
 
   component Multiplier
