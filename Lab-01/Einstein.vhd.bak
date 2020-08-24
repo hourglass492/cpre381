@@ -23,7 +23,7 @@ architecture structure of Einstein is
   end component;
 
   -- Constant of C squared for E= Mc^2, using c = 9487 so c squared is 90003169
-  constant C : integer := 9487;
+  constant C2 : integer := 90003169;
 
 
 begin
@@ -34,11 +34,10 @@ begin
   ---------------------------------------------------------------------------
   g_Mult1: Multiplier
     port MAP(iCLK             => iCLK,
-             iA               => C,
+             iA               => C2,
              iB               => mass,
              oC               => energy);
 
- 
      
   
 end structure;
