@@ -24,7 +24,7 @@ architecture structual_1Complement_arch of structual_1Complement is
 
         -- We loop through and instantiate and connect N invg modules
         G1: for i in 0 to N-1 generate
-            invg_i: invg 
+            invg_(i): invg 
                 port map(
                         i_A  => input(i),
                         o_F  => output(i)
@@ -32,4 +32,4 @@ architecture structual_1Complement_arch of structual_1Complement is
         end generate;
 
   
-end structure;
+end structual_1Complement_arch;

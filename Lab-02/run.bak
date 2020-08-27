@@ -8,7 +8,5 @@ vsim work.testbed
 add wave sim:/testbed/*
 
 
-force -freeze sim:/testbed/data 2863311530 0
-
 
 run 10000
