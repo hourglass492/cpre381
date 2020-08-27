@@ -32,4 +32,4 @@ architecture structual_1Complement_arch of structual_1Complement is
         end generate;
 
   
-end structual_1Complement_arch;
+end structure;
