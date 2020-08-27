@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity structual_1Complement is
+entity data_flow_1Complement is
   generic(N : integer := 32);
   port(
      
@@ -9,9 +9,9 @@ entity structual_1Complement is
     output     : out std_logic_vector(0 to N)
 	);
 	
-end structual_1Complement;
+end data_flow_1Complement;
 
-architecture structual_1Complement_arch of structual_1Complement is
+architecture data_flow_1Complement_arch of data_flow_1Complement is
 
 
     begin
@@ -23,4 +23,4 @@ architecture structual_1Complement_arch of structual_1Complement is
         end generate;
 
   
-end structual_1Complement_arch;
+end data_flow_1Complement_arch;
