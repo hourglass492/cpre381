@@ -1,1 +1,7 @@
 vcom -work work structual_1Complement.vhd
+vsim work.structual_1Complement
+
+add wave sim:/structual_1Complement/*
+force -freeze sim:/structual_1complement/i_a 0 0
+
+run 1000

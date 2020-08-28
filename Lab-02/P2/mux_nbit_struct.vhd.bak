@@ -31,9 +31,9 @@ architecture mux_nbit_struct_arch of mux_nbit_struct is
         G1: for i in 0 to N-1 generate
             mux_i: mux 
                 port map(
-                    i_a       => i_a(i),
-                    i_b       => i_b(i),
-                    i_select  => i_select,
+                    i_a       => i_a(i);
+                    i_b       => i_b(i);
+                    i_select  => i_select;
                     o_z       => o_z(i)
                         );
         end generate;

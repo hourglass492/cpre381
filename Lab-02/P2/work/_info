@@ -1,0 +1,307 @@
+m255
+K4
+z2
+!s11e vcom 2020.2 2020.04, Apr 19 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dU:/CPRE381/Lab-02/P2
+T_opt
+!s110 1598634176
+V3M:`fDN6zGNz91Q[[E0HD1
+04 11 16 work mux_testbed mux_testbed_arch 1
+=1-0050569baeb2-5f4938bf-2a8-2ba8
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2020.2;71
+Eandg2
+Z1 w1598632392
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 43
+R0
+Z4 8andg2.vhd
+Z5 Fandg2.vhd
+l0
+Z6 L23 1
+VQ@<<<@nlJ=eiIl4BJDFzW2
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+Z7 OL;C;2020.2;71
+32
+Z8 !s110 1598634173
+!i10b 1
+Z9 !s108 1598634173.000000
+Z10 !s90 -reportprogress|300|-work|work|andg2.vhd|
+Z11 !s107 andg2.vhd|
+!i113 0
+Z12 o-work work
+Z13 tExplicit 1 CvgOpt 0
+Adataflow
+R2
+R3
+DEx4 work 5 andg2 0 22 Q@<<<@nlJ=eiIl4BJDFzW2
+!i122 43
+l32
+Z14 L31 6
+VJVOzCk?IH:iJ5bCRU`CK13
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Einvg
+R1
+R2
+R3
+!i122 44
+R0
+Z15 8invg.vhd
+Z16 Finvg.vhd
+l0
+R6
+VQ?6hb9ePk@>kZZ9k]hNSO3
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|invg.vhd|
+Z18 !s107 invg.vhd|
+!i113 0
+R12
+R13
+Adataflow
+R2
+R3
+DEx4 work 4 invg 0 22 Q?6hb9ePk@>kZZ9k]hNSO3
+!i122 44
+l31
+L30 6
+Vch>li:oKYZkCO5]GamViK1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R7
+32
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 0
+R12
+R13
+Emux
+Z19 w1598633596
+R2
+R3
+!i122 45
+R0
+Z20 8mux.vhd
+Z21 Fmux.vhd
+l0
+L4 1
+VRO`K4R:jIH6W;Z;93GCi00
+!s100 X0MBD::=PPVIm<CIc2CVT3
+R7
+32
+Z22 !s110 1598634174
+!i10b 1
+R9
+Z23 !s90 -reportprogress|300|-work|work|mux.vhd|
+Z24 !s107 mux.vhd|
+!i113 0
+R12
+R13
+Amux_arch
+R2
+R3
+DEx4 work 3 mux 0 22 RO`K4R:jIH6W;Z;93GCi00
+!i122 45
+l44
+L17 61
+Vde5YPR[06O1;9ki75YS9E3
+!s100 K1KR@k^E7TPZ=[GfUT19T1
+R7
+32
+R22
+!i10b 1
+R9
+R23
+R24
+!i113 0
+R12
+R13
+Emux_nbit_flow
+R1
+R2
+R3
+!i122 46
+R0
+Z25 8mux_nbit_flow.vhd
+Z26 Fmux_nbit_flow.vhd
+l0
+L4 1
+V;0MG_@gZ8h6<>>_Vnb1zB3
+!s100 PozE7:aAcXmFLITXOjh_=0
+R7
+32
+R22
+!i10b 1
+Z27 !s108 1598634174.000000
+Z28 !s90 -reportprogress|300|-work|work|mux_nbit_flow.vhd|
+Z29 !s107 mux_nbit_flow.vhd|
+!i113 0
+R12
+R13
+Amux_nbit_flow_arch
+R2
+R3
+DEx4 work 13 mux_nbit_flow 0 22 ;0MG_@gZ8h6<>>_Vnb1zB3
+!i122 46
+l19
+L17 11
+V?60L^kXk2g^GM]ledICPh0
+!s100 a>XSoO`Akfk7=5WzH8cS92
+R7
+32
+R22
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R12
+R13
+Emux_nbit_struct
+Z30 w1598634064
+R2
+R3
+!i122 47
+R0
+Z31 8mux_nbit_struct.vhd
+Z32 Fmux_nbit_struct.vhd
+l0
+L4 1
+VA9<KeXVPi80XAJbkVRIna1
+!s100 CAJ1VblG<8X9BFd1`3^LR2
+R7
+32
+R22
+!i10b 1
+R27
+Z33 !s90 -reportprogress|300|-work|work|mux_nbit_struct.vhd|
+Z34 !s107 mux_nbit_struct.vhd|
+!i113 0
+R12
+R13
+Amux_nbit_struct_arch
+R2
+R3
+DEx4 work 15 mux_nbit_struct 0 22 A9<KeXVPi80XAJbkVRIna1
+!i122 47
+l28
+L17 26
+V:dLg_z9lA3NGdzccnL]IQ3
+!s100 JmPI_EgLcJooG2kaeB1g61
+R7
+32
+R22
+!i10b 1
+R27
+R33
+R34
+!i113 0
+R12
+R13
+Emux_testbed
+Z35 w1598634147
+R2
+R3
+!i122 49
+R0
+Z36 8mux_testbed.vhd
+Z37 Fmux_testbed.vhd
+l0
+L4 1
+VYU_an<:1l5K[;zz5;98KL2
+!s100 8;R8^?]L_i0[UnOK;<6SY2
+R7
+32
+Z38 !s110 1598634175
+!i10b 1
+Z39 !s108 1598634175.000000
+Z40 !s90 -reportprogress|300|-work|work|mux_testbed.vhd|
+Z41 !s107 mux_testbed.vhd|
+!i113 0
+R12
+R13
+Amux_testbed_arch
+R2
+R3
+DEx4 work 11 mux_testbed 0 22 YU_an<:1l5K[;zz5;98KL2
+!i122 49
+l37
+L17 43
+VJbh9c8=S5hXY?:4K1]L8]0
+!s100 ;SEU9;T;CRL2L4@H3aMJ`2
+R7
+32
+R38
+!i10b 1
+R39
+R40
+R41
+!i113 0
+R12
+R13
+Eorg2
+R1
+R2
+R3
+!i122 48
+R0
+Z42 8org2.vhd
+Z43 Forg2.vhd
+l0
+R6
+V[C`FCj=kL0CTBYLlbjJzD3
+!s100 bGQ1F9eW^Q17OoL9h4g7z2
+R7
+32
+R22
+!i10b 1
+R27
+Z44 !s90 -reportprogress|300|-work|work|org2.vhd|
+Z45 !s107 org2.vhd|
+!i113 0
+R12
+R13
+Adataflow
+R2
+R3
+DEx4 work 4 org2 0 22 [C`FCj=kL0CTBYLlbjJzD3
+!i122 48
+l32
+R14
+VNHGn>Kh:]BEh4o]ImiG<d3
+!s100 h5_AzR3TdRA0a_K=dQ>mI2
+R7
+32
+R22
+!i10b 1
+R27
+R44
+R45
+!i113 0
+R12
+R13
