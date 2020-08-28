@@ -41,7 +41,7 @@ end component;
         structual: mux_nbit_struct 
             port map(
                     i_a  => data_a,
-                    i_a  => data_b,
+                    i_b  => data_b,
                     i_select => i_select,
                     o_z  => out_struct
                     );
@@ -49,7 +49,7 @@ end component;
         data_flow: mux_nbit_flow 
             port map(
                     i_a  => data_a,
-                    i_a  => data_b,
+                    i_b  => data_b,
                     i_select => i_select,
                     o_z  => out_struct
                     );

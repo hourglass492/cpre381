@@ -45,7 +45,7 @@ architecture mux_arch of mux is
 
         -- We loop through and instantiate and connect N invg modules
 
-            invg: invg 
+            invg_1: invg 
                 port map(
                         i_A  => i_select,
                         o_F  => inter_1

@@ -63,7 +63,7 @@ architecture mux_arch of mux is
                 port map(
                     i_A => i_select,
                     i_B => i_a,
-                    o_F => inter_3
+                    o_F => inter_2
                 );
 
             org2_1: org2
