@@ -10,20 +10,19 @@ z2
 cModel Technology
 Z0 dU:/CPRE381/Lab-02
 T_opt
-!s110 1598561376
-VIdlm:9AfF2:?nc]A=h;zA1
+!s110 1598628751
+VDmR_JU;^FBUFjzP_3@VmG2
 04 7 12 work testbed testbed_arch 1
-=1-0050569be516-5f481c60-10d-2afc
+=1-0050569baeb2-5f49238e-27f-2a1c
 Z1 o-quiet -auto_acc_if_foreign -work work
 Z2 tCvgOpt 0
 n@_opt
 Z3 OL;O;2020.2;71
-R0
 T_opt1
-!s110 1598561956
-VAkKE4X[Ch?ScP4ha^]U_Q0
+!s110 1598628255
+V;Bl_5V=<7a^:GDma8K2E42
 04 21 26 work structual_1complement structual_1complement_arch 1
-=1-0050569be516-5f481ea4-81-2944
+=1-0050569baeb2-5f49219d-2e0-2044
 R1
 R2
 n@_opt1
@@ -33,7 +32,7 @@ Edata_flow_1complement
 Z4 w1598561027
 Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 17
+!i122 33
 R0
 Z7 8data_flow_1inverter.vhd
 Z8 Fdata_flow_1inverter.vhd
@@ -43,9 +42,9 @@ VgC5>_LQ[32_WfZk1SYmfg1
 !s100 8X1]U>UXV6@nd9`_LE?Q01
 Z9 OL;C;2020.2;71
 32
-Z10 !s110 1598562465
+Z10 !s110 1598628749
 !i10b 1
-Z11 !s108 1598562465.000000
+Z11 !s108 1598628749.000000
 Z12 !s90 -reportprogress|300|-work|work|data_flow_1inverter.vhd|
 Z13 !s107 data_flow_1inverter.vhd|
 !i113 0
@@ -55,7 +54,7 @@ Adata_flow_1complement_arch
 R5
 R6
 DEx4 work 21 data_flow_1complement 0 22 gC5>_LQ[32_WfZk1SYmfg1
-!i122 17
+!i122 33
 l17
 L14 13
 V=z?[O<0eTF82jnhM7K4og2
@@ -176,22 +175,22 @@ Z30 !s107 structual_1Complement.vhd|
 R14
 R15
 Estructual_1complement
-Z31 w1598562440
+Z31 w1598628566
 R5
 R6
-!i122 16
+!i122 32
 R0
 R27
 R28
 l0
 L4 1
-V>g>TSN:_SncKS?:L`dZ[n3
-!s100 aj6@VEc5=kBNZD1754Ab52
+V7Ib;O8nfL07C`N=cSOS;F3
+!s100 cl@ZL2>;JAMg14:1I;AH80
 R9
 32
 R10
 !i10b 1
-Z32 !s108 1598562464.000000
+R11
 R29
 R30
 !i113 0
@@ -200,37 +199,37 @@ R15
 Astructual_1complement_arch
 R5
 R6
-DEx4 work 21 structual_1complement 0 22 >g>TSN:_SncKS?:L`dZ[n3
-!i122 16
+DEx4 work 21 structual_1complement 0 22 7Ib;O8nfL07C`N=cSOS;F3
+!i122 32
 l23
 L14 22
-VBj4R4bL``=zGK82FVhiRh1
-!s100 _N]^L^]?=ATSUOn7chij23
+VmLm1RHU1lBNU:V065<U?f2
+!s100 og<:i:T:h@FeQ2`]M<YFf2
 R9
 32
 R10
 !i10b 1
-R32
+R11
 R29
 R30
 !i113 0
 R14
 R15
 Etestbed
-Z33 w1598561349
+Z32 w1598628727
 R5
 R6
-!i122 18
+!i122 34
 R0
-Z34 8testbed.vhd
-Z35 Ftestbed.vhd
+Z33 8testbed.vhd
+Z34 Ftestbed.vhd
 l0
 L4 1
 V9kfi3PL:>Uzf[H340=@@;1
 !s100 Z22Z0Z]JmiTj0Je7];Mb73
 R9
 32
-R10
+Z35 !s110 1598628750
 !i10b 1
 R11
 Z36 !s90 -reportprogress|300|-work|work|testbed.vhd|
@@ -241,15 +240,15 @@ R15
 Atestbed_arch
 R5
 R6
-Z38 DEx4 work 7 testbed 0 22 9kfi3PL:>Uzf[H340=@@;1
-!i122 18
+DEx4 work 7 testbed 0 22 9kfi3PL:>Uzf[H340=@@;1
+!i122 34
 l31
-Z39 L15 35
-Z40 Ve7fDOLN0<;[44[=mhl]oA2
-Z41 !s100 COgV3cGBW6IAgZ^i?8LhQ1
+L15 35
+VFOhfl_>nI:8;8DR:D;0b@2
+!s100 _RWZDzb=FT8;;_jSfYE<71
 R9
 32
-R10
+R35
 !i10b 1
 R11
 R36

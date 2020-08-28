@@ -16,8 +16,8 @@ architecture testbed_arch of testbed is
 
     component structual_1Complement
         port(
-            input  : in std_logic_vector(0 to N);
-            output  : out std_logic_vector(0 to N)
+            i_a  : in std_logic_vector(0 to N);
+            o_z  : out std_logic_vector(0 to N)
             );
     end component;
 
@@ -34,8 +34,8 @@ end component;
 
         structual: structual_1Complement 
             port map(
-                    input  => data,
-                    output  => out_struct
+                    i_a  => data,
+                    o_z  => out_struct
                     );
 
         data_flow: data_flow_1Complement 

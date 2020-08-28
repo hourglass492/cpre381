@@ -2,11 +2,11 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity structual_1Complement is
-  generic(N : integer := 32);
+  --generic(N : integer := 32);
   port(
      
-    input      : in std_logic_vector(0 to N);
-    output     : out std_logic_vector(0 to N)
+    i_a      : in std_logic;--_vector(0 to N);
+    o_z     : out std_logic--_vector--(0 to N)
 	);
 	
 end structual_1Complement;
@@ -23,13 +23,13 @@ architecture structual_1Complement_arch of structual_1Complement is
     begin
 
         -- We loop through and instantiate and connect N invg modules
-        G1: for i in 0 to N-1 generate
-            invg_(i): invg 
+        --G1: for i in 0 to N-1 generate
+            invg_i: invg 
                 port map(
-                        i_A  => input(i),
-                        o_F  => output(i)
+                        i_A  => i_a,--(i),
+                        o_F  => o_z--(i)
                         );
-        end generate;
+        --end generate;
 
   
 end structual_1Complement_arch;
