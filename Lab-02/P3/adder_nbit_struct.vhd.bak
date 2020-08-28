@@ -19,7 +19,7 @@ end adder_nbit_struct;
 
 architecture adder_nbit_struct_arch of adder_nbit_struct is
 
-    signal inter_carry : std_logic_vector(0 to N+1);
+    inter_carry : std_logic_vector(0 to N+1);
 
     component adder
         port(

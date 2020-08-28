@@ -11,7 +11,8 @@ entity adder_nbit_flow is
     i_a             : in std_logic_vector(0 to N);
     i_b             : in std_logic_vector(0 to N);
     i_carry         : in std_logic;
-    o_sum           : out std_logic_vector(0 to N)
+    o_sum           : out std_logic_vector(0 to N);
+
 	);
 	
 end adder_nbit_flow;

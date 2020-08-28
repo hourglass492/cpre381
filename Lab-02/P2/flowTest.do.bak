@@ -17,6 +17,7 @@ force -freeze sim:/mux_nbit_flow/i_b 204 0
 
 
 
+force -freeze sim:/mux_nbit_flow/i_select 0 0
 
 
 
