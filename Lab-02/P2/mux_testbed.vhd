@@ -51,7 +51,7 @@ end component;
                     i_a  => data_a,
                     i_b  => data_b,
                     i_select => i_select,
-                    o_z  => out_struct
+                    o_z  => out_flow
                     );
             
 
