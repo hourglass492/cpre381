@@ -45,7 +45,7 @@ architecture add_sub_struct_arch of add_sub_struct is
         component structual_1Complement
             port(
                 i_a      : in std_logic_vector(0 to N);
-                o_z     : out std_logic_vector
+                o_z     : out std_logic_vector(0 to N)
                 );
         end component;
 
@@ -60,8 +60,8 @@ architecture add_sub_struct_arch of add_sub_struct is
 
     mux: mux_nbit_struct 
         port map(
-                    i_a       => i_b,
-                    i_b       => inter_carry_1,
+                    i_a       => inter_carry_1,
+                    i_b       => i_b,
                     i_select  => i_select,
                     o_z       => inter_carry_2
                 );

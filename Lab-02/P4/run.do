@@ -5,7 +5,7 @@ vcom -work work xorg2.vhd
 vcom -work work org2.vhd
 
 
-vcom -work work structual_1Complement
+vcom -work work structual_1Complement.vhd
 
 vcom -work work adder.vhd
 vcom -work work adder_nbit_struct.vhd

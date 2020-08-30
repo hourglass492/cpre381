@@ -22,13 +22,13 @@ architecture add_sub_struct_arch of add_sub_struct is
         signal inter_carry_1 : std_logic_vector(0 to N);
         signal inter_carry_2 : std_logic_vector(0 to N);
 
-        component adder
+        component adder_nbit_struct
             port(
-                i_a             : in std_logic;
-                i_b             : in std_logic;
-                i_carry         : in std_logic;
-                o_sum           : out std_logic;
-                o_carry         : out std_logic
+    i_a             : in std_logic_vector(0 to N);
+    i_b             : in std_logic_vector(0 to N);
+    i_carry         : in std_logic;
+    o_sum           : out std_logic_vector(0 to N);
+    o_carry         : out std_logic
                 );
         end component;
 
@@ -45,7 +45,7 @@ architecture add_sub_struct_arch of add_sub_struct is
         component structual_1Complement
             port(
                 i_a      : in std_logic_vector(0 to N);
-                o_z     : out std_logic_vector
+                o_z     : out std_logic_vector(0 to N)
                 );
         end component;
 
@@ -68,7 +68,7 @@ architecture add_sub_struct_arch of add_sub_struct is
 
 
 
-    n_bit_adder: adder 
+    adder: adder_nbit_struct 
         port map(
                     i_a       => i_a,
                     i_b       => inter_carry_2,

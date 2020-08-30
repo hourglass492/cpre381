@@ -6,7 +6,7 @@ entity structual_1Complement is
   port(
      
     i_a      : in std_logic_vector(0 to N);
-    o_z      : out std_logic_vector(0 to N)
+    o_z     : out std_logic_vector(0 to N)
 	);
 	
 end structual_1Complement;
