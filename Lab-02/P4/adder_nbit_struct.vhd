@@ -34,21 +34,26 @@ architecture adder_nbit_struct_arch of adder_nbit_struct is
     begin
 
 
-        inter_carry(0) <= i_carry;
+	inter_carry(N+1) <= i_carry;
+	o_carry <= inter_carry(0);
+
+
+
+
+
+
         -- We loop through and instantiate and connect N invg modules
         G1: for i in 0 to N generate
             adder_i: adder 
                 port map(
                     i_a       => i_a(i),
                     i_b       => i_b(i),
-                    i_carry   => inter_carry(i),
+                    i_carry   => inter_carry(i+1),
                     o_sum     => o_sum(i),
-                    o_carry   => inter_carry(i+1)
+                    o_carry   => inter_carry(i)
                         );
 
         end generate;
-
-        o_carry <= inter_carry(N);
 
 
 
