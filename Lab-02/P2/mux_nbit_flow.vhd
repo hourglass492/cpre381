@@ -19,7 +19,7 @@ architecture mux_nbit_flow_arch of mux_nbit_flow is
     begin
 
         -- We loop through and instantiate and connect N invg modules
-        G1: for i in 0 to N-1 generate
+        G1: for i in 0 to N generate
             o_z(i) <= (i_a(i) and i_select) or (i_b(i) and (not i_select));--(i_a(i) and i_select) or (i_b(i) or (not i_select));
         end generate;
 

@@ -17,7 +17,7 @@ architecture data_flow_1Complement_arch of data_flow_1Complement is
     begin
 
         -- We loop through and instantiate and connect N invg modules
-        G1: for i in 0 to N-1 generate
+        G1: for i in 0 to N generate
 
             output(i)  <= not input(i);
         end generate;

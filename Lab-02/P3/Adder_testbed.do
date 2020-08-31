@@ -12,6 +12,8 @@ vsim work.adder_testbed
 
 add wave sim:/adder_testbed/*
 
-
+force -freeze sim:/adder_testbed/i_a 93825 0
+force -freeze sim:/adder_testbed/i_b 12643 0
+force -freeze sim:/adder_testbed/i_carry 1 0
 
 run 10000
