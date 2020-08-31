@@ -6,7 +6,7 @@ entity structual_1Complement is
   port(
      
     i_a      : in std_logic_vector(0 to N);
-    o_z     : out std_logic_vector--(0 to N)
+    o_z      : out std_logic_vector(0 to N)
 	);
 	
 end structual_1Complement;
@@ -23,7 +23,7 @@ architecture structual_1Complement_arch of structual_1Complement is
     begin
 
         -- We loop through and instantiate and connect N invg modules
-        G1: for i in 0 to N-1 generate
+        G1: for i in 0 to N generate
             invg_i: invg 
                 port map(
                         i_A  => i_a(i),

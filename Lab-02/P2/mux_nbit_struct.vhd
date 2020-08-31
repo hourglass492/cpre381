@@ -28,7 +28,7 @@ architecture mux_nbit_struct_arch of mux_nbit_struct is
     begin
 
         -- We loop through and instantiate and connect N invg modules
-        G1: for i in 0 to N-1 generate
+        G1: for i in 0 to N generate
             mux_i: mux 
                 port map(
                     i_a       => i_a(i),
