@@ -1,0 +1,26 @@
+
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity decoder5to32_flow is
+
+  port(
+       i_data        : in std_logic_vector(0 to 5);     
+       o_data        : out std_logic_vector(0 to 32)
+  );
+
+end decoder5to32_flow;
+
+architecture decoder5to32_flow_arch of decoder5to32_flow is
+
+
+begin
+
+o_data(30) <=      i_data(0) and     i_data(1) and     i_data(2) and     i_data(3)  and not i_data(4);
+o_data(31) <=      i_data(0) and     i_data(1)and     i_data(2) and     i_data(3)  and   i_data(4);
+
+
+
+  
+end decoder5to32_flow_arch;

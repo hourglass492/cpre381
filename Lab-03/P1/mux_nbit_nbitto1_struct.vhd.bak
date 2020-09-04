@@ -108,9 +108,9 @@ architecture mux_nbit_nbitto1_struct_arch of mux_nbit_nbitto1_struct is
         G2_2: for i in 0 to num_of_inputs/(2**(j+1)) generate --for first round we want half as many mux's as inputs so add 1 to j to make it num_of_inputs/2
             mux_j_i: mux_nbit_struct 
             port map(
-                i_a       => internal(j)(2*i),
-                i_b       => internal(j)((2*i)+1),
-                i_select  => in_select(j),
+                in_a       => internal(j)(2*i),
+                in_b       => internal(j)((2*i)+1),
+                in_select  => in_select(j),
                 o_z        => internal(j+1)(i)
                     );
 

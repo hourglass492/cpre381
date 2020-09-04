@@ -42,7 +42,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
         signal inter_select  : std_logic_vector(0 to N);
 
         --G00: for i in 0 to N generate
-            signal inter_carry      : inputVectors;
+            signal inter_carry      : busVector(0 to N);
         --end generate;
 
 

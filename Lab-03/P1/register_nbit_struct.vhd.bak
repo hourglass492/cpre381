@@ -8,7 +8,7 @@ entity register_nbit_struct is
      
     
     i_CLK             : in std_logic;
-    i_RST               : in std_logic;
+    RST             : out std_logic;
     i_WE              : in std_logic;
     i_D               : in std_logic_vector(0 to N);   
 
@@ -40,7 +40,7 @@ architecture register_nbit_struct_arch of register_nbit_struct is
             dff_i: dff 
                 port map(
                     i_CLK      => i_CLK,
-                    i_RST      => i_RST,
+                    i_RST      => RST,
                     i_WE       => i_WE,
                     i_D        => i_D(i),
 
