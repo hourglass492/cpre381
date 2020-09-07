@@ -6,8 +6,8 @@ use IEEE.std_logic_1164.all;
 entity decoder5to32_flow is
 
   port(
-       i_data        : in std_logic_vector(0 to 5);     
-       o_data        : out std_logic_vector(0 to 32)
+       i_data        : in std_logic_vector(0 to 4);     
+       o_data        : out std_logic_vector(0 to 31)
   );
 
 end decoder5to32_flow;
