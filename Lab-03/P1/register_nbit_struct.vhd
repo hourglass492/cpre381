@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity register_nbit_struct is
-  generic(N : integer := 32);
+  generic(N : integer := 31);
   
   port(
      

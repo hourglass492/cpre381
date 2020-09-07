@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity mux_nbit_struct is
-  generic(N : integer := 2);
+  generic(N : integer := 31);
   port(
      
     i_a             : in std_logic_vector(0 to N);

@@ -13,7 +13,7 @@ vcom -work work mux_nbit_struct.vhd
 vcom -work work mux_nbit_nbitto1_struct.vhd
 
 vcom -work work registerFile_nbit_struct.vhd
-
+vcom -work work register_nbit_struct.vhd
 
 vcom -work work adder.vhd
 vcom -work work adder_nbit_struct.vhd
@@ -24,8 +24,11 @@ vcom -work work mux_nbit_nbitto1_struct.vhd
 
 
 
+vcom -work work registerFile_nbit_struct.vhd
 
-vsim work.decoder5to32_flow
+vsim work.registerFile_nbit_struct
 
-add wave sim:/decoder5to32_flow/*
+add wave sim:/registerFile_nbit_struct/*
+
+
 

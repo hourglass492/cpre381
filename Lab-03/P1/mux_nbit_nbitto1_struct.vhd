@@ -2,9 +2,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 package instruction_buffer_type is
-	constant data_size : integer := 2;  --bits wide
-	constant num_of_inputs    : integer := 7; --bits wide
-	constant log2_Of_num_of_inputs : integer := 2;
+	constant data_size : integer := 4;  --bits wide
+	constant num_of_inputs    : integer := 31; --bits wide
+	constant log2_Of_num_of_inputs : integer := 4;
 	type inputVectors is array(0 to num_of_inputs) of std_logic_vector (0 to data_size);
 	type internalCarry is array(0 to log2_Of_num_of_inputs+1) of inputVectors;
 end package instruction_buffer_type;
@@ -14,13 +14,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.math_real.all;
 
-use work.instruction_buffer_type.all;
+use work.arrayPackage.all;
 
 
 entity mux_nbit_nbitto1_struct is
-  generic(data_size : integer := 2; 
-	num_of_inputs : integer := 7;
-	log2_Of_num_of_inputs : integer := 2
+  generic(data_size : integer := 31; 
+	num_of_inputs : integer := 31;
+	log2_Of_num_of_inputs : integer := 4
 	);
 
 
