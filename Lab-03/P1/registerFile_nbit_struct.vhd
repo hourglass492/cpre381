@@ -48,7 +48,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
           signal inter_carry      : inputVectors;
         --end generate;
 	
-
+	signal ground : std_logic := '0' ;
 
 	component andg2
 		port(
@@ -121,14 +121,16 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
 
 
-
+    G00: for j in 0 to N generate
+	inter_carry(0)(j) <= ground;
+    end generate;
 
 
 
 
 
     --create all of registers
-    G0: for j in 0 to N generate
+    G0: for j in 1 to N generate
             register_j: register_nbit_struct
             port map(
 
