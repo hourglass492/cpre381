@@ -1,13 +1,13 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+-- library IEEE;
+-- use IEEE.STD_LOGIC_1164.ALL;
 
-package instruction_buffer_type is
-	constant data_size : integer := 4;  --bits wide
-	constant num_of_inputs    : integer := 31; --bits wide
-	constant log2_Of_num_of_inputs : integer := 4;
-	type inputVectors is array(0 to num_of_inputs) of std_logic_vector (0 to data_size);
-	type internalCarry is array(0 to log2_Of_num_of_inputs+1) of inputVectors;
-end package instruction_buffer_type;
+-- package instruction_buffer_type is
+-- 	constant data_size : integer := 4;  --bits wide
+-- 	constant num_of_inputs    : integer := 31; --bits wide
+-- 	constant log2_Of_num_of_inputs : integer := 4;
+-- 	type inputVectors is array(0 to num_of_inputs) of std_logic_vector (0 to data_size);
+-- 	type internalCarry is array(0 to log2_Of_num_of_inputs+1) of inputVectors;
+-- end package instruction_buffer_type;
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;

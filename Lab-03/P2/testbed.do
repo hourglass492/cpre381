@@ -21,10 +21,6 @@ vcom -work work adder_nbit_struct.vhd
 vcom -work work decoder5to32_flow.vhd  
 
 
-
-vcom -work work add_sub_struct.vhd
-
-
 vcom -work work dff.vhd
 vcom -work work register_nbit_struct.vhd
 vcom -work work registerFile_nbit_struct.vhd
