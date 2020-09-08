@@ -28,12 +28,22 @@ architecture behavior of tb_dff is
   constant cCLK_PER  : time := gCLK_HPER * 2;
 
 
-  component dff
-    port(i_CLK        : in std_logic;     -- Clock input
-         i_RST        : in std_logic;     -- Reset input
-         i_WE         : in std_logic;     -- Write enable input
-         i_D          : in std_logic;     -- Data value input
-         o_Q          : out std_logic);   -- Data value output
+  component m
+    port(
+          in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
+          in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
+          in_select_rt       : in std_logic_vector(0 to log2_Of_num_of_inputs);
+      
+      
+          in_immedate_value  : in std_logic_vector(0 to N);
+          in_control         : in std_logic_vector(0 to 1);
+      
+          i_CLK              : in std_logic;
+          i_RST              : in std_logic
+    )
+
+
+
   end component;
 
   -- Temporary signals to connect to the dff component.
@@ -43,11 +53,13 @@ architecture behavior of tb_dff is
 begin
 
   DUT: dff 
-  port map(i_CLK => s_CLK, 
+  port map(
+           i_CLK => s_CLK, 
            i_RST => s_RST,
            i_WE  => s_WE,
            i_D   => s_D,
-           o_Q   => s_Q);
+           o_Q   => s_Q
+           );
 
   -- This process sets the clock value (low for gCLK_HPER, then high
   -- for gCLK_HPER). Absent a "wait" command, processes restart 
@@ -63,13 +75,14 @@ begin
   -- Testbench process  
   P_TB: process
   begin
-    -- Reset the FF
-    s_RST <= '1';
+    -- Reset 
+    i_RST <= '1';
     s_WE  <= '0';
-    s_D   <= '0';
     wait for cCLK_PER;
 
-    -- Store '1'
+
+
+    --- use the add command to load initial values into reg 1-10
     s_RST <= '0';
     s_WE  <= '1';
     s_D   <= '1';
