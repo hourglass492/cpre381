@@ -35,5 +35,5 @@ vcom -work work tb_micro_processor_arch.vhd
 
 vsim work.tb_micro_processor_arch
 
-add wave sim:/tb_micro_processor_arch/*
+add wave sim:/register_nbit_struct/*
 

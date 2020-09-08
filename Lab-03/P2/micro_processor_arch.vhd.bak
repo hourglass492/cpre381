@@ -117,7 +117,7 @@ architecture micro_processor_arch of micro_processor is
             i_select        => in_control(1),
             o_sum           => internal_sum
             -- o_carry         not useing carry right now
-        );
+        )
 
 
 

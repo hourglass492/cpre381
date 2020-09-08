@@ -206,6 +206,269 @@ All values have been loaded no check getting the data out
 
 
 
+force -freeze sim:/registerfile_nbit_struct/in_select_rs   0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  2 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  3 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  4 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  5 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  6 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  7 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  8 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  9 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  a 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  b 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  c 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  d 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  e 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  f 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  11 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  12 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  13 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  14 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  15 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  16 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  17 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  18 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  19 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1a 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1b 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1c 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1d 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1e 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1f 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rs  1f 0
+run 200
+
+
+
+
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt   0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  2 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  3 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  4 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  5 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  6 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  7 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  8 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  9 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  a 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  b 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  c 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  d 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  e 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  f 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  11 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  12 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  13 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  14 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  15 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  16 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  17 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  18 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  19 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1a 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1b 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1c 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1d 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1e 0
+run 200
+
+
+force -freeze sim:/registerfile_nbit_struct/in_select_rt  1f 0
+run 200
+
 
 
 
