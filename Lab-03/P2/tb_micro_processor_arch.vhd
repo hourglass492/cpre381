@@ -126,9 +126,9 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '12'; -- destination register
+    in_select_rs <= '11'; --source register
+    in_select_rt <= '3'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -139,9 +139,9 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '13'; -- destination register
+    in_select_rs <= '12; --source register
+    in_select_rt <= '4'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -151,9 +151,9 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '14'; -- destination register
+    in_select_rs <= '13'; --source register
+    in_select_rt <= '5'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -163,9 +163,9 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '15'; -- destination register
+    in_select_rs <= '14'; --source register
+    in_select_rt <= '6'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -175,9 +175,9 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '16'; -- destination register
+    in_select_rs <= '15'; --source register
+    in_select_rt <= '7'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -186,9 +186,9 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '17'; -- destination register
+    in_select_rs <= '16'; --source register
+    in_select_rt <= '8'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -199,9 +199,9 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '18'; -- destination register
+    in_select_rs <= '17'; --source register
+    in_select_rt <= '9'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -212,9 +212,9 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '19'; -- destination register
+    in_select_rs <= '18'; --source register
+    in_select_rt <= '10'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -225,9 +225,9 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
+    in_select_rd   <= '20'; -- destination register
     in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rt <= '35'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
@@ -238,9 +238,9 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= '1'; -- destination register
-    in_select_rs <= '0'; --source register
-    in_select_rt <= '0'; --secound register
+    in_select_rd   <= '21'; -- destination register
+    in_select_rs <= '19'; --source register
+    in_select_rt <= '20'; --secound register
     in_immedate_value <= '0'; --immidate value
     wait for cCLK_PER;  
 
