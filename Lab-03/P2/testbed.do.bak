@@ -25,7 +25,7 @@ vcom -work work dff.vhd
 vcom -work work register_nbit_struct.vhd
 vcom -work work registerFile_nbit_struct.vhd
 
-vcom -work work micro_processor.vhd
+vcom -work work micro_processor_arch.vhd
 vcom -work work tb_micro_processor.vhd
 
 

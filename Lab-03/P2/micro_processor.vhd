@@ -7,7 +7,7 @@ use work.arrayPackage.all;
 
 entity micro_processor is
     -- If you cange n you must remake the decoder function
-  generic(N : integer := 31);
+  generic(N : integer := 31 );
   port(
      
     in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
