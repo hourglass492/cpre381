@@ -32,3 +32,5 @@ vcom -work work tb_micro_processor.vhd
 
 vsim work.tb_micro_processor
 
+
+add wave sim:/tb_micro_processor/*

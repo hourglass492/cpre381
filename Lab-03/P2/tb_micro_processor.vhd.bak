@@ -82,10 +82,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"1"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"1"; --immidate value
+    in_select_rd   <= "00001"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000001"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -95,10 +95,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"2"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"2"; --immidate value
+    in_select_rd   <= "00001"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000002"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -109,27 +109,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"3"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"3"; --immidate value
-    wait for cCLK_PER;  
-
-
-
-
-
-
-
-
-    in_control(0) <= '1'; -- 1 for immidate
-    in_control(1) <= '0'; -- 1 for subtract
-
-    
-    in_select_rd   <= X"4"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"4"; --immidate value
+    in_select_rd   <= "00011"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000003"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -143,10 +126,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"5"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"5"; --immidate value
+    in_select_rd   <= "00100"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000004"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -160,10 +143,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"6"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"6"; --immidate value
+    in_select_rd   <= "00101"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000005"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -177,10 +160,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"7"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"7"; --immidate value
+    in_select_rd   <= "00110"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000006"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -194,10 +177,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"8"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"8"; --immidate value
+    in_select_rd   <= "00111"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000007"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -211,10 +194,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"9"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"9"; --immidate value
+    in_select_rd   <= "01000"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000008"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -228,10 +211,27 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
     
-    in_select_rd   <= X"A"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"A"; --immidate value
+    in_select_rd   <= "01001"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000009"; --immidate value
+    wait for cCLK_PER;  
+
+
+
+
+
+
+
+
+    in_control(0) <= '1'; -- 1 for immidate
+    in_control(1) <= '0'; -- 1 for subtract
+
+    
+    in_select_rd   <= "01010"; -- destination register
+    in_select_rs <= "00000"; --source register
+    in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"0000000A"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -245,10 +245,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"1"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"0"; --secound register
-    in_immedate_value <= X"0"; --immidate value
+    in_select_rd   <= "01011"; -- destination register
+    in_select_rs <= "00001"; --source register
+    in_select_rt <= "00010"; --secound register
+    in_immedate_value <= X"00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -258,10 +258,10 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= X"C"; -- destination register
-    in_select_rs <= X"B"; --source register
-    in_select_rt <= X"3"; --secound register
-    in_immedate_value <= "0"; --immidate value
+    in_select_rd   <= "01100"; -- destination register
+    in_select_rs <= "01011"; --source register
+    in_select_rt <= "00011"; --secound register
+    --in_immedate_value <= "00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -271,10 +271,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"D"; -- destination register
-    in_select_rs <= X"C"; --source register
-    in_select_rt <= X"4"; --secound register
-    in_immedate_value <= "0"; --immidate value
+    in_select_rd   <= "01101"; -- destination register
+    in_select_rs <= "01100"; --source register
+    in_select_rt <= "00100"; --secound register
+    --in_immedate_value <= "00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -283,10 +283,10 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= X"E"; -- destination register
-    in_select_rs <= X"D"; --source register
-    in_select_rt <= X"5"; --secound register
-    in_immedate_value <= "0"; --immidate value
+    in_select_rd   <= "01110"; -- destination register
+    in_select_rs <= "01101"; --source register
+    in_select_rt <= "00101"; --secound register
+   -- in_immedate_value <= "00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -295,10 +295,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"F"; -- destination register
-    in_select_rs <= X"E"; --source register
-    in_select_rt <= X"6"; --secound register
-    in_immedate_value <= "0"; --immidate value
+    in_select_rd   <= "01111"; -- destination register
+    in_select_rs <= "01110"; --source register
+    in_select_rt <= "00110"; --secound register
+   -- in_immedate_value <= "00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -307,10 +307,10 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= X"10"; -- destination register
-    in_select_rs <= X"F"; --source register
-    in_select_rt <= X"7"; --secound register
-    in_immedate_value <= X"0"; --immidate value
+    in_select_rd   <= "10000"; -- destination register
+    in_select_rs <= "01111"; --source register
+    in_select_rt <= "00111"; --secound register
+    in_immedate_value <= X"00000000"; --immidate value
     wait for cCLK_PER;  
 
     --add $17, $16, $8
@@ -318,10 +318,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"11"; -- destination register
-    in_select_rs <= X"10"; --source register
-    in_select_rt <= X"8"; --secound register
-    in_immedate_value <= X"0"; --immidate value
+    in_select_rd   <= "10001"; -- destination register
+    in_select_rs <= "10000"; --source register
+    in_select_rt <= "01000"; --secound register
+    in_immedate_value <= X"00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -337,10 +337,10 @@ begin
     in_control(1) <= '1'; -- 1 for subtract
 
 
-    in_select_rd   <= X"12"; -- destination register
-    in_select_rs <= X"11"; --source register
-    in_select_rt <= X"9"; --secound register
-    in_immedate_value <= X"0"; --immidate value
+    in_select_rd   <= "10010"; -- destination register
+    in_select_rs <= "10001"; --source register
+    in_select_rt <= "01001"; --secound register
+    in_immedate_value <= X"00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -350,10 +350,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"13"; -- destination register
-    in_select_rs <= X"12"; --source register
-    in_select_rt <= X"A"; --secound register
-    in_immedate_value <= "0"; --immidate value
+    in_select_rd   <= "10011"; -- destination register
+    in_select_rs <= "10010"; --source register
+    in_select_rt <= "01010"; --secound register
+   -- in_immedate_value <= "00000000"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -363,10 +363,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"14"; -- destination register
-    in_select_rs <= X"0"; --source register
-    in_select_rt <= X"23"; --secound register
-    in_immedate_value <= X"0"; --immidate value
+    in_select_rd   <= "10100"; -- destination register
+    in_select_rs <= "00000"; --source register
+    -in_select_rt <= "00000"; --secound register
+    in_immedate_value <= X"00000023"; --immidate value
     wait for cCLK_PER;  
 
 
@@ -376,10 +376,10 @@ begin
     in_control(1) <= '0'; -- 1 for subtract
 
 
-    in_select_rd   <= X"15"; -- destination register
-    in_select_rs <= X"13"; --source register
-    in_select_rt <= X"14"; --secound register
-    in_immedate_value <= X"0"; --immidate value
+    in_select_rd   <= "10101"; -- destination register
+    in_select_rs <= "10011"; --source register
+    in_select_rt <= "10100"; --secound register
+    in_immedate_value <= X"00000000"; --immidate value
     wait for cCLK_PER;  
 
 
