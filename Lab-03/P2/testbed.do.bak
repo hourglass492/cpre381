@@ -23,12 +23,14 @@ vcom -work work decoder5to32_flow.vhd
 
 vcom -work work dff.vhd
 vcom -work work register_nbit_struct.vhd
-vcom -work work registerFile_nbit_struct.vhd
-
-vcom -work work micro_processor.vhd
-vcom -work work tb_micro_processor.vhd
 
 
 
-vsim work.tb_micro_processor
 
+
+
+
+vsim work.register_nbit_struct
+
+
+add wave sim:/register_nbit_struct/*

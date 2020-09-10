@@ -13,7 +13,7 @@ entity micro_processor2 is
     in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
     in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
     in_select_rt       : in std_logic_vector(0 to log2_Of_num_of_inputs);
-    in_immedate_value  : in std_logic_vector(0 to N);
+    in_immedate_value  : in std_logic_vector(0 to 15);
     in_control         : in std_logic_vector(0 to 2);
 
     i_CLK              : in std_logic;
@@ -36,6 +36,7 @@ architecture micro_processor2_arch of micro_processor2 is
     signal internal_read               : std_logic_vector(0 to N);
     signal high                        : std_logic := '1';
     signal low                         : std_logic := '0';
+    signal internal_mem_write		: std_logic;
 
 	component registerFile_nbit_struct
 		port(
@@ -95,11 +96,30 @@ architecture micro_processor2_arch of micro_processor2 is
 
 
 
+    component extender16bit_flow
+    port(  
+	i_control    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+       i_D          : in std_logic_vector( 0 to 15);     -- Data input
+       o_Q          : out std_logic_vector( 0 to 31)       -- Data  output
+
+    );
+  end component;
 
 
 
 
     begin
+
+
+extender: extender16bit_flow
+port map(
+	i_control    => low,     -- 0 to extend sign, 1 to extend 0's
+       i_D          => in_immedate_value,     -- Data input
+       o_Q          => internal_imm 
+);
+
+
+
 
 
 
@@ -156,18 +176,21 @@ architecture micro_processor2_arch of micro_processor2 is
                 );
 
 
-    G1: generator for j in 0 to 9 generate
+    G1:  for j in 0 to 9 generate
         internal_sum_bottom_10(j) <= internal_sum(j);
-    end generate
+    end generate;
+
+	internal_mem_write <= (in_control(0) and not in_control(1) and in_control(2));
+
 
         dmem: mem
             port map(
-                    clk	        => i_CLK,
+                    clk	            => i_CLK,
                     addr	    => internal_sum_bottom_10,
                     data	    => internal_rt,
-                    we		    => in_control(0) and not in_control(1) and in_control(2),
+                    we		    => internal_mem_write ,
                     q		    => internal_read
-            )
+            );
 
 
 
