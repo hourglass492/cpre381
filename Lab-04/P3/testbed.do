@@ -25,7 +25,12 @@ vcom -work work extender16bit_flow.vhd
 
 vcom -work work mem.vhd  
 
-run 4500
+
+
+
+
+
+
 
 
 
@@ -39,6 +44,11 @@ vcom -work work tb_micro_processor2.vhd
 
 
 vsim work.tb_micro_processor2
-
+mem load -infile dmem.hex -format hex /tb_micro_processor2/thing_im_testing/dmem/ram
 
 add wave sim:/tb_micro_processor2/*
+
+
+
+
+run 4500
