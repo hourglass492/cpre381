@@ -7,7 +7,7 @@ use work.arrayPackage.all;
 
 entity micro_processor2 is
     -- If you cange n you must remake the decoder function
-  generic(N : integer := 31 );
+  generic(gCLK_HPER   : time := 50 ns; log2_Of_num_of_inputs : integer := 4; N : integer := 31);
   port(
      
     in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
@@ -36,7 +36,11 @@ architecture micro_processor2_arch of micro_processor2 is
     signal internal_read               : std_logic_vector(0 to N);
     signal high                        : std_logic := '1';
     signal low                         : std_logic := '0';
-    signal internal_mem_write		: std_logic;
+    signal internal_mem_we	       : std_logic;
+    signal internal_addsub_ctl         : std_logic;					-- set to high to let the memory load values
+    signal internal_mem_reg_we	       : std_logic;
+    signal internal_reg_we	       : std_logic;
+    signal nothing	       : std_logic;
 
 	component registerFile_nbit_struct
 		port(
@@ -59,15 +63,21 @@ architecture micro_processor2_arch of micro_processor2 is
 
 
 
-    component add_sub_struct
-        port(
-            i_a             : in std_logic_vector(0 to N);
-            i_b             : in std_logic_vector(0 to N);
-            i_select         : in std_logic;
-            o_sum           : out std_logic_vector(0 to N);
-            o_carry         : out std_logic
-            );
-    end component;
+component add_sub_struct
+  generic(N : integer := 31);
+  port(
+     
+
+
+    i_a             : in std_logic_vector(0 to N);
+    i_b             : in std_logic_vector(0 to N);
+    i_select         : in std_logic;
+    o_sum           : out std_logic_vector(0 to N);
+    o_carry         : out std_logic
+
+	);
+	
+end component;
 
 
     component mux_nbit_struct
@@ -111,6 +121,16 @@ architecture micro_processor2_arch of micro_processor2 is
     begin
 
 
+     internal_mem_we	        <= in_control(0) and not in_control(1) and in_control(2); --ie ctl == 5 for sw
+     internal_addsub_ctl          <=  in_control(0) and not in_control(2); 		  --ie be controled by ctl(0) unless doing lw/sw then alwas be 0
+     internal_mem_reg_we	 	<= in_control(0) and in_control(1) and in_control(2);	  --ie ctl ==7
+     internal_reg_we	        <= not (in_control(0) and not in_control(1) and in_control(2)); -- ie when ctl != 5
+	
+
+
+
+
+
 extender: extender16bit_flow
 port map(
 	i_control    => low,     -- 0 to extend sign, 1 to extend 0's
@@ -131,7 +151,7 @@ port map(
         in_select_rs       => in_select_rs, -- next 3 select the register to pull from for each value
         in_select_rt       => in_select_rt,
         in_select_rd       => in_select_rd,
-        i_WE               => high,
+        i_WE               => internal_reg_we,
         i_CLK              => i_CLK,
         i_RST              => i_RST,
     
@@ -157,13 +177,13 @@ port map(
                 
 
 
-    ACLU: add_sub_struct
+    adder: add_sub_struct
         port map(
             i_a             => internal_rs,
             i_b             => internal_mux,
-            i_select        => in_control(1),
-            o_sum           => internal_sum
-            -- o_carry         not useing carry right now
+            i_select        => internal_addsub_ctl,
+            o_sum           => internal_sum,
+             o_carry        => nothing-- not useing carry right now
         );
 
 
@@ -171,7 +191,7 @@ port map(
         port map(
                     i_a         => internal_read,
                     i_b         => internal_sum,  
-                    i_select    => in_control(0),
+                    i_select    => internal_mem_reg_we,
                     o_z         => internal_rd    
                 );
 
@@ -180,15 +200,13 @@ port map(
         internal_sum_bottom_10(j) <= internal_sum(j);
     end generate;
 
-	internal_mem_write <= (in_control(0) and not in_control(1) and in_control(2));
-
 
         dmem: mem
             port map(
                     clk	            => i_CLK,
                     addr	    => internal_sum_bottom_10,
                     data	    => internal_rt,
-                    we		    => internal_mem_write ,
+                    we		    => internal_mem_we ,
                     q		    => internal_read
             );
 

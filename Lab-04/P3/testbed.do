@@ -1,3 +1,5 @@
+quit -sim
+
 vlib work
 vcom -work work andg2.vhd
 vcom -work work invg.vhd
@@ -16,7 +18,7 @@ vcom -work work mux_nbit_nbitto1_struct.vhd
 
 vcom -work work adder.vhd
 vcom -work work adder_nbit_struct.vhd
-
+vcom -work work add_sub_struct.vhd
 
 vcom -work work decoder5to32_flow.vhd  
 
@@ -44,11 +46,17 @@ vcom -work work tb_micro_processor2.vhd
 
 
 vsim work.tb_micro_processor2
+#quit -sim
+
+
 mem load -infile dmem.hex -format hex /tb_micro_processor2/thing_im_testing/dmem/ram
 
 add wave sim:/tb_micro_processor2/*
 
 
 
+add wave -position insertpoint  \
+sim:/tb_micro_processor2/thing_im_testing/internal_rd
 
-run 4500
+run 399
+run 1

@@ -8,6 +8,7 @@ entity tb_micro_processor2 is
 end tb_micro_processor2;
 
 architecture behavior of tb_micro_processor2 is
+
   
   -- Calculate the clock period as twice the half-period
   constant cCLK_PER  : time := gCLK_HPER * 2;
@@ -70,18 +71,30 @@ begin
   -- Testbench process  
   P_TB: process
   begin
-    -- Reset 
-    i_RST <= '0';
-    wait for cCLK_PER;
-    i_RST <= '1';
 
+i_RST <= '1';
+
+
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+
+
+i_RST <= '0';
+
+
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
 --addi, $25, $25, $0, 0
 -- add 0 to register $0 and store in $25
 
 		ctl <= "001";
 		 rs_s <= "00000";
 		 in_immedate_value <=X"0000";
-		 rd_s <= "11001";
+		 rd_s <= "10011";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -94,7 +107,7 @@ wait for gCLK_HPER;
 		ctl <= "001";
 		 rs_s <= "00000";
 		 in_immedate_value <=X"0100";
-		 rd_s <= "11010";
+		 rd_s <= "01011";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -105,8 +118,8 @@ wait for gCLK_HPER;
 -- load 0 plus $25 from memory into $1
 
 		ctl <= "111";
-		 rt_s <= "00001";
-		 rs_s <= "11001";
+		 rd_s <= "10000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"0000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -118,8 +131,8 @@ wait for gCLK_HPER;
 -- load 4 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rt_s <= "00010";
-		 rs_s <= "11001";
+		 rd_s <= "01000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"0004";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -131,8 +144,9 @@ wait for gCLK_HPER;
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "00001";
-		 rt_s <= "00010";
+		 rs_s <= "10000";
+		 rt_s <= "01000";
+		 rd_s <= "10000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -143,8 +157,8 @@ wait for gCLK_HPER;
 -- store $1 at memory location $26 plus 0
 
 		ctl <= "101";
-		 rt_s <= "00001";
-		 rs_s <= "11010";
+		 rt_s <= "10000";
+		 rs_s <= "01011";
 		 in_immedate_value <=X"0000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -156,8 +170,8 @@ wait for gCLK_HPER;
 -- load 8 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rt_s <= "00010";
-		 rs_s <= "11001";
+		 rd_s <= "01000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"0008";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -169,8 +183,9 @@ wait for gCLK_HPER;
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "00001";
-		 rt_s <= "00010";
+		 rs_s <= "10000";
+		 rt_s <= "01000";
+		 rd_s <= "10000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -181,8 +196,8 @@ wait for gCLK_HPER;
 -- store $1 at memory location $26 plus 4
 
 		ctl <= "101";
-		 rt_s <= "00001";
-		 rs_s <= "11010";
+		 rt_s <= "10000";
+		 rs_s <= "01011";
 		 in_immedate_value <=X"0004";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -194,8 +209,8 @@ wait for gCLK_HPER;
 -- load 12 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rt_s <= "00010";
-		 rs_s <= "11001";
+		 rd_s <= "01000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"000c";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -207,8 +222,9 @@ wait for gCLK_HPER;
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "00001";
-		 rt_s <= "00010";
+		 rs_s <= "10000";
+		 rt_s <= "01000";
+		 rd_s <= "10000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -219,8 +235,8 @@ wait for gCLK_HPER;
 -- store $1 at memory location $26 plus 8
 
 		ctl <= "101";
-		 rt_s <= "00001";
-		 rs_s <= "11010";
+		 rt_s <= "10000";
+		 rs_s <= "01011";
 		 in_immedate_value <=X"0008";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -232,8 +248,8 @@ wait for gCLK_HPER;
 -- load 16 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rt_s <= "00010";
-		 rs_s <= "11001";
+		 rd_s <= "01000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"0010";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -245,8 +261,9 @@ wait for gCLK_HPER;
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "00001";
-		 rt_s <= "00010";
+		 rs_s <= "10000";
+		 rt_s <= "01000";
+		 rd_s <= "10000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -257,8 +274,8 @@ wait for gCLK_HPER;
 -- store $1 at memory location $26 plus 12
 
 		ctl <= "101";
-		 rt_s <= "00001";
-		 rs_s <= "11010";
+		 rt_s <= "10000";
+		 rs_s <= "01011";
 		 in_immedate_value <=X"000c";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -270,8 +287,8 @@ wait for gCLK_HPER;
 -- load 20 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rt_s <= "00010";
-		 rs_s <= "11001";
+		 rd_s <= "01000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"0014";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -283,8 +300,9 @@ wait for gCLK_HPER;
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "00001";
-		 rt_s <= "00010";
+		 rs_s <= "10000";
+		 rt_s <= "01000";
+		 rd_s <= "10000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -295,8 +313,8 @@ wait for gCLK_HPER;
 -- store $1 at memory location $26 plus 16
 
 		ctl <= "101";
-		 rt_s <= "00001";
-		 rs_s <= "11010";
+		 rt_s <= "10000";
+		 rs_s <= "01011";
 		 in_immedate_value <=X"0010";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -308,8 +326,8 @@ wait for gCLK_HPER;
 -- load 24 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rt_s <= "00010";
-		 rs_s <= "11001";
+		 rd_s <= "01000";
+		 rs_s <= "10011";
 		 in_immedate_value <= X"0018";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -321,8 +339,9 @@ wait for gCLK_HPER;
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "00001";
-		 rt_s <= "00010";
+		 rs_s <= "10000";
+		 rt_s <= "01000";
+		 rd_s <= "10000";
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
@@ -333,7 +352,7 @@ wait for gCLK_HPER;
 -- add 512 to register $26 and store in $27
 
 		ctl <= "001";
-		 rs_s <= "11010";
+		 rs_s <= "01011";
 		 in_immedate_value <=X"0200";
 		 rd_s <= "11011";
 wait for gCLK_HPER;
@@ -346,7 +365,7 @@ wait for gCLK_HPER;
 -- store $1 at memory location $27 plus -4
 
 		ctl <= "101";
-		 rt_s <= "00001";
+		 rt_s <= "10000";
 		 rs_s <= "11011";
 		 in_immedate_value <=X"fffc";
 wait for gCLK_HPER;
@@ -354,8 +373,18 @@ wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 
-  end process;
-  
+
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+
+
+
+
+
+end process;
+
 end behavior;
 
 
