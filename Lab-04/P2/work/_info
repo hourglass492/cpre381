@@ -23,7 +23,7 @@ Edff
 Z1 w1599770464
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 85
+!i122 97
 R0
 Z4 8dff.vhd
 Z5 Fdff.vhd
@@ -33,9 +33,9 @@ V<R:lmjjDXa`]L14ceUIAn3
 !s100 mT_OLTf8f1nD0BMVi`22Q3
 Z6 OL;C;2020.2;71
 32
-Z7 !s110 1600716010
+Z7 !s110 1600861519
 !i10b 1
-Z8 !s108 1600716009.000000
+Z8 !s108 1600861519.000000
 Z9 !s90 -reportprogress|300|-work|work|dff.vhd|
 Z10 !s107 dff.vhd|
 !i113 0
@@ -45,7 +45,7 @@ Amixed
 R2
 R3
 DEx4 work 3 dff 0 22 <R:lmjjDXa`]L14ceUIAn3
-!i122 85
+!i122 97
 l35
 L31 29
 VMe1[^^c?@jk=`6K1ZJFGM0
@@ -65,7 +65,7 @@ R1
 Z13 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R2
 R3
-!i122 84
+!i122 96
 R0
 Z14 8mem.vhd
 Z15 Fmem.vhd
@@ -75,11 +75,11 @@ VVZmF13E[ahLTP`DPg=NBH2
 !s100 7[hDmkRVN5;9iob_eMb3]3
 R6
 32
-Z16 !s110 1600716009
+R7
 !i10b 1
 R8
-Z17 !s90 -reportprogress|300|-work|work|mem.vhd|
-Z18 !s107 mem.vhd|
+Z16 !s90 -reportprogress|300|-work|work|mem.vhd|
+Z17 !s107 mem.vhd|
 !i113 0
 R11
 R12
@@ -88,18 +88,18 @@ R13
 R2
 R3
 DEx4 work 3 mem 0 22 VZmF13E[ahLTP`DPg=NBH2
-!i122 84
+!i122 96
 l37
 L27 24
 V`6^NbPhKNmSBg:`:Un8;g3
 !s100 OI8_3><BhDkT3l3n8`OXd3
 R6
 32
-R16
+R7
 !i10b 1
 R8
+R16
 R17
-R18
 !i113 0
 R11
 R12
@@ -107,19 +107,19 @@ Eregister_nbit_struct
 R1
 R2
 R3
-!i122 86
+!i122 98
 R0
-Z19 8register_nbit_struct.vhd
-Z20 Fregister_nbit_struct.vhd
+Z18 8register_nbit_struct.vhd
+Z19 Fregister_nbit_struct.vhd
 l0
 L4 1
 V9`bgMVdkg>PWm5[;:fU0G3
 !s100 R928S[GIQXVm2A;ZY0W3E0
 R6
 32
-R7
+Z20 !s110 1600861520
 !i10b 1
-Z21 !s108 1600716010.000000
+Z21 !s108 1600861520.000000
 Z22 !s90 -reportprogress|300|-work|work|register_nbit_struct.vhd|
 Z23 !s107 register_nbit_struct.vhd|
 !i113 0
@@ -129,14 +129,14 @@ Aregister_nbit_struct_arch
 R2
 R3
 DEx4 work 20 register_nbit_struct 0 22 9`bgMVdkg>PWm5[;:fU0G3
-!i122 86
+!i122 98
 l34
 L21 35
 VHR^d4R6dePHTzO[j4g<]G3
 !s100 >JD4JF][:812Z=aHklJVM1
 R6
 32
-R7
+R20
 !i10b 1
 R21
 R22
@@ -149,7 +149,7 @@ Z24 w1600715960
 R13
 R2
 R3
-!i122 87
+!i122 99
 R0
 Z25 8tb_mem.vhd
 Z26 Ftb_mem.vhd
@@ -159,7 +159,7 @@ VMzFUUVK1Vz3z9`B_77W[G1
 !s100 Q4eVQVPSJ4_@38>82Bcl81
 R6
 32
-R7
+R20
 !i10b 1
 R21
 Z27 !s90 -reportprogress|300|-work|work|tb_mem.vhd|
@@ -172,14 +172,14 @@ R13
 R2
 R3
 Z29 DEx4 work 6 tb_mem 0 22 MzFUUVK1Vz3z9`B_77W[G1
-!i122 87
+!i122 99
 l64
 Z30 L15 241
 Z31 V[K<HPdSa]XD>e5@o5]i`>1
 Z32 !s100 N3aD8NmQ2_i05b_ez=]=N0
 R6
 32
-R7
+R20
 !i10b 1
 R21
 R27

@@ -18,14 +18,15 @@ begin
 
     --assign all of the current values
     G1: for j in 0 to N generate
-        o_Q(j) <= i_D(j);
+ 	o_Q(j) <= i_D(0) and not i_control;
+        
     end generate;
 
 
 
     G2: for j in N+1 to 31 generate
 
-       o_Q(j) <= s_D(N) and not i_control;
+      o_Q(j) <= i_D(j);
 
     end generate;
     

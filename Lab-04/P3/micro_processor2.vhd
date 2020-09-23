@@ -122,8 +122,8 @@ end component;
 
 
      internal_mem_we	        <= in_control(0) and not in_control(1) and in_control(2); --ie ctl == 5 for sw
-     internal_addsub_ctl          <=  in_control(0) and not in_control(2); 		  --ie be controled by ctl(0) unless doing lw/sw then alwas be 0
-     internal_mem_reg_we	 	<= in_control(0) and in_control(1) and in_control(2);	  --ie ctl ==7
+     internal_addsub_ctl        <=  in_control(1) and not (in_control(0) and in_control(2)); 		  --ie be controled by ctl(0) unless doing lw/sw then alwas be 0
+     internal_mem_reg_we	<= in_control(0) and in_control(1) and in_control(2);	  --ie ctl ==7
      internal_reg_we	        <= not (in_control(0) and not in_control(1) and in_control(2)); -- ie when ctl != 5
 	
 
@@ -169,7 +169,7 @@ port map(
     adder_mux: mux_nbit_struct 
         port map(
                     i_a         => internal_imm,
-                    i_b         => internal_rt,  
+                    i_b         => internal_rt,
                     i_select    => in_control(0),
                     o_z         => internal_mux    
                 );
@@ -177,7 +177,7 @@ port map(
                 
 
 
-    adder: add_sub_struct
+    addSub: add_sub_struct
         port map(
             i_a             => internal_rs,
             i_b             => internal_mux,
@@ -196,8 +196,8 @@ port map(
                 );
 
 
-    G1:  for j in 0 to 9 generate
-        internal_sum_bottom_10(j) <= internal_sum(j);
+    G1:  for j in 22 to 31 generate
+        internal_sum_bottom_10(j-22) <= internal_sum(j);
     end generate;
 
 

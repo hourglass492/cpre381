@@ -88,296 +88,243 @@ wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
+
+
 --addi, $25, $25, $0, 0
 -- add 0 to register $0 and store in $25
 
-		ctl <= "001";
+		ctl <= "100";
 		 rs_s <= "00000";
 		 in_immedate_value <=X"0000";
-		 rd_s <= "10011";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "11001";
+wait for cCLK_PER;
 
 
 --addi, $26, $26, $0, 256
 -- add 256 to register $0 and store in $26
 
-		ctl <= "001";
+		ctl <= "100";
 		 rs_s <= "00000";
 		 in_immedate_value <=X"0100";
-		 rd_s <= "01011";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "11010";
+wait for cCLK_PER;
 
 
 --lw, $1,	0($25)
 -- load 0 plus $25 from memory into $1
 
 		ctl <= "111";
-		 rd_s <= "10000";
-		 rs_s <= "10011";
+		 rd_s <= "00001";
+		 rs_s <= "11001";
 		 in_immedate_value <= X"0000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+wait for cCLK_PER;
 
 
 --lw, $2,	4($25)
 -- load 4 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rd_s <= "01000";
-		 rs_s <= "10011";
-		 in_immedate_value <= X"0004";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "00010";
+		 rs_s <= "11001";
+		 in_immedate_value <= X"0001";
+wait for cCLK_PER;
 
 
 --addi, $1, $1, $2
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "10000";
-		 rt_s <= "01000";
-		 rd_s <= "10000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00001";
+wait for cCLK_PER;
 
 
 --sw, $1,	0($26)
 -- store $1 at memory location $26 plus 0
 
 		ctl <= "101";
-		 rt_s <= "10000";
-		 rs_s <= "01011";
+		 rt_s <= "00001";
+		 rs_s <= "11010";
 		 in_immedate_value <=X"0000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+wait for cCLK_PER;
 
 
 --lw, $2,	8($25)
 -- load 8 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rd_s <= "01000";
-		 rs_s <= "10011";
-		 in_immedate_value <= X"0008";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "00010";
+		 rs_s <= "11001";
+		 in_immedate_value <= X"0002";
+wait for cCLK_PER;
 
 
 --addi, $1, $1, $2
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "10000";
-		 rt_s <= "01000";
-		 rd_s <= "10000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00001";
+wait for cCLK_PER;
 
 
 --sw, $1,	4($26)
 -- store $1 at memory location $26 plus 4
 
 		ctl <= "101";
-		 rt_s <= "10000";
-		 rs_s <= "01011";
-		 in_immedate_value <=X"0004";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rt_s <= "00001";
+		 rs_s <= "11010";
+		 in_immedate_value <=X"0001";
+wait for cCLK_PER;
 
 
 --lw, $2,	12($25)
 -- load 12 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rd_s <= "01000";
-		 rs_s <= "10011";
-		 in_immedate_value <= X"000c";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "00010";
+		 rs_s <= "11001";
+		 in_immedate_value <= X"0003";
+wait for cCLK_PER;
 
 
 --addi, $1, $1, $2
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "10000";
-		 rt_s <= "01000";
-		 rd_s <= "10000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00001";
+wait for cCLK_PER;
 
 
 --sw, $1,	8($26)
 -- store $1 at memory location $26 plus 8
 
 		ctl <= "101";
-		 rt_s <= "10000";
-		 rs_s <= "01011";
-		 in_immedate_value <=X"0008";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rt_s <= "00001";
+		 rs_s <= "11010";
+		 in_immedate_value <=X"0002";
+wait for cCLK_PER;
 
 
 --lw, $2,	16($25)
 -- load 16 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rd_s <= "01000";
-		 rs_s <= "10011";
-		 in_immedate_value <= X"0010";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "00010";
+		 rs_s <= "11001";
+		 in_immedate_value <= X"0004";
+wait for cCLK_PER;
 
 
 --addi, $1, $1, $2
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "10000";
-		 rt_s <= "01000";
-		 rd_s <= "10000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00001";
+wait for cCLK_PER;
 
 
 --sw, $1,	12($26)
 -- store $1 at memory location $26 plus 12
 
 		ctl <= "101";
-		 rt_s <= "10000";
-		 rs_s <= "01011";
-		 in_immedate_value <=X"000c";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rt_s <= "00001";
+		 rs_s <= "11010";
+		 in_immedate_value <=X"0003";
+wait for cCLK_PER;
 
 
 --lw, $2,	20($25)
 -- load 20 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rd_s <= "01000";
-		 rs_s <= "10011";
-		 in_immedate_value <= X"0014";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "00010";
+		 rs_s <= "11001";
+		 in_immedate_value <= X"0005";
+wait for cCLK_PER;
 
 
 --addi, $1, $1, $2
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "10000";
-		 rt_s <= "01000";
-		 rd_s <= "10000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00001";
+wait for cCLK_PER;
 
 
 --sw, $1,	16($26)
 -- store $1 at memory location $26 plus 16
 
 		ctl <= "101";
-		 rt_s <= "10000";
-		 rs_s <= "01011";
-		 in_immedate_value <=X"0010";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rt_s <= "00001";
+		 rs_s <= "11010";
+		 in_immedate_value <=X"0004";
+wait for cCLK_PER;
 
 
 --lw, $2,	24($25)
 -- load 24 plus $25 from memory into $2
 
 		ctl <= "111";
-		 rd_s <= "01000";
-		 rs_s <= "10011";
-		 in_immedate_value <= X"0018";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rd_s <= "00010";
+		 rs_s <= "11001";
+		 in_immedate_value <= X"0006";
+wait for cCLK_PER;
 
 
 --addi, $1, $1, $2
 -- add $1 and $2 and store in $1
 
 		ctl <= "000";
-		 rs_s <= "10000";
-		 rt_s <= "01000";
-		 rd_s <= "10000";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00001";
+wait for cCLK_PER;
 
 
 --addi, $27, $27, $26, 512
 -- add 512 to register $26 and store in $27
 
-		ctl <= "001";
-		 rs_s <= "01011";
+		ctl <= "100";
+		 rs_s <= "11010";
 		 in_immedate_value <=X"0200";
 		 rd_s <= "11011";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+wait for cCLK_PER;
 
 
 --sw, $1,	-4($27)
 -- store $1 at memory location $27 plus -4
 
 		ctl <= "101";
-		 rt_s <= "10000";
+		 rt_s <= "00001";
 		 rs_s <= "11011";
-		 in_immedate_value <=X"fffc";
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
-wait for gCLK_HPER;
+		 in_immedate_value <=X"ffff";
+wait for cCLK_PER;
 
 
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
+
+
+
+
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+wait for gCLK_HPER;
+
+
+
 
 
 

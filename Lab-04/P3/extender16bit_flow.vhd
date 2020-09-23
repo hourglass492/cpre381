@@ -16,16 +16,17 @@ begin
 
 
 
-    --assign all of the current values
+	-- asign the extended va;ues
     G1: for j in 0 to N generate
-        o_Q(j) <= i_D(j);
+ 	o_Q(j) <= i_D(0) and not i_control;
+        
     end generate;
 
 
-
+    --assign all of the current values
     G2: for j in N+1 to 31 generate
 
-       o_Q(j) <= i_D(N) and not i_control;
+      o_Q(j) <= i_D(j-1-N);
 
     end generate;
     

@@ -1,0 +1,61 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dU:/CPRE381/Lab-04/P1
+T_opt
+!s110 1600860698
+VI1Fm0;z7Ch1LFnB[z_g:=1
+04 18 23 work extender16bit_flow extender16bit_flow_arch 1
+=1-0050569b4fd2-5f6b3219-327-14f0
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2020.2;71
+Eextender16bit_flow
+Z1 w1600860660
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 7
+R0
+Z4 8extender16bit_flow.vhd
+Z5 Fextender16bit_flow.vhd
+l0
+L4 1
+VED0F5c9=X^O91TijmdMB50
+!s100 i;S370i?3<;_ZzL8RaM5=3
+Z6 OL;C;2020.2;71
+32
+Z7 !s110 1600860697
+!i10b 1
+Z8 !s108 1600860697.000000
+Z9 !s90 -reportprogress|300|-work|work|extender16bit_flow.vhd|
+Z10 !s107 extender16bit_flow.vhd|
+!i113 0
+Z11 o-work work
+Z12 tExplicit 1 CvgOpt 0
+Aextender16bit_flow_arch
+R2
+R3
+DEx4 work 18 extender16bit_flow 0 22 ED0F5c9=X^O91TijmdMB50
+!i122 7
+l15
+L13 22
+VM^e5D@7bk^[oLBd_S_QQ?2
+!s100 Hg=[2GMVLokD7QDcA[6zU2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 0
+R11
+R12

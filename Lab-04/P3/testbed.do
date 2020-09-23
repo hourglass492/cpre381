@@ -28,14 +28,6 @@ vcom -work work extender16bit_flow.vhd
 vcom -work work mem.vhd  
 
 
-
-
-
-
-
-
-
-
 vcom -work work dff.vhd
 vcom -work work register_nbit_struct.vhd
 vcom -work work registerFile_nbit_struct.vhd
@@ -58,5 +50,4 @@ add wave sim:/tb_micro_processor2/*
 add wave -position insertpoint  \
 sim:/tb_micro_processor2/thing_im_testing/internal_rd
 
-run 399
-run 1
+run 3000

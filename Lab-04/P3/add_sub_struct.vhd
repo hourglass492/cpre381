@@ -9,7 +9,7 @@ entity add_sub_struct is
 
     i_a             : in std_logic_vector(0 to N);
     i_b             : in std_logic_vector(0 to N);
-    i_select         : in std_logic;
+    i_select        : in std_logic;
     o_sum           : out std_logic_vector(0 to N);
     o_carry         : out std_logic
 
