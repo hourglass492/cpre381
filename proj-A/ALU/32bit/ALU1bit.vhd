@@ -40,8 +40,8 @@ architecture ALU_arch of ALU1bit is
 
     
 
-    signal ctl_and                        : std_logic;
-    signal ctl_or                         : std_logic;
+    signal ctl_and                        : std_logic := '1';
+    signal ctl_or                         : std_logic := '0';
     signal ctl_xor	                      : std_logic;
     signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
     signal ctl_nor	                      : std_logic;
