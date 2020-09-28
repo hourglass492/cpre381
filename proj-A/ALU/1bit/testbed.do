@@ -12,8 +12,11 @@ vcom -work work mux.vhd
 vcom -work work adder.vhd 
 vcom -work work add_sub_struct_1bit.vhd
 
+vcom -work work ALU1bit.vhd
 
-vsim work.add_sub_struct_1bit
 
 
-add wave sim:/add_sub_struct_1bit/*
+vsim work.ALU1bit
+
+
+add wave sim:/ALU1bit/*
