@@ -6,6 +6,8 @@ use IEEE.math_real.all;
 use work.arrayPackage.all;
 
 entity ALU1bit is
+  generic(numOfOperations : integer := 7);
+
   port(
      
     in_ia              : in std_logic;
@@ -33,18 +35,19 @@ architecture ALU_arch of ALU1bit is
 
     signal internal_sum_msb            : std_logic;
     signal internal_adder_overflow     : std_logic;
-    signal internal_mux_input          : muxVector;
+    signal internal_result_vector      : std_logic_vector(0 to numOfOperations);
 
 
     
 
-    signal high                        : std_logic := '1';
-    signal low                         : std_logic := '0';
-    signal internal_mem_we	           : std_logic;
-    signal internal_addsub_ctl         : std_logic;					-- set to high to let the memory load values
-    signal internal_mem_reg_we	       : std_logic;
-    signal internal_reg_we	            : std_logic;
-    signal nothing	                    : std_logic;
+    signal ctl_and                        : std_logic := '1';
+    signal ctl_or                         : std_logic := '0';
+    signal ctl_xor	                      : std_logic;
+    signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
+    signal ctl_nor	                      : std_logic;
+    signal ctl_add	                      : std_logic;
+    signal ctl_sub	                      : std_logic;
+    signal ctl_slt	                      : std_logic;
 
 
 
@@ -99,7 +102,37 @@ architecture ALU_arch of ALU1bit is
 
 
     begin
-	
+
+
+      ctl_and     <= in_ctl(0)     and in_ctl(1)      and in_ctl(2);
+      ctl_or      <= in_ctl(0)     and in_ctl(1)      and not in_ctl(2);
+      ctl_xor     <= in_ctl(0)     and not in_ctl(1)  and in_ctl(2);
+      ctl_nand    <= in_ctl(0)     and not in_ctl(1)  and not in_ctl(2);
+      ctl_nor     <= not in_ctl(0) and in_ctl(1)      and in_ctl(2);
+      ctl_add     <= not in_ctl(0) and in_ctl(1)      and not in_ctl(2);
+      ctl_sub     <= not in_ctl(0) and not in_ctl(1)  and in_ctl(2);
+      ctl_slt     <= not in_ctl(0) and not in_ctl(1)  and not in_ctl(2);
+  
+      
+
+
+      internal_result_vector(0) <= in_ia and in_ib;
+
+      
+
+      internal_result_vector(1) <= in_ia or in_ib;
+
+
+      internal_result_vector(2) <= in_ia xor in_ib;
+
+
+
+      internal_result_vector(3) <= in_ia nand in_ib;
+
+
+      internal_result_vector(4) <= in_ia nor in_ib;
+
+
 
 
 
@@ -125,10 +158,23 @@ architecture ALU_arch of ALU1bit is
             o_carry         => out_carry 
         );
 
+        muxVector(5) <= muxVector(4);
+
+
+      
+      internal_result_vector(0) <= out_carry xor muxVector(4);
 
 
 
 
+        out_data <= internal_result_vector(7) when ctl_and 
+               else internal_result_vector(6) when ctl_or 
+               else internal_result_vector(5) when ctl_xor 
+               else internal_result_vector(4) when ctl_nand 
+               else internal_result_vector(3) when ctl_nor 
+               else internal_result_vector(2) when ctl_add 
+               else internal_result_vector(1) when ctl_sub 
+               else internal_result_vector(0) when ctl_slt 
 
 
 
