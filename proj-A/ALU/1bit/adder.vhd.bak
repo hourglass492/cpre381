@@ -31,7 +31,7 @@ architecture adder_arch of adder is
     port(
          i_A         : in std_logic;
          i_B         : in std_logic;
-         o_z         : out std_logic
+         o_F         : out std_logic
         );
     end component;
 
@@ -81,7 +81,7 @@ architecture adder_arch of adder is
                 port map(
                     i_A => inter_2,      
                     i_B => inter_3,    
-                    o_z => o_carry 
+                    o_F => o_carry 
                 );
 
   

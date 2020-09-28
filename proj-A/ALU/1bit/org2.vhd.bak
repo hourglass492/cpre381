@@ -20,15 +20,15 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity org2 is
+entity org is
 
   port(i_a          : in std_logic;
        i_b          : in std_logic;
        o_z          : out std_logic);
 
-end org2;
+end org;
 
-architecture dataflow of org2 is
+architecture dataflow of org is
 begin
 
   o_z <= i_b or i_a;

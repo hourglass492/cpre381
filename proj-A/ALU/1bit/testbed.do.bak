@@ -13,7 +13,7 @@ vcom -work work adder.vhd
 vcom -work work add_sub_struct_1bit.vhd
 
 
-vsim work.add_sub_struct_1bit
+vsim work.tb_micro_processor2
 
 
-add wave sim:/add_sub_struct_1bit/*
+add wave sim:/tb_micro_processor2/*
