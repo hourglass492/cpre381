@@ -51,7 +51,7 @@ architecture add_sub_struct_1bit_arch of add_sub_struct_1bit is
 
 
 
-    mux: mux
+    inverter_mux: mux
         port map(
                     i_a       => inter_carry_1,
                     i_b       => i_b,
@@ -61,7 +61,7 @@ architecture add_sub_struct_1bit_arch of add_sub_struct_1bit is
 
 
 
-    adder: adder 
+    main_adder: adder 
         port map(
                     i_a       => i_a,
                     i_b       => inter_carry_2,
