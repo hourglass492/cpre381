@@ -42,6 +42,7 @@ architecture ALU32Bit_arch of ALU32Bit is
     signal ctl_sub	                      : std_logic;
     signal ctl_slt	                      : std_logic;
 	signal ctl_add_sub			          : std_logic;
+	signal ctl_adder_carry_in		:std_logic;
 
 
 component add_sub_struct
@@ -106,6 +107,7 @@ component mux_nbit_struct
         ctl_add     <= not in_ctl(0) and in_ctl(1)      and not in_ctl(2);
         ctl_sub     <= not in_ctl(0) and not in_ctl(1)  and in_ctl(2);
         ctl_slt     <= not in_ctl(0) and not in_ctl(1)  and not in_ctl(2);
+	ctl_adder_carry_in <= ctl_sub or ctl_slt;
     
         
 
@@ -116,7 +118,7 @@ component mux_nbit_struct
        
             in_ia              => in_ia(31),  
             in_ib              => in_ib(31),  
-            in_carry           => ctl_sub,
+            in_carry           => ctl_adder_carry_in,
             in_ctl             => in_ctl,
         
         
