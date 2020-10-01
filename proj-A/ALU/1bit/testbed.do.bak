@@ -20,3 +20,10 @@ vsim work.ALU1bit
 
 
 add wave sim:/ALU1bit/*
+
+force -freeze sim:/alu1bit/in_ctl 0 0
+force -freeze sim:/alu1bit/in_ia 1 0
+force -freeze sim:/alu1bit/in_ib 0 0
+force -freeze sim:/alu1bit/in_carry 1 0
+
+

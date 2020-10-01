@@ -20,9 +20,7 @@ vsim work.ALU32Bit
 
 add wave sim:/ALU32Bit/*
 
-force -freeze sim:/alu1bit/in_ctl 0 0
-force -freeze sim:/alu1bit/in_ia 1 0
-force -freeze sim:/alu1bit/in_ib 0 0
-force -freeze sim:/alu1bit/in_carry 1 0
+force -freeze sim:/alu32bit/in_ia 7 0
+force -freeze sim:/alu32bit/in_ib 5 0
 
 
