@@ -118,7 +118,7 @@ component mux_nbit_struct
        
             in_ia              => in_ia(31),  
             in_ib              => in_ib(31),  
-            in_carry           => ctl_sub,
+            in_carry           => ctl_adder_carry_in,
             in_ctl             => in_ctl,
         
         
@@ -145,6 +145,11 @@ component mux_nbit_struct
             
                 );
         end generate;
+
+
+	out_overflow <= internal_data(0) xor internal_carry(0);
+
+
 
 
 

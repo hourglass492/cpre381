@@ -147,6 +147,11 @@ component mux_nbit_struct
         end generate;
 
 
+	out_overflow <= internal_data(0) xor internal_carry(0);
+	out_carry <= internal_carry(0);
+
+
+
 
         G2: for j in 0 to data_size-1 generate
             internal_slt_signal(j) <= '0';
@@ -167,7 +172,6 @@ component mux_nbit_struct
 
 
 
-        out_overflow <= internal_data(31) xor internal_carry(31);
         out_zero   <= not (internal_data(0) or  internal_data(1) or  internal_data(2) or  internal_data(3) or  internal_data(4) or  internal_data(5) or  internal_data(6) or  internal_data(7) or  internal_data(8) or  internal_data(9) or  internal_data(10) or  internal_data(11) or  internal_data(12) or  internal_data(13) or  internal_data(14) or  internal_data(15) or  internal_data(16) or  internal_data(17) or  internal_data(18) or  internal_data(19) or  internal_data(20) or  internal_data(21) or  internal_data(22) or  internal_data(23) or  internal_data(24) or  internal_data(25) or  internal_data(26) or  internal_data(27) or  internal_data(28) or  internal_data(29) or  internal_data(30) or  internal_data(31));
 
 
