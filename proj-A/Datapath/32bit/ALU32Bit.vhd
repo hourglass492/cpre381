@@ -107,7 +107,7 @@ component mux_nbit_struct
         ctl_add     <= not in_ctl(0) and in_ctl(1)      and not in_ctl(2);
         ctl_sub     <= not in_ctl(0) and not in_ctl(1)  and in_ctl(2);
         ctl_slt     <= not in_ctl(0) and not in_ctl(1)  and not in_ctl(2);
-		ctl_adder_carry_in <= ctl_sub or ctl_slt;
+	ctl_adder_carry_in <= ctl_sub or ctl_slt;
     
         
 
