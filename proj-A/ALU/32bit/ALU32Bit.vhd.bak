@@ -13,7 +13,7 @@ entity ALU32Bit is
     in_ctl             : in std_logic_vector(0 to 2);
 
 
-    out_data            : in std_logic_vector(0 to data_size);
+    out_data            : out std_logic_vector(0 to data_size);
     out_overflow        : out std_logic;
     out_carry           : out std_logic;
     out_zero            : out std_logic
@@ -81,13 +81,12 @@ end component;
 
 
 component mux_nbit_struct
-    generic(N : integer := 31);
+    generic(N : integer := data_size);
     port(
-       
-      i_a             : in std_logic_vector(0 to N);
-      i_b             : in std_logic_vector(0 to N);
-      i_select        : in std_logic;
-      o_z             : out std_logic_vector(0 to N)
+    i_a             : in std_logic_vector(0 to data_size);
+    i_b             : in std_logic_vector(0 to data_size);
+    i_select        : in std_logic;
+    o_z             : out std_logic_vector(0 to data_size)
   
       );
       

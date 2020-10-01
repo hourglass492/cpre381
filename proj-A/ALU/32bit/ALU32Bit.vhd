@@ -81,13 +81,12 @@ end component;
 
 
 component mux_nbit_struct
-    generic(N : integer := 31);
+    generic(N : integer := data_size);
     port(
-       
-      i_a             : in std_logic_vector(0 to N);
-      i_b             : in std_logic_vector(0 to N);
-      i_select        : in std_logic;
-      o_z             : out std_logic_vector(0 to N)
+    i_a             : in std_logic_vector(0 to data_size);
+    i_b             : in std_logic_vector(0 to data_size);
+    i_select        : in std_logic;
+    o_z             : out std_logic_vector(0 to data_size)
   
       );
       
@@ -155,8 +154,8 @@ component mux_nbit_struct
         sltMux: mux_nbit_struct 
         port map(
     
-            i_a             => internal_data,
-            i_b             => internal_slt_signal,
+            i_a             => internal_slt_signal,
+            i_b             => internal_data,
             i_select        => ctl_slt,
             o_z             => out_data
         
