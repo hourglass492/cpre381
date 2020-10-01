@@ -81,12 +81,13 @@ end component;
 
 
 component mux_nbit_struct
-    generic(N : integer := data_size);
+    generic(N : integer := 31);
     port(
-    i_a             : in std_logic_vector(0 to data_size);
-    i_b             : in std_logic_vector(0 to data_size);
-    i_select        : in std_logic;
-    o_z             : out std_logic_vector(0 to data_size)
+       
+      i_a             : in std_logic_vector(0 to N);
+      i_b             : in std_logic_vector(0 to N);
+      i_select        : in std_logic;
+      o_z             : out std_logic_vector(0 to N)
   
       );
       
@@ -109,30 +110,31 @@ component mux_nbit_struct
         
 
         --This is outside the loop because it needs ctl_sub as it's carry in
-        ALU1bit_0: ALU1bit 
+	internal_carry(0) <=  ctl_sub;
+        ALU1bit_31: ALU1bit 
         port map(
        
-            in_ia              => in_ia(0),  
-            in_ib              => in_ib(0),  
+            in_ia              => in_ia(31),  
+            in_ib              => in_ib(31),  
             in_carry           => ctl_sub,
             in_ctl             => in_ctl,
         
         
-            out_data            => internal_data(0),
-            out_carry           => internal_carry(0)
+            out_data            => internal_data(31),
+            out_carry           => internal_carry(31)
         
             );
 
 
 
 
-        G1: for j in 1 to data_size generate
+        G1: for j in 0 to data_size-1 generate
             ALU1bit_j: ALU1bit 
             port map(
         
                 in_ia              => in_ia(j),  
                 in_ib              => in_ib(j),  
-                in_carry           => internal_carry(j-1),
+                in_carry           => internal_carry(j+1),
                 in_ctl             => in_ctl,
             
             

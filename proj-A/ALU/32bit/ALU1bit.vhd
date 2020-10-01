@@ -40,8 +40,8 @@ architecture ALU_arch of ALU1bit is
 
     
 
-    signal ctl_and                        : std_logic := '1';
-    signal ctl_or                         : std_logic := '0';
+    signal ctl_and                        : std_logic;
+    signal ctl_or                         : std_logic;
     signal ctl_xor	                      : std_logic;
     signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
     signal ctl_nor	                      : std_logic;
@@ -108,7 +108,7 @@ architecture ALU_arch of ALU1bit is
         port map(
             i_a             => in_ia,
             i_b             => in_ib,
-            i_select        => ctl_add_sub,
+            i_select        => ctl_sub,
             i_carry         => in_carry,
             o_sum           => internal_result_vector(2),
             o_carry         => internal_adder_carry 

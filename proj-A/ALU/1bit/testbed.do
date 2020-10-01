@@ -19,7 +19,7 @@ vcom -work work ALU1bit.vhd
 vsim work.ALU1bit
 
 
-#add wave sim:/ALU1bit/*
+add wave sim:/ALU1bit/*
 
 
 
@@ -35,27 +35,27 @@ force -freeze sim:/alu1bit/in_ia 1 0
 force -freeze sim:/alu1bit/in_ib 1 0
 force -freeze sim:/alu1bit/in_carry 0 0
 force -freeze sim:/alu1bit/in_ctl 3'h7 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ia 0 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ctl 3'h6 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ib 0 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ctl 3'h5 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ia 1 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ib 1 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ctl 3'h4 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ia 0 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ctl 3'h3 0
-run 100
+run 1000
 force -freeze sim:/alu1bit/in_ib 0 0
-run 100
+run 1000
 
 
 
@@ -71,43 +71,47 @@ sim:/alu1bit/addSub/inter_carry_2
 add wave -position insertpoint  \
 sim:/alu1bit/addSub/inter_carry_2
 
+
+
 # add test
+
+force -freeze sim:/alu1bit/in_ctl 3'h2 0
 force -freeze sim:/alu1bit/in_ia 0 0
 force -freeze sim:/alu1bit/in_ib 0 0
 force -freeze sim:/alu1bit/in_carry 0 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 0 0
 force -freeze sim:/alu1bit/in_ib 0 0
 force -freeze sim:/alu1bit/in_carry 1 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 0 0
 force -freeze sim:/alu1bit/in_ib 1 0
 force -freeze sim:/alu1bit/in_carry 0 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 0 0
 force -freeze sim:/alu1bit/in_ib 1 0
 force -freeze sim:/alu1bit/in_carry 1 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 1 0
 force -freeze sim:/alu1bit/in_ib 0 0
 force -freeze sim:/alu1bit/in_carry 0 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 1 0
 force -freeze sim:/alu1bit/in_ib 0 0
 force -freeze sim:/alu1bit/in_carry 1 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 1 0
 force -freeze sim:/alu1bit/in_ib 1 0
 force -freeze sim:/alu1bit/in_carry 0 0
-run 100
+run 1000
 
 force -freeze sim:/alu1bit/in_ia 1 0
 force -freeze sim:/alu1bit/in_ib 1 0
 force -freeze sim:/alu1bit/in_carry 1 0
-run 100
+run 1000
