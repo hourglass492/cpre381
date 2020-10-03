@@ -241,4 +241,4 @@ port map(
 
 
 
-end IntegratedDatapath;
+end IntegratedDatapath_arch;

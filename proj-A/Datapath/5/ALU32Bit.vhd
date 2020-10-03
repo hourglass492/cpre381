@@ -5,13 +5,12 @@ use IEEE.math_real.all;
 
 use work.arrayPackage.all;
 
-entity FullALU is
- generic(data_size : integer := 31);
+entity ALU32Bit is
   port(
      
     in_ia              : in std_logic_vector(0 to data_size);
     in_ib              : in std_logic_vector(0 to data_size);
-    in_ctl             : in std_logic_vector(0 to 3);
+    in_ctl             : in std_logic_vector(0 to 2);
 
 
     out_data            : out std_logic_vector(0 to data_size);
@@ -21,19 +20,15 @@ entity FullALU is
 
 	);
 	
-end FullALU;
+end ALU32Bit;
 
-architecture FullALU_arch of FullALU is
+architecture ALU32Bit_arch of ALU32Bit is
 
 
     signal internal_data	            : std_logic_vector(0 to data_size);
-    signal internal_carry     			: std_logic_vector(0 to data_size);
+    signal internal_carry      : std_logic_vector(0 to data_size);
     signal internal_slt_signal          : std_logic_vector(0 to data_size);
-	
-	--new Signals for final mux to pick between shifter and operations
-    signal internal_OPResult          : std_logic_vector(0 to data_size);
-	signal internal_shiftResult          : std_logic_vector(0 to data_size);
-	
+    
     signal nothing	                    : std_logic;
 
 
@@ -47,17 +42,8 @@ architecture FullALU_arch of FullALU is
     signal ctl_sub	                      : std_logic;
     signal ctl_slt	                      : std_logic;
 	signal ctl_add_sub			          : std_logic;
-	signal ctl_adder_carry_in		      :std_logic;
-	
-	--shifter signals
-	signal ctl_sll						  : std_logic;
-	signal ctl_slA						  : std_logic;
-	signal ctl_srl						  : std_logic;
-	signal ctl_srA						  : std_logic;
-	signal ctl_LorR						  : std_logic;
-	signal ctl_AorL						  : std_logic;
-	
-	signal ctl_ALUorShiftSelect						  : std_logic;
+	signal ctl_adder_carry_in		:std_logic;
+
 
 component add_sub_struct
   generic(N : integer := data_size);
@@ -93,13 +79,6 @@ component ALU1bit
 end component;
 
 
-component bsLR
-      port (LorR    : in  std_logic; -- '1' for left, '0' for right
-            LorA    : in  std_logic; -- '1' for arithmetic, '0' for logical
-            i_s     : in  std_logic_vector(4 downto 0);  -- shift count
-            i_a     : in  std_logic_vector (31 downto 0);
-            o_a     : out std_logic_vector (31 downto 0) );
-end component;
 
 
 component mux_nbit_struct
@@ -120,26 +99,16 @@ component mux_nbit_struct
     begin
 
 
-        ctl_and     <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
-        ctl_or      <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
-        ctl_xor     <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
-        ctl_nand    <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
-        ctl_nor     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and in_ctl(3)		;
-        ctl_add     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
-        ctl_sub     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
-        ctl_slt     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and not in_ctl(3);
-		
-		--shift operation controls
-		ctl_sll     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
-        ctl_slA     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
-        ctl_srl     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
-        ctl_srA     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
-		
-		ctl_LorR	<= ctl_sll or ctl_slA;
-		ctl_AorL	<= ctl_slA or ctl_srA;
-	ctl_adder_carry_in <= ctl_sub or ctl_slt;
-	
-    ctl_ALUorShiftSelect <= in_ctl(0);
+        ctl_and     <= in_ctl(0)     and in_ctl(1)      and in_ctl(2);
+        ctl_or      <= in_ctl(0)     and in_ctl(1)      and not in_ctl(2);
+        ctl_xor     <= in_ctl(0)     and not in_ctl(1)  and in_ctl(2);
+        ctl_nand    <= in_ctl(0)     and not in_ctl(1)  and not in_ctl(2);
+        ctl_nor     <= not in_ctl(0) and in_ctl(1)      and in_ctl(2);
+        ctl_add     <= not in_ctl(0) and in_ctl(1)      and not in_ctl(2);
+        ctl_sub     <= not in_ctl(0) and not in_ctl(1)  and in_ctl(2);
+        ctl_slt     <= not in_ctl(0) and not in_ctl(1)  and not in_ctl(2);
+		ctl_adder_carry_in <= ctl_sub or ctl_slt;
+    
         
 
         --This is outside the loop because it needs ctl_sub as it's carry in
@@ -150,7 +119,7 @@ component mux_nbit_struct
             in_ia              => in_ia(31),  
             in_ib              => in_ib(31),  
             in_carry           => ctl_adder_carry_in,
-            in_ctl             => in_ctl(0 to 2),
+            in_ctl             => in_ctl,
         
         
             out_data            => internal_data(31),
@@ -168,7 +137,7 @@ component mux_nbit_struct
                 in_ia              => in_ia(j),  
                 in_ib              => in_ib(j),  
                 in_carry           => internal_carry(j+1),
-                in_ctl             => in_ctl(0 to 2),
+                in_ctl             => in_ctl,
             
             
                 out_data            => internal_data(j),
@@ -178,6 +147,11 @@ component mux_nbit_struct
         end generate;
 
 
+	out_overflow <= internal_data(0) xor internal_carry(0);
+	out_carry <= internal_carry(0);
+
+
+
 
         G2: for j in 0 to data_size-1 generate
             internal_slt_signal(j) <= '0';
@@ -185,17 +159,6 @@ component mux_nbit_struct
         internal_slt_signal(data_size) <= internal_data(data_size);
 
 
---barrel Shifter component of ALU
-        BarrelShifter: bsLR 
-        port map(
-    
-            LorR             => ctl_LorR,
-            LorA             => ctl_AorL,
-            i_s       		 => in_ib(0 to 4),
-            i_a              => in_ia,
-			o_a				 => internal_shiftResult
-        
-            );
 
         sltMux: mux_nbit_struct 
         port map(
@@ -203,23 +166,14 @@ component mux_nbit_struct
             i_a             => internal_slt_signal,
             i_b             => internal_data,
             i_select        => ctl_slt,
-            o_z             => internal_OPResult
-        
-            );
-
-        finalMux: mux_nbit_struct 
-        port map(
-    
-            i_a             => internal_OPResult,
-            i_b             => internal_shiftResult,
-            i_select        => ctl_ALUorShiftSelect,
             o_z             => out_data
         
             );
 
-        out_overflow <= internal_data(31) xor internal_carry(31);
+
+
         out_zero   <= not (internal_data(0) or  internal_data(1) or  internal_data(2) or  internal_data(3) or  internal_data(4) or  internal_data(5) or  internal_data(6) or  internal_data(7) or  internal_data(8) or  internal_data(9) or  internal_data(10) or  internal_data(11) or  internal_data(12) or  internal_data(13) or  internal_data(14) or  internal_data(15) or  internal_data(16) or  internal_data(17) or  internal_data(18) or  internal_data(19) or  internal_data(20) or  internal_data(21) or  internal_data(22) or  internal_data(23) or  internal_data(24) or  internal_data(25) or  internal_data(26) or  internal_data(27) or  internal_data(28) or  internal_data(29) or  internal_data(30) or  internal_data(31));
 
 
 
-end FullALU_arch;
+end ALU32Bit_arch;

@@ -19,10 +19,10 @@ architecture behavior of tb_IntegratedDatapath is
   signal  rs_s : std_logic_vector(0 to log2_Of_num_of_inputs);
   signal rt_s : std_logic_vector(0 to log2_Of_num_of_inputs);
   signal ctl :  std_logic_vector(0 to 2);
-  signal alu_ctl :  std_logic_vector(0 to 4);
+  signal alu_ctl :  std_logic_vector(0 to 3);
   signal in_immedate_value  : std_logic_vector(0 to 15);
 
-  component micro_processor2
+  component IntegratedDatapath
     port(  
         in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
         in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
@@ -43,7 +43,7 @@ architecture behavior of tb_IntegratedDatapath is
 
 begin
 
-  thing_im_testing: micro_processor2 
+  thing_im_testing: IntegratedDatapath 
   port map(
         
             in_select_rd       => rd_s,
@@ -98,8 +98,9 @@ wait for gCLK_HPER;
 
 		ctl <= "100";
 		rs_s <= "00000";
-		 in_immedate_value <=X"0000";
-		 rd_s <= "11001";
+		in_immedate_value <=X"0000";
+		rd_s <= "11001";
+		alu_ctl <= "1010";
 wait for cCLK_PER;
 
 
@@ -110,6 +111,7 @@ wait for cCLK_PER;
 		 rs_s <= "00000";
 		 in_immedate_value <=X"0100";
 		 rd_s <= "11010";
+		
 wait for cCLK_PER;
 
 
