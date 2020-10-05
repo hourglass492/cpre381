@@ -18,7 +18,8 @@ architecture behavior of tb_IntegratedDatapath is
   signal rd_s : std_logic_vector(0 to log2_Of_num_of_inputs);
   signal  rs_s : std_logic_vector(0 to log2_Of_num_of_inputs);
   signal rt_s : std_logic_vector(0 to log2_Of_num_of_inputs);
-  signal ctl :  std_logic_vector(0 to 3);
+  signal ctl :  std_logic_vector(0 to 2);
+  signal alu_ctl :  std_logic_vector(0 to 3);
   signal in_immedate_value  : std_logic_vector(0 to 15);
 
   component IntegratedDatapath

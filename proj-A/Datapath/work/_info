@@ -8,35 +8,35 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dU:/cpre381/proj-A/cpre381/proj-A/Datapath
+Z0 dU:/CPRE381/proj-A/Datapath
 T_opt
-!s110 1601766184
-VfbA4JFhHUWcWKbo2kSMQ42
+!s110 1601916219
+VCmGmTheT[9VI7G0il6LQz3
 04 21 8 work tb_integrateddatapath behavior 1
-=1-0050569b6904-5f790327-292-2b4c
+=1-0050569b4843-5f7b4d3a-3d2-cfc
 o-quiet -auto_acc_if_foreign -work work
 tCvgOpt 0
 n@_opt
 OL;O;2020.2;71
 Eadd_sub_struct_1bit
-Z1 w1601581821
+Z1 w1601913741
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 19
+!i122 18
 R0
-Z4 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/3/add_sub_struct_1bit.vhd
-Z5 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/3/add_sub_struct_1bit.vhd
+Z4 83/add_sub_struct_1bit.vhd
+Z5 F3/add_sub_struct_1bit.vhd
 l0
 L4 1
 VcaOD8NFeFR?4BH:nZ<>UC3
 !s100 F3AGikPh4N8Xi9GV;V;NZ1
 Z6 OL;C;2020.2;71
 32
-Z7 !s110 1601766083
+Z7 !s110 1601916215
 !i10b 1
-Z8 !s108 1601766083.000000
-Z9 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/3/add_sub_struct_1bit.vhd|
-Z10 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/3/add_sub_struct_1bit.vhd|
+Z8 !s108 1601916215.000000
+Z9 !s90 -reportprogress|300|-work|work|3/add_sub_struct_1bit.vhd|
+Z10 !s107 3/add_sub_struct_1bit.vhd|
 !i113 0
 Z11 o-work work
 Z12 tExplicit 1 CvgOpt 0
@@ -44,7 +44,7 @@ Aadd_sub_struct_1bit_arch
 R2
 R3
 DEx4 work 19 add_sub_struct_1bit 0 22 caOD8NFeFR?4BH:nZ<>UC3
-!i122 19
+!i122 18
 l46
 L20 59
 VJ<<3bg6j07>TQ3c^U4j6A0
@@ -65,19 +65,19 @@ R2
 R3
 !i122 13
 R0
-Z13 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder.vhd
-Z14 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder.vhd
+Z13 82/adder.vhd
+Z14 F2/adder.vhd
 l0
 L4 1
 VToFnz^=>A1?f]Doo7QkFi0
 !s100 benc0ma1j>]Eilg5Bd6H00
 R6
 32
-Z15 !s110 1601766070
+Z15 !s110 1601916213
 !i10b 1
-Z16 !s108 1601766070.000000
-Z17 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder.vhd|
-Z18 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder.vhd|
+Z16 !s108 1601916213.000000
+Z17 !s90 -reportprogress|300|-work|work|2/adder.vhd|
+Z18 !s107 2/adder.vhd|
 !i113 0
 R11
 R12
@@ -101,24 +101,24 @@ R18
 R11
 R12
 Eadder_nbit_struct
-Z19 w1601581719
+R1
 R2
 R3
-!i122 14
+!i122 12
 R0
-Z20 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder_nbit_struct.vhd
-Z21 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder_nbit_struct.vhd
+Z19 82/adder_nbit_struct.vhd
+Z20 F2/adder_nbit_struct.vhd
 l0
 L4 1
 V=8b>aK3gC_M]7zLohfX2k0
 !s100 SgeE@Xda:3fJeR?5PnbSc0
 R6
 32
-Z22 !s110 1601766072
+R15
 !i10b 1
-Z23 !s108 1601766072.000000
-Z24 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder_nbit_struct.vhd|
-Z25 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/adder_nbit_struct.vhd|
+Z21 !s108 1601916212.000000
+Z22 !s90 -reportprogress|300|-work|work|2/adder_nbit_struct.vhd|
+Z23 !s107 2/adder_nbit_struct.vhd|
 !i113 0
 R11
 R12
@@ -126,130 +126,130 @@ Aadder_nbit_struct_arch
 R2
 R3
 DEx4 work 17 adder_nbit_struct 0 22 =8b>aK3gC_M]7zLohfX2k0
-!i122 14
+!i122 12
 l34
 L20 41
 V8U991TQNDThJAb8[2V8QV0
 !s100 EcYLP@H3P0Q3f8CTf[T612
 R6
 32
-R22
+R15
 !i10b 1
+R21
+R22
 R23
-R24
-R25
 !i113 0
 R11
 R12
 Ealu1bit
 R1
-Z26 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z24 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R2
 R3
-!i122 21
+!i122 20
 R0
-Z27 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/4/ALU1bit.vhd
-Z28 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/4/ALU1bit.vhd
+Z25 84/ALU1bit.vhd
+Z26 F4/ALU1bit.vhd
 l0
 L7 1
 Vk`:=jP_iFz`0H<95bZaZg3
 !s100 LY>5kiz<NED3CV@I<cYMY3
 R6
 32
-Z29 !s110 1601766090
+Z27 !s110 1601916216
 !i10b 1
-Z30 !s108 1601766090.000000
-Z31 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/4/ALU1bit.vhd|
-Z32 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/4/ALU1bit.vhd|
+R8
+Z28 !s90 -reportprogress|300|-work|work|4/ALU1bit.vhd|
+Z29 !s107 4/ALU1bit.vhd|
 !i113 0
 R11
 R12
 Aalu_arch
-R26
+R24
 R2
 R3
 DEx4 work 7 alu1bit 0 22 k`:=jP_iFz`0H<95bZaZg3
-!i122 21
+!i122 20
 l71
 L27 114
 V?S<2j2m3WVgA;UWj3fC1Z2
 !s100 eoZL?[cX:KKXPdnkzRRf70
 R6
 32
-R29
+R27
 !i10b 1
-R30
-R31
-R32
+R8
+R28
+R29
 !i113 0
 R11
 R12
 Ealu32bit
-Z33 w1601589783
-Z34 DPx4 work 12 arraypackage 0 22 jozgoZ`<RMQK<Wbm:iRV=3
-Z35 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
-R26
+R1
+Z30 DPx4 work 12 arraypackage 0 22 jozgoZ`<RMQK<Wbm:iRV=3
+Z31 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R24
 R2
 R3
-!i122 23
+!i122 22
 R0
-Z36 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/5/ALU32Bit.vhd
-Z37 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/5/ALU32Bit.vhd
+Z32 85/ALU32Bit.vhd
+Z33 F5/ALU32Bit.vhd
 l0
 L8 1
 V@aLab_aWZ3EN?iHbj`NdL2
 !s100 fS:=^4bFdLHePnk^HT<>53
 R6
 32
-Z38 !s110 1601766098
+Z34 !s110 1601916217
 !i10b 1
-Z39 !s108 1601766097.000000
-Z40 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/5/ALU32Bit.vhd|
-Z41 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/5/ALU32Bit.vhd|
+Z35 !s108 1601916216.000000
+Z36 !s90 -reportprogress|300|-work|work|5/ALU32Bit.vhd|
+Z37 !s107 5/ALU32Bit.vhd|
 !i113 0
 R11
 R12
 Aalu32bit_arch
-R34
-R35
-R26
+R30
+R31
+R24
 R2
 R3
 DEx4 work 8 alu32bit 0 22 @aLab_aWZ3EN?iHbj`NdL2
-!i122 23
+!i122 22
 l99
 L25 155
 Vd6I_9`7>ff^9mog<977ZC1
 !s100 Z4HCd08CHhbC8;eNiB?>z3
 R6
 32
-R38
+R34
 !i10b 1
-R39
-R40
-R41
+R35
+R36
+R37
 !i113 0
 R11
 R12
 Eandg2
-Z42 w1601581822
+R1
 R2
 R3
 !i122 1
 R0
-Z43 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/andg2.vhd
-Z44 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/andg2.vhd
+Z38 81/andg2.vhd
+Z39 F1/andg2.vhd
 l0
-Z45 L23 1
+Z40 L23 1
 VQ@<<<@nlJ=eiIl4BJDFzW2
 !s100 YT?bGzEmcFo:DlnoC^B4_0
 R6
 32
-Z46 !s110 1601766046
+Z41 !s110 1601916209
 !i10b 1
-Z47 !s108 1601766046.000000
-Z48 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/andg2.vhd|
-Z49 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/andg2.vhd|
+Z42 !s108 1601916209.000000
+Z43 !s90 -reportprogress|300|-work|work|1/andg2.vhd|
+Z44 !s107 1/andg2.vhd|
 !i113 0
 R11
 R12
@@ -259,60 +259,60 @@ R3
 DEx4 work 5 andg2 0 22 Q@<<<@nlJ=eiIl4BJDFzW2
 !i122 1
 l32
-Z50 L31 6
+Z45 L31 6
 VJVOzCk?IH:iJ5bCRU`CK13
 !s100 I`@Z@UBObS]<7m8bPgKUS1
 R6
 32
-R46
+R41
 !i10b 1
-R47
-R48
-R49
+R42
+R43
+R44
 !i113 0
 R11
 R12
 Parraypackage
 R2
 R3
-!i122 2
-R42
+!i122 0
+R1
 R0
-8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/arrayPackage.vhd
-FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/arrayPackage.vhd
+81/arrayPackage.vhd
+F1/arrayPackage.vhd
 l0
 L4 1
 VjozgoZ`<RMQK<Wbm:iRV=3
 !s100 [5PX]JLSQRnWEm`m1MDDS0
 R6
 32
-!s110 1601766048
+R41
 !i10b 1
-!s108 1601766048.000000
-!s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/arrayPackage.vhd|
-!s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/arrayPackage.vhd|
+R42
+!s90 -reportprogress|300|-work|work|1/arrayPackage.vhd|
+!s107 1/arrayPackage.vhd|
 !i113 0
 R11
 R12
 Ebslr
-Z51 w1601263054
+R1
 R2
 R3
-!i122 15
+!i122 14
 R0
-Z52 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/bsLR.vhd
-Z53 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/2/bsLR.vhd
+Z46 82/bsLR.vhd
+Z47 F2/bsLR.vhd
 l0
 L4 1
 VeVI_a>LI]eLN;g5b44LMR0
 !s100 Z:6]Li;KFm6Y?h<YJ?[5G3
 R6
 32
-Z54 !s110 1601766074
+R15
 !i10b 1
-Z55 !s108 1601766073.000000
-Z56 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/bsLR.vhd|
-Z57 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/bsLR.vhd|
+R16
+Z48 !s90 -reportprogress|300|-work|work|2/bsLR.vhd|
+Z49 !s107 2/bsLR.vhd|
 !i113 0
 R11
 R12
@@ -320,40 +320,40 @@ Astructure
 R2
 R3
 DEx4 work 4 bslr 0 22 eVI_a>LI]eLN;g5b44LMR0
-!i122 15
+!i122 14
 l31
 L12 93
 V=MN;K9YD4RLlXX1WcDKbl3
 !s100 z7^jcXCAeQT8fioBlbeIo1
 R6
 32
-R54
+R15
 !i10b 1
-R55
-R56
-R57
+R16
+R48
+R49
 !i113 0
 R11
 R12
 Edecoder5to32_flow
-R19
+R1
 R2
 R3
-!i122 3
+!i122 2
 R0
-Z58 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/decoder5to32_flow.vhd
-Z59 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/decoder5to32_flow.vhd
+Z50 81/decoder5to32_flow.vhd
+Z51 F1/decoder5to32_flow.vhd
 l0
 L6 1
 VIZR4z=WdmBb5[^EdHeQVo0
 !s100 elTCl8`@ac871NgPiC>>?2
 R6
 32
-Z60 !s110 1601766049
+Z52 !s110 1601916210
 !i10b 1
-Z61 !s108 1601766049.000000
-Z62 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/decoder5to32_flow.vhd|
-Z63 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/decoder5to32_flow.vhd|
+R42
+Z53 !s90 -reportprogress|300|-work|work|1/decoder5to32_flow.vhd|
+Z54 !s107 1/decoder5to32_flow.vhd|
 !i113 0
 R11
 R12
@@ -361,40 +361,40 @@ Adecoder5to32_flow_arch
 R2
 R3
 DEx4 work 17 decoder5to32_flow 0 22 IZR4z=WdmBb5[^EdHeQVo0
-!i122 3
+!i122 2
 l18
 L15 40
 VaPCSQdDm=M<[PKSC[dLUL0
 !s100 B?e7?fCLWiAglgWdTm9JR0
 R6
 32
-R60
+R52
 !i10b 1
-R61
-R62
-R63
+R42
+R53
+R54
 !i113 0
 R11
 R12
 Edff
-R19
+R1
 R2
 R3
-!i122 4
+!i122 3
 R0
-Z64 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/dff.vhd
-Z65 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/dff.vhd
+Z55 81/dff.vhd
+Z56 F1/dff.vhd
 l0
 L21 1
 V<R:lmjjDXa`]L14ceUIAn3
 !s100 mT_OLTf8f1nD0BMVi`22Q3
 R6
 32
-Z66 !s110 1601766052
+R52
 !i10b 1
-Z67 !s108 1601766051.000000
-Z68 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/dff.vhd|
-Z69 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/dff.vhd|
+Z57 !s108 1601916210.000000
+Z58 !s90 -reportprogress|300|-work|work|1/dff.vhd|
+Z59 !s107 1/dff.vhd|
 !i113 0
 R11
 R12
@@ -402,40 +402,40 @@ Amixed
 R2
 R3
 DEx4 work 3 dff 0 22 <R:lmjjDXa`]L14ceUIAn3
-!i122 4
+!i122 3
 l35
 L31 29
 VMe1[^^c?@jk=`6K1ZJFGM0
 !s100 j3C[YCFRW8M@3<JaVm8?<1
 R6
 32
-R66
+R52
 !i10b 1
-R67
-R68
-R69
+R57
+R58
+R59
 !i113 0
 R11
 R12
 Eextender16bit_flow
-R19
+R1
 R2
 R3
-!i122 5
+!i122 4
 R0
-Z70 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/extender16bit_flow.vhd
-Z71 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/extender16bit_flow.vhd
+Z60 81/extender16bit_flow.vhd
+Z61 F1/extender16bit_flow.vhd
 l0
 L4 1
 VED0F5c9=X^O91TijmdMB50
 !s100 i;S370i?3<;_ZzL8RaM5=3
 R6
 32
-Z72 !s110 1601766054
+R52
 !i10b 1
-Z73 !s108 1601766054.000000
-Z74 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/extender16bit_flow.vhd|
-Z75 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/extender16bit_flow.vhd|
+R57
+Z62 !s90 -reportprogress|300|-work|work|1/extender16bit_flow.vhd|
+Z63 !s107 1/extender16bit_flow.vhd|
 !i113 0
 R11
 R12
@@ -443,134 +443,134 @@ Aextender16bit_flow_arch
 R2
 R3
 DEx4 work 18 extender16bit_flow 0 22 ED0F5c9=X^O91TijmdMB50
-!i122 5
+!i122 4
 l15
 L13 22
 VM^e5D@7bk^[oLBd_S_QQ?2
 !s100 Hg=[2GMVLokD7QDcA[6zU2
 R6
 32
-R72
+R52
 !i10b 1
-R73
-R74
-R75
+R57
+R62
+R63
 !i113 0
 R11
 R12
 Efullalu
-Z76 w1601762538
-R34
-R35
-R26
+Z64 w1601915200
+R30
+R31
+R24
 R2
 R3
-!i122 24
+!i122 23
 R0
-Z77 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/FullALU.vhd
-Z78 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/FullALU.vhd
+Z65 8FullALU.vhd
+Z66 FFullALU.vhd
 l0
 L8 1
 VnhPLmJ=2Iz4]_fG6j9b?D2
 !s100 @1`3Mg=YiIgczbO1iNTUP1
 R6
 32
-Z79 !s110 1601766102
+R34
 !i10b 1
-Z80 !s108 1601766101.000000
-Z81 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/FullALU.vhd|
-Z82 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/FullALU.vhd|
+Z67 !s108 1601916217.000000
+Z68 !s90 -reportprogress|300|-work|work|FullALU.vhd|
+Z69 !s107 FullALU.vhd|
 !i113 0
 R11
 R12
 Afullalu_arch
-R34
-R35
-R26
+R30
+R31
+R24
 R2
 R3
 DEx4 work 7 fullalu 0 22 nhPLmJ=2Iz4]_fG6j9b?D2
-!i122 24
-l120
-L26 200
-VPFa65McDanZjZcgEBlOl52
-!s100 M@XnJ]77RAPfY2SL[H;Ni1
+!i122 23
+l122
+L26 207
+V8E9>2^FfJONSn1YU<kH8=1
+!s100 L2mLBa>3`0fkS_noNzAbX2
 R6
 32
-R79
+R34
 !i10b 1
-R80
-R81
-R82
+R67
+R68
+R69
 !i113 0
 R11
 R12
 Eintegrateddatapath
-Z83 w1601762400
-R34
-R35
-R26
+Z70 w1601915268
+R30
+R31
+R24
 R2
 R3
-!i122 26
+!i122 24
 R0
-Z84 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/IntegratedDatapath.vhd
-Z85 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/IntegratedDatapath.vhd
+Z71 8IntegratedDatapath.vhd
+Z72 FIntegratedDatapath.vhd
 l0
 L8 1
-VRa^aN?Og3TTd[ld74aE4f1
-!s100 Locf4A^AR2_L]XgZHCWhH3
+VD]n2W1c0mFTSUnRNP6?ZZ3
+!s100 zOI[QTKUDJLZ4m2?9G?Vj3
 R6
 32
-Z86 !s110 1601766107
+R34
 !i10b 1
-Z87 !s108 1601766106.000000
-Z88 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/IntegratedDatapath.vhd|
-Z89 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/IntegratedDatapath.vhd|
+R67
+Z73 !s90 -reportprogress|300|-work|work|IntegratedDatapath.vhd|
+Z74 !s107 IntegratedDatapath.vhd|
 !i113 0
 R11
 R12
 Aintegrateddatapath_arch
-R34
-R35
-R26
+R30
+R31
+R24
 R2
 R3
-DEx4 work 18 integrateddatapath 0 22 Ra^aN?Og3TTd[ld74aE4f1
-!i122 26
-l144
-L27 218
-V3i8KB]5AGUKeh66lKP=mR2
-!s100 ?9]AlLOo6IV4O=8z;2D>C2
+DEx4 work 18 integrateddatapath 0 22 D]n2W1c0mFTSUnRNP6?ZZ3
+!i122 24
+l173
+L26 279
+Vmn7Z`2go1miX@^<N[2`7=2
+!s100 5B>2U_0O>7odj8cjeDO0Z2
 R6
 32
-R86
+R34
 !i10b 1
-R87
-R88
-R89
+R67
+R73
+R74
 !i113 0
 R11
 R12
 Einvg
-R42
+R1
 R2
 R3
-!i122 6
+!i122 5
 R0
-Z90 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/invg.vhd
-Z91 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/invg.vhd
+Z75 81/invg.vhd
+Z76 F1/invg.vhd
 l0
-R45
+R40
 VQ?6hb9ePk@>kZZ9k]hNSO3
 !s100 _XK?_^5z0Rm1<k12?;5R?2
 R6
 32
-Z92 !s110 1601766056
+Z77 !s110 1601916211
 !i10b 1
-Z93 !s108 1601766056.000000
-Z94 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/invg.vhd|
-Z95 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/invg.vhd|
+R57
+Z78 !s90 -reportprogress|300|-work|work|1/invg.vhd|
+Z79 !s107 1/invg.vhd|
 !i113 0
 R11
 R12
@@ -578,83 +578,83 @@ Adataflow
 R2
 R3
 DEx4 work 4 invg 0 22 Q?6hb9ePk@>kZZ9k]hNSO3
-!i122 6
+!i122 5
 l31
 L30 6
 Vch>li:oKYZkCO5]GamViK1
 !s100 bk7I76o8e1LURdoZEQb8H0
 R6
 32
-R92
+R77
 !i10b 1
-R93
-R94
-R95
+R57
+R78
+R79
 !i113 0
 R11
 R12
 Emem
-Z96 w1601581720
-R26
+R1
+R24
 R2
 R3
-!i122 7
+!i122 6
 R0
-Z97 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mem.vhd
-Z98 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mem.vhd
+Z80 81/mem.vhd
+Z81 F1/mem.vhd
 l0
 L8 1
 VVZmF13E[ahLTP`DPg=NBH2
 !s100 7[hDmkRVN5;9iob_eMb3]3
 R6
 32
-Z99 !s110 1601766058
+R77
 !i10b 1
-Z100 !s108 1601766057.000000
-Z101 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mem.vhd|
-Z102 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mem.vhd|
+Z82 !s108 1601916211.000000
+Z83 !s90 -reportprogress|300|-work|work|1/mem.vhd|
+Z84 !s107 1/mem.vhd|
 !i113 0
 R11
 R12
 Artl
-R26
+R24
 R2
 R3
 DEx4 work 3 mem 0 22 VZmF13E[ahLTP`DPg=NBH2
-!i122 7
+!i122 6
 l37
 L27 24
 V`6^NbPhKNmSBg:`:Un8;g3
 !s100 OI8_3><BhDkT3l3n8`OXd3
 R6
 32
-R99
+R77
 !i10b 1
-R100
-R101
-R102
+R82
+R83
+R84
 !i113 0
 R11
 R12
 Emux
-R42
+R1
 R2
 R3
-!i122 8
+!i122 7
 R0
-Z103 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux.vhd
-Z104 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux.vhd
+Z85 81/mux.vhd
+Z86 F1/mux.vhd
 l0
 L4 1
 VRO`K4R:jIH6W;Z;93GCi00
 !s100 X0MBD::=PPVIm<CIc2CVT3
 R6
 32
-Z105 !s110 1601766059
+R77
 !i10b 1
-Z106 !s108 1601766059.000000
-Z107 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux.vhd|
-Z108 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux.vhd|
+R82
+Z87 !s90 -reportprogress|300|-work|work|1/mux.vhd|
+Z88 !s107 1/mux.vhd|
 !i113 0
 R11
 R12
@@ -662,40 +662,40 @@ Amux_arch
 R2
 R3
 DEx4 work 3 mux 0 22 RO`K4R:jIH6W;Z;93GCi00
-!i122 8
+!i122 7
 l20
 L17 11
 VI6^agFR@:^3?PNPKfliR_1
 !s100 5CM1ihoURVMHl95U<jMKf1
 R6
 32
-R105
+R77
 !i10b 1
-R106
-R107
-R108
+R82
+R87
+R88
 !i113 0
 R11
 R12
 Emux2
-Z109 w1601246041
+R1
 R2
 R3
-!i122 9
+!i122 8
 R0
-Z110 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux2.vhd
-Z111 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux2.vhd
+Z89 81/mux2.vhd
+Z90 F1/mux2.vhd
 l0
 L4 1
 VU^1kimY^?2k`:<g:jGV6l1
 !s100 <<4K6bh4:7WL?5IMe=EP=2
 R6
 32
-Z112 !s110 1601766060
+R77
 !i10b 1
-Z113 !s108 1601766060.000000
-Z114 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux2.vhd|
-Z115 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/mux2.vhd|
+R82
+Z91 !s90 -reportprogress|300|-work|work|1/mux2.vhd|
+Z92 !s107 1/mux2.vhd|
 !i113 0
 R11
 R12
@@ -703,87 +703,87 @@ Abehavioral
 R2
 R3
 DEx4 work 4 mux2 0 22 U^1kimY^?2k`:<g:jGV6l1
-!i122 9
+!i122 8
 l12
 L11 4
 VSiETIUz;gN5ZKl[VTPSOf1
 !s100 j>30H4GJCHm9llUjMeZf`2
 R6
 32
-R112
+R77
 !i10b 1
-R113
-R114
-R115
+R82
+R91
+R92
 !i113 0
 R11
 R12
 Emux_nbit_nbitto1_struct
-R96
-R34
-R35
-R26
+R1
+R30
+R31
+R24
 R2
 R3
-!i122 20
+!i122 19
 R0
-Z116 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/3/mux_nbit_nbitto1_struct.vhd
-Z117 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/3/mux_nbit_nbitto1_struct.vhd
+Z93 83/mux_nbit_nbitto1_struct.vhd
+Z94 F3/mux_nbit_nbitto1_struct.vhd
 l0
 L20 1
 VEmi<JPJP5<b2heQ2iR9H61
 !s100 Id`1JkWHfBK<IWN4IGTYU1
 R6
 32
-Z118 !s110 1601766086
+R7
 !i10b 1
-Z119 !s108 1601766086.000000
-Z120 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/3/mux_nbit_nbitto1_struct.vhd|
-Z121 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/3/mux_nbit_nbitto1_struct.vhd|
+R8
+Z95 !s90 -reportprogress|300|-work|work|3/mux_nbit_nbitto1_struct.vhd|
+Z96 !s107 3/mux_nbit_nbitto1_struct.vhd|
 !i113 0
 R11
 R12
 Amux_nbit_nbitto1_struct_arch
-R34
-R35
-R26
+R30
+R31
+R24
 R2
 R3
 DEx4 work 23 mux_nbit_nbitto1_struct 0 22 Emi<JPJP5<b2heQ2iR9H61
-!i122 20
+!i122 19
 l74
 L47 108
 VaB2G=6a[jQ]^YbNJVaXKG2
 !s100 21ZjEc`m^?60nEJQSL?jW1
 R6
 32
-R118
+R7
 !i10b 1
-R119
-R120
-R121
+R8
+R95
+R96
 !i113 0
 R11
 R12
 Emux_nbit_struct
-R96
+R1
 R2
 R3
-!i122 16
+!i122 15
 R0
-Z122 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/mux_nbit_struct.vhd
-Z123 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/2/mux_nbit_struct.vhd
+Z97 82/mux_nbit_struct.vhd
+Z98 F2/mux_nbit_struct.vhd
 l0
 L4 1
 VPVReK<O9FEm1_:m9E@N^K0
 !s100 ;6>I9?;9@m6g_aiRoAa0T0
 R6
 32
-Z124 !s110 1601766075
+Z99 !s110 1601916214
 !i10b 1
-Z125 !s108 1601766075.000000
-Z126 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/mux_nbit_struct.vhd|
-Z127 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/mux_nbit_struct.vhd|
+R16
+Z100 !s90 -reportprogress|300|-work|work|2/mux_nbit_struct.vhd|
+Z101 !s107 2/mux_nbit_struct.vhd|
 !i113 0
 R11
 R12
@@ -791,40 +791,40 @@ Amux_nbit_struct_arch
 R2
 R3
 DEx4 work 15 mux_nbit_struct 0 22 PVReK<O9FEm1_:m9E@N^K0
-!i122 16
+!i122 15
 l28
 L17 26
 V^ngKZP8ZR[89PN:B_m7o<1
 !s100 _an8:GFh_T1@n8z^4@B4<1
 R6
 32
-R124
+R99
 !i10b 1
-R125
-R126
-R127
+R16
+R100
+R101
 !i113 0
 R11
 R12
 Eorg2
-R42
+R1
 R2
 R3
-!i122 10
+!i122 9
 R0
-Z128 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/org2.vhd
-Z129 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/org2.vhd
+Z102 81/org2.vhd
+Z103 F1/org2.vhd
 l0
-R45
+R40
 VRgKUMS7h=BXRmVDdXe=[i3
 !s100 ;C23gd[m>G1k`R]<0A=1Y2
 R6
 32
-Z130 !s110 1601766063
+Z104 !s110 1601916212
 !i10b 1
-Z131 !s108 1601766063.000000
-Z132 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/org2.vhd|
-Z133 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/org2.vhd|
+R21
+Z105 !s90 -reportprogress|300|-work|work|1/org2.vhd|
+Z106 !s107 1/org2.vhd|
 !i113 0
 R11
 R12
@@ -832,40 +832,40 @@ Adataflow
 R2
 R3
 DEx4 work 4 org2 0 22 RgKUMS7h=BXRmVDdXe=[i3
-!i122 10
+!i122 9
 l32
-R50
+R45
 VAd^eG4i8_aV4CfEL^O1C`3
 !s100 Ne3XdHCTS;:TbUTY<a>S<1
 R6
 32
-R130
+R104
 !i10b 1
-R131
-R132
-R133
+R21
+R105
+R106
 !i113 0
 R11
 R12
 Eregister_nbit_struct
-R96
+R1
 R2
 R3
-!i122 17
+!i122 16
 R0
-Z134 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/register_nbit_struct.vhd
-Z135 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/2/register_nbit_struct.vhd
+Z107 82/register_nbit_struct.vhd
+Z108 F2/register_nbit_struct.vhd
 l0
 L4 1
 V9`bgMVdkg>PWm5[;:fU0G3
 !s100 R928S[GIQXVm2A;ZY0W3E0
 R6
 32
-Z136 !s110 1601766077
+R99
 !i10b 1
-Z137 !s108 1601766076.000000
-Z138 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/register_nbit_struct.vhd|
-Z139 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/register_nbit_struct.vhd|
+Z109 !s108 1601916214.000000
+Z110 !s90 -reportprogress|300|-work|work|2/register_nbit_struct.vhd|
+Z111 !s107 2/register_nbit_struct.vhd|
 !i113 0
 R11
 R12
@@ -873,87 +873,87 @@ Aregister_nbit_struct_arch
 R2
 R3
 DEx4 work 20 register_nbit_struct 0 22 9`bgMVdkg>PWm5[;:fU0G3
-!i122 17
+!i122 16
 l34
 L21 35
 VHR^d4R6dePHTzO[j4g<]G3
 !s100 >JD4JF][:812Z=aHklJVM1
 R6
 32
-R136
+R99
 !i10b 1
-R137
-R138
-R139
+R109
+R110
+R111
 !i113 0
 R11
 R12
 Eregisterfile_nbit_struct
-R96
-R34
-R35
-R26
+R1
+R30
+R31
+R24
 R2
 R3
-!i122 22
+!i122 21
 R0
-Z140 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/4/registerFile_nbit_struct.vhd
-Z141 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/4/registerFile_nbit_struct.vhd
+Z112 84/registerFile_nbit_struct.vhd
+Z113 F4/registerFile_nbit_struct.vhd
 l0
 L8 1
 V5il@YEWE_om;]DQ>ThXb<3
 !s100 ch7AGlS:`TFW<8;UE5adn0
 R6
 32
-Z142 !s110 1601766092
+R27
 !i10b 1
-Z143 !s108 1601766092.000000
-Z144 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/4/registerFile_nbit_struct.vhd|
-Z145 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/4/registerFile_nbit_struct.vhd|
+R35
+Z114 !s90 -reportprogress|300|-work|work|4/registerFile_nbit_struct.vhd|
+Z115 !s107 4/registerFile_nbit_struct.vhd|
 !i113 0
 R11
 R12
 Aregisterfile_nbit_struct_arch
-R34
-R35
-R26
+R30
+R31
+R24
 R2
 R3
 DEx4 work 24 registerfile_nbit_struct 0 22 5il@YEWE_om;]DQ>ThXb<3
-!i122 22
+!i122 21
 l87
 L31 146
 V3PcalU]miRZK]2HNDcb<72
 !s100 9z2c1ZZ3BJ]1_bf;B@G@z3
 R6
 32
-R142
+R27
 !i10b 1
-R143
-R144
-R145
+R35
+R114
+R115
 !i113 0
 R11
 R12
 Ereverse
-Z146 w1601259541
+R1
 R2
 R3
-!i122 11
+!i122 10
 R0
-Z147 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/reverse.vhd
-Z148 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/reverse.vhd
+Z116 81/reverse.vhd
+Z117 F1/reverse.vhd
 l0
 L5 1
 V5h?ZW`:4`oHH=<Gh9fDY]2
 !s100 N46_d`J3?@Ej]J2Y4nl1L2
 R6
 32
-Z149 !s110 1601766065
+R104
 !i10b 1
-Z150 !s108 1601766065.000000
-Z151 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/reverse.vhd|
-Z152 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/reverse.vhd|
+R21
+Z118 !s90 -reportprogress|300|-work|work|1/reverse.vhd|
+Z119 !s107 1/reverse.vhd|
 !i113 0
 R11
 R12
@@ -961,40 +961,40 @@ Abehavioral
 R2
 R3
 DEx4 work 7 reverse 0 22 5h?ZW`:4`oHH=<Gh9fDY]2
-!i122 11
+!i122 10
 l12
 L11 6
 V;A8S>g=4H<hd7QOaE2<9I2
 !s100 7GTT`>zmXRG^XQhSmHnST0
 R6
 32
-R149
+R104
 !i10b 1
-R150
-R151
-R152
+R21
+R118
+R119
 !i113 0
 R11
 R12
 Estructual_1complement
-R96
+R1
 R2
 R3
-!i122 18
+!i122 17
 R0
-Z153 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/structual_1Complement.vhd
-Z154 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/2/structual_1Complement.vhd
+Z120 82/structual_1Complement.vhd
+Z121 F2/structual_1Complement.vhd
 l0
 L4 1
 V3^IFVM6IFjYk5^PY?9[mD1
 !s100 amoVf;RfjX^gkF0GD;_:H0
 R6
 32
-Z155 !s110 1601766079
+R99
 !i10b 1
-Z156 !s108 1601766078.000000
-Z157 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/structual_1Complement.vhd|
-Z158 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/2/structual_1Complement.vhd|
+R109
+Z122 !s90 -reportprogress|300|-work|work|2/structual_1Complement.vhd|
+Z123 !s107 2/structual_1Complement.vhd|
 !i113 0
 R11
 R12
@@ -1002,83 +1002,83 @@ Astructual_1complement_arch
 R2
 R3
 DEx4 work 21 structual_1complement 0 22 3^IFVM6IFjYk5^PY?9[mD1
-!i122 18
+!i122 17
 l23
 L14 22
 Vd1kOQTz=87M6ARc5ji]MY1
 !s100 Ob9J@fYYPkRZAF>Kcgf^^2
 R6
 32
-R155
+R99
 !i10b 1
-R156
-R157
-R158
+R109
+R122
+R123
 !i113 0
 R11
 R12
 Etb_integrateddatapath
-Z159 w1601762793
-R26
+Z124 w1601915897
+R24
 R2
 R3
-!i122 27
+!i122 25
 R0
-Z160 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/tb_IntegratedDatapath.vhd
-Z161 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/tb_IntegratedDatapath.vhd
+Z125 8tb_IntegratedDatapath.vhd
+Z126 Ftb_IntegratedDatapath.vhd
 l0
 L6 1
 VfMTc;@cF05QAFD@k^LbS11
 !s100 W;jbOL@Vbio<VI4MV8^@O1
 R6
 32
-Z162 !s110 1601766172
+Z127 !s110 1601916218
 !i10b 1
-Z163 !s108 1601766171.000000
-Z164 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/tb_IntegratedDatapath.vhd|
-Z165 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/tb_IntegratedDatapath.vhd|
+R67
+Z128 !s90 -reportprogress|300|-work|work|tb_IntegratedDatapath.vhd|
+Z129 !s107 tb_IntegratedDatapath.vhd|
 !i113 0
 R11
 R12
 Abehavior
-R26
+R24
 R2
 R3
 DEx4 work 21 tb_integrateddatapath 0 22 fMTc;@cF05QAFD@k^LbS11
-!i122 27
-l44
-L10 331
-VgMeS1eLY@cfIdGkS@1g4[3
-!s100 dClGj6zk<a1HCDEO9<]z_3
+!i122 25
+l40
+L10 309
+VJ^lT[lKZM=TAE=:b<hJ;32
+!s100 BCmO;4RiZbZFI_Sk1ci@A3
 R6
 32
-R162
+R127
 !i10b 1
-R163
-R164
-R165
+R67
+R128
+R129
 !i113 0
 R11
 R12
 Exorg2
-Z166 w1601581832
+R1
 R2
 R3
-!i122 12
+!i122 11
 R0
-Z167 8U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/xorg2.vhd
-Z168 FU:/cpre381/proj-A/cpre381/proj-A/Datapath/1/xorg2.vhd
+Z130 81/xorg2.vhd
+Z131 F1/xorg2.vhd
 l0
-R45
+R40
 V;hb`C0MKik;h36`3`SzM60
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R6
 32
-!s110 1601766066
+R104
 !i10b 1
-Z169 !s108 1601766066.000000
-Z170 !s90 -reportprogress|300|-work|work|U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/xorg2.vhd|
-Z171 !s107 U:/cpre381/proj-A/cpre381/proj-A/Datapath/1/xorg2.vhd|
+R21
+Z132 !s90 -reportprogress|300|-work|work|1/xorg2.vhd|
+Z133 !s107 1/xorg2.vhd|
 !i113 0
 R11
 R12
@@ -1086,18 +1086,18 @@ Adataflow
 R2
 R3
 DEx4 work 5 xorg2 0 22 ;hb`C0MKik;h36`3`SzM60
-!i122 12
+!i122 11
 l32
-R50
+R45
 VbmLohbkYjJQ`?EHUY>LoL1
 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R6
 32
-!s110 1601766067
+R104
 !i10b 1
-R169
-R170
-R171
+R21
+R132
+R133
 !i113 0
 R11
 R12

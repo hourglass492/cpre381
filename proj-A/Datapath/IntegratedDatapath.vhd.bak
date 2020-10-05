@@ -56,8 +56,6 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
     signal ctl_nor	                      : std_logic;
     signal ctl_add	                      : std_logic;
     signal ctl_sub	                      : std_logic;
-    signal ctl_addi	                      : std_logic;
-    signal ctl_subi	                      : std_logic;
     signal ctl_slt	                      : std_logic;
 	signal ctl_add_sub			          : std_logic;
 	signal ctl_adder_carry_in		      :std_logic;
