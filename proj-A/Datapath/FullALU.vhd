@@ -120,13 +120,18 @@ component mux_nbit_struct
     begin
 
 
+
+        ctl_addi     <= not in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
+        ctl_subi     <= not in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
+
+
         ctl_and     <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
         ctl_or      <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
         ctl_xor     <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
         ctl_nand    <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
         ctl_nor     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and in_ctl(3)		;
-        ctl_add     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
-        ctl_sub     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
+        ctl_add     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	or ctl_addi; --the immedates should behave the same in the ALU
+        ctl_sub     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		or ctl_subi;
         ctl_slt     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and not in_ctl(3);
 		
 		--shift operation controls

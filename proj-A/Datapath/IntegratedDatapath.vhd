@@ -14,8 +14,7 @@ entity IntegratedDatapath is
     in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
     in_select_rt       : in std_logic_vector(0 to log2_Of_num_of_inputs);
     in_immedate_value  : in std_logic_vector(0 to 15);
-    in_control         : in std_logic_vector(0 to 2);
-	in_alu_ctl		   : in std_logic_vector(0 to 3);
+    in_ctl             : in std_logic_vector(0 to 3);
 
     i_CLK              : in std_logic;
     i_RST              : in std_logic
@@ -37,13 +36,41 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
     signal internal_read               : std_logic_vector(0 to N);
     signal high                        : std_logic := '1';
     signal low                         : std_logic := '0';
-    signal internal_mem_we	       : std_logic;
-    signal internal_alu_ctl         : std_logic;					-- set to high to let the memory load values
-    signal internal_mem_reg_we	       : std_logic;
-    signal internal_reg_we	       : std_logic;
-    signal nothing	       : std_logic;
-	signal nothingTwo	       : std_logic;
-	signal nothingThree	       : std_logic;
+    signal internal_mem_we	            : std_logic;
+    signal internal_alu_ctl             : std_logic;					-- set to high to let the memory load values
+    signal internal_mem_reg_we_mux_ctl	        : std_logic;
+    signal internal_reg_we	            : std_logic;
+    signal internal_imm_select_ctl        : std_logic;
+
+    --memory signals
+
+    signal ctl_lw                         : std_logic;
+    signal ctl_sw                         : std_logic;
+
+
+    --Control Signals
+    signal ctl_and                        : std_logic;
+    signal ctl_or                         : std_logic;
+    signal ctl_xor	                      : std_logic;
+    signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
+    signal ctl_nor	                      : std_logic;
+    signal ctl_add	                      : std_logic;
+    signal ctl_sub	                      : std_logic;
+    signal ctl_slt	                      : std_logic;
+	signal ctl_add_sub			          : std_logic;
+	signal ctl_adder_carry_in		      :std_logic;
+	
+	--shifter signals
+	signal ctl_sll						  : std_logic;
+	signal ctl_slA						  : std_logic;
+	signal ctl_srl						  : std_logic;
+	signal ctl_srA						  : std_logic;
+
+
+
+    signal nothing	                    : std_logic;
+	signal nothingTwo	                : std_logic;
+	signal nothingThree	                : std_logic;
 
 	component registerFile_nbit_struct
 		port(
@@ -144,10 +171,42 @@ end component;
     begin
 
 
-     internal_mem_we	        <= in_control(0) and not in_control(1) and in_control(2); --ie ctl == 5 for sw
-     internal_mem_reg_we	<= in_control(0) and in_control(1) and in_control(2);	  --ie ctl ==7
-     internal_reg_we	        <= not (in_control(0) and not in_control(1) and in_control(2)); -- ie when ctl != 5
-	
+        --Memory operations
+
+        ctl_lw <= not in_ctl(0)	 and not in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
+        ctl_sw <= not in_ctl(0)	 and not in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
+
+
+        -- ALU operations
+
+        ctl_addi     <= not in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
+        ctl_subi     <= not in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
+
+
+        ctl_and     <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
+        ctl_or      <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
+        ctl_xor     <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
+        ctl_nand    <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
+        ctl_nor     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and in_ctl(3)		;
+        ctl_add     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
+        ctl_sub     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
+        ctl_slt     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and not in_ctl(3);
+		
+		--shift operation controls
+		ctl_sll     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
+        ctl_slA     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
+        ctl_srl     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
+        ctl_srA     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
+
+
+        --TODO we may need immideate values for all the logical and lw/sw operations
+
+
+
+        internal_mem_we	                <= ctl_sw;          --we should write data to memory only on a write word
+        internal_mem_reg_we_mux_ctl	    <= ctl_lw;          --only taking data from memory to write to register on lw
+        internal_reg_we	                <= not (ctl_sw);    -- The only time we don't write to the register file is on a store word
+        internal_imm_select_ctl         <= ctl_srA or ctl_srl or ctl_slA or ctl_sll or ctl_subi or ctl_addi;
 
 
 
@@ -155,7 +214,7 @@ end component;
 
 extender: extender16bit_flow
 port map(
-	i_control    => low,     -- 0 to extend sign, 1 to extend 0's
+	i_control       => low,     -- 0 to extend sign, 1 to extend 0's
        i_D          => in_immedate_value,     -- Data input
        o_Q          => internal_imm 
 );
@@ -187,12 +246,11 @@ port map(
 
 
 
-        
-    adder_mux: mux_nbit_struct 
+    immedate_mux: mux_nbit_struct 
         port map(
                     i_a         => internal_imm,
                     i_b         => internal_rt,
-                    i_select    => in_control(0),
+                    i_select    => internal_imm_select_ctl,
                     o_z         => internal_mux    
                 );
 
@@ -203,7 +261,7 @@ port map(
         port map(
             in_ia             => internal_rs,
             in_ib             => internal_mux,
-            in_ctl       	  => in_alu_ctl,
+            in_ctl       	  => in_ctl,
 			
             out_data          => internal_sum,
 			out_overflow	  => nothingTwo,
@@ -216,7 +274,7 @@ port map(
         port map(
                     i_a         => internal_read,
                     i_b         => internal_sum,  
-                    i_select    => internal_mem_reg_we,
+                    i_select    => internal_mem_reg_we_mux_ctl,
                     o_z         => internal_rd    
                 );
 

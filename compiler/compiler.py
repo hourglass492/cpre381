@@ -1,3 +1,26 @@
+ctl = {
+"lw" : 0,
+"subi" : 1,
+"addi" : 2,
+"sw" : 3,
+"sla" : 4,
+"srl" : 5,
+"sra" : 6,
+"sll" : 7,
+"slt" : 8,
+"sub" : 9,
+"add" : 10,
+"nor" : 11,
+"nand" : 12,
+"xor" : 13,
+"or" : 14,
+"and" : 15
+}
+
+Itype = ["subi", "addi", "sla", "srl", "sra", "sll"]
+Rtype = ["slt" , "sub", "add", "nor", "nand", "xor", "or", "and"]
+
+
 
 def toHexAndExtend(decimalNum, numOfByts):
     decimalNum = (16 ** (numOfByts)) + decimalNum
@@ -11,69 +34,43 @@ def toBinaryAndExtend(decimalNum, numOfBits):
     return str(bin(decimalNum)[3:])[::1]
 
 
+def printRType(name, control, destination, reg1, reg2):
+    print("--" + name + ", " + str(destination) + ", " + str(reg1) + ", " + str(reg2))
+    print("--" + name + "  " + str(reg1) + " and " + str(reg2) + " and store in " + str(destination), end="\n\n")
+    print("\t\tctl <= \"" + str(toBinaryAndExtend(control, controlSize))[::-1] + "\";")
+    print("\t\t rs_s <= \"" + toBinaryAndExtend(int(reg1.replace("$", "")), 5) + "\";")
+    print("\t\t rt_s <= \"" + toBinaryAndExtend(int(reg2.replace("$", "")), 5) + "\";")
+    print("\t\t rd_s <= \"" + toBinaryAndExtend(int(destination.replace("$", "")), 5) + "\";")
+
+
+
+def printIType(name, control, destination , reg1, immedate):
+
+    """Output comments"""
+    print("--"+ name +", " + str(destination) + ", " + str(destination) + ", " + str(reg1) + ", " + str(immedate))
+    #TODO this is a buggy line
+    print("-- "+ name +" " + str(immedate) + " to register " + str(reg1) + " and store in " + str(destination) ,end="\n\n")
+
+
+
+    """output actual code"""
+    print("\t\tctl <= \"" + str(toBinaryAndExtend(control, controlSize))[::-1] + "\";")
+    print("\t\t rs_s <= \"" + toBinaryAndExtend(int(reg1.replace("$", "")), 5) + "\";")
+    print("\t\t in_immedate_value <=X\"" + toHexAndExtend(int(immedate), 4) + "\";")
+    print("\t\t rd_s <= \"" + toBinaryAndExtend(int(destination.replace("$", "")), 5) + "\";")
+
+
+
+
 def parseRW(location):
     array = []
     array.append(location[:location.index("(")].strip("()"))
     array.append(location[location.index("("):].strip("()"))
     return array
 
-def add(destination, reg1, reg2):
-    control = 0
-    print("--addi, " + str(destination) + ", "  + str(reg1) + ", " + str(reg2))
-    print("-- add " + str(reg1) + " and " + str(reg2) +  " and store in " + str(destination), end="\n\n")
-    destination = int(destination.replace("$", ""))
-    reg1 = int(reg1.replace("$", ""))
-    reg2 = int(reg2.replace("$", ""))
 
-    print("\t\tctl <= \"" + str(toBinaryAndExtend(control, controlSize))[::-1] + "\";")
-    print("\t\t rs_s <= \"" + toBinaryAndExtend(reg1, 5) + "\";")
-    print("\t\t rt_s <= \"" + toBinaryAndExtend(reg2, 5) + "\";")
-    print("\t\t rd_s <= \"" + toBinaryAndExtend(destination, 5) + "\";")
-
-def addi(destination, reg1, immedate):
-    control = 1
-    print("--addi, " + str(destination) + ", " + str(destination) + ", " + str(reg1) + ", " + str(immedate))
-    print("-- add " + str(immedate) + " to register " + str(reg1) + " and store in " + str(destination) ,end="\n\n")
-    destination = int(destination.replace("$", ""))
-    reg1 = int(reg1.replace("$", ""))
-    immedate = int(immedate)
-
-    print("\t\tctl <= \"" + str(toBinaryAndExtend(control, controlSize))[::-1] + "\";")
-    print("\t\t rs_s <= \"" + toBinaryAndExtend(reg1, 5) + "\";")
-    print("\t\t in_immedate_value <=X\"" + toHexAndExtend(immedate, 4) + "\";")
-    print("\t\t rd_s <= \"" + toBinaryAndExtend(destination, 5) + "\";")
-
-
-
-def sub(destination, reg1, reg2):
-    control = 2
-    print("--sub, " + str(destination) + ", " + str(reg1) + ", " + str(reg2))
-    print("-- sub " + str(reg1) + " from " + str(reg2) + " and store in " + str(destination), end="\n\n")
-    destination = int(destination.replace("$", ""))
-    reg1 = int(reg1.replace("$", ""))
-    reg2 = int(reg1.replace("$", ""))
-
-    print("\t\tctl <= \"" + str(toBinaryAndExtend(control, controlSize))[::-1] + "\";")
-    print("\t\t rs_s <= \"" + toBinaryAndExtend(reg1, 5) + "\";")
-    print("\t\t rt_s <= \"" + toBinaryAndExtend(reg2, 5) + "\";")
-    print("\t\t rd_s <= \"" + toBinaryAndExtend(destination, 5) + "\";")
-
-def subi(destination, reg1, immedate):
-    control = 3
-    print("--subi, " + str(destination) + ", " + str(destination) + ", " + str(reg1) + ", " + str(immedate))
-    print("-- sub " + str(immedate) + " from register " + str(reg1) + " and store in " + str(destination) ,end="\n\n")
-    destination = int(destination.replace("$", ""))
-    reg1 = int(reg1.replace("$", ""))
-    immedate = int(immedate)
-
-    print("\t\tctl <= \"" + str(toBinaryAndExtend(control, controlSize))[::-1] + "\";")
-    print("\t\t rs_s <= \"" + toBinaryAndExtend(reg1, 5) + "\";")
-    print("\t\t in_immedate_value <=X\"" + toHexAndExtend(immedate, 4) + "\";")
-    print("\t\t rd_s <= \"" + toBinaryAndExtend(destination, 5) + "\";")
-
-
-def sw(regToStore, adderessReg, immedate):
-    control = 5
+#TODO make a common print methiod
+def sw(control, regToStore, adderessReg, immedate):
 
     print("--sw, " + str(regToStore) + ",\t" + str(immedate) + "(" + str(adderessReg) + ")")
     print("-- store " + str(regToStore) + " at memory location " + str(adderessReg) + " plus " + str(immedate), end="\n\n")
@@ -94,9 +91,9 @@ def sw(regToStore, adderessReg, immedate):
     # the immideate offset
     print("\t\t in_immedate_value <=X\"" + toHexAndExtend(immedate, 4) + "\";")
 
+#TODO make a common print methiod
+def lw(control, loadReg, adderess, immedate):
 
-def lw(loadReg, adderess, immedate):
-    control = 7
 
     print("--lw, " + str(loadReg) + ",\t" + str(immedate) + "(" + str(adderess) + ")")
     print("-- load " + str(immedate) + " plus " + str(adderess) + " from memory into " + str(loadReg), end="\n\n")
@@ -125,32 +122,8 @@ def lw(loadReg, adderess, immedate):
 
 
 
-#
-# for i in range(10):
-#     print("\t\tw <= '0';")
-#     print("\t\t addr <= \"" + toBinaryAndExtend(i, 10) + "\";")
-#     print("\t\twait for cClk_HPER;")
-#     print("\n")
-#
-#     print("\t\tw <= '1';")
-#     print("\t\t addr <= \"" + toBinaryAndExtend(i + 0X100, 10) + "\";")
-#     print("\t\twait for cClk_HPER;")
-#
-#
-# print("\n")
-# print("\n")
-#
-# for i in range(10):
-#     print("\t\tw <= '0';")
-#     print("\t\t addr <= \"" + toBinaryAndExtend(i+0X100, 10) + "\";")
-#     print("\t\twait for cClk_HPER;")
-#     print("\n")
-
-
-
-
 file = open("./program", "r")
-controlSize = 3
+controlSize = 4
 
 """To fix this remove the /4 in the sw and lw functions"""
 print("WARNING: this is currently only 4 byte addressable not byte addresable")
@@ -162,26 +135,22 @@ for line in file:
     line = line.split()
     i = 0
     while i < len(line):
-        if line[i] == "add":
-            add(line[ i +1], line[ i +2], line[ i +3])
+        if Rtype.__contains__(line[i]):
+            printRType(line[i], ctl[line[i]], line[ i +1], line[ i +2], line[ i +3])
             i += 4
-        elif line[i] == "addi":
-            addi(line[ i +1], line[ i +2], line[ i +3])
-            i += 4
-        elif line[i] == "sub":
-            sub(line[ i +1], line[ i +2], line[ i +3])
-            i += 4
-        elif line[i] == "subi":
-            subi(line[ i +1], line[ i +2], line[ i +3])
+        elif Itype.__contains__(line[i]):
+            printIType(line[i], ctl[line[i]], line[ i +1], line[ i +2], line[ i +3])
             i += 4
         elif line[i] == "sw":
-            sw(line[ i +1],  parseRW(line[ i +2])[1], parseRW(line[ i +2])[0])
+            sw(ctl["sw"], line[ i +1],  parseRW(line[ i +2])[1], parseRW(line[ i +2])[0])
             i += 3
         elif line[i] == "lw":
-            lw(line[ i +1], parseRW(line[ i +2])[1], parseRW(line[ i +2])[0])
+            lw(ctl["lw"], line[ i +1], parseRW(line[ i +2])[1], parseRW(line[ i +2])[0])
             i += 3
         else:
             print("Could not parse " + line[i] + " found at " + str(i))
             i += 1
         print("wait for cCLK_PER;\n" + "\n")
     print(4*"wait for gCLK_HPER;\n"+ "\n")
+
+file.close()
