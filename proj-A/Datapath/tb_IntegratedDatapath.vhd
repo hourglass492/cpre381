@@ -288,7 +288,7 @@ wait for cCLK_PER;
 wait for cCLK_PER;
 
 
---addi, $27, $27, $26, 512
+--addi, $27, $26, 512
 -- addi 512 to register $26 and store in $27
 
 		ctl <= "0100";
@@ -305,8 +305,238 @@ wait for cCLK_PER;
 		 rt_s <= "00001";
 		 rs_s <= "11011";
 		 in_immedate_value <=X"ffff";
+		 
 wait for cCLK_PER;
 
+-----------------------LAB 4 ENDS HERE------------------------------
+
+
+-----------------------NEW ALU FUNC TESTS---------------------------
+
+--addi, $1, $0, 15
+-- sets register 1 to 15
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"000f";
+		 rd_s <= "00001";
+wait for cCLK_PER;
+
+--subbi, $2, $1, 7
+-- subtracts 7 from reg 1 and stores in reg 2
+
+		ctl <= "1000";
+		 rs_s <= "00001";
+		 in_immedate_value <=X"0007";
+		 rd_s <= "00010";
+wait for cCLK_PER;
+
+--subbi, $3, $2, 5
+-- subtracts 5 from reg 2 and stores in reg 3
+
+		ctl <= "1000";
+		 rs_s <= "00010";
+		 in_immedate_value <=X"0005";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--sla, $3, $3, 1
+-- shifts value left in reg 3 by 1 arithmetically
+
+		ctl <= "0010";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0001";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--sla, $3, $3, 2
+-- shifts value left in reg 3 by 2 arithmetically
+
+		ctl <= "0010";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0002";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--sll, $3, $3, 1
+-- shifts value left in reg 3 by 1 logically
+
+		ctl <= "1110";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0001";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--sll, $3, $3, 2
+-- shifts value left in reg 3 by 2 logically
+
+		ctl <= "1110";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0002";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--srl, $3, $3, 2
+-- shifts value right in reg 3 by 2 logically
+
+		ctl <= "1010";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0002";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--srl, $3, $3, 1
+-- shifts value right in reg 3 by 1 logically
+
+		ctl <= "1010";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0001";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--srA, $3, $3, 2
+-- shifts value right in reg 3 by 2 arithmetically
+
+		ctl <= "1010";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0002";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--srA, $3, $3, 1
+-- shifts value right in reg 3 by 4 arithmetically
+
+		ctl <= "1010";
+		 rs_s <= "00011";
+		 in_immedate_value <=X"0004";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--slt, $3, $1, $2
+-- sets reg 3 to 1 if reg 1 is less than reg 2
+
+		ctl <= "0001";
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--slt, $3, $2, $1
+-- sets reg 3 to 1 if reg 2 is less than reg 1
+
+		ctl <= "0001";
+		 rs_s <= "00010";
+		 rt_s <= "00001";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--sub, $3, $1, $0
+-- subtracts reg 0 from reg 1 and stores in reg 3
+
+		ctl <= "1001";
+		 rs_s <= "00001";
+		 rt_s <= "00000";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--sub, $3, $1, $2
+-- subtracts reg 2 from reg 1 and stores in reg 3
+
+		ctl <= "1001";
+		 rs_s <= "00001";
+		 rt_s <= "00010";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--nor $3, $1, $0
+-- nors the values in regs 1 and 0 then stores result in reg 3
+
+		ctl <= "1101";
+		 rs_s <= "00001";
+		 rt_s <= "00000";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--nor $3, $1, $3
+-- nors the values in regs 1 and 3 then stores result in reg 3
+
+		ctl <= "1101";
+		 rs_s <= "00001";
+		 rt_s <= "00011";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--nand $3, $1, $0
+-- nands the values in regs 1 and 0 then stores result in reg 3
+
+		ctl <= "0011";
+		 rs_s <= "00001";
+		 rt_s <= "00000";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--nand $3, $1, $3
+-- nands the values in regs 1 and 3 then stores result in reg 3
+
+		ctl <= "0011";
+		 rs_s <= "00001";
+		 rt_s <= "00011";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--xor $3, $1, $0
+-- xors the values in regs 1 and 0 then stores result in reg 3
+
+		ctl <= "1011";
+		 rs_s <= "00001";
+		 rt_s <= "00000";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--xor $3, $1, $3
+-- xors the values in regs 1 and 3 then stores result in reg 3
+
+		ctl <= "1011";
+		 rs_s <= "00001";
+		 rt_s <= "00011";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--or $3, $1, $0
+-- ors the values in regs 1 and 0 then stores result in reg 3
+
+		ctl <= "0111";
+		 rs_s <= "00001";
+		 rt_s <= "00000";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--or $3, $1, $3
+-- ors the values in regs 1 and 3 then stores result in reg 3
+
+		ctl <= "0111";
+		 rs_s <= "00001";
+		 rt_s <= "00011";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--and $3, $1, $0
+-- ands the values in regs 1 and 0 then stores result in reg 3
+
+		ctl <= "1111";
+		 rs_s <= "00001";
+		 rt_s <= "00000";
+		 rd_s <= "00011";
+wait for cCLK_PER;
+
+--and $3, $1, $3
+-- ands the values in regs 1 and 3 then stores result in reg 3
+
+		ctl <= "1111";
+		 rs_s <= "00001";
+		 rt_s <= "00011";
+		 rd_s <= "00011";
+wait for cCLK_PER;
 
 wait for gCLK_HPER;
 wait for gCLK_HPER;
