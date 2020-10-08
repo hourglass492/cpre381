@@ -121,7 +121,7 @@ component mux_nbit_struct
 
     begin
 
-
+       -- ALU operations
 
         ctl_addi     <= not in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
         ctl_subi     <= not in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
@@ -132,8 +132,8 @@ component mux_nbit_struct
         ctl_xor     <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
         ctl_nand    <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
         ctl_nor     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and in_ctl(3)		;
-        ctl_add     <= (in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	) or ctl_addi; --the immedates should behave the same in the ALU
-        ctl_sub     <= (in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)	)	or ctl_subi;
+        ctl_add     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
+        ctl_sub     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
         ctl_slt     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and not in_ctl(3);
 		
 		--shift operation controls
@@ -141,7 +141,13 @@ component mux_nbit_struct
         ctl_slA     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
         ctl_srl     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
         ctl_srA     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
-		
+
+
+
+
+
+
+
 		ctl_LorR	<= ctl_sll or ctl_slA;
 		ctl_AorL	<= ctl_slA or ctl_srA;
 	ctl_adder_carry_in <= ctl_sub or ctl_slt;

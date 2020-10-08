@@ -45,3 +45,13 @@ vcom -work work tb_IntegratedDatapath.vhd
 
 
 vsim work.tb_IntegratedDatapath
+mem load -infile dmem.hex -format hex /thing_im_testing/dmem/ram
+
+
+add wave -position insertpoint sim:/tb_integrateddatapath/*
+add wave -position insertpoint  \
+sim:/tb_integrateddatapath/rd_s \
+sim:/tb_integrateddatapath/rs_s \
+sim:/tb_integrateddatapath/rt_s \
+sim:/tb_integrateddatapath/ctl \
+sim:/tb_integrateddatapath/in_immedate_value

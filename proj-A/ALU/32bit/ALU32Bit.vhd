@@ -71,10 +71,8 @@ component ALU1bit
   
   
       out_data            : out std_logic;
-      out_overflow        : out std_logic;
-      out_carry           : out std_logic;
-      out_zero            : out std_logic
-  
+      out_carry           : out std_logic
+
       );
 end component;
 
@@ -107,12 +105,13 @@ component mux_nbit_struct
         ctl_add     <= not in_ctl(0) and in_ctl(1)      and not in_ctl(2);
         ctl_sub     <= not in_ctl(0) and not in_ctl(1)  and in_ctl(2);
         ctl_slt     <= not in_ctl(0) and not in_ctl(1)  and not in_ctl(2);
-		ctl_adder_carry_in <= ctl_sub or ctl_slt;
+
+
+	ctl_adder_carry_in <= ctl_sub or ctl_slt;
     
         
 
         --This is outside the loop because it needs ctl_sub as it's carry in
-	internal_carry(0) <=  ctl_sub;
         ALU1bit_31: ALU1bit 
         port map(
        
@@ -156,7 +155,8 @@ component mux_nbit_struct
         G2: for j in 0 to data_size-1 generate
             internal_slt_signal(j) <= '0';
         end generate;
-        internal_slt_signal(data_size) <= internal_data(data_size);
+--or the most sig bit of seb result and or with overflow
+        internal_slt_signal(data_size) <= internal_data(0) or internal_carry(0);
 
 
 

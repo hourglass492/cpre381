@@ -288,7 +288,7 @@ wait for cCLK_PER;
 wait for cCLK_PER;
 
 
---addi, $27, $26, 512
+--addi, $27, $27, $26, 512
 -- addi 512 to register $26 and store in $27
 
 		ctl <= "0100";
@@ -305,7 +305,6 @@ wait for cCLK_PER;
 		 rt_s <= "00001";
 		 rs_s <= "11011";
 		 in_immedate_value <=X"ffff";
-		 
 wait for cCLK_PER;
 
 -----------------------LAB 4 ENDS HERE------------------------------
@@ -538,7 +537,20 @@ wait for cCLK_PER;
 		 rd_s <= "00011";
 wait for cCLK_PER;
 
---Begin ALU Tests
+
+
+
+
+
+
+
+-----------------------Begin ALU Logic Tests------------------------
+
+
+
+
+
+
 --addi, $25, $25, $0, 349525
 -- addi 349525 to register $0 and store in $25
 
@@ -584,7 +596,7 @@ wait for cCLK_PER;
 
 		ctl <= "0100";
 		 rs_s <= "00000";
-		 in_immedate_value <=X"43333";
+		 in_immedate_value <=X"3333";
 		 rd_s <= "11010";
 wait for cCLK_PER;
 
@@ -604,7 +616,7 @@ wait for cCLK_PER;
 
 		ctl <= "0100";
 		 rs_s <= "00000";
-		 in_immedate_value <=X"43333";
+		 in_immedate_value <=X"3333";
 		 rd_s <= "00001";
 wait for cCLK_PER;
 

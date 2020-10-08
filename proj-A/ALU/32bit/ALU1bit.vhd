@@ -16,9 +16,7 @@ entity ALU1bit is
 
 
     out_data            : out std_logic;
-    out_overflow        : out std_logic;
-    out_carry           : out std_logic;
-    out_zero            : out std_logic
+    out_carry           : out std_logic
 
 	);
 	
@@ -80,7 +78,7 @@ architecture ALU_arch of ALU1bit is
       ctl_sub     <= not in_ctl(0) and not in_ctl(1)  and in_ctl(2);
       ctl_slt     <= not in_ctl(0) and not in_ctl(1)  and not in_ctl(2);
   
-      ctl_add_sub <= ctl_sub or ctl_add;
+      ctl_add_sub <= ctl_sub or ctl_slt;
 
 
       internal_result_vector(7) <= in_ia and in_ib;
@@ -108,7 +106,7 @@ architecture ALU_arch of ALU1bit is
         port map(
             i_a             => in_ia,
             i_b             => in_ib,
-            i_select        => ctl_sub,
+            i_select        => ctl_add_sub,
             i_carry         => in_carry,
             o_sum           => internal_result_vector(2),
             o_carry         => internal_adder_carry 
@@ -116,11 +114,9 @@ architecture ALU_arch of ALU1bit is
 
 	out_carry <= internal_adder_carry;
 
+	--add,sub, and slt all have the output from the adder
         internal_result_vector(1) <= internal_result_vector(2);
-
-
-      
-      internal_result_vector(0) <= internal_adder_carry xor internal_result_vector(2);
+      internal_result_vector(0) <= internal_result_vector(2);
 
 
 

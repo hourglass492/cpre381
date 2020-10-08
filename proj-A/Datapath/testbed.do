@@ -55,3 +55,14 @@ sim:/tb_integrateddatapath/rs_s \
 sim:/tb_integrateddatapath/rt_s \
 sim:/tb_integrateddatapath/ctl \
 sim:/tb_integrateddatapath/in_immedate_value
+
+
+
+#ALU input output waves
+add wave -position insertpoint  \
+sim:/tb_integrateddatapath/thing_im_testing/ALU/in_ia \
+sim:/tb_integrateddatapath/thing_im_testing/ALU/in_ib \
+sim:/tb_integrateddatapath/thing_im_testing/ALU/in_ctl \
+sim:/tb_integrateddatapath/thing_im_testing/ALU/out_data
+
+

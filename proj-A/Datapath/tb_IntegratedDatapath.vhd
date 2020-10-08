@@ -288,7 +288,7 @@ wait for cCLK_PER;
 wait for cCLK_PER;
 
 
---addi, $27, $26, 512
+--addi, $27, $27, $26, 512
 -- addi 512 to register $26 and store in $27
 
 		ctl <= "0100";
@@ -305,7 +305,6 @@ wait for cCLK_PER;
 		 rt_s <= "00001";
 		 rs_s <= "11011";
 		 in_immedate_value <=X"ffff";
-		 
 wait for cCLK_PER;
 
 -----------------------LAB 4 ENDS HERE------------------------------
@@ -538,7 +537,40 @@ wait for cCLK_PER;
 		 rd_s <= "00011";
 wait for cCLK_PER;
 
---Begin ALU Tests
+
+
+
+
+
+-----------------------Begin ALU Logic Tests------------------------
+--addi $25, $0, 349525
+--sll $25, $25, 16
+--addi $1, $0, 349525
+--add $25, $1, $25
+--addi $26, $0, 3355443
+--sll $26, $26, 16
+--addi $1, $0, 3355443
+--add $26, $1, $25
+--nor $27, $25, $26
+--nand $27, $25, $26
+--xor $27, $25, $26
+--or $27, $25, $26
+--and $27, $25, $26
+--addi $25, $0, 349525
+--sll $25, $25, 16
+--addi $1, $0, 349525
+--add $25, $1, $25
+--addi $25, $0, 65535
+--sll $25, $25, 16
+--addi $1, $0, 65535
+--add $25, $1, $25
+--add $27, $25, $25
+--sub $27, $25, $25
+
+
+
+
+
 --addi, $25, $25, $0, 349525
 -- addi 349525 to register $0 and store in $25
 
