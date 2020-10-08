@@ -538,6 +538,237 @@ wait for cCLK_PER;
 		 rd_s <= "00011";
 wait for cCLK_PER;
 
+--Begin ALU Tests
+--addi, $25, $25, $0, 349525
+-- addi 349525 to register $0 and store in $25
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"5555";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--sll, $25, $25, $25, 16
+-- sll 16 to register $25 and store in $25
+
+		ctl <= "1110";
+		 rs_s <= "11001";
+		 in_immedate_value <=X"0010";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--addi, $1, $1, $0, 349525
+-- addi 349525 to register $0 and store in $1
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"5555";
+		 rd_s <= "00001";
+wait for cCLK_PER;
+
+
+--add, $25, $1, $25
+--add  $1 and $25 and store in $25
+
+		ctl <= "0101";
+		 rs_s <= "00001";
+		 rt_s <= "11001";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--addi, $26, $26, $0, 3355443
+-- addi 3355443 to register $0 and store in $26
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"3333";
+		 rd_s <= "11010";
+wait for cCLK_PER;
+
+
+--sll, $26, $26, $26, 16
+-- sll 16 to register $26 and store in $26
+
+		ctl <= "1110";
+		 rs_s <= "11010";
+		 in_immedate_value <=X"0010";
+		 rd_s <= "11010";
+wait for cCLK_PER;
+
+
+--addi, $1, $1, $0, 3355443
+-- addi 3355443 to register $0 and store in $1
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"3333";
+		 rd_s <= "00001";
+wait for cCLK_PER;
+
+
+--add, $26, $1, $25
+--add  $1 and $25 and store in $26
+
+		ctl <= "0101";
+		 rs_s <= "00001";
+		 rt_s <= "11001";
+		 rd_s <= "11010";
+wait for cCLK_PER;
+
+
+--nor, $27, $25, $26
+--nor  $25 and $26 and store in $27
+
+		ctl <= "1101";
+		 rs_s <= "11001";
+		 rt_s <= "11010";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
+--nand, $27, $25, $26
+--nand  $25 and $26 and store in $27
+
+		ctl <= "0011";
+		 rs_s <= "11001";
+		 rt_s <= "11010";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
+--xor, $27, $25, $26
+--xor  $25 and $26 and store in $27
+
+		ctl <= "1011";
+		 rs_s <= "11001";
+		 rt_s <= "11010";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
+--or, $27, $25, $26
+--or  $25 and $26 and store in $27
+
+		ctl <= "0111";
+		 rs_s <= "11001";
+		 rt_s <= "11010";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
+--and, $27, $25, $26
+--and  $25 and $26 and store in $27
+
+		ctl <= "1111";
+		 rs_s <= "11001";
+		 rt_s <= "11010";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
+--addi, $25, $25, $0, 349525
+-- addi 349525 to register $0 and store in $25
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"5555";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--sll, $25, $25, $25, 16
+-- sll 16 to register $25 and store in $25
+
+		ctl <= "1110";
+		 rs_s <= "11001";
+		 in_immedate_value <=X"0010";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--addi, $1, $1, $0, 349525
+-- addi 349525 to register $0 and store in $1
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"5555";
+		 rd_s <= "00001";
+wait for cCLK_PER;
+
+
+--add, $25, $1, $25
+--add  $1 and $25 and store in $25
+
+		ctl <= "0101";
+		 rs_s <= "00001";
+		 rt_s <= "11001";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--addi, $25, $25, $0, 65535
+-- addi 65535 to register $0 and store in $25
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"ffff";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--sll, $25, $25, $25, 16
+-- sll 16 to register $25 and store in $25
+
+		ctl <= "1110";
+		 rs_s <= "11001";
+		 in_immedate_value <=X"0010";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--addi, $1, $1, $0, 65535
+-- addi 65535 to register $0 and store in $1
+
+		ctl <= "0100";
+		 rs_s <= "00000";
+		 in_immedate_value <=X"ffff";
+		 rd_s <= "00001";
+wait for cCLK_PER;
+
+
+--add, $25, $1, $25
+--add  $1 and $25 and store in $25
+
+		ctl <= "0101";
+		 rs_s <= "00001";
+		 rt_s <= "11001";
+		 rd_s <= "11001";
+wait for cCLK_PER;
+
+
+--add, $27, $25, $25
+--add  $25 and $25 and store in $27
+
+		ctl <= "0101";
+		 rs_s <= "11001";
+		 rt_s <= "11001";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
+--sub, $27, $25, $25
+--sub  $25 and $25 and store in $27
+
+		ctl <= "1001";
+		 rs_s <= "11001";
+		 rt_s <= "11001";
+		 rd_s <= "11011";
+wait for cCLK_PER;
+
+
 wait for gCLK_HPER;
 wait for gCLK_HPER;
 wait for gCLK_HPER;
