@@ -26,7 +26,7 @@ architecture ALU32Bit_arch of ALU32Bit is
 
 
     signal internal_data	            : std_logic_vector(0 to data_size);
-    signal internal_carry      : std_logic_vector(0 to data_size);
+    signal internal_carry             : std_logic_vector(0 to data_size);
     signal internal_slt_signal          : std_logic_vector(0 to data_size);
     
     signal nothing	                    : std_logic;
