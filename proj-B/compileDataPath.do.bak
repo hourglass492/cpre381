@@ -46,7 +46,7 @@ vcom -work work arrayPackage.vhd
         vcom -work work  ALU/Barrel_Shifter/bsLR.vhd    
 
 
-    vcom -work work ALU/FullALU.vhd
+#    vcom -work work ALU/FullALU.vhd
 
 #TODO
 #do ALUControl/compile.do

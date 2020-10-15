@@ -27,7 +27,7 @@ architecture FullALU_arch of FullALU is
 
 
 
-    signal internal_alu_ctl             : std_logic_vector(0 to 2)
+    signal internal_alu_ctl             : std_logic_vector(0 to 2);
     
 
 	--new Signals for final mux to pick between shifter and operations
@@ -110,7 +110,7 @@ end component;
 
 		ctl_LorR	<= ctl_sll or ctl_slA;
 		ctl_AorL	<= ctl_slA or ctl_srA;
-        ctl_adder_carry_in <= ctl_sub or ctl_slt;
+
         
         ctl_ALUorShiftSelect <= in_ctl(0);
 
@@ -122,15 +122,15 @@ end component;
 
 
         alu: ALU32Bit 
-             port(
-               in_ia              => in_ia;
-               in_ib              => in_ib;
-               in_ctl             => in_ctl(1 to 3);
+             port map(
+               in_ia              => in_ia,
+               in_ib              => in_ib,
+               in_ctl             => in_ctl(1 to 3),
            
            
-               out_data            => internal_ALUResult ;
-               out_overflow        => out_overflow;
-               out_carry           => out_carry ;
+               out_data            => internal_ALUResult,
+               out_overflow        => out_overflow,
+               out_carry           => out_carry ,
                out_zero            => out_zero  
                );
                

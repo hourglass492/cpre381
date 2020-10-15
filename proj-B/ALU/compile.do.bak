@@ -14,7 +14,7 @@ vcom -work work  ALU/ALU32bit.vhd
 
 
 
-#TODO
+TODO
 #do Barrel_Shifter/compile.do
 vcom -work work  Barrel_Shifter/mux2.vhd
 vcom -work work  Barrel_Shifter/reverse.vhd
