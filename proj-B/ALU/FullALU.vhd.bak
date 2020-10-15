@@ -48,7 +48,7 @@ architecture FullALU_arch of FullALU is
 
 
 
-component ALU32Bit 
+component ALU 
     generic(data_size : integer := 31);
      port(
         
@@ -121,11 +121,11 @@ end component;
 
 
 
-        alu: ALU32Bit 
+        alu: ALU 
              port(
                in_ia              => in_ia;
                in_ib              => in_ib;
-               in_ctl             => in_ctl(1 to 3);
+               in_ctl             => internal_alu_ctl;
            
            
                out_data            => internal_ALUResult ;
@@ -145,7 +145,7 @@ end component;
             LorA             => ctl_AorL,
             i_s       		 => in_ib(0 to 4),
             i_a              => in_ia,
-	    o_a		     => internal_shiftResult
+			o_a				 => internal_shiftResult
         
             );
 

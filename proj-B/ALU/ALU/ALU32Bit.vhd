@@ -70,10 +70,9 @@ component ALU1bit
       in_ctl             : in std_logic_vector(0 to 2);
   
   
-      out_data            : out std_logic;
-      out_overflow        : out std_logic;
-      out_carry           : out std_logic;
-      out_zero            : out std_logic
+
+    out_data            : out std_logic;
+    out_carry           : out std_logic
   
       );
 end component;
