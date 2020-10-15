@@ -62,6 +62,24 @@ vcom -work work arrayPackage.vhd
 
 #TODO
 #do pc/compile.do
+    vcom -work work PC/BasicGates/andg2.vhd
+    vcom -work work PC/BasicGates/dff.vhd
+    vcom -work work PC/BasicGates/invg.vhd
+    vcom -work work PC/BasicGates/nand.vhd
+    vcom -work work PC/BasicGates/org2.vhd
+    vcom -work work PC/BasicGates/xorg2.vhd
+
+    vcom -work work PC/adder.vhd
+    vcom -work work PC/adder_nbit_struct.vhd
+
+
+    vcom -work work PC/mux.vhd
+    vcom -work work PC/mux_nbit_struct.vhd
+
+
+    vcom -work work PC/register_nbit_struct.vhd
+
+    vcom -work work PC/pc.vhd  
 
 
 #do register/compile.do

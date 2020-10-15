@@ -26,240 +26,216 @@ end IntegratedDatapath;
 architecture IntegratedDatapath_arch of IntegratedDatapath is
 
     --signals
-        signal internal_rs                 : std_logic_vector(0 to N);
-        signal internal_rt                 : std_logic_vector(0 to N);
-        signal internal_rd                 : std_logic_vector(0 to N);
-        signal internal_imm                : std_logic_vector(0 to N);
-        signal internal_mux                : std_logic_vector(0 to N);
-        signal internal_sum                : std_logic_vector(0 to N);
-        signal internal_sum_bottom_10      : std_logic_vector(0 to 9);
-        signal internal_read               : std_logic_vector(0 to N);
-        signal high                        : std_logic := '1';
-        signal low                         : std_logic := '0';
-        signal internal_mem_we	            : std_logic;
-        signal internal_alu_ctl             : std_logic;					-- set to high to let the memory load values
-        signal internal_mem_reg_we_mux_ctl	        : std_logic;
-        signal internal_reg_we	            : std_logic;
-        signal internal_imm_select_ctl        : std_logic;
-
-        --memory signals
-
-        signal ctl_lw                         : std_logic;
-        signal ctl_sw                         : std_logic;
 
 
-        --Control Signals
-        signal ctl_and                        : std_logic;
-        signal ctl_or                         : std_logic;
-        signal ctl_xor	                      : std_logic;
-        signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
-        signal ctl_nor	                      : std_logic;
-        signal ctl_add	                      : std_logic;
-        signal ctl_sub	                      : std_logic;
-        signal ctl_addi	                      : std_logic;
-        signal ctl_subi	                      : std_logic;
-        signal ctl_slt	                      : std_logic;
-        signal ctl_add_sub			          : std_logic;
-        signal ctl_adder_carry_in		      :std_logic;
-        
-        --shifter signals
-        signal ctl_sll						  : std_logic;
-        signal ctl_slA						  : std_logic;
-        signal ctl_srl						  : std_logic;
-        signal ctl_srA						  : std_logic;
+        --constants start
+            signal high                := 1            :std_logic;
+            signal low                 := 0            :std_logic;
+        --constants end
 
+        -- register inputs and immidates
+            signal internal_rs                 : std_logic_vector(0 to data_size);
+            signal internal_rt                 : std_logic_vector(0 to data_size);
+            signal internal_rd                 : std_logic_vector(0 to data_size);
+            signal internal_imm                : std_logic_vector(0 to data_size);
+        -- register inputs and immidates end
 
+        -- binary blob to signals start
+            signal rs_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
+            signal rt_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
+            signal rd_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
+            signal internal_raw_immidates      : std_logic_vector(0 to 15);
+        -- binary blob to signals end
 
-        signal nothing	                    : std_logic;
-        signal nothingTwo	                : std_logic;
-        signal nothingThree	                : std_logic;
+        --ctl signals start
+            signal regDst                              : std_logic;
+            signal branch                              : std_logic;
+            signal memRead                             : std_logic;
+            signal memToReg                            : std_logic;
+            signal ALUOp                               : std_logic_vector(0 to 4);
+            signal memWrite                            : std_logic;
+            signal ALUSrc                              : std_logic;
+            signal regWrite                            : std_logic;
+        --ctl signals end 
+
+        -- buses start
+            signal ALU2ndInput                         : std_logic_vector(0 to data_size);
+            signal programCounter                      : std_logic_vector(0 to data_size);
+            signal ALUOutput                           : std_logic_vector(0 to data_size);
+            signal memoryOutput                        : std_logic_vector(0 to data_size);
+        -- buses end
+
 
     
     -- end signal
     
-    
-    component registerFile_nbit_struct
-		port(
-            i_rd                       : in std_logic_vector(0 to N);
-            in_select_rs               : in std_logic_vector(0 to log2_Of_num_of_inputs);
-            in_select_rt               : in std_logic_vector(0 to log2_Of_num_of_inputs);
-            in_select_rd               : in std_logic_vector(0 to log2_Of_num_of_inputs);
-            i_WE                       : in std_logic;
-            i_CLK                      : in std_logic;
-            i_RST                      : in std_logic;
-        
-        
-            o_rt                       : out std_logic_vector(0 to N);
-            o_rs                       : out std_logic_vector(0 to N)
 
-
-			);
-	end component;
-        
-    
-    component adder_nbit_struct
-        generic(N : integer := 31);
-        port(
+    --components
+        component registerFile_nbit_struct
+            port(
+                i_rd                       : in std_logic_vector(0 to N);
+                in_select_rs               : in std_logic_vector(0 to log2_Of_num_of_inputs);
+                in_select_rt               : in std_logic_vector(0 to log2_Of_num_of_inputs);
+                in_select_rd               : in std_logic_vector(0 to log2_Of_num_of_inputs);
+                i_WE                       : in std_logic;
+                i_CLK                      : in std_logic;
+                i_RST                      : in std_logic;
             
-
-
-            i_a             : in std_logic_vector(0 to N);
-            i_b             : in std_logic_vector(0 to N);
-            i_carry         : in std_logic;
-            o_sum           : out std_logic_vector(0 to N);
-            o_carry         : out std_logic
-
-            );
-        
-    end component;
-
-
-    component FullALU
-        generic(data_size : integer := 31);
-        port(
             
-            in_ia              : in std_logic_vector(0 to data_size);
-            in_ib              : in std_logic_vector(0 to data_size);
-            in_ctl             : in std_logic_vector(0 to 3);
+                o_rt                       : out std_logic_vector(0 to N);
+                o_rs                       : out std_logic_vector(0 to N)
 
 
-            out_data            : out std_logic_vector(0 to data_size);
-            out_overflow        : out std_logic;
-            out_carry           : out std_logic;
-            out_zero            : out std_logic
-
-            );
+                );
+        end component;
+            
         
-    end component;
+        component adder_nbit_struct
+            generic(N : integer := 31);
+            port(
+                
+
+
+                i_a             : in std_logic_vector(0 to N);
+                i_b             : in std_logic_vector(0 to N);
+                i_carry         : in std_logic;
+                o_sum           : out std_logic_vector(0 to N);
+                o_carry         : out std_logic
+
+                );
+            
+        end component;
+
+
+        component FullALU
+            generic(data_size : integer := 31);
+            port(
+                
+                in_ia              : in std_logic_vector(0 to data_size);
+                in_ib              : in std_logic_vector(0 to data_size);
+                in_ctl             : in std_logic_vector(0 to 3);
+
+
+                out_data            : out std_logic_vector(0 to data_size);
+                out_overflow        : out std_logic;
+                out_carry           : out std_logic;
+                out_zero            : out std_logic
+
+                );
+            
+        end component;
 
 
 
-    component mux_nbit_struct
-        port(
-            i_a             : in std_logic_vector(0 to N);
-            i_b             : in std_logic_vector(0 to N);
-            i_select        : in std_logic;
-            o_z             : out std_logic_vector(0 to N)
+        component mux_nbit_struct
+            port(
+                i_a             : in std_logic_vector(0 to N);
+                i_b             : in std_logic_vector(0 to N);
+                i_select        : in std_logic;
+                o_z             : out std_logic_vector(0 to N)
 
+
+                );
+        end component;
+
+        component mem
+            port(  
+                signal clk	    : in std_logic;
+                signal addr	    : in std_logic_vector(9 downto 0);
+                signal data	    : in std_logic_vector(N downto 0);
+                signal we		: in std_logic;
+                signal q		: out std_logic_vector(N downto 0)
 
             );
-    end component;
+        end component;
 
-    component mem
-        port(  
-            signal clk	    : in std_logic;
-            signal addr	    : in std_logic_vector(9 downto 0);
-            signal data	    : in std_logic_vector(N downto 0);
-            signal we		: in std_logic;
-            signal q		: out std_logic_vector(N downto 0)
+        component extender16bit_flow
+            port(  
+            i_control    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            i_D          : in std_logic_vector( 0 to 15);     -- Data input
+            o_Q          : out std_logic_vector( 0 to 31)       -- Data  output
 
-        );
-    end component;
+            );
+        end component;
 
-    component extender16bit_flow
-        port(  
-        i_control    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
-        i_D          : in std_logic_vector( 0 to 15);     -- Data input
-        o_Q          : out std_logic_vector( 0 to 31)       -- Data  output
-
-        );
-    end component;
-
-    component control
-        port(  
-            i_instructions          : in std_logic_vector(0 to 5);
+        component control
+            port(  
+                i_instructions          : in std_logic_vector(0 to 5);
 
 
-            regDst                  : out std_logic;
-            branch                  : out std_logic;
-            memRead                 : out std_logic;
-            memToReg                : out std_logic;
-            ALUOp                   : out std_logic_vector(0 to 4);
-            memWrite                : out std_logic;
-            ALUSrc                  : out std_logic;
-            RegWrite                : out std_logic
+                regDst                  : out std_logic;
+                branch                  : out std_logic;
+                memRead                 : out std_logic;
+                memToReg                : out std_logic;
+                ALUOp                   : out std_logic_vector(0 to 4);
+                memWrite                : out std_logic;
+                ALUSrc                  : out std_logic;
+                RegWrite                : out std_logic
 
-        );
-    end component;
+            );
+        end component;
+
+        component pc
+            port(  
+                i_branch                : in std_logic;
+                i_zero                  : in std_logic;
+                i_immedate              : in std_logic_vector(0 to 31);
+
+
+
+
+                o_instruction_number    : out std_logic_vector(0 to 31)
+
+            );
+        end component;
+
+    --end components
+
 
 
 
     begin
 
+    -- TODO need to assign these signals
+    -- instruction binary to signals
 
-        --Memory operations
+        signal rs_select        <= ;
+        signal rt_select        <= ;
 
-        ctl_lw <= not in_ctl(0)	 and not in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
-        ctl_sw <= not in_ctl(0)	 and not in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
+        -- if statment to select if instruction bits 20-16 or 15-11
+        signal rd_select        <= ;
 
-
-        -- ALU operations
-
-        ctl_addi     <= not in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
-        ctl_subi     <= not in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
-
-
-        ctl_and     <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
-        ctl_or      <= in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
-        ctl_xor     <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
-        ctl_nand    <= in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
-        ctl_nor     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and in_ctl(3)		;
-        ctl_add     <= in_ctl(0)	 and not in_ctl(1) and in_ctl(2)      and not in_ctl(3)	;
-        ctl_sub     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and in_ctl(3)		;
-        ctl_slt     <= in_ctl(0)	 and not in_ctl(1) and not in_ctl(2)  and not in_ctl(3);
-		
-		--shift operation controls
-		ctl_sll     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and in_ctl(3) 	;
-        ctl_slA     <= not in_ctl(0)	 and in_ctl(1)     and in_ctl(2)      and not in_ctl(3)	;
-        ctl_srl     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and in_ctl(3)		;
-        ctl_srA     <= not in_ctl(0)	 and in_ctl(1)     and not in_ctl(2)  and not in_ctl(3)	;
+        --instruction bits 15 - 0
+        signal internal_raw_immidates <= 
 
 
-        --TODO we may need immideate values for all the logical and lw/sw operations
+    -- end instruction binary to signals
 
 
-
-        internal_mem_we	                <= ctl_sw;          --we should write data to memory only on a write word
-        internal_mem_reg_we_mux_ctl	    <= ctl_lw;          --only taking data from memory to write to register on lw
-        internal_reg_we	                <= not (ctl_sw);    -- The only time we don't write to the register file is on a store word
-        internal_imm_select_ctl         <= ctl_srA or ctl_srl or ctl_slA or ctl_sll or ctl_subi or ctl_addi;
-
-
-
-
-
-extender: extender16bit_flow
-port map(
-	i_control       => low,     -- 0 to extend sign, 1 to extend 0's
-       i_D          => in_immedate_value,     -- Data input
-       o_Q          => internal_imm 
-);
-
-
-
-
+    extender: extender16bit_flow
+        port map(
+            i_control    => low,     -- 0 to extend sign, 1 to extend 0's
+            i_D          => in_immedate_value,     -- Data input
+            o_Q          => internal_imm 
+    );
 
 
 
     -- mux to output the rt data
     register_file: registerFile_nbit_struct
-    port map(
-        i_rd               => internal_rd, --value to load
-        in_select_rs       => in_select_rs, -- next 3 select the register to pull from for each value
-        in_select_rt       => in_select_rt,
-        in_select_rd       => in_select_rd,
-        i_WE               => internal_reg_we,
-        i_CLK              => i_CLK,
-        i_RST              => i_RST,
-    
-    
-        o_rt               => internal_rt,
-        o_rs               => internal_rs
+        port map(
+            i_rd               => internal_rd, --value to load
+            in_select_rs       => in_select_rs, -- next 3 select the register to pull from for each value
+            in_select_rt       => in_select_rt,
+            in_select_rd       => in_select_rd,
+            i_WE               => internal_reg_we,
+            i_CLK              => i_CLK,
+            i_RST              => i_RST,
+        
+        
+            o_rt               => internal_rt,
+            o_rs               => internal_rs
     );
-
-
-
-
 
 
     immedate_mux: mux_nbit_struct 
@@ -268,11 +244,9 @@ port map(
                     i_b         => internal_rt,
                     i_select    => internal_imm_select_ctl,
                     o_z         => internal_mux    
-                );
+    );
 
                 
-
-
     ALU: FullALU
         port map(
             in_ia             => internal_rs,
@@ -283,7 +257,7 @@ port map(
 			out_overflow	  => nothingTwo,
             out_carry         => nothing,-- not useing carry right now
 			out_zero		  => nothingThree
-        );
+    );
 
 
     result_mux: mux_nbit_struct 
@@ -292,7 +266,7 @@ port map(
                     i_b         => internal_sum,  
                     i_select    => internal_mem_reg_we_mux_ctl,
                     o_z         => internal_rd    
-                );
+    );
 
 
     G1:  for j in 22 to 31 generate
@@ -300,15 +274,29 @@ port map(
     end generate;
 
 
-        dmem: mem
-            port map(
-                    clk	        => i_CLK,
-                    addr	    => internal_sum_bottom_10,
-                    data	    => internal_rt,
-                    we		    => internal_mem_we ,
-                    q		    => internal_read
-            );
 
+
+
+
+
+
+
+    dmem: mem
+        port map(
+                clk	        => i_CLK,
+                addr	    => internal_sum_bottom_10,
+                data	    => internal_rt,
+                we		    => internal_mem_we ,
+                q		    => internal_read
+    );
+
+    imem: mem
+        port map(
+                clk	        => i_CLK,
+                addr	    => ,
+                data	    => instruction,
+                we		    => 0 
+    );
 
 
 
