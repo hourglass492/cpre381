@@ -25,56 +25,60 @@ end IntegratedDatapath;
 
 architecture IntegratedDatapath_arch of IntegratedDatapath is
 
+    --signals
+        signal internal_rs                 : std_logic_vector(0 to N);
+        signal internal_rt                 : std_logic_vector(0 to N);
+        signal internal_rd                 : std_logic_vector(0 to N);
+        signal internal_imm                : std_logic_vector(0 to N);
+        signal internal_mux                : std_logic_vector(0 to N);
+        signal internal_sum                : std_logic_vector(0 to N);
+        signal internal_sum_bottom_10      : std_logic_vector(0 to 9);
+        signal internal_read               : std_logic_vector(0 to N);
+        signal high                        : std_logic := '1';
+        signal low                         : std_logic := '0';
+        signal internal_mem_we	            : std_logic;
+        signal internal_alu_ctl             : std_logic;					-- set to high to let the memory load values
+        signal internal_mem_reg_we_mux_ctl	        : std_logic;
+        signal internal_reg_we	            : std_logic;
+        signal internal_imm_select_ctl        : std_logic;
 
-    signal internal_rs                 : std_logic_vector(0 to N);
-    signal internal_rt                 : std_logic_vector(0 to N);
-    signal internal_rd                 : std_logic_vector(0 to N);
-    signal internal_imm                : std_logic_vector(0 to N);
-    signal internal_mux                : std_logic_vector(0 to N);
-    signal internal_sum                : std_logic_vector(0 to N);
-    signal internal_sum_bottom_10      : std_logic_vector(0 to 9);
-    signal internal_read               : std_logic_vector(0 to N);
-    signal high                        : std_logic := '1';
-    signal low                         : std_logic := '0';
-    signal internal_mem_we	            : std_logic;
-    signal internal_alu_ctl             : std_logic;					-- set to high to let the memory load values
-    signal internal_mem_reg_we_mux_ctl	        : std_logic;
-    signal internal_reg_we	            : std_logic;
-    signal internal_imm_select_ctl        : std_logic;
+        --memory signals
 
-    --memory signals
-
-    signal ctl_lw                         : std_logic;
-    signal ctl_sw                         : std_logic;
-
-
-    --Control Signals
-    signal ctl_and                        : std_logic;
-    signal ctl_or                         : std_logic;
-    signal ctl_xor	                      : std_logic;
-    signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
-    signal ctl_nor	                      : std_logic;
-    signal ctl_add	                      : std_logic;
-    signal ctl_sub	                      : std_logic;
-    signal ctl_addi	                      : std_logic;
-    signal ctl_subi	                      : std_logic;
-    signal ctl_slt	                      : std_logic;
-	signal ctl_add_sub			          : std_logic;
-	signal ctl_adder_carry_in		      :std_logic;
-	
-	--shifter signals
-	signal ctl_sll						  : std_logic;
-	signal ctl_slA						  : std_logic;
-	signal ctl_srl						  : std_logic;
-	signal ctl_srA						  : std_logic;
+        signal ctl_lw                         : std_logic;
+        signal ctl_sw                         : std_logic;
 
 
+        --Control Signals
+        signal ctl_and                        : std_logic;
+        signal ctl_or                         : std_logic;
+        signal ctl_xor	                      : std_logic;
+        signal ctl_nand                       : std_logic;					-- set to high to let the memory load values
+        signal ctl_nor	                      : std_logic;
+        signal ctl_add	                      : std_logic;
+        signal ctl_sub	                      : std_logic;
+        signal ctl_addi	                      : std_logic;
+        signal ctl_subi	                      : std_logic;
+        signal ctl_slt	                      : std_logic;
+        signal ctl_add_sub			          : std_logic;
+        signal ctl_adder_carry_in		      :std_logic;
+        
+        --shifter signals
+        signal ctl_sll						  : std_logic;
+        signal ctl_slA						  : std_logic;
+        signal ctl_srl						  : std_logic;
+        signal ctl_srA						  : std_logic;
 
-    signal nothing	                    : std_logic;
-	signal nothingTwo	                : std_logic;
-	signal nothingThree	                : std_logic;
 
-	component registerFile_nbit_struct
+
+        signal nothing	                    : std_logic;
+        signal nothingTwo	                : std_logic;
+        signal nothingThree	                : std_logic;
+
+    
+    -- end signal
+    
+    
+    component registerFile_nbit_struct
 		port(
             i_rd                       : in std_logic_vector(0 to N);
             in_select_rs               : in std_logic_vector(0 to log2_Of_num_of_inputs);
@@ -91,44 +95,42 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
 
 			);
 	end component;
-		
+        
+    
+    component adder_nbit_struct
+        generic(N : integer := 31);
+        port(
+            
 
 
+            i_a             : in std_logic_vector(0 to N);
+            i_b             : in std_logic_vector(0 to N);
+            i_carry         : in std_logic;
+            o_sum           : out std_logic_vector(0 to N);
+            o_carry         : out std_logic
 
-component add_sub_struct
-  generic(N : integer := 31);
-  port(
-     
-
-
-    i_a             : in std_logic_vector(0 to N);
-    i_b             : in std_logic_vector(0 to N);
-    i_select         : in std_logic;
-    o_sum           : out std_logic_vector(0 to N);
-    o_carry         : out std_logic
-
-	);
-	
-end component;
+            );
+        
+    end component;
 
 
-component FullALU
- generic(data_size : integer := 31);
-  port(
-     
-    in_ia              : in std_logic_vector(0 to data_size);
-    in_ib              : in std_logic_vector(0 to data_size);
-    in_ctl             : in std_logic_vector(0 to 3);
+    component FullALU
+        generic(data_size : integer := 31);
+        port(
+            
+            in_ia              : in std_logic_vector(0 to data_size);
+            in_ib              : in std_logic_vector(0 to data_size);
+            in_ctl             : in std_logic_vector(0 to 3);
 
 
-    out_data            : out std_logic_vector(0 to data_size);
-    out_overflow        : out std_logic;
-    out_carry           : out std_logic;
-    out_zero            : out std_logic
+            out_data            : out std_logic_vector(0 to data_size);
+            out_overflow        : out std_logic;
+            out_carry           : out std_logic;
+            out_zero            : out std_logic
 
-	);
-	
-end component;
+            );
+        
+    end component;
 
 
 
@@ -143,30 +145,42 @@ end component;
             );
     end component;
 
-
-
     component mem
-    port(  
-        signal clk	    : in std_logic;
-        signal addr	    : in std_logic_vector(9 downto 0);
-        signal data	    : in std_logic_vector(N downto 0);
-        signal we		: in std_logic;
-        signal q		: out std_logic_vector(N downto 0)
+        port(  
+            signal clk	    : in std_logic;
+            signal addr	    : in std_logic_vector(9 downto 0);
+            signal data	    : in std_logic_vector(N downto 0);
+            signal we		: in std_logic;
+            signal q		: out std_logic_vector(N downto 0)
 
-    );
-  end component;
-
-
+        );
+    end component;
 
     component extender16bit_flow
-    port(  
-	i_control    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
-       i_D          : in std_logic_vector( 0 to 15);     -- Data input
-       o_Q          : out std_logic_vector( 0 to 31)       -- Data  output
+        port(  
+        i_control    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+        i_D          : in std_logic_vector( 0 to 15);     -- Data input
+        o_Q          : out std_logic_vector( 0 to 31)       -- Data  output
 
-    );
-  end component;
+        );
+    end component;
 
+    component control
+        port(  
+            i_instructions          : in std_logic_vector(0 to 5);
+
+
+            regDst                  : out std_logic;
+            branch                  : out std_logic;
+            memRead                 : out std_logic;
+            memToReg                : out std_logic;
+            ALUOp                   : out std_logic_vector(0 to 4);
+            memWrite                : out std_logic;
+            ALUSrc                  : out std_logic;
+            RegWrite                : out std_logic
+
+        );
+    end component;
 
 
 

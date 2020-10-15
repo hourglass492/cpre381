@@ -2,18 +2,18 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity adder_nbit_struct is
-  generic(N : integer := 31);
-  port(
+    generic(N : integer := 31);
+    port(
      
 
 
-    i_a             : in std_logic_vector(0 to N);
-    i_b             : in std_logic_vector(0 to N);
-    i_carry         : in std_logic;
-    o_sum           : out std_logic_vector(0 to N);
-    o_carry         : out std_logic
+        i_a             : in std_logic_vector(0 to N);
+        i_b             : in std_logic_vector(0 to N);
+        i_carry         : in std_logic;
+        o_sum           : out std_logic_vector(0 to N);
+        o_carry         : out std_logic
 
-	);
+	    );
 	
 end adder_nbit_struct;
 
