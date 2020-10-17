@@ -33,7 +33,7 @@ begin
 					"0100" when ((funct = "000011" OR funct = "000111") AND opcode = "000000")else
 					"0000";	
 
-		IsUnsigned <= '1' when ( ((funct = "100100" OR funct = "100011" OR funct = "101011") AND (opcode = "000000")) OR (opcode = "001011" OR opcode = "001001")) else
+		IsUnsigned <= '1' when ( ((funct = "100001" OR funct = "100011" OR funct = "101011") AND (opcode = "000000")) OR (opcode = "001011" OR opcode = "001001")) else
 			    '0';
 
 end ALUControl_arch;

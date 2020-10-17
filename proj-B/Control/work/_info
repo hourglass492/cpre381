@@ -10,21 +10,21 @@ z2
 cModel Technology
 Z0 dU:/cpre381/cpre381/proj-B/Control
 T_opt
-!s110 1602967414
-VJ[B`F`W=KZ1@oU5M1AGc82
+!s110 1602967963
+VH?NniPQ@c8N=Q7Dm_n_XZ0
 04 11 8 work tb_controls behavior 1
-=1-0050569b0a29-5f8b5774-337-2e40
+=1-0050569b0a29-5f8b5998-2c3-2360
 o-quiet -auto_acc_if_foreign -work work +acc
 tCvgOpt 0
 n@_opt
 OL;O;2020.2;71
 Ealucontroler
-Z1 w1602967360
+Z1 w1602967891
 Z2 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
 Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 4
+!i122 8
 R0
 Z6 8U:/cpre381/cpre381/proj-B/Control/ALUControler.vhd
 Z7 FU:/cpre381/cpre381/proj-B/Control/ALUControler.vhd
@@ -34,9 +34,9 @@ V=kFhW=fdWYgFdRPf]FX:h3
 !s100 iTn12l5j]A4H?EF=N_Oez3
 Z8 OL;C;2020.2;71
 32
-Z9 !s110 1602967399
+Z9 !s110 1602967950
 !i10b 1
-Z10 !s108 1602967399.000000
+Z10 !s108 1602967949.000000
 Z11 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-B/Control/ALUControler.vhd|
 Z12 !s107 U:/cpre381/cpre381/proj-B/Control/ALUControler.vhd|
 !i113 0
@@ -48,11 +48,11 @@ R3
 R4
 R5
 DEx4 work 12 alucontroler 0 22 =kFhW=fdWYgFdRPf]FX:h3
-!i122 4
+!i122 8
 l21
 L19 21
-VGeE@01^I>BKHf=AmC;zNi1
-!s100 3f;<hD0<Qf1JB`l=j@^kj2
+VE3M:91SIkm[nTLLk5hiCY1
+!s100 b<kdG]QMYoBAgOU`O_:3g3
 R8
 32
 R9
@@ -69,7 +69,7 @@ R2
 R3
 R4
 R5
-!i122 5
+!i122 9
 R0
 Z16 8U:/cpre381/cpre381/proj-B/Control/Control.vhd
 Z17 FU:/cpre381/cpre381/proj-B/Control/Control.vhd
@@ -79,9 +79,9 @@ VTfSH=Vz1oh]Wn3W^:2T490
 !s100 i?Mzc^]?XzAfXbNORRZd43
 R8
 32
-Z18 !s110 1602967401
+Z18 !s110 1602967951
 !i10b 1
-Z19 !s108 1602967401.000000
+Z19 !s108 1602967950.000000
 Z20 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-B/Control/Control.vhd|
 Z21 !s107 U:/cpre381/cpre381/proj-B/Control/Control.vhd|
 !i113 0
@@ -93,7 +93,7 @@ R3
 R4
 R5
 DEx4 work 7 control 0 22 TfSH=Vz1oh]Wn3W^:2T490
-!i122 5
+!i122 9
 l24
 L23 23
 VmD>Zl6jcnWdHWQ^]PO[5o0
@@ -114,7 +114,7 @@ R2
 R3
 R4
 R5
-!i122 6
+!i122 10
 R0
 Z23 8U:/cpre381/cpre381/proj-B/Control/ControlsToTest.vhd
 Z24 FU:/cpre381/cpre381/proj-B/Control/ControlsToTest.vhd
@@ -124,9 +124,9 @@ V^5:MXoV;EL]AC02nWb>o:0
 !s100 QQ9F2[AbHlnG46:mIoCKK0
 R8
 32
-Z25 !s110 1602967402
+Z25 !s110 1602967952
 !i10b 1
-Z26 !s108 1602967402.000000
+Z26 !s108 1602967952.000000
 Z27 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-B/Control/ControlsToTest.vhd|
 Z28 !s107 U:/cpre381/cpre381/proj-B/Control/ControlsToTest.vhd|
 !i113 0
@@ -138,7 +138,7 @@ R3
 R4
 R5
 DEx4 work 14 controlstotest 0 22 ^5:MXoV;EL]AC02nWb>o:0
-!i122 6
+!i122 10
 l64
 L30 63
 V0cn`>83XZIQzOMM`m47U_1
@@ -158,7 +158,7 @@ Z29 w1602967102
 R3
 R4
 R5
-!i122 7
+!i122 11
 R0
 Z30 8U:/cpre381/cpre381/proj-B/Control/tb_Controls.vhd
 Z31 FU:/cpre381/cpre381/proj-B/Control/tb_Controls.vhd
@@ -168,9 +168,9 @@ VBOhYMN4W05^eMLQ<Nnn2Q1
 !s100 ]P2`U>K17dDgSP>Xmn]GQ0
 R8
 32
-Z32 !s110 1602967404
+Z32 !s110 1602967954
 !i10b 1
-Z33 !s108 1602967403.000000
+Z33 !s108 1602967953.000000
 Z34 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-B/Control/tb_Controls.vhd|
 Z35 !s107 U:/cpre381/cpre381/proj-B/Control/tb_Controls.vhd|
 !i113 0
@@ -181,7 +181,7 @@ R3
 R4
 R5
 DEx4 work 11 tb_controls 0 22 BOhYMN4W05^eMLQ<Nnn2Q1
-!i122 7
+!i122 11
 l37
 L9 168
 V?D:^?5KN`Mz]=;zP_jGHm2
