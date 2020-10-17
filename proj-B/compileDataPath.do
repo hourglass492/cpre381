@@ -51,6 +51,8 @@ vcom -work work arrayPackage.vhd
 #TODO
 #do ALUControl/compile.do
 
+    vcom -work work ALUControl/ALUControler.vhd
+
 #TODO
 #do Control/compile.do
 
@@ -60,7 +62,7 @@ vcom -work work arrayPackage.vhd
 #do instructionMem/compile.do
     vcom -work work instructionMem/mem.vhd
 
-#TODO
+
 #do pc/compile.do
     vcom -work work PC/BasicGates/andg2.vhd
     vcom -work work PC/BasicGates/dff.vhd
