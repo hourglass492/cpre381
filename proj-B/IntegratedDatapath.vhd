@@ -36,11 +36,12 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
         -- register inputs and immidates
             signal internal_rs                 : std_logic_vector(0 to data_size);
             signal internal_rt                 : std_logic_vector(0 to data_size);
-            signal internal_rd                 : std_logic_vector(0 to data_size);
+            signal register_write_data                 : std_logic_vector(0 to data_size);
             signal internal_imm                : std_logic_vector(0 to data_size);
         -- register inputs and immidates end
 
         -- binary blob to signals start
+            signal instruction                    : std_logic_vector(0 to data_size);
             signal rs_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
             signal rt_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
             signal rd_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
@@ -88,8 +89,22 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
 
                 );
         end component;
-            
+
+
+        component ALUcontrol
+            port(  
+                i_instructions          : in std_logic_vector(0 to 5);
+                ALUctl_signal           : in std_logic_vector(0 to 4);
         
+                ALUOpIn                 : in std_logic_vector(0 to 4)
+                );
+        end component;
+
+
+
+
+            
+        --TODO I don't think I need this
         component adder_nbit_struct
             generic(N : integer := 31);
             port(
@@ -158,6 +173,8 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
             );
         end component;
 
+
+
         component control
             port(  
                 i_instructions          : in std_logic_vector(0 to 5);
@@ -181,9 +198,6 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
                 i_zero                  : in std_logic;
                 i_immedate              : in std_logic_vector(0 to 31);
 
-
-
-
                 o_instruction_number    : out std_logic_vector(0 to 31)
 
             );
@@ -196,17 +210,23 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
 
     begin
 
-    -- TODO need to assign these signals
+   
     -- instruction binary to signals
 
-        signal rs_select        <= ;
-        signal rt_select        <= ;
+        signal rs_select        <= instruction(21 to 25);
+        
+        signal rt_select        <= instruction(16 to 20);
 
         -- if statment to select if instruction bits 20-16 or 15-11
-        signal rd_select        <= ;
+        signal rd_select        <= if reg_dst == 0 then instruction(16 to 20);
+                                        else if reg_dst == 1 then instruction(11 to 15);
+        
+        ;
 
         --instruction bits 15 - 0
-        signal internal_raw_immidates <= 
+        signal internal_raw_immidates <= instruction(0 to 15);
+
+        signal func_select <= instruction(0 to 5);
 
 
     -- end instruction binary to signals
@@ -222,9 +242,9 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
 
 
     -- mux to output the rt data
-    register_file: registerFile_nbit_struct
+    reg: registerFile_nbit_struct
         port map(
-            i_rd               => internal_rd, --value to load
+            i_rd               => register_write_data, --value to load
             in_select_rs       => in_select_rs, -- next 3 select the register to pull from for each value
             in_select_rt       => in_select_rt,
             in_select_rd       => in_select_rd,
@@ -238,67 +258,97 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
     );
 
 
-    immedate_mux: mux_nbit_struct 
+    ALUmux: mux_nbit_struct 
         port map(
                     i_a         => internal_imm,
                     i_b         => internal_rt,
-                    i_select    => internal_imm_select_ctl,
-                    o_z         => internal_mux    
+                    i_select    => ALUsrc,
+                    o_z         => ALU_ib    
     );
 
                 
     ALU: FullALU
         port map(
             in_ia             => internal_rs,
-            in_ib             => internal_mux,
-            in_ctl       	  => in_ctl,
+            in_ib             => ALU_ib,
+            in_ctl       	  => ALU_ctl,
 			
-            out_data          => internal_sum,
+            out_data          => ALU_sum,
 			out_overflow	  => nothingTwo,
             out_carry         => nothing,-- not useing carry right now
-			out_zero		  => nothingThree
+			out_zero		  => zero
     );
 
 
     result_mux: mux_nbit_struct 
         port map(
-                    i_a         => internal_read,
-                    i_b         => internal_sum,  
-                    i_select    => internal_mem_reg_we_mux_ctl,
-                    o_z         => internal_rd    
+                    i_a         => data_read,
+                    i_b         => ALU_sum,  
+                    i_select    => memToReg,
+                    o_z         => register_write_data    
     );
 
 
     G1:  for j in 22 to 31 generate
-        internal_sum_bottom_10(j-22) <= internal_sum(j);
+        ALU_sum_bottom_10(j-22) <= ALU_sum(j);
     end generate;
-
-
-
-
-
-
-
 
 
     dmem: mem
         port map(
                 clk	        => i_CLK,
-                addr	    => internal_sum_bottom_10,
+                addr	    => ALU_sum_bottom_10,
                 data	    => internal_rt,
                 we		    => internal_mem_we ,
-                q		    => internal_read
+                q		    => data_read
     );
+
+
+
+    programCounter: pc
+        port(  
+            i_branch                => branch,
+            i_zero                  => zero,
+            i_immedate              => instruction(25 to 0),
+
+            o_instruction_number    => pc
+
+    );
+
+
+
 
     imem: mem
         port map(
                 clk	        => i_CLK,
-                addr	    => ,
+                addr	    => pc,
                 data	    => instruction,
                 we		    => 0 
     );
 
+    ctl: control
+    port(  
+        i_instructions          => instruction(31 to 26),
 
+
+        regDst                  => regDst,
+        branch                  => branch,
+        memRead                 => memRead,
+        memToReg                => memToReg,
+        ALUOp                   => ALUOp,
+        memWrite                => memWrite,
+        ALUSrc                  => ALUSrc,
+        RegWrite                => RegWrite
+    );
+
+
+    ALUctl: ALUcontrol
+    port(  
+        i_instructions          => instruction(5 to 0),
+        ALUctl_signal           => ALUOp, ---not sure how large of a signal
+
+        ALUOpIn                 => ALUOpIn --4 bit
+    );
 
 
 
