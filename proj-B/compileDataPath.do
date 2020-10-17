@@ -67,7 +67,6 @@ vcom -work work arrayPackage.vhd
     vcom -work work PC/BasicGates/andg2.vhd
     vcom -work work PC/BasicGates/dff.vhd
     vcom -work work PC/BasicGates/invg.vhd
-    vcom -work work PC/BasicGates/nand.vhd
     vcom -work work PC/BasicGates/org2.vhd
     vcom -work work PC/BasicGates/xorg2.vhd
 

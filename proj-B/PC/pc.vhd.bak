@@ -91,7 +91,7 @@ begin
 
     --TODO I need to figure out how to shift this
     
-	shifted_input <= std_logic_vector(shift_left(unsigned(i_immedate), 2)); 
+	shifted_input <= std_logic_vector(shift_left(unsigned(i_immedate)), 2); 
 
 
     -- add the input and the shifted value 

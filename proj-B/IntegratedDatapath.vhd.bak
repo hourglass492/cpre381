@@ -218,9 +218,8 @@ architecture IntegratedDatapath_arch of IntegratedDatapath is
          rt_select        <= instruction(16 to 20);
 
         -- if statment to select if instruction bits 20-16 or 15-11
-         rd_select        <= instruction(16 to 20) when reg_dst = '0' else
-				 instruction(11 to 15);
-                                        
+         rd_select        <= if reg_dst == 0 then instruction(16 to 20);
+                                        else if reg_dst == 1 then instruction(11 to 15);
         
         
 
