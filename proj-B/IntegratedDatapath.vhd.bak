@@ -371,7 +371,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
 
 
     ALUctl: ALUControler
-	port map( 
+
         opcode          => instruction(26 to 31),
         funct           => instruction(0 to 5),
 

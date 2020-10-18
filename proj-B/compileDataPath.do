@@ -51,8 +51,12 @@ vcom -work work arrayPackage.vhd
 #TODO
 #do ALUControl/compile.do
 
+    vcom -work work ALUControl/ALUControler.vhd
+
 #TODO
 #do Control/compile.do
+	vcom -work work control/control.vhd
+
 
 #do extender/compile.do
     vcom -work work extender/extender16bit_flow.vhd
@@ -60,12 +64,11 @@ vcom -work work arrayPackage.vhd
 #do instructionMem/compile.do
     vcom -work work instructionMem/mem.vhd
 
-#TODO
+
 #do pc/compile.do
     vcom -work work PC/BasicGates/andg2.vhd
     vcom -work work PC/BasicGates/dff.vhd
     vcom -work work PC/BasicGates/invg.vhd
-    vcom -work work PC/BasicGates/nand.vhd
     vcom -work work PC/BasicGates/org2.vhd
     vcom -work work PC/BasicGates/xorg2.vhd
 
@@ -91,3 +94,4 @@ vcom -work work arrayPackage.vhd
 vcom -work work IntegratedDatapath.vhd
 vcom -work work tb_IntegratedDatapath.vhd
 
+vsim work.IntegratedDatapath
