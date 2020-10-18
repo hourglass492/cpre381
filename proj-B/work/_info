@@ -9,6 +9,15 @@ z2
 !i10f 100
 cModel Technology
 Z0 dU:/CPRE381/proj-B
+T_opt
+!s110 1602983276
+VXT7K=@WX2AZH^1MmYzZQ;0
+04 18 23 work integrateddatapath integrateddatapath_arch 1
+=1-0050569b353f-5f8b956b-34a-16f4
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2020.2;71
 Eadd_sub_struct_1bit
 Z1 w1602796701
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -23,9 +32,9 @@ VcaOD8NFeFR?4BH:nZ<>UC3
 !s100 F3AGikPh4N8Xi9GV;V;NZ1
 Z6 OL;C;2020.2;71
 32
-Z7 !s110 1602978580
+Z7 !s110 1602983267
 !i10b 1
-Z8 !s108 1602978580.000000
+Z8 !s108 1602983267.000000
 Z9 !s90 -reportprogress|300|-work|work|ALU/ALU/add_sub_struct_1bit.vhd|
 Z10 !s107 ALU/ALU/add_sub_struct_1bit.vhd|
 !i113 0
@@ -54,7 +63,7 @@ Eadder
 Z13 w1602977087
 R2
 R3
-!i122 34
+!i122 35
 R0
 Z14 8PC/adder.vhd
 Z15 FPC/adder.vhd
@@ -64,9 +73,9 @@ VToFnz^=>A1?f]Doo7QkFi0
 !s100 benc0ma1j>]Eilg5Bd6H00
 R6
 32
-Z16 !s110 1602978584
+Z16 !s110 1602983272
 !i10b 1
-Z17 !s108 1602978584.000000
+Z17 !s108 1602983271.000000
 Z18 !s90 -reportprogress|300|-work|work|PC/adder.vhd|
 Z19 !s107 PC/adder.vhd|
 !i113 0
@@ -76,7 +85,7 @@ Aadder_arch
 R2
 R3
 DEx4 work 5 adder 0 22 ToFnz^=>A1?f]Doo7QkFi0
-!i122 34
+!i122 35
 l46
 L18 71
 VR3UXf44JzKffgCYO:j;2?1
@@ -95,7 +104,7 @@ Eadder_nbit_struct
 R13
 R2
 R3
-!i122 35
+!i122 36
 R0
 Z20 8PC/adder_nbit_struct.vhd
 Z21 FPC/adder_nbit_struct.vhd
@@ -107,9 +116,9 @@ R6
 32
 R16
 !i10b 1
-R17
-Z22 !s90 -reportprogress|300|-work|work|PC/adder_nbit_struct.vhd|
-Z23 !s107 PC/adder_nbit_struct.vhd|
+Z22 !s108 1602983272.000000
+Z23 !s90 -reportprogress|300|-work|work|PC/adder_nbit_struct.vhd|
+Z24 !s107 PC/adder_nbit_struct.vhd|
 !i113 0
 R11
 R12
@@ -117,7 +126,7 @@ Aadder_nbit_struct_arch
 R2
 R3
 DEx4 work 17 adder_nbit_struct 0 22 HWGml:`j8AQ7TllohgR0O2
-!i122 35
+!i122 36
 l34
 L20 41
 V8U991TQNDThJAb8[2V8QV0
@@ -126,21 +135,21 @@ R6
 32
 R16
 !i10b 1
-R17
 R22
 R23
+R24
 !i113 0
 R11
 R12
 Ealu1bit
 R1
-Z24 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z25 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R2
 R3
 !i122 20
 R0
-Z25 8ALU/ALU/ALU1bit.vhd
-Z26 FALU/ALU/ALU1bit.vhd
+Z26 8ALU/ALU/ALU1bit.vhd
+Z27 FALU/ALU/ALU1bit.vhd
 l0
 L7 1
 VUIjg34J2;l@o^cDKLWzhm3
@@ -150,13 +159,13 @@ R6
 R7
 !i10b 1
 R8
-Z27 !s90 -reportprogress|300|-work|work|ALU/ALU/ALU1bit.vhd|
-Z28 !s107 ALU/ALU/ALU1bit.vhd|
+Z28 !s90 -reportprogress|300|-work|work|ALU/ALU/ALU1bit.vhd|
+Z29 !s107 ALU/ALU/ALU1bit.vhd|
 !i113 0
 R11
 R12
 Aalu_arch
-R24
+R25
 R2
 R3
 DEx4 work 7 alu1bit 0 22 UIjg34J2;l@o^cDKLWzhm3
@@ -170,85 +179,85 @@ R6
 R7
 !i10b 1
 R8
-R27
 R28
+R29
 !i113 0
 R11
 R12
 Ealu32bit
-Z29 w1602799361
-Z30 DPx4 work 12 arraypackage 0 22 jozgoZ`<RMQK<Wbm:iRV=3
-Z31 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
-R24
+Z30 w1602982075
+Z31 DPx4 work 12 arraypackage 0 22 jozgoZ`<RMQK<Wbm:iRV=3
+Z32 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R25
 R2
 R3
 !i122 21
 R0
-Z32 8ALU/ALU/ALU32bit.vhd
-Z33 FALU/ALU/ALU32bit.vhd
+Z33 8ALU/ALU/ALU32bit.vhd
+Z34 FALU/ALU/ALU32bit.vhd
 l0
 L8 1
-V@aLab_aWZ3EN?iHbj`NdL2
-!s100 fS:=^4bFdLHePnk^HT<>53
+V:zFLh:X0bzSjlh3OTKgWj1
+!s100 L`?7lKdnc:Z@7ViFjLT@23
 R6
 32
 R7
 !i10b 1
 R8
-Z34 !s90 -reportprogress|300|-work|work|ALU/ALU/ALU32bit.vhd|
-Z35 !s107 ALU/ALU/ALU32bit.vhd|
+Z35 !s90 -reportprogress|300|-work|work|ALU/ALU/ALU32bit.vhd|
+Z36 !s107 ALU/ALU/ALU32bit.vhd|
 !i113 0
 R11
 R12
 Aalu32bit_arch
-R30
 R31
-R24
+R32
+R25
 R2
 R3
-DEx4 work 8 alu32bit 0 22 @aLab_aWZ3EN?iHbj`NdL2
+DEx4 work 8 alu32bit 0 22 :zFLh:X0bzSjlh3OTKgWj1
 !i122 21
-l98
-L25 154
-Vjaa@^6R=0X`Q_W9B2:Cem0
-!s100 k6oz<Fcfi[eQ9??f[d0V31
+l99
+L26 154
+V=TZB5T`<IYPd^ZLC:kR`m1
+!s100 U]Wc?;MOh<;kf_zH?;mg`1
 R6
 32
 R7
 !i10b 1
 R8
-R34
 R35
+R36
 !i113 0
 R11
 R12
 Ealucontroler
 R13
-R31
-R24
+R32
+R25
 R2
 R3
 !i122 26
 R0
-Z36 8ALUControl/ALUControler.vhd
-Z37 FALUControl/ALUControler.vhd
+Z37 8ALUControl/ALUControler.vhd
+Z38 FALUControl/ALUControler.vhd
 l0
 L7 1
 V=kFhW=fdWYgFdRPf]FX:h3
 !s100 iTn12l5j]A4H?EF=N_Oez3
 R6
 32
-Z38 !s110 1602978582
+Z39 !s110 1602983269
 !i10b 1
-Z39 !s108 1602978581.000000
-Z40 !s90 -reportprogress|300|-work|work|ALUControl/ALUControler.vhd|
-Z41 !s107 ALUControl/ALUControler.vhd|
+Z40 !s108 1602983269.000000
+Z41 !s90 -reportprogress|300|-work|work|ALUControl/ALUControler.vhd|
+Z42 !s107 ALUControl/ALUControler.vhd|
 !i113 0
 R11
 R12
 Aalucontrol_arch
-R31
-R24
+R32
+R25
 R2
 R3
 DEx4 work 12 alucontroler 0 22 =kFhW=fdWYgFdRPf]FX:h3
@@ -259,11 +268,11 @@ VE3M:91SIkm[nTLLk5hiCY1
 !s100 b<kdG]QMYoBAgOU`O_:3g3
 R6
 32
-R38
-!i10b 1
 R39
+!i10b 1
 R40
 R41
+R42
 !i113 0
 R11
 R12
@@ -271,21 +280,21 @@ Eandg2
 R13
 R2
 R3
-!i122 29
+!i122 30
 R0
-Z42 8PC/BasicGates/andg2.vhd
-Z43 FPC/BasicGates/andg2.vhd
+Z43 8PC/BasicGates/andg2.vhd
+Z44 FPC/BasicGates/andg2.vhd
 l0
-Z44 L23 1
+Z45 L23 1
 VQ@<<<@nlJ=eiIl4BJDFzW2
 !s100 YT?bGzEmcFo:DlnoC^B4_0
 R6
 32
-R38
+Z46 !s110 1602983270
 !i10b 1
-Z45 !s108 1602978582.000000
-Z46 !s90 -reportprogress|300|-work|work|PC/BasicGates/andg2.vhd|
-Z47 !s107 PC/BasicGates/andg2.vhd|
+Z47 !s108 1602983270.000000
+Z48 !s90 -reportprogress|300|-work|work|PC/BasicGates/andg2.vhd|
+Z49 !s107 PC/BasicGates/andg2.vhd|
 !i113 0
 R11
 R12
@@ -293,18 +302,18 @@ Adataflow
 R2
 R3
 DEx4 work 5 andg2 0 22 Q@<<<@nlJ=eiIl4BJDFzW2
-!i122 29
+!i122 30
 l32
-Z48 L31 6
+Z50 L31 6
 VJVOzCk?IH:iJ5bCRU`CK13
 !s100 I`@Z@UBObS]<7m8bPgKUS1
 R6
 32
-R38
-!i10b 1
-R45
 R46
+!i10b 1
 R47
+R48
+R49
 !i113 0
 R11
 R12
@@ -322,33 +331,33 @@ VjozgoZ`<RMQK<Wbm:iRV=3
 !s100 [5PX]JLSQRnWEm`m1MDDS0
 R6
 32
-!s110 1602978579
+!s110 1602983266
 !i10b 1
-!s108 1602978579.000000
+!s108 1602983266.000000
 !s90 -reportprogress|300|-work|work|ALU/ALU/arrayPackage.vhd|
 !s107 ALU/ALU/arrayPackage.vhd|
 !i113 0
 R11
 R12
 Ebslr
-R29
+Z51 w1602799361
 R2
 R3
 !i122 24
 R0
-Z49 8ALU/Barrel_Shifter/bsLR.vhd
-Z50 FALU/Barrel_Shifter/bsLR.vhd
+Z52 8ALU/Barrel_Shifter/bsLR.vhd
+Z53 FALU/Barrel_Shifter/bsLR.vhd
 l0
 L4 1
 VeVI_a>LI]eLN;g5b44LMR0
 !s100 Z:6]Li;KFm6Y?h<YJ?[5G3
 R6
 32
-Z51 !s110 1602978581
+Z54 !s110 1602983268
 !i10b 1
-R39
-Z52 !s90 -reportprogress|300|-work|work|ALU/Barrel_Shifter/bsLR.vhd|
-Z53 !s107 ALU/Barrel_Shifter/bsLR.vhd|
+Z55 !s108 1602983268.000000
+Z56 !s90 -reportprogress|300|-work|work|ALU/Barrel_Shifter/bsLR.vhd|
+Z57 !s107 ALU/Barrel_Shifter/bsLR.vhd|
 !i113 0
 R11
 R12
@@ -363,33 +372,57 @@ V=MN;K9YD4RLlXX1WcDKbl3
 !s100 z7^jcXCAeQT8fioBlbeIo1
 R6
 32
-R51
+R54
 !i10b 1
+R55
+R56
+R57
+!i113 0
+R11
+R12
+Econtrol
+w1602982569
+R32
+R25
+R2
+R3
+!i122 27
+R0
+8control/control.vhd
+Fcontrol/control.vhd
+l0
+L8 1
+V?XL6X`EKeB`1:_Z8]nDPF3
+!s100 :ICJb;E=BBj5b@9EVEGH?3
+R6
+32
 R39
-R52
-R53
+!i10b 1
+R40
+!s90 -reportprogress|300|-work|work|control/control.vhd|
+!s107 control/control.vhd|
 !i113 0
 R11
 R12
 Edecoder5to32_flow
-Z54 w1602796702
+Z58 w1602796702
 R2
 R3
-!i122 40
+!i122 41
 R0
-Z55 8registers/decoder5to32_flow.vhd
-Z56 Fregisters/decoder5to32_flow.vhd
+Z59 8registers/decoder5to32_flow.vhd
+Z60 Fregisters/decoder5to32_flow.vhd
 l0
 L6 1
 VIZR4z=WdmBb5[^EdHeQVo0
 !s100 elTCl8`@ac871NgPiC>>?2
 R6
 32
-Z57 !s110 1602978586
+Z61 !s110 1602983274
 !i10b 1
-Z58 !s108 1602978586.000000
-Z59 !s90 -reportprogress|300|-work|work|registers/decoder5to32_flow.vhd|
-Z60 !s107 registers/decoder5to32_flow.vhd|
+Z62 !s108 1602983273.000000
+Z63 !s90 -reportprogress|300|-work|work|registers/decoder5to32_flow.vhd|
+Z64 !s107 registers/decoder5to32_flow.vhd|
 !i113 0
 R11
 R12
@@ -397,18 +430,18 @@ Adecoder5to32_flow_arch
 R2
 R3
 DEx4 work 17 decoder5to32_flow 0 22 IZR4z=WdmBb5[^EdHeQVo0
-!i122 40
+!i122 41
 l18
 L15 40
 VaPCSQdDm=M<[PKSC[dLUL0
 !s100 B?e7?fCLWiAglgWdTm9JR0
 R6
 32
-R57
+R61
 !i10b 1
-R58
-R59
-R60
+R62
+R63
+R64
 !i113 0
 R11
 R12
@@ -416,21 +449,21 @@ Edff
 R13
 R2
 R3
-!i122 30
+!i122 31
 R0
-Z61 8PC/BasicGates/dff.vhd
-Z62 FPC/BasicGates/dff.vhd
+Z65 8PC/BasicGates/dff.vhd
+Z66 FPC/BasicGates/dff.vhd
 l0
 L21 1
 V<R:lmjjDXa`]L14ceUIAn3
 !s100 mT_OLTf8f1nD0BMVi`22Q3
 R6
 32
-Z63 !s110 1602978583
+R46
 !i10b 1
-Z64 !s108 1602978583.000000
-Z65 !s90 -reportprogress|300|-work|work|PC/BasicGates/dff.vhd|
-Z66 !s107 PC/BasicGates/dff.vhd|
+R47
+Z67 !s90 -reportprogress|300|-work|work|PC/BasicGates/dff.vhd|
+Z68 !s107 PC/BasicGates/dff.vhd|
 !i113 0
 R11
 R12
@@ -438,18 +471,18 @@ Amixed
 R2
 R3
 DEx4 work 3 dff 0 22 <R:lmjjDXa`]L14ceUIAn3
-!i122 30
+!i122 31
 l35
 L31 29
 VMe1[^^c?@jk=`6K1ZJFGM0
 !s100 j3C[YCFRW8M@3<JaVm8?<1
 R6
 32
-R63
+R46
 !i10b 1
-R64
-R65
-R66
+R47
+R67
+R68
 !i113 0
 R11
 R12
@@ -457,21 +490,21 @@ Eextender16bit_flow
 R1
 R2
 R3
-!i122 27
+!i122 28
 R0
-Z67 8extender/extender16bit_flow.vhd
-Z68 Fextender/extender16bit_flow.vhd
+Z69 8extender/extender16bit_flow.vhd
+Z70 Fextender/extender16bit_flow.vhd
 l0
 L4 1
 VED0F5c9=X^O91TijmdMB50
 !s100 i;S370i?3<;_ZzL8RaM5=3
 R6
 32
-R38
+R39
 !i10b 1
-R45
-Z69 !s90 -reportprogress|300|-work|work|extender/extender16bit_flow.vhd|
-Z70 !s107 extender/extender16bit_flow.vhd|
+R40
+Z71 !s90 -reportprogress|300|-work|work|extender/extender16bit_flow.vhd|
+Z72 !s107 extender/extender16bit_flow.vhd|
 !i113 0
 R11
 R12
@@ -479,50 +512,50 @@ Aextender16bit_flow_arch
 R2
 R3
 DEx4 work 18 extender16bit_flow 0 22 ED0F5c9=X^O91TijmdMB50
-!i122 27
+!i122 28
 l15
 L13 22
 VM^e5D@7bk^[oLBd_S_QQ?2
 !s100 Hg=[2GMVLokD7QDcA[6zU2
 R6
 32
-R38
+R39
 !i10b 1
-R45
-R69
-R70
+R40
+R71
+R72
 !i113 0
 R11
 R12
 Efullalu
-Z71 w1602800360
-R30
+Z73 w1602982079
 R31
-R24
+R32
+R25
 R2
 R3
 !i122 25
 R0
-Z72 8ALU/FullALU.vhd
-Z73 FALU/FullALU.vhd
+Z74 8ALU/FullALU.vhd
+Z75 FALU/FullALU.vhd
 l0
 L8 1
 VnhPLmJ=2Iz4]_fG6j9b?D2
 !s100 @1`3Mg=YiIgczbO1iNTUP1
 R6
 32
-R51
-!i10b 1
 R39
-Z74 !s90 -reportprogress|300|-work|work|ALU/FullALU.vhd|
-Z75 !s107 ALU/FullALU.vhd|
+!i10b 1
+R55
+Z76 !s90 -reportprogress|300|-work|work|ALU/FullALU.vhd|
+Z77 !s107 ALU/FullALU.vhd|
 !i113 0
 R11
 R12
 Afullalu_arch
-R30
 R31
-R24
+R32
+R25
 R2
 R3
 DEx4 work 7 fullalu 0 22 nhPLmJ=2Iz4]_fG6j9b?D2
@@ -533,36 +566,58 @@ VmZ;4UW0RK0HzUK@22nMiP3
 !s100 hbDESLRUmElM[?GZ?;4[12
 R6
 32
-R51
-!i10b 1
 R39
-R74
-R75
+!i10b 1
+R55
+R76
+R77
 !i113 0
 R11
 R12
 Eintegrateddatapath
-w1602978803
-R30
+Z78 w1602983233
 R31
-R24
+R32
+R25
 R2
 R3
-!i122 46
+!i122 44
 R0
-8IntegratedDatapath.vhd
-FIntegratedDatapath.vhd
+Z79 8IntegratedDatapath.vhd
+Z80 FIntegratedDatapath.vhd
 l0
 L8 1
 VD]n2W1c0mFTSUnRNP6?ZZ3
 !s100 zOI[QTKUDJLZ4m2?9G?Vj3
 R6
 32
-!s110 1602978831
+R61
 !i10b 1
-!s108 1602978831.000000
-!s90 -reportprogress|300|-work|work|IntegratedDatapath.vhd|
-!s107 IntegratedDatapath.vhd|
+Z81 !s108 1602983274.000000
+Z82 !s90 -reportprogress|300|-work|work|IntegratedDatapath.vhd|
+Z83 !s107 IntegratedDatapath.vhd|
+!i113 0
+R11
+R12
+Aintegrateddatapath_arch
+R31
+R32
+R25
+R2
+R3
+DEx4 work 18 integrateddatapath 0 22 D]n2W1c0mFTSUnRNP6?ZZ3
+!i122 44
+l238
+L26 359
+VkSFHjl6DaN8zGZ<AlzZiG0
+!s100 YMbKNlZ:BD6V`YHnQ^?HD3
+R6
+32
+R61
+!i10b 1
+R81
+R82
+R83
 !i113 0
 R11
 R12
@@ -570,21 +625,21 @@ Einvg
 R13
 R2
 R3
-!i122 31
+!i122 32
 R0
-Z76 8PC/BasicGates/invg.vhd
-Z77 FPC/BasicGates/invg.vhd
+Z84 8PC/BasicGates/invg.vhd
+Z85 FPC/BasicGates/invg.vhd
 l0
-R44
+R45
 VQ?6hb9ePk@>kZZ9k]hNSO3
 !s100 _XK?_^5z0Rm1<k12?;5R?2
 R6
 32
-R63
+Z86 !s110 1602983271
 !i10b 1
-R64
-Z78 !s90 -reportprogress|300|-work|work|PC/BasicGates/invg.vhd|
-Z79 !s107 PC/BasicGates/invg.vhd|
+R47
+Z87 !s90 -reportprogress|300|-work|work|PC/BasicGates/invg.vhd|
+Z88 !s107 PC/BasicGates/invg.vhd|
 !i113 0
 R11
 R12
@@ -592,61 +647,61 @@ Adataflow
 R2
 R3
 DEx4 work 4 invg 0 22 Q?6hb9ePk@>kZZ9k]hNSO3
-!i122 31
+!i122 32
 l31
 L30 6
 Vch>li:oKYZkCO5]GamViK1
 !s100 bk7I76o8e1LURdoZEQb8H0
 R6
 32
-R63
+R86
 !i10b 1
-R64
-R78
-R79
+R47
+R87
+R88
 !i113 0
 R11
 R12
 Emem
 R1
-R24
+R25
 R2
 R3
-!i122 28
+!i122 29
 R0
-Z80 8instructionMem/mem.vhd
-Z81 FinstructionMem/mem.vhd
+Z89 8instructionMem/mem.vhd
+Z90 FinstructionMem/mem.vhd
 l0
 L8 1
 VVZmF13E[ahLTP`DPg=NBH2
 !s100 7[hDmkRVN5;9iob_eMb3]3
 R6
 32
-R38
+R46
 !i10b 1
-R45
-Z82 !s90 -reportprogress|300|-work|work|instructionMem/mem.vhd|
-Z83 !s107 instructionMem/mem.vhd|
+R47
+Z91 !s90 -reportprogress|300|-work|work|instructionMem/mem.vhd|
+Z92 !s107 instructionMem/mem.vhd|
 !i113 0
 R11
 R12
 Artl
-R24
+R25
 R2
 R3
 DEx4 work 3 mem 0 22 VZmF13E[ahLTP`DPg=NBH2
-!i122 28
+!i122 29
 l37
 L27 24
 V`6^NbPhKNmSBg:`:Un8;g3
 !s100 OI8_3><BhDkT3l3n8`OXd3
 R6
 32
-R38
+R46
 !i10b 1
-R45
-R82
-R83
+R47
+R91
+R92
 !i113 0
 R11
 R12
@@ -654,10 +709,10 @@ Emux
 R13
 R2
 R3
-!i122 36
+!i122 37
 R0
-Z84 8PC/mux.vhd
-Z85 FPC/mux.vhd
+Z93 8PC/mux.vhd
+Z94 FPC/mux.vhd
 l0
 L4 1
 VRO`K4R:jIH6W;Z;93GCi00
@@ -666,9 +721,9 @@ R6
 32
 R16
 !i10b 1
-R17
-Z86 !s90 -reportprogress|300|-work|work|PC/mux.vhd|
-Z87 !s107 PC/mux.vhd|
+R22
+Z95 !s90 -reportprogress|300|-work|work|PC/mux.vhd|
+Z96 !s107 PC/mux.vhd|
 !i113 0
 R11
 R12
@@ -676,7 +731,7 @@ Amux_arch
 R2
 R3
 DEx4 work 3 mux 0 22 RO`K4R:jIH6W;Z;93GCi00
-!i122 36
+!i122 37
 l20
 L17 11
 VI6^agFR@:^3?PNPKfliR_1
@@ -685,31 +740,31 @@ R6
 32
 R16
 !i10b 1
-R17
-R86
-R87
+R22
+R95
+R96
 !i113 0
 R11
 R12
 Emux2
-R29
+R51
 R2
 R3
 !i122 22
 R0
-Z88 8ALU/Barrel_Shifter/mux2.vhd
-Z89 FALU/Barrel_Shifter/mux2.vhd
+Z97 8ALU/Barrel_Shifter/mux2.vhd
+Z98 FALU/Barrel_Shifter/mux2.vhd
 l0
 L4 1
 VU^1kimY^?2k`:<g:jGV6l1
 !s100 <<4K6bh4:7WL?5IMe=EP=2
 R6
 32
-R51
+R54
 !i10b 1
 R8
-Z90 !s90 -reportprogress|300|-work|work|ALU/Barrel_Shifter/mux2.vhd|
-Z91 !s107 ALU/Barrel_Shifter/mux2.vhd|
+Z99 !s90 -reportprogress|300|-work|work|ALU/Barrel_Shifter/mux2.vhd|
+Z100 !s107 ALU/Barrel_Shifter/mux2.vhd|
 !i113 0
 R11
 R12
@@ -724,43 +779,43 @@ VSiETIUz;gN5ZKl[VTPSOf1
 !s100 j>30H4GJCHm9llUjMeZf`2
 R6
 32
-R51
+R54
 !i10b 1
 R8
-R90
-R91
+R99
+R100
 !i113 0
 R11
 R12
 Emux_nbit_nbitto1_struct
-R54
-R30
+R58
 R31
-R24
+R32
+R25
 R2
 R3
 !i122 9
 R0
-Z92 8mux/mux_nbit_nbitto1_struct.vhd
-Z93 Fmux/mux_nbit_nbitto1_struct.vhd
+Z101 8mux/mux_nbit_nbitto1_struct.vhd
+Z102 Fmux/mux_nbit_nbitto1_struct.vhd
 l0
 L20 1
 VEmi<JPJP5<b2heQ2iR9H61
 !s100 Id`1JkWHfBK<IWN4IGTYU1
 R6
 32
-Z94 !s110 1602978577
+Z103 !s110 1602983264
 !i10b 1
-Z95 !s108 1602978577.000000
-Z96 !s90 -reportprogress|300|-work|work|mux/mux_nbit_nbitto1_struct.vhd|
-Z97 !s107 mux/mux_nbit_nbitto1_struct.vhd|
+Z104 !s108 1602983264.000000
+Z105 !s90 -reportprogress|300|-work|work|mux/mux_nbit_nbitto1_struct.vhd|
+Z106 !s107 mux/mux_nbit_nbitto1_struct.vhd|
 !i113 0
 R11
 R12
 Amux_nbit_nbitto1_struct_arch
-R30
 R31
-R24
+R32
+R25
 R2
 R3
 DEx4 work 23 mux_nbit_nbitto1_struct 0 22 Emi<JPJP5<b2heQ2iR9H61
@@ -771,11 +826,11 @@ VaB2G=6a[jQ]^YbNJVaXKG2
 !s100 21ZjEc`m^?60nEJQSL?jW1
 R6
 32
-R94
+R103
 !i10b 1
-R95
-R96
-R97
+R104
+R105
+R106
 !i113 0
 R11
 R12
@@ -783,21 +838,21 @@ Emux_nbit_struct
 R13
 R2
 R3
-!i122 37
+!i122 38
 R0
-Z98 8PC/mux_nbit_struct.vhd
-Z99 FPC/mux_nbit_struct.vhd
+Z107 8PC/mux_nbit_struct.vhd
+Z108 FPC/mux_nbit_struct.vhd
 l0
 L4 1
 VPVReK<O9FEm1_:m9E@N^K0
 !s100 ;6>I9?;9@m6g_aiRoAa0T0
 R6
 32
-Z100 !s110 1602978585
+R16
 !i10b 1
-R17
-Z101 !s90 -reportprogress|300|-work|work|PC/mux_nbit_struct.vhd|
-Z102 !s107 PC/mux_nbit_struct.vhd|
+R22
+Z109 !s90 -reportprogress|300|-work|work|PC/mux_nbit_struct.vhd|
+Z110 !s107 PC/mux_nbit_struct.vhd|
 !i113 0
 R11
 R12
@@ -805,40 +860,40 @@ Amux_nbit_struct_arch
 R2
 R3
 DEx4 work 15 mux_nbit_struct 0 22 PVReK<O9FEm1_:m9E@N^K0
-!i122 37
+!i122 38
 l28
 L17 26
 V^ngKZP8ZR[89PN:B_m7o<1
 !s100 _an8:GFh_T1@n8z^4@B4<1
 R6
 32
-R100
+R16
 !i10b 1
-R17
-R101
-R102
+R22
+R109
+R110
 !i113 0
 R11
 R12
 Enandg2
-Z103 w1602799594
+Z111 w1602799594
 R2
 R3
 !i122 4
 R0
-Z104 8BasicGates/nandg2.vhd
-Z105 FBasicGates/nandg2.vhd
+Z112 8BasicGates/nandg2.vhd
+Z113 FBasicGates/nandg2.vhd
 l0
-R44
+R45
 V1lMD;1hGRaSBZgg=UhDKB0
 !s100 mKL^4ED6[R@XnO:=i?0l?3
 R6
 32
-Z106 !s110 1602978576
+Z114 !s110 1602983263
 !i10b 1
-Z107 !s108 1602978576.000000
-Z108 !s90 -reportprogress|300|-work|work|BasicGates/nandg2.vhd|
-Z109 !s107 BasicGates/nandg2.vhd|
+Z115 !s108 1602983262.000000
+Z116 !s90 -reportprogress|300|-work|work|BasicGates/nandg2.vhd|
+Z117 !s107 BasicGates/nandg2.vhd|
 !i113 0
 R11
 R12
@@ -848,16 +903,16 @@ R3
 DEx4 work 6 nandg2 0 22 1lMD;1hGRaSBZgg=UhDKB0
 !i122 4
 l32
-R48
+R50
 V8UCd@O@zS_8Io:CJcEn4P3
 !s100 3lLAR>GU9G21VZj6J`]KC3
 R6
 32
-R106
+R114
 !i10b 1
-R107
-R108
-R109
+R115
+R116
+R117
 !i113 0
 R11
 R12
@@ -865,21 +920,21 @@ Eorg2
 R13
 R2
 R3
-!i122 32
+!i122 33
 R0
-Z110 8PC/BasicGates/org2.vhd
-Z111 FPC/BasicGates/org2.vhd
+Z118 8PC/BasicGates/org2.vhd
+Z119 FPC/BasicGates/org2.vhd
 l0
-R44
+R45
 VRgKUMS7h=BXRmVDdXe=[i3
 !s100 ;C23gd[m>G1k`R]<0A=1Y2
 R6
 32
-R63
+R86
 !i10b 1
-R64
-Z112 !s90 -reportprogress|300|-work|work|PC/BasicGates/org2.vhd|
-Z113 !s107 PC/BasicGates/org2.vhd|
+R17
+Z120 !s90 -reportprogress|300|-work|work|PC/BasicGates/org2.vhd|
+Z121 !s107 PC/BasicGates/org2.vhd|
 !i113 0
 R11
 R12
@@ -887,87 +942,87 @@ Adataflow
 R2
 R3
 DEx4 work 4 org2 0 22 RgKUMS7h=BXRmVDdXe=[i3
-!i122 32
+!i122 33
 l32
-R48
+R50
 VAd^eG4i8_aV4CfEL^O1C`3
 !s100 Ne3XdHCTS;:TbUTY<a>S<1
 R6
 32
-R63
+R86
 !i10b 1
-R64
-R112
-R113
+R17
+R120
+R121
 !i113 0
 R11
 R12
 Epc
-Z114 w1602978539
-R30
+Z122 w1602981498
 R31
-R24
+R32
+R25
 R2
 R3
-!i122 39
+!i122 40
 R0
-Z115 8PC/pc.vhd
-Z116 FPC/pc.vhd
+Z123 8PC/pc.vhd
+Z124 FPC/pc.vhd
 l0
 L10 1
-V7mfo]6GO>S`LB]T9zU9lP3
-!s100 6E<CE9og1T:m5UC04jooG1
+VQ1H<R`cZWTdTV0i97DOE>3
+!s100 6QOSiH;f0RHkhH:J0TBGb3
 R6
 32
-R100
+Z125 !s110 1602983273
 !i10b 1
-Z117 !s108 1602978585.000000
-Z118 !s90 -reportprogress|300|-work|work|PC/pc.vhd|
-Z119 !s107 PC/pc.vhd|
+R62
+Z126 !s90 -reportprogress|300|-work|work|PC/pc.vhd|
+Z127 !s107 PC/pc.vhd|
 !i113 0
 R11
 R12
 Apc_arch
-R30
 R31
-R24
+R32
+R25
 R2
 R3
-DEx4 work 2 pc 0 22 7mfo]6GO>S`LB]T9zU9lP3
-!i122 39
+DEx4 work 2 pc 0 22 Q1H<R`cZWTdTV0i97DOE>3
+!i122 40
 l77
-L28 99
-V^^_kALgLX7iRodVg]?7b[2
-!s100 PI<gi2TYZRd<D0UhMh7Rc1
+L28 112
+VRe]2VI<I6gYWBoZDcR03O1
+!s100 H]>DJha5g35F:Kg=I3HGn2
 R6
 32
-R100
+R125
 !i10b 1
-R117
-R118
-R119
+R62
+R126
+R127
 !i113 0
 R11
 R12
 Eregister_nbit_struct
-R54
+R58
 R2
 R3
-!i122 41
+!i122 42
 R0
-Z120 8registers/register_nbit_struct.vhd
-Z121 Fregisters/register_nbit_struct.vhd
+Z128 8registers/register_nbit_struct.vhd
+Z129 Fregisters/register_nbit_struct.vhd
 l0
 L4 1
 V9`bgMVdkg>PWm5[;:fU0G3
 !s100 R928S[GIQXVm2A;ZY0W3E0
 R6
 32
-R57
+R61
 !i10b 1
-R58
-Z122 !s90 -reportprogress|300|-work|work|registers/register_nbit_struct.vhd|
-Z123 !s107 registers/register_nbit_struct.vhd|
+R81
+Z130 !s90 -reportprogress|300|-work|work|registers/register_nbit_struct.vhd|
+Z131 !s107 registers/register_nbit_struct.vhd|
 !i113 0
 R11
 R12
@@ -975,87 +1030,87 @@ Aregister_nbit_struct_arch
 R2
 R3
 DEx4 work 20 register_nbit_struct 0 22 9`bgMVdkg>PWm5[;:fU0G3
-!i122 41
+!i122 42
 l34
 L21 35
 VHR^d4R6dePHTzO[j4g<]G3
 !s100 >JD4JF][:812Z=aHklJVM1
 R6
 32
-R57
+R61
 !i10b 1
-R58
-R122
-R123
+R81
+R130
+R131
 !i113 0
 R11
 R12
 Eregisterfile_nbit_struct
-R54
-R30
+R58
 R31
-R24
+R32
+R25
 R2
 R3
-!i122 42
+!i122 43
 R0
-Z124 8registers/registerFile_nbit_struct.vhd
-Z125 Fregisters/registerFile_nbit_struct.vhd
+Z132 8registers/registerFile_nbit_struct.vhd
+Z133 Fregisters/registerFile_nbit_struct.vhd
 l0
 L8 1
 V5il@YEWE_om;]DQ>ThXb<3
 !s100 ch7AGlS:`TFW<8;UE5adn0
 R6
 32
-R57
+R61
 !i10b 1
-R58
-Z126 !s90 -reportprogress|300|-work|work|registers/registerFile_nbit_struct.vhd|
-Z127 !s107 registers/registerFile_nbit_struct.vhd|
+R81
+Z134 !s90 -reportprogress|300|-work|work|registers/registerFile_nbit_struct.vhd|
+Z135 !s107 registers/registerFile_nbit_struct.vhd|
 !i113 0
 R11
 R12
 Aregisterfile_nbit_struct_arch
-R30
 R31
-R24
+R32
+R25
 R2
 R3
 DEx4 work 24 registerfile_nbit_struct 0 22 5il@YEWE_om;]DQ>ThXb<3
-!i122 42
+!i122 43
 l87
 L31 146
 V3PcalU]miRZK]2HNDcb<72
 !s100 9z2c1ZZ3BJ]1_bf;B@G@z3
 R6
 32
-R57
+R61
 !i10b 1
-R58
-R126
-R127
+R81
+R134
+R135
 !i113 0
 R11
 R12
 Ereverse
-R29
+R51
 R2
 R3
 !i122 23
 R0
-Z128 8ALU/Barrel_Shifter/reverse.vhd
-Z129 FALU/Barrel_Shifter/reverse.vhd
+Z136 8ALU/Barrel_Shifter/reverse.vhd
+Z137 FALU/Barrel_Shifter/reverse.vhd
 l0
 L5 1
 V5h?ZW`:4`oHH=<Gh9fDY]2
 !s100 N46_d`J3?@Ej]J2Y4nl1L2
 R6
 32
-R51
+R54
 !i10b 1
-R39
-Z130 !s90 -reportprogress|300|-work|work|ALU/Barrel_Shifter/reverse.vhd|
-Z131 !s107 ALU/Barrel_Shifter/reverse.vhd|
+R55
+Z138 !s90 -reportprogress|300|-work|work|ALU/Barrel_Shifter/reverse.vhd|
+Z139 !s107 ALU/Barrel_Shifter/reverse.vhd|
 !i113 0
 R11
 R12
@@ -1070,11 +1125,54 @@ V;A8S>g=4H<hd7QOaE2<9I2
 !s100 7GTT`>zmXRG^XQhSmHnST0
 R6
 32
-R51
+R54
 !i10b 1
-R39
-R130
-R131
+R55
+R138
+R139
+!i113 0
+R11
+R12
+Etb_integrateddatapath
+R58
+R25
+R2
+R3
+!i122 45
+R0
+Z140 8tb_IntegratedDatapath.vhd
+Z141 Ftb_IntegratedDatapath.vhd
+l0
+L6 1
+VfMTc;@cF05QAFD@k^LbS11
+!s100 W;jbOL@Vbio<VI4MV8^@O1
+R6
+32
+Z142 !s110 1602983275
+!i10b 1
+Z143 !s108 1602983275.000000
+Z144 !s90 -reportprogress|300|-work|work|tb_IntegratedDatapath.vhd|
+Z145 !s107 tb_IntegratedDatapath.vhd|
+!i113 0
+R11
+R12
+Abehavior
+R25
+R2
+R3
+DEx4 work 21 tb_integrateddatapath 0 22 fMTc;@cF05QAFD@k^LbS11
+!i122 45
+l40
+L10 802
+VIUWn0T7Snk;cWo8Z1XVZ12
+!s100 MA8FblK@V<ia9_g<Vf7zi3
+R6
+32
+R142
+!i10b 1
+R143
+R144
+R145
 !i113 0
 R11
 R12
@@ -1082,21 +1180,21 @@ Exorg2
 R13
 R2
 R3
-!i122 33
+!i122 34
 R0
-Z132 8PC/BasicGates/xorg2.vhd
-Z133 FPC/BasicGates/xorg2.vhd
+Z146 8PC/BasicGates/xorg2.vhd
+Z147 FPC/BasicGates/xorg2.vhd
 l0
-R44
+R45
 V;hb`C0MKik;h36`3`SzM60
 !s100 [hI[mXFH4_j16U;>U1Lfn2
 R6
 32
-R16
+R86
 !i10b 1
-R64
-Z134 !s90 -reportprogress|300|-work|work|PC/BasicGates/xorg2.vhd|
-Z135 !s107 PC/BasicGates/xorg2.vhd|
+R17
+Z148 !s90 -reportprogress|300|-work|work|PC/BasicGates/xorg2.vhd|
+Z149 !s107 PC/BasicGates/xorg2.vhd|
 !i113 0
 R11
 R12
@@ -1104,18 +1202,18 @@ Adataflow
 R2
 R3
 DEx4 work 5 xorg2 0 22 ;hb`C0MKik;h36`3`SzM60
-!i122 33
+!i122 34
 l32
-R48
+R50
 VbmLohbkYjJQ`?EHUY>LoL1
 !s100 Z6[FAPS4fBLB`F?OO<AY72
 R6
 32
-R16
+R86
 !i10b 1
-R64
-R134
-R135
+R17
+R148
+R149
 !i113 0
 R11
 R12

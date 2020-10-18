@@ -26,26 +26,24 @@ end IntegratedDatapath;
 architecture IntegratedDatapath_arch of IntegratedDatapath is
 
     --signals
-signal func_select  : std_logic_vector(0 to data_size);
-signal internal_reg_we  : std_logic_vector(0 to data_size);
-
-
+signal func_select  : std_logic_vector(0 to 5);
+signal internal_reg_we  : std_logic;
 
 signal ALU_ib                           : std_logic_vector(0 to data_size);
-signal ALU_ib                           : std_logic_vector(0 to data_size);
-signal ALU_ctl                          : std_logic_vector(0 to data_size);
+--signal ALU_ib                           : std_logic_vector(0 to data_size);
+signal ALU_ctl                          : std_logic_vector(0 to 3);
 signal ALU_sum                          : std_logic_vector(0 to data_size);
 signal nothingTwo                       : std_logic;    
 signal nothing                          : std_logic;
 signal zero                             : std_logic;
-signal ALU_sum                          : std_logic_vector(0 to data_size);
+--signal ALU_sum                          : std_logic_vector(0 to data_size);
 signal ALU_sum_bottom_10                : std_logic_vector(0 to 9);           
 signal internal_mem_we                  : std_logic;     
 signal data_read                        : std_logic_vector(0 to data_size);   
+signal reg_dst					: std_logic;
+signal ALUOpIn				: std_logic_vector(0 to 3);   
 
-
-
-
+signal PCnumber                         : std_logic_vector(0 to 11);   
 
 
 
@@ -115,12 +113,17 @@ signal data_read                        : std_logic_vector(0 to data_size);
         end component;
 
 
-        component ALUcontrol
+        component ALUControler
             port(  
-                i_instructions          : in std_logic_vector(0 to 5);
-                ALUctl_signal           : in std_logic_vector(0 to 4);
-        
-                ALUOpIn                 : in std_logic_vector(0 to 4)
+
+    			opcode				  : in std_logic_vector(0 to 5);
+			funct				  : in std_logic_vector(0 to 5);
+	
+    			ALUControl           			: out std_logic_vector(0 to 3);
+			IsUnsigned               		: out std_logic
+
+
+
                 );
         end component;
 
@@ -220,9 +223,9 @@ signal data_read                        : std_logic_vector(0 to data_size);
             port(  
                 i_branch                : in std_logic;
                 i_zero                  : in std_logic;
-                i_immedate              : in std_logic_vector(0 to 31);
+                i_immedate              : in std_logic_vector(0 to 25);
 
-                o_instruction_number    : out std_logic_vector(0 to 31)
+                o_instruction_number    : out std_logic_vector(0 to 11)
 
             );
         end component;
@@ -296,7 +299,7 @@ signal data_read                        : std_logic_vector(0 to data_size);
         port map(
             in_ia             => internal_rs,
             in_ib             => ALU_ib,
-            in_ctl       	  => ALU_ctl,
+            in_ctl       	  => ALUOpIn,
 			
             out_data          => ALU_sum,
 			out_overflow	  => nothingTwo,
@@ -330,13 +333,13 @@ signal data_read                        : std_logic_vector(0 to data_size);
 
 
 
-    programCounter: pc
-        port(  
+    counter: pc
+        port map(  
             i_branch                => branch,
             i_zero                  => zero,
-            i_immedate              => instruction(25 to 0),
+            i_immedate              => instruction(0 to 25),
 
-            o_instruction_number    => pc
+            o_instruction_number    => PCnumber
 
     );
 
@@ -346,14 +349,14 @@ signal data_read                        : std_logic_vector(0 to data_size);
     imem: mem
         port map(
                 clk	        => i_CLK,
-                addr	    => pc,
+                addr	    => PCnumber(0 to 9),
                 data	    => instruction,
-                we		    => 0 
+                we		    => '0' 
     );
 
     ctl: control
-    port(  
-        i_instructions          => instruction(31 to 26),
+    port map(  
+        i_instructions          => instruction(26 to 31),
 
 
         regDst                  => regDst,
@@ -367,12 +370,12 @@ signal data_read                        : std_logic_vector(0 to data_size);
     );
 
 
-    ALUctl: ALUcontrol
-    port(  
-        i_instructions          => instruction(5 to 0),
-        ALUctl_signal           => ALUOp, ---not sure how large of a signal
+    ALUctl: ALUControler
+	port map( 
+        opcode          => instruction(26 to 31),
+        funct           => instruction(0 to 5),
 
-        ALUOpIn                 => ALUOpIn --4 bit
+        ALUControl                 => ALUOpIn --4 bit
     );
 
 

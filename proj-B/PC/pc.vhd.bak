@@ -11,12 +11,12 @@ entity pc is
     port(  
         i_branch                : in std_logic;
         i_zero                  : in std_logic;
-        i_immedate              : in std_logic_vector(0 to 31);
+        i_immedate              : in std_logic_vector(0 to 25);
 
 
 
 
-        o_instruction_number    : out std_logic_vector(0 to 31)
+        o_instruction_number    : out std_logic_vector(0 to 12)
 
 
     );
@@ -77,6 +77,11 @@ architecture pc_arch of pc is
 begin
 
 
+
+	o_instruction_number <= last_counter(19 to 31);
+
+
+
     branch_or_add <= i_branch and i_zero;
 
 
@@ -90,8 +95,16 @@ begin
 
 
     --TODO I need to figure out how to shift this
+	shifted_input(31) <= '0';
+	shifted_input(30) <= '0';
+	    G1:  for j in 0 to 25 generate
+        		shifted_input(j+4) <= i_immedate(j);
+    		end generate;
+	    G2:  for j in 0 to 3 generate
+        		shifted_input(j) <= last_counter(j);
+    		end generate;
     
-	shifted_input <= std_logic_vector(shift_left(unsigned(i_immedate)), 2); 
+
 
 
     -- add the input and the shifted value 

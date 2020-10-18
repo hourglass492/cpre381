@@ -6,6 +6,7 @@ use IEEE.math_real.all;
 use work.arrayPackage.all;
 
 entity ALU32Bit is
+    generic(data_size : integer := 31);
   port(
      
     in_ia              : in std_logic_vector(0 to data_size);

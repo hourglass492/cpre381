@@ -55,6 +55,8 @@ vcom -work work arrayPackage.vhd
 
 #TODO
 #do Control/compile.do
+	vcom -work work control/control.vhd
+
 
 #do extender/compile.do
     vcom -work work extender/extender16bit_flow.vhd
@@ -92,3 +94,4 @@ vcom -work work arrayPackage.vhd
 vcom -work work IntegratedDatapath.vhd
 vcom -work work tb_IntegratedDatapath.vhd
 
+vsim work.IntegratedDatapath
