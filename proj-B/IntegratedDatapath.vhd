@@ -26,6 +26,36 @@ end IntegratedDatapath;
 architecture IntegratedDatapath_arch of IntegratedDatapath is
 
     --signals
+"func_select".
+internal_reg_we".
+
+
+
+
+"ALU_ib".
+
+
+"ALU_ib".
+
+"ALU_ctl".
+
+"ALU_sum".
+"nothingTwo".
+"nothing".
+"zero".
+"data_read".
+"ALU_sum".
+"ALU_sum_bottom_10".
+"internal_mem_we".
+"data_read".
+
+
+
+
+
+
+
+
 
 
         --constants start
