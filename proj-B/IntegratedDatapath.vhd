@@ -26,28 +26,22 @@ end IntegratedDatapath;
 architecture IntegratedDatapath_arch of IntegratedDatapath is
 
     --signals
-"func_select".
-internal_reg_we".
+signal func_select  : std_logic_vector(0 to data_size);
+signal internal_reg_we  : std_logic_vector(0 to data_size);
 
 
 
-
-"ALU_ib".
-
-
-"ALU_ib".
-
-"ALU_ctl".
-
-"ALU_sum".
-"nothingTwo".
-"nothing".
-"zero".
-"data_read".
-"ALU_sum".
-"ALU_sum_bottom_10".
-"internal_mem_we".
-"data_read".
+signal ALU_ib                           : std_logic_vector(0 to data_size);
+signal ALU_ib                           : std_logic_vector(0 to data_size);
+signal ALU_ctl                          : std_logic_vector(0 to data_size);
+signal ALU_sum                          : std_logic_vector(0 to data_size);
+signal nothingTwo                       : std_logic;    
+signal nothing                          : std_logic;
+signal zero                             : std_logic;
+signal ALU_sum                          : std_logic_vector(0 to data_size);
+signal ALU_sum_bottom_10                : std_logic_vector(0 to 9);           
+signal internal_mem_we                  : std_logic;     
+signal data_read                        : std_logic_vector(0 to data_size);   
 
 
 
