@@ -204,17 +204,16 @@ signal PCnumber                         : std_logic_vector(0 to 11);
 
         component control
             port(  
-                i_instructions          : in std_logic_vector(0 to 5);
+     
+    		opcode				  : in std_logic_vector(0 to 5);
 
-
-                regDst                  : out std_logic;
-                branch                  : out std_logic;
-                memRead                 : out std_logic;
-                memToReg                : out std_logic;
-                ALUOp                   : out std_logic_vector(0 to 4);
-                memWrite                : out std_logic;
-                ALUSrc                  : out std_logic;
-                RegWrite                : out std_logic
+    		ALUControl            : out std_logic_vector(0 to 5);
+    		ALUSrc        		  : out std_logic;
+    		MemtoReg           	  : out std_logic;
+    		s_DMemWr              : out std_logic;
+		s_RegWr               : out std_logic;
+		s_Lui                 : out std_logic;
+		RegDst                : out std_logic
 
             );
         end component;
@@ -356,22 +355,23 @@ signal PCnumber                         : std_logic_vector(0 to 11);
 
     ctl: control
     port map(  
-        i_instructions          => instruction(26 to 31),
 
+     
+    	opcode			=> instruction(26 to 31),
 
-        regDst                  => regDst,
-        branch                  => branch,
-        memRead                 => memRead,
-        memToReg                => memToReg,
-        ALUOp                   => ALUOp,
-        memWrite                => memWrite,
-        ALUSrc                  => ALUSrc,
-        RegWrite                => RegWrite
+    	ALUControl            => ALUOp,
+    	ALUSrc        		=> ALUSrc,
+    	MemtoReg           	=> memToReg,
+    	s_DMemWr              => memWrite,
+	s_RegWr               => RegWrite,
+	--s_Lui                 : out std_logic;
+	RegDst                => regDst
+           
     );
 
 
     ALUctl: ALUControler
-
+	port map( 
         opcode          => instruction(26 to 31),
         funct           => instruction(0 to 5),
 

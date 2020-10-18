@@ -41,6 +41,8 @@ end control;
 
 architecture controlArch of control is
 begin
+
+	-- still need     branch
 	ALUControl <= opcode;
 	
 	ALUSrc <= '0' when (opcode = "000000") else
