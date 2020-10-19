@@ -55,6 +55,8 @@ vcom -work work arrayPackage.vhd
 
 #TODO
 #do Control/compile.do
+	vcom -work work control/control.vhd
+
 
 #do extender/compile.do
     vcom -work work extender/extender16bit_flow.vhd

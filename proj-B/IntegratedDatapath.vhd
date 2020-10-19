@@ -10,12 +10,6 @@ entity IntegratedDatapath is
   generic(gCLK_HPER   : time := 50 ns; log2_Of_num_of_inputs : integer := 4; N : integer := 31);
   port(
      
-    in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
-    in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
-    in_select_rt       : in std_logic_vector(0 to log2_Of_num_of_inputs);
-    in_immedate_value  : in std_logic_vector(0 to 15);
-    in_ctl             : in std_logic_vector(0 to 3);
-
     i_CLK              : in std_logic;
     i_RST              : in std_logic
 
@@ -262,7 +256,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
     extender: extender16bit_flow
         port map(
             i_control    => low,     -- 0 to extend sign, 1 to extend 0's
-            i_D          => in_immedate_value,     -- Data input
+            i_D          => internal_raw_immidates,     -- Data input
             o_Q          => internal_imm 
     );
 
@@ -272,9 +266,9 @@ signal PCnumber                         : std_logic_vector(0 to 11);
     reg: registerFile_nbit_struct
         port map(
             i_rd               => register_write_data, --value to load
-            in_select_rs       => in_select_rs, -- next 3 select the register to pull from for each value
-            in_select_rt       => in_select_rt,
-            in_select_rd       => in_select_rd,
+            in_select_rs       => rs_select, -- next 3 select the register to pull from for each value
+            in_select_rt       => rt_select,
+            in_select_rd       => rd_select,
             i_WE               => internal_reg_we,
             i_CLK              => i_CLK,
             i_RST              => i_RST,
