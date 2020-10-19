@@ -357,7 +357,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
     	--ALUControl            => ALUOp,
     	ALUSrc        		=> ALUSrc,
     	MemtoReg           	=> memToReg,
-    	s_DMemWr              => memWrite,
+    	s_DMemWr              => internal_mem_we,
 	s_RegWr               => RegWrite,
 	--s_Lui                 : out std_logic;
 	RegDst                => regDst
