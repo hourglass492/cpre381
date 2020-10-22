@@ -95,3 +95,6 @@ vcom -work work IntegratedDatapath.vhd
 vcom -work work tb_IntegratedDatapath.vhd
 
 vsim work.IntegratedDatapath
+
+
+force -freeze sim:/integrateddatapath/i_CLK 1 0, 0 {50 ns} -r 100

@@ -1,5 +1,5 @@
 Model Technology ModelSim SE-64 vcom 2020.2 Compiler 2020.04 Apr 19 2020
-Start time: 18:05:28 on Oct 18,2020
+Start time: 16:21:12 on Oct 22,2020
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -14,11 +14,52 @@ vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd
 -- Compiling architecture rtl of mem
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
--- Compiling entity tb_IntegratedDatapath
--- Compiling architecture behavior of tb_IntegratedDatapath
--- Loading package std_logic_textio
--- Loading package ENV
--- Compiling entity tb_SimplifiedMIPSProcessor
--- Compiling architecture mixed of tb_SimplifiedMIPSProcessor
-End time: 18:05:29 on Oct 18,2020, Elapsed time: 0:00:01
-Errors: 0, Warnings: 0
+** Error: ModelSimWork/src/MIPS_Processor.vhd(71): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(71): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(74): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(74): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(81): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(81): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(98): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(98): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(99): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(99): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(100): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(100): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(101): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(101): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(105): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(105): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(106): (vcom-1136) Unknown identifier "log2_Of_num_of_inputs".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(106): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(107): (vcom-1136) Unknown identifier "log2_Of_num_of_inputs".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(107): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(108): (vcom-1136) Unknown identifier "log2_Of_num_of_inputs".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(108): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(124): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(124): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(125): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(125): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(126): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(126): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(127): (vcom-1136) Unknown identifier "data_size".
+** Error: ModelSimWork/src/MIPS_Processor.vhd(127): Type error in range expression.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(171): near "architecture": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(179): near "in": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(180): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(180): near "in": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(181): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(181): near "in": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(182): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(182): near "in": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(183): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(183): near "in": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(184): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(184): near "in": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(187): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(187): near "out": syntax error
+** Error: ModelSimWork/src/MIPS_Processor.vhd(188): Statement cannot be labeled.
+** Error: ModelSimWork/src/MIPS_Processor.vhd(188): near "out": syntax error
+** Note: ModelSimWork/src/tb_IntegratedDatapath.vhd(1): VHDL Compiler exiting
+End time: 16:21:12 on Oct 22,2020, Elapsed time: 0:00:00
+Errors: 46, Warnings: 0
