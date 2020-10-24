@@ -263,7 +263,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
                 i_zero                  : in std_logic;
                 i_immedate              : in std_logic_vector(0 to 25);
 
-                o_instruction_number    : out std_logic_vector(0 to 11)
+                o_instruction_number    : out std_logic_vector(0 to N-1)
 
             );
         end component;
