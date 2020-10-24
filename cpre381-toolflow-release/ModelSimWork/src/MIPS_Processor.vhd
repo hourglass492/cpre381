@@ -68,19 +68,19 @@ architecture structure of MIPS_Processor is
 signal func_select  : std_logic_vector(0 to 5);
 signal internal_reg_we  : std_logic;
 
-signal ALU_ib                           : std_logic_vector(0 to data_size);
---signal ALU_ib                           : std_logic_vector(0 to data_size);
+signal ALU_ib                           : std_logic_vector(0 to N-1);
+--signal ALU_ib                           : std_logic_vector(0 to N-1);
 signal ALU_ctl                          : std_logic_vector(0 to 3);
-signal ALU_sum                          : std_logic_vector(0 to data_size);
+signal ALU_sum                          : std_logic_vector(0 to N-1);
 signal nothingTwo                       : std_logic;    
 signal nothing                          : std_logic;
 signal zero                             : std_logic;
---signal ALU_sum                          : std_logic_vector(0 to data_size);
+--signal ALU_sum                         : std_logic_vector(0 to N-1);
 signal ALU_sum_bottom_10                : std_logic_vector(0 to 9);           
 signal internal_mem_we                  : std_logic;     
-signal data_read                        : std_logic_vector(0 to data_size);   
-signal reg_dst					: std_logic;
-signal ALUOpIn				: std_logic_vector(0 to 3);   
+signal data_read                        : std_logic_vector(0 to N-1);
+signal reg_dst							: std_logic;
+signal ALUOpIn							: std_logic_vector(0 to 3);   
 
 signal PCnumber                         : std_logic_vector(0 to 11);   
 
@@ -95,17 +95,17 @@ signal PCnumber                         : std_logic_vector(0 to 11);
         --constants end
 
         -- register inputs and immidates
-            signal internal_rs                 : std_logic_vector(0 to data_size);
-            signal internal_rt                 : std_logic_vector(0 to data_size);
-            signal register_write_data                 : std_logic_vector(0 to data_size);
-            signal internal_imm                : std_logic_vector(0 to data_size);
+            signal internal_rs                 : std_logic_vector(0 to N-1);
+            signal internal_rt                 : std_logic_vector(0 to N-1);
+            signal register_write_data                 : std_logic_vector(0 to N-1);
+            signal internal_imm                : std_logic_vector(0 to N-1);
         -- register inputs and immidates end
 
         -- binary blob to signals start
-            signal instruction                    : std_logic_vector(0 to data_size);
-            signal rs_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
-            signal rt_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
-            signal rd_select                   : std_logic_vector(0 to log2_Of_num_of_inputs);
+            signal instruction                    : std_logic_vector(0 to N-1);
+            signal rs_select                   : std_logic_vector(0 to 4);
+            signal rt_select                   : std_logic_vector(0 to 4);
+            signal rd_select                   : std_logic_vector(0 to 4);
             signal internal_raw_immidates      : std_logic_vector(0 to 15);
         -- binary blob to signals end
 
@@ -121,71 +121,31 @@ signal PCnumber                         : std_logic_vector(0 to 11);
         --ctl signals end 
 
         -- buses start
-            signal ALU2ndInput                         : std_logic_vector(0 to data_size);
-            signal programCounter                      : std_logic_vector(0 to data_size);
-            signal ALUOutput                           : std_logic_vector(0 to data_size);
-            signal memoryOutput                        : std_logic_vector(0 to data_size);
+            signal ALU2ndInput                         : std_logic_vector(0 to N-1);
+            signal programCounter                      : std_logic_vector(0 to N-1);
+            signal ALUOutput                           : std_logic_vector(0 to N-1);
+            signal memoryOutput                        : std_logic_vector(0 to N-1);
         -- buses end
 
 
     
     -- end signal
-
-begin
-
-  -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
-  with iInstLd select
-    s_IMemAddr <= s_NextInstAddr when '0',
-      iInstAddr when others;
-
-
-  IMem: mem
-    generic map(ADDR_WIDTH => 10,
-                DATA_WIDTH => N)
-    port map(clk  => iCLK,
-             addr => s_IMemAddr(11 downto 2),
-             data => iInstExt,
-             we   => iInstLd,
-             q    => s_Inst);
-  
-  DMem: mem
-    generic map(ADDR_WIDTH => 10,
-                DATA_WIDTH => N)
-    port map(clk  => iCLK,
-             addr => s_DMemAddr(11 downto 2),
-             data => s_DMemData,
-             we   => s_DMemWr,
-             q    => s_DMemOut);
-
-  s_Halt <='1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
-
-  -- TODO: Implement the rest of your processor below this comment! 
-  
-  
-  
-  
-  
-  
-  
-  
- architecture IntegratedDatapath_arch of IntegratedDatapath is
-
-    
-
+	
+	
     --components
         component registerFile_nbit_struct
             port(
-                i_rd                       : in std_logic_vector(0 to N);
-                in_select_rs               : in std_logic_vector(0 to log2_Of_num_of_inputs);
-                in_select_rt               : in std_logic_vector(0 to log2_Of_num_of_inputs);
-                in_select_rd               : in std_logic_vector(0 to log2_Of_num_of_inputs);
+                i_rd                       : in std_logic_vector(0 to N-1);
+                in_select_rs               : in std_logic_vector(0 to 4);
+                in_select_rt               : in std_logic_vector(0 to 4);
+                in_select_rd               : in std_logic_vector(0 to 4);
                 i_WE                       : in std_logic;
                 i_CLK                      : in std_logic;
                 i_RST                      : in std_logic;
             
             
-                o_rt                       : out std_logic_vector(0 to N);
-                o_rs                       : out std_logic_vector(0 to N)
+                o_rt                       : out std_logic_vector(0 to N-1);
+                o_rs                       : out std_logic_vector(0 to N-1)
 
 
                 );
@@ -217,10 +177,10 @@ begin
                 
 
 
-                i_a             : in std_logic_vector(0 to N);
-                i_b             : in std_logic_vector(0 to N);
+                i_a             : in std_logic_vector(0 to N-1);
+                i_b             : in std_logic_vector(0 to N-1);
                 i_carry         : in std_logic;
-                o_sum           : out std_logic_vector(0 to N);
+                o_sum           : out std_logic_vector(0 to N-1);
                 o_carry         : out std_logic
 
                 );
@@ -229,15 +189,15 @@ begin
 
 
         component FullALU
-            generic(data_size : integer := 31);
+            generic(N : integer := 31);
             port(
                 
-                in_ia              : in std_logic_vector(0 to data_size);
-                in_ib              : in std_logic_vector(0 to data_size);
+                in_ia              : in std_logic_vector(0 to N-1);
+                in_ib              : in std_logic_vector(0 to N-1);
                 in_ctl             : in std_logic_vector(0 to 3);
 
 
-                out_data            : out std_logic_vector(0 to data_size);
+                out_data            : out std_logic_vector(0 to N-1);
                 out_overflow        : out std_logic;
                 out_carry           : out std_logic;
                 out_zero            : out std_logic
@@ -250,25 +210,25 @@ begin
 
         component mux_nbit_struct
             port(
-                i_a             : in std_logic_vector(0 to N);
-                i_b             : in std_logic_vector(0 to N);
+                i_a             : in std_logic_vector(0 to N-1);
+                i_b             : in std_logic_vector(0 to N-1);
                 i_select        : in std_logic;
-                o_z             : out std_logic_vector(0 to N)
+                o_z             : out std_logic_vector(0 to N-1)
 
 
                 );
         end component;
 
-        component mem
-            port(  
-                signal clk	    : in std_logic;
-                signal addr	    : in std_logic_vector(9 downto 0);
-                signal data	    : in std_logic_vector(N downto 0);
-                signal we		: in std_logic;
-                signal q		: out std_logic_vector(N downto 0)
+--        component mem
+--            port(  
+--                signal clk	    : in std_logic;
+--                signal addr	    : in std_logic_vector(9 downto 0);
+--                signal data	    : in std_logic_vector(N downto 0);
+--                signal we		: in std_logic;
+--                signal q		: out std_logic_vector(N downto 0)
 
-            );
-        end component;
+--            );
+--        end component;
 
         component extender16bit_flow
             port(  
@@ -310,10 +270,51 @@ begin
 
     --end components
 
+begin
+
+  -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
+  with iInstLd select
+    s_IMemAddr <= s_NextInstAddr when '0',
+      iInstAddr when others;
+
+
+  IMem: mem
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_IMemAddr(11 downto 2),
+             data => iInstExt,
+             we   => iInstLd,
+             q    => s_Inst);
+  
+  DMem: mem
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_DMemAddr(11 downto 2),
+             data => s_DMemData,
+             we   => s_DMemWr,
+             q    => s_DMemOut);
+
+  s_Halt <='1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
+
+  -- TODO: Implement the rest of your processor below this comment! 
+  
+  
+  
+  
+  
+  
+  
+  
+ --architecture IntegratedDatapath_arch of MIPS_Processor is
+
+  
 
 
 
-    begin
+
+    --begin
 
    
     -- instruction binary to signals
@@ -400,14 +401,14 @@ begin
     end generate;
 
 
-    dmem: mem
-        port map(
-                clk	        => i_CLK,
-                addr	    => ALU_sum_bottom_10,
-                data	    => internal_rt,
-                we		    => internal_mem_we ,
-                q		    => data_read
-    );
+--    dmem: mem
+--        port map(
+--                clk	        => i_CLK,
+--                addr	    => ALU_sum_bottom_10,
+--                data	    => internal_rt,
+--                we		    => internal_mem_we ,
+--                q		    => data_read
+--    );
 
 
 
@@ -424,13 +425,13 @@ begin
 
 
 
-    imem: mem
-        port map(
-                clk	        => i_CLK,
-                addr	    => PCnumber(0 to 9),
-                data	    => instruction,
-                we		    => '0' 
-    );
+--    imem: mem
+--        port map(
+--                clk	        => i_CLK,
+--                addr	    => PCnumber(0 to 9),
+--                data	    => instruction,
+--                we		    => '0' 
+--    );
 
     ctl: control
     port map(  
@@ -460,18 +461,24 @@ begin
 
 
 -- signal remapping
-oALUOut <= ALU_sum;
+-- reverse signals
+gen32: for i in 0 to 31 generate
+	oALUOut(i) <= ALU_sum(31-i);
+	s_DMemAddr(i) <= ALU_sum(31-i);--????
+	s_DMemData(i) <= internal_rt(31-i);
+	s_DMemOut(i) <= data_read(31-i);
+	s_RegWrData(i) <= register_write_data(31-i);
+	s_NextInstAddr(i) <= PCnumber(31-i); --????
+	s_Inst(i) <= instruction(31-i);
+end generate;
+
 s_DMemWr <= internal_mem_we;
-s_DMemAddr <= ALU_sum; --????
-s_DMemData <= internal_rt;
-s_DMemOut <= data_read;
-
 s_RegWr <= regWrite;
-s_RegWrAddr <= in_select_rd;
-s_RegWrData <= register_write_data;
 
-s_NextInstAddr <= PCnumber; --????
-s_Inst <= instruction;
+gen4: for i in 0 to 4 generate
+	s_RegWrAddr(i) <= in_select_rd(4-i);
+end generate;
+
 -- TODO: implement hault v0 <= internal_rt; --????
 
   
