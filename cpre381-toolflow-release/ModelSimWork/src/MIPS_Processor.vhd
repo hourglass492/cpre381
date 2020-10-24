@@ -82,7 +82,7 @@ signal data_read                        : std_logic_vector(0 to N-1);
 signal reg_dst							: std_logic;
 signal ALUOpIn							: std_logic_vector(0 to 3);   
 
-signal PCnumber                         : std_logic_vector(0 to 11);   
+signal PCnumber                         : std_logic_vector(0 to N-1);   
 
 
 
@@ -467,7 +467,10 @@ gen32: for i in 0 to 31 generate
 	s_DMemAddr(i) <= ALU_sum(31-i);--????
 	s_DMemData(i) <= internal_rt(31-i);
 	s_DMemOut(i) <= data_read(31-i);
-	s_RegWrData(i) <= register_write_data(31-i);
+    s_RegWrData(i) <= register_write_data(31-i);
+    
+    --TODO
+    --THIS IS THE PROBLEM, I think the PC only has 
 	s_NextInstAddr(i) <= PCnumber(31-i); --????
 	s_Inst(i) <= instruction(31-i);
 end generate;
