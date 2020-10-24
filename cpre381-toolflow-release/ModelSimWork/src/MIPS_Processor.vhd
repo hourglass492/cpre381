@@ -356,8 +356,8 @@ begin
             in_select_rt       => rt_select,
             in_select_rd       => rd_select,
             i_WE               => internal_reg_we,
-            i_CLK              => i_CLK,
-            i_RST              => i_RST,
+            i_CLK              => iCLK,
+            i_RST              => iRST,
         
         
             o_rt               => internal_rt,
@@ -476,7 +476,7 @@ s_DMemWr <= internal_mem_we;
 s_RegWr <= regWrite;
 
 gen4: for i in 0 to 4 generate
-	s_RegWrAddr(i) <= in_select_rd(4-i);
+	s_RegWrAddr(i) <= rd_select(4-i);
 end generate;
 
 -- TODO: implement hault v0 <= internal_rt; --????
