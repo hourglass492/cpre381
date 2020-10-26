@@ -10,10 +10,10 @@ z2
 cModel Technology
 Z0 dU:/CPRE381/cpre381-toolflow-release
 T_opt
-!s110 1603727194
-Vd?OCU4ZlHE[=@z6SGLlRD3
+!s110 1603732939
+V;zN1TGGDBEdSoh3V<zi900
 04 26 5 work tb_simplifiedmipsprocessor mixed 1
-=1-0050569b10e9-5f96ef59-244-1370
+=1-0050569b10e9-5f9705cb-1a-924
 o-quiet -auto_acc_if_foreign -work work
 tCvgOpt 0
 n@_opt
@@ -32,9 +32,9 @@ V75G_lhdj?IZGlN44nQ=S61
 !s100 [5PX]JLSQRnWEm`m1MDDS0
 Z4 OL;C;2020.2;71
 33
-Z5 !s110 1603727189
+Z5 !s110 1603732935
 !i10b 1
-Z6 !s108 1603727189.000000
+Z6 !s108 1603732935.000000
 Z7 !s90 -2008|-work|ModelSimWork/work|ModelSimWork/src/arrayPackage.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|
 Z8 !s107 ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/arrayPackage.vhd|
 !i113 0
@@ -131,7 +131,7 @@ R8
 R9
 R10
 Emips_processor
-Z19 w1603726377
+Z19 w1603731104
 R1
 R2
 !i122 0
@@ -157,10 +157,10 @@ R1
 R2
 DEx4 work 14 mips_processor 0 22 GL8MMcl=jCj^M=Q8<z:[P2
 !i122 0
-l273
-L32 472
-VV_cVbJ:K8g6<^g4>aMY_b3
-!s100 2_<T?ai4YPRX:gF3MZ]@T0
+l275
+L32 461
+V<1H`KPMIDb=V6F3VTbGeB3
+!s100 Qk8S6RnBWcNjmzR<IzR]b0
 R4
 33
 R5

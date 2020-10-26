@@ -97,5 +97,14 @@ vcom -2008 -work work tb_SimplifiedMIPSProcessor.vhd
 
 vsim work.tb_SimplifiedMIPSProcessor
 
+force -freeze sim:/tb_simplifiedmipsprocessor/CLK 1 0, 0 {50 ns} -r 100
+force -freeze sim:/tb_simplifiedmipsprocessor/reset 1 0
+run 100
+force -freeze sim:/tb_simplifiedmipsprocessor/reset 0 0
 
-#force -freeze sim:/integrateddatapath/i_CLK 1 0, 0 {50 ns} -r 100
+
+
+add wave -position insertpoint sim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/*
+
+
+

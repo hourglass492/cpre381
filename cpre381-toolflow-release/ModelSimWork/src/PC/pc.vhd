@@ -100,8 +100,8 @@ begin
 
     branch_or_add_mux: mux_nbit_struct 
         port map(
-            i_a       => add_4,
-            i_b       => add_input,
+            i_a       => add_input,
+            i_b       => add_4,
             i_select  => branch_or_add,
             o_z       => next_pc
     );
@@ -113,7 +113,7 @@ begin
 	    G1:  for j in 0 to 25 generate
         		shifted_input(j+4) <= i_immedate(j);
     		end generate;
-	    G2:  for j in 26 to 32 generate
+	    G2:  for j in 26 to 31 generate
         		shifted_input(j) <= last_pc    (j);
     		end generate;
     

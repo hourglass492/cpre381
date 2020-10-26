@@ -3,23 +3,23 @@ Reading pref.tcl
 # 2020.2
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 10:46:33 on Oct 26,2020
+# Start time: 12:22:18 on Oct 26,2020
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: src/MIPS_Processor.vhd(347): (vopt-3473) Component instance "extender : extender16bit_flow" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(349): (vopt-3473) Component instance "extender : extender16bit_flow" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(365): (vopt-3473) Component instance "reg : registerFile_nbit_struct" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(367): (vopt-3473) Component instance "reg : registerFile_nbit_struct" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(374): (vopt-3473) Component instance "ALUmux : mux_nbit_struct" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(376): (vopt-3473) Component instance "ALUmux : mux_nbit_struct" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(388): (vopt-3473) Component instance "ALU : FullALU" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(390): (vopt-3473) Component instance "ALU : FullALU" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(404): (vopt-3473) Component instance "result_mux : mux_nbit_struct" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(406): (vopt-3473) Component instance "result_mux : mux_nbit_struct" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(431): (vopt-3473) Component instance "counter : pc" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(429): (vopt-3473) Component instance "counter : pc" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(459): (vopt-3473) Component instance "ctl : control" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(448): (vopt-3473) Component instance "ctl : control" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
-# ** Warning: src/MIPS_Processor.vhd(468): (vopt-3473) Component instance "ALUctl : ALUControler" is not bound.
+# ** Warning: src/MIPS_Processor.vhd(457): (vopt-3473) Component instance "ALUctl : ALUControler" is not bound.
 #         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=8.
 # //  ModelSim SE-64 2020.2 Apr 19 2020
@@ -64,5 +64,5 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
-# End time: 10:46:36 on Oct 26,2020, Elapsed time: 0:00:03
+# End time: 12:22:22 on Oct 26,2020, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 18
