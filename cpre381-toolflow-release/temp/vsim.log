@@ -3,8 +3,25 @@ Reading pref.tcl
 # 2020.2
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 18:05:32 on Oct 18,2020
+# Start time: 10:46:33 on Oct 26,2020
 # ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: src/MIPS_Processor.vhd(347): (vopt-3473) Component instance "extender : extender16bit_flow" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(365): (vopt-3473) Component instance "reg : registerFile_nbit_struct" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(374): (vopt-3473) Component instance "ALUmux : mux_nbit_struct" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(388): (vopt-3473) Component instance "ALU : FullALU" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(404): (vopt-3473) Component instance "result_mux : mux_nbit_struct" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(431): (vopt-3473) Component instance "counter : pc" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(459): (vopt-3473) Component instance "ctl : control" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Warning: src/MIPS_Processor.vhd(468): (vopt-3473) Component instance "ALUctl : ALUControler" is not bound.
+#         Region: /tb_SimplifiedMIPSProcessor/MySimplifiedMIPSProcess
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=8.
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
 # //  Copyright 1991-2020 Mentor Graphics Corporation
@@ -23,14 +40,29 @@ Reading pref.tcl
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.std_logic_textio(body)
 # Loading std.env(body)
-# Loading ieee.numeric_std(body)
 # Loading work.tb_simplifiedmipsprocessor(mixed)#1
-# ** Warning: (vsim-8683) Uninitialized out port /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/oALUOut(31 downto 0) has no driver.
-# This port will contribute value (32'hXXXXXXXX) to the signal network.
+# Loading ieee.numeric_std(body)
+# Loading work.mips_processor(structure)#1
+# ** Warning: (vsim-3473) Component instance "extender : extender16bit_flow" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "reg : registerFile_nbit_struct" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "ALUmux : mux_nbit_struct" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "ALU : FullALU" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "result_mux : mux_nbit_struct" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "counter : pc" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "ctl : control" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# ** Warning: (vsim-3473) Component instance "ALUctl : ALUControler" is not bound.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
 # do modelsim_framework2.do
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
-# End time: 18:05:36 on Oct 18,2020, Elapsed time: 0:00:04
-# Errors: 0, Warnings: 3
+# End time: 10:46:36 on Oct 26,2020, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 18

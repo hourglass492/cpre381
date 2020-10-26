@@ -1,18 +1,28 @@
 m255
 K4
 z2
+!s11e vcom 2020.2 2020.04, Apr 19 2020
 13
 !s112 1.1
 !i10d 8192
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dU:/cpre381/cpre381/cpre381-toolflow-release
+Z0 dU:/CPRE381/cpre381-toolflow-release
+T_opt
+!s110 1603727194
+Vd?OCU4ZlHE[=@z6SGLlRD3
+04 26 5 work tb_simplifiedmipsprocessor mixed 1
+=1-0050569b10e9-5f96ef59-244-1370
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2020.2;71
 Parraypackage
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 !i122 0
-w1603060028
+Z3 w1603129237
 R0
 8ModelSimWork/src/arrayPackage.vhd
 FModelSimWork/src/arrayPackage.vhd
@@ -20,45 +30,45 @@ l0
 L4 1
 V75G_lhdj?IZGlN44nQ=S61
 !s100 [5PX]JLSQRnWEm`m1MDDS0
-Z3 OL;C;2020.2;71
+Z4 OL;C;2020.2;71
 33
-Z4 !s110 1603559445
+Z5 !s110 1603727189
 !i10b 1
-Z5 !s108 1603559445.000000
-Z6 !s90 -2008|-work|ModelSimWork/work|ModelSimWork/src/arrayPackage.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|
-!s107 ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/arrayPackage.vhd|
+Z6 !s108 1603727189.000000
+Z7 !s90 -2008|-work|ModelSimWork/work|ModelSimWork/src/arrayPackage.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|
+Z8 !s107 ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/arrayPackage.vhd|
 !i113 0
-Z7 o-2008 -work ModelSimWork/work
-Z8 tExplicit 1 CvgOpt 0
+Z9 o-2008 -work ModelSimWork/work
+Z10 tExplicit 1 CvgOpt 0
 Eintegrateddatapath
-Z9 w1603395057
-Z10 DPx4 work 12 arraypackage 0 22 75G_lhdj?IZGlN44nQ=S61
-Z11 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
-Z12 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z11 w1603561256
+Z12 DPx4 work 12 arraypackage 0 22 75G_lhdj?IZGlN44nQ=S61
+Z13 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 R1
 R2
 !i122 0
 R0
-Z13 8ModelSimWork/src/IntegratedDatapath.vhd
-Z14 FModelSimWork/src/IntegratedDatapath.vhd
+Z15 8ModelSimWork/src/IntegratedDatapath.vhd
+Z16 FModelSimWork/src/IntegratedDatapath.vhd
 l0
 L8 1
 V9f9eg`U`R8PNH3T;gjIm>2
 !s100 dd==8gFmEQzbBR[z_4o5G2
-R3
-33
 R4
-!i10b 1
+33
 R5
+!i10b 1
 R6
-Z15 !s107 ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|ModelSimWork/src/tb_IntegratedDatapath.vhd|ModelSimWork/src/MIPS_Processor.vhd|ModelSimWork/src/mem.vhd|ModelSimWork/src/IntegratedDatapath.vhd|ModelSimWork/src/arrayPackage.vhd|
-!i113 0
 R7
 R8
-Aintegrateddatapath_arch
+!i113 0
+R9
 R10
-R11
+Aintegrateddatapath_arch
 R12
+R13
+R14
 R1
 R2
 DEx4 work 18 integrateddatapath 0 22 9f9eg`U`R8PNH3T;gjIm>2
@@ -67,19 +77,19 @@ l231
 L20 360
 Vdobb^3jT[HcoUklhahU090
 !s100 Z4Zma^LY<I[]HWi1G;FmK3
-R3
-33
 R4
-!i10b 1
+33
 R5
+!i10b 1
 R6
-R15
-!i113 0
 R7
 R8
+!i113 0
+R9
+R10
 Emem
-Z16 w1565363688
-R12
+R3
+R14
 R1
 R2
 !i122 0
@@ -90,18 +100,18 @@ l0
 L8 1
 Vb^Q1loJM2Kl0Dee4UmMi80
 !s100 fRlcaiTJZJ1H;nZh;8=LI3
-R3
-33
 R4
-!i10b 1
+33
 R5
+!i10b 1
 R6
-R15
-!i113 0
 R7
 R8
+!i113 0
+R9
+R10
 Artl
-R12
+R14
 R1
 R2
 DEx4 work 3 mem 0 22 b^Q1loJM2Kl0Dee4UmMi80
@@ -110,35 +120,142 @@ l37
 L27 24
 Vdo]6_fF@gS4kC>=i88e=N0
 !s100 OI8_3><BhDkT3l3n8`OXd3
-R3
-33
 R4
-!i10b 1
+33
 R5
+!i10b 1
 R6
-R15
-!i113 0
 R7
 R8
+!i113 0
+R9
+R10
 Emips_processor
-w1603559401
+Z19 w1603726377
 R1
 R2
 !i122 0
 R0
-8ModelSimWork/src/MIPS_Processor.vhd
-FModelSimWork/src/MIPS_Processor.vhd
+Z20 8ModelSimWork/src/MIPS_Processor.vhd
+Z21 FModelSimWork/src/MIPS_Processor.vhd
 l0
 L20 1
 VGL8MMcl=jCj^M=Q8<z:[P2
 !s100 ^i1^b5_W1>L_al]g]Ha6H1
-R3
-33
 R4
-!i10b 1
+33
 R5
+!i10b 1
 R6
-R15
-!i113 0
 R7
 R8
+!i113 0
+R9
+R10
+Astructure
+R1
+R2
+DEx4 work 14 mips_processor 0 22 GL8MMcl=jCj^M=Q8<z:[P2
+!i122 0
+l273
+L32 472
+VV_cVbJ:K8g6<^g4>aMY_b3
+!s100 2_<T?ai4YPRX:gF3MZ]@T0
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 0
+R9
+R10
+Etb_integrateddatapath
+R3
+R14
+R1
+R2
+!i122 0
+R0
+Z22 8ModelSimWork/src/tb_IntegratedDatapath.vhd
+Z23 FModelSimWork/src/tb_IntegratedDatapath.vhd
+l0
+L6 1
+VV4kfmLngTFK?8Q<[Ti3ML3
+!s100 W;jbOL@Vbio<VI4MV8^@O1
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 0
+R9
+R10
+Abehavior
+R14
+R1
+R2
+DEx4 work 21 tb_integrateddatapath 0 22 V4kfmLngTFK?8Q<[Ti3ML3
+!i122 0
+l40
+L10 802
+VE=S`R0n=I^^Bz9AWz_1OR0
+!s100 MA8FblK@V<ia9_g<Vf7zi3
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 0
+R9
+R10
+Etb_simplifiedmipsprocessor
+R3
+Z24 DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+Z25 DPx4 ieee 16 std_logic_textio 0 22 ^l:n6VFdg74Q?CKDhjD]D3
+R1
+R2
+!i122 0
+R0
+Z26 8ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd
+Z27 FModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd
+l0
+L25 1
+VGH`]k::W]QM<R`n:Olizb3
+!s100 U@Wch0EJRK5@:W:0E@<RU1
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 0
+R9
+R10
+Amixed
+R24
+R25
+R1
+R2
+DEx4 work 26 tb_simplifiedmipsprocessor 0 22 GH`]k::W]QM<R`n:Olizb3
+!i122 0
+l54
+L31 115
+V=kfnKmVR>JjjSL[X@nBj52
+!s100 nD]7oEDB[EC=41X[NOE;J3
+R4
+33
+R5
+!i10b 1
+R6
+R7
+R8
+!i113 0
+R9
+R10

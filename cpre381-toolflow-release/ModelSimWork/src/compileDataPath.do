@@ -91,10 +91,11 @@ vcom -work work arrayPackage.vhd
     vcom -work work registers/registerFile_nbit_struct.vhd
 
 
-vcom -work work IntegratedDatapath.vhd
-vcom -work work tb_IntegratedDatapath.vhd
-
-vsim work.IntegratedDatapath
+vcom -work work MIPS_Processor.vhd
+vcom -2008 -work work tb_SimplifiedMIPSProcessor.vhd
 
 
-force -freeze sim:/integrateddatapath/i_CLK 1 0, 0 {50 ns} -r 100
+vsim work.tb_SimplifiedMIPSProcessor
+
+
+#force -freeze sim:/integrateddatapath/i_CLK 1 0, 0 {50 ns} -r 100

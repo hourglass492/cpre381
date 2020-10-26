@@ -189,7 +189,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
 
         component FullALU
-            generic(N : integer := 31);
+ 
             port(
                 
                 in_ia              : in std_logic_vector(0 to N-1);
@@ -375,10 +375,11 @@ begin
 
                 
     ALU: FullALU
+	--generic(N : integer := 31);
         port map(
             in_ia             => internal_rs,
             in_ib             => ALU_ib,
-            in_ctl       	  => ALUOpIn,
+            in_ctl		=> ALUOpIn,
 			
             out_data          => ALU_sum,
 			out_overflow	  => nothingTwo,
@@ -387,7 +388,14 @@ begin
     );
 
 
+
+
+
+
+
+
     result_mux: mux_nbit_struct 
+--	generic map(N : integer := 31);
         port map(
                     i_a         => data_read,
                     i_b         => ALU_sum,  

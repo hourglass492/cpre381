@@ -1,3 +1,4 @@
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
@@ -16,7 +17,7 @@ entity pc is
 
 
 
-        o_instruction_number    : out std_logic_vector(0 to 11)
+        o_instruction_number    : out std_logic_vector(0 to 31)
 
 
     );
@@ -78,7 +79,7 @@ begin
 
 
 
-	o_instruction_number <= last_counter(20 to 31);
+	o_instruction_number <= last_counter;
 
 
 
@@ -137,6 +138,7 @@ begin
 
 
 end pc_arch;
+
 
 
 
