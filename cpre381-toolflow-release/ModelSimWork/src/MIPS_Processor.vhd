@@ -261,9 +261,11 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             port(  
                 i_branch                : in std_logic;
                 i_zero                  : in std_logic;
+                i_rst                   : in std_logic;
                 i_immedate              : in std_logic_vector(0 to 25);
-
-                o_instruction_number    : out std_logic_vector(0 to N-1)
+                i_CLK                   : in std_logic;
+        
+                o_instruction_number    : out std_logic_vector(0 to 31)
 
             );
         end component;
@@ -409,19 +411,15 @@ begin
     end generate;
 
 
---    dmem: mem
---        port map(
---                clk	        => i_CLK,
---                addr	    => ALU_sum_bottom_10,
---                data	    => internal_rt,
---                we		    => internal_mem_we ,
---                q		    => data_read
---    );
-
 
 
     counter: pc
         port map(  
+
+            i_rst                   => iRST,
+            i_CLK                   => iClk,
+
+
             i_branch                => branch,
             i_zero                  => zero,
             i_immedate              => instruction(0 to 25),
@@ -432,29 +430,20 @@ begin
 
 
 
-
---    imem: mem
---        port map(
---                clk	        => i_CLK,
---                addr	    => PCnumber(0 to 9),
---                data	    => instruction,
---                we		    => '0' 
---    );
-
     ctl: control
     port map(  
 
      
-    	opcode			=> instruction(26 to 31),
+                    opcode			=> instruction(26 to 31),
 
-	--Not sure why this ishere
-    	--ALUControl            => ALUOp,
-    	ALUSrc        		=> ALUSrc,
-    	MemtoReg           	=> memToReg,
-    	s_DMemWr              => internal_mem_we,
-	s_RegWr               => RegWrite,
-	--s_Lui                 : out std_logic;
-	RegDst                => regDst
+                    --Not sure why this ishere
+                    --ALUControl            => ALUOp,
+                    ALUSrc        		=> ALUSrc,
+                    MemtoReg           	=> memToReg,
+                    s_DMemWr              => internal_mem_we,
+                    s_RegWr               => RegWrite,
+                    --s_Lui                 : out std_logic;
+                    RegDst                => regDst
            
     );
 
