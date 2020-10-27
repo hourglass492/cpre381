@@ -1,24 +1,80 @@
 Model Technology ModelSim SE-64 vcom 2020.2 Compiler 2020.04 Apr 19 2020
-Start time: 12:22:15 on Oct 26,2020
+Start time: 13:07:20 on Oct 26,2020
 vcom -2008 -work ModelSimWork/work ModelSimWork/src/*.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling package arrayPackage
+-- Compiling entity adder
+-- Compiling architecture adder_arch of adder
+-- Compiling entity adder_nbit_struct
+-- Compiling architecture adder_nbit_struct_arch of adder_nbit_struct
+-- Compiling entity add_sub_struct_1bit
+-- Compiling architecture add_sub_struct_1bit_arch of add_sub_struct_1bit
 -- Loading package NUMERIC_STD
+-- Compiling entity ALU1bit
+-- Compiling architecture ALU_arch of ALU1bit
+-- Compiling package arrayPackage
 -- Loading package MATH_REAL
 -- Loading package arrayPackage
+-- Compiling entity ALU32Bit
+-- Compiling architecture ALU32Bit_arch of ALU32Bit
+-- Compiling entity ALUControler
+-- Compiling architecture ALUControl_arch of ALUControler
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+-- Compiling package arrayPackage
+-- Compiling entity bsLR
+-- Compiling architecture structure of bsLR
+-- Compiling entity control
+-- Compiling architecture controlArch of control
+-- Compiling entity ControlsToTest
+-- Compiling architecture ControlsToTest_arch of ControlsToTest
+-- Compiling entity decoder5to32_flow
+-- Compiling architecture decoder5to32_flow_arch of decoder5to32_flow
+-- Compiling entity dff
+-- Compiling architecture mixed of dff
+-- Compiling entity extender16bit_flow
+-- Compiling architecture extender16bit_flow_arch of extender16bit_flow
+-- Loading package arrayPackage
+-- Compiling entity FullALU
+-- Compiling architecture FullALU_arch of FullALU
 -- Compiling entity IntegratedDatapath
 -- Compiling architecture IntegratedDatapath_arch of IntegratedDatapath
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
 -- Compiling entity mem
 -- Compiling architecture rtl of mem
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
+-- Compiling entity mux
+-- Compiling architecture mux_arch of mux
+-- Compiling entity mux2
+-- Compiling architecture Behavioral of mux2
+-- Compiling entity mux_nbit_nbitto1_struct
+-- Compiling architecture mux_nbit_nbitto1_struct_arch of mux_nbit_nbitto1_struct
+-- Compiling entity mux_nbit_struct
+-- Compiling architecture mux_nbit_struct_arch of mux_nbit_struct
+-- Compiling entity nandg
+-- Compiling architecture dataflow of nandg
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+-- Compiling entity pc
+-- Compiling architecture pc_arch of pc
+-- Compiling entity registerFile_nbit_struct
+-- Compiling architecture registerFile_nbit_struct_arch of registerFile_nbit_struct
+-- Compiling entity register_nbit_struct
+-- Compiling architecture register_nbit_struct_arch of register_nbit_struct
+-- Compiling entity reverse
+-- Compiling architecture Behavioral of reverse
+-- Compiling entity tb_Controls
+-- Compiling architecture behavior of tb_Controls
 -- Compiling entity tb_IntegratedDatapath
 -- Compiling architecture behavior of tb_IntegratedDatapath
 -- Loading package std_logic_textio
 -- Loading package ENV
 -- Compiling entity tb_SimplifiedMIPSProcessor
 -- Compiling architecture mixed of tb_SimplifiedMIPSProcessor
-End time: 12:22:15 on Oct 26,2020, Elapsed time: 0:00:00
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+End time: 13:07:21 on Oct 26,2020, Elapsed time: 0:00:01
 Errors: 0, Warnings: 0

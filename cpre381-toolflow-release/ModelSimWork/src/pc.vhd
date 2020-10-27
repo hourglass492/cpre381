@@ -90,7 +90,7 @@ begin
 
     
 
-	o_instruction_number <= next_pc;
+	o_instruction_number <= last_pc;
 
 
 

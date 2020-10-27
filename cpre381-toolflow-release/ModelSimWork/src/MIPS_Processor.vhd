@@ -468,8 +468,8 @@ gen32: for i in 0 to 31 generate
     
     --TODO
     --THIS IS THE PROBLEM, I think the PC only has 
-	s_NextInstAddr(i) <= PCnumber(31-i); --????
-	s_Inst(i) <= instruction(31-i);
+	PCnumber(31-i) <= s_NextInstAddr(i); --????
+	instruction(31-i) <=  s_Inst(i) ;
 end generate;
 
 s_DMemWr <= internal_mem_we;
