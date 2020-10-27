@@ -145,7 +145,9 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             
             
                 o_rt                       : out std_logic_vector(0 to N-1);
-                o_rs                       : out std_logic_vector(0 to N-1)
+                o_rs                       : out std_logic_vector(0 to N-1);
+				
+				o_v0			   			: out std_logic_vector(0 to N-1)
 
 
                 );
@@ -274,7 +276,10 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
 begin
 
-  -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
+  -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the
+  --memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory.
+  --If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be
+  --all zeros.
   with iInstLd select
     s_IMemAddr <= s_NextInstAddr when '0',
       iInstAddr when others;
@@ -363,7 +368,9 @@ begin
         
         
             o_rt               => internal_rt,
-            o_rs               => internal_rs
+            o_rs               => internal_rs,
+			
+			o_v0			   => v0
     );
 
 
@@ -468,8 +475,8 @@ gen32: for i in 0 to 31 generate
     
     --TODO
     --THIS IS THE PROBLEM, I think the PC only has 
-	PCnumber(31-i) <= s_NextInstAddr(i); --????
-	instruction(31-i) <=  s_Inst(i) ;
+	s_NextInstAddr(i) <= PCnumber(31-i);
+	--instruction(31-i) <=  s_Inst(i);
 end generate;
 
 s_DMemWr <= internal_mem_we;
@@ -478,8 +485,6 @@ s_RegWr <= regWrite;
 gen4: for i in 0 to 4 generate
 	s_RegWrAddr(i) <= rd_select(4-i);
 end generate;
-
--- TODO: implement hault v0 <= internal_rt; --????
 
   
   

@@ -22,7 +22,11 @@ entity registerFile_nbit_struct is
 
 
     o_rt               : out std_logic_vector(0 to N);
-    o_rs               : out std_logic_vector(0 to N)
+    o_rs               : out std_logic_vector(0 to N);
+	
+	o_v0			   : out std_logic_vector(0 to N)
+	
+	--TODO jump and link harcode output
 
 	);
 	
@@ -41,7 +45,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
 	component andg2
 		port(
-			i_A          : in std_logic;
+				i_A          : in std_logic;
        			i_B          : in std_logic;
        			o_F          : out std_logic
 			);
@@ -133,6 +137,10 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
             );
     end generate;
+	
+	--v0 signal assignment
+	
+	o_v0 <= inter_carry(1);
 
         
 
