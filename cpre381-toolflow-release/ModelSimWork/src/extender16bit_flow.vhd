@@ -37,7 +37,7 @@ begin
 
     end generate;
 	
-		o_Q <= loadupper when (i_loadupper = '0') else
+		o_Q <= loadupper when (i_loadupper = '1') else
 			  regular;
     
   

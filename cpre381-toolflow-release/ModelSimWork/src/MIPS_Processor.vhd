@@ -79,7 +79,7 @@ signal zero                             : std_logic;
 signal ALU_sum_bottom_10                : std_logic_vector(0 to 9);           
 signal internal_mem_we                  : std_logic;     
 signal data_read                        : std_logic_vector(0 to N-1);
-signal reg_dst							: std_logic;
+signal reg_Dst							: std_logic;
 signal ALUOpIn							: std_logic_vector(0 to 3);   
 
 signal PCnumber                         : std_logic_vector(0 to N-1);   
@@ -97,7 +97,8 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
         -- register inputs and immidates
             signal internal_rs                 : std_logic_vector(0 to N-1);
             signal internal_rt                 : std_logic_vector(0 to N-1);
-            signal register_write_data                 : std_logic_vector(0 to N-1);
+            signal register_write_data         : std_logic_vector(0 to N-1);
+			signal s_WDlui					   : std_logic_vector(0 to N-1);
             signal internal_imm                : std_logic_vector(0 to N-1);
         -- register inputs and immidates end
 
@@ -129,6 +130,11 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             signal ALUOutput                           : std_logic_vector(0 to N-1);
             signal memoryOutput                        : std_logic_vector(0 to N-1);
         -- buses end
+		
+		--LUI
+		signal s_internal_imm_shifted					: std_logic_vector(0 to N-1);
+		
+
 
 
     
@@ -237,8 +243,8 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         component extender16bit_flow
             port(  
-            i_signExtend    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
-            i_loadupper    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            i_signExtend   		 : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            i_loadupper   		 : in std_logic;     -- 0 to extend sign, 1 to extend 0's
             i_D          		: in std_logic_vector( 0 to 15);     -- Data input
             o_Q          		: out std_logic_vector( 0 to 31)       -- Data  output
 
@@ -330,21 +336,28 @@ begin
    
     -- instruction binary to signals
 
-         rs_select        <= instruction(21 to 25);
+         --rs_select        <= instruction(21 to 25);
+		 rs_select        <= s_Inst(25 downto 21);
+
         
-         rt_select        <= instruction(16 to 20);
+         --rt_select        <= instruction(16 to 20);
+		 rt_select        <= s_Inst(20 downto 16);
+
 
         -- if statment to select if instruction bits 20-16 or 15-11
-         rd_select        <= instruction(16 to 20) when reg_dst = '0' else
-				 instruction(11 to 15);
+         --rd_select        <= instruction(16 to 20) when reg_Dst = '0' else
+		--		 instruction(11 to 15);
+		rd_select        <= s_Inst(20 downto 16) when reg_Dst = '0' else
+				s_Inst(15 downto 11);		 
+		
                                         
         
         
 
         --instruction bits 15 - 0
-         internal_raw_immidates <= instruction(16 to 31);
+         internal_raw_immidates <= s_Inst(15 downto 0);
 
-         func_select <= instruction(0 to 5);
+         func_select <= s_Inst(5 downto 0);
 
 
     -- end instruction binary to signals
@@ -359,13 +372,25 @@ begin
             i_D          => internal_raw_immidates,     -- Data input
             o_Q          => internal_imm 
     );
+	
+
+	--LUI implementation
+	s_internal_imm_shifted <= internal_raw_immidates & x"0000";
+	
+	 LUImux: mux_nbit_struct 
+        port map(
+                    i_a         => s_internal_imm_shifted,
+                    i_b         => register_write_data,
+                    i_select    => loadUpper,
+                    o_z         => s_WDlui    
+    );
 
 
 
     -- mux to output the rt data
     reg: registerFile_nbit_struct
         port map(
-            i_rd               => register_write_data, --value to load
+            i_rd               => s_WDlui, --value to load
             in_select_rs       => rs_select, -- next 3 select the register to pull from for each value
             in_select_rt       => rt_select,
             in_select_rd       => rd_select,
@@ -448,14 +473,14 @@ begin
     port map(  
 
      
-                    opcode			=> instruction(26 to 31),
-
+                    opcode			=> instruction(0 to 5),
+					
                     ALUSrc        		=> ALUSrc,
                     MemtoReg           	=> memToReg,
                     s_DMemWr              => internal_mem_we,
                     s_RegWr               => RegWrite,
                     s_Lui                 => loadUpper,
-                    RegDst                => regDst
+                    RegDst                => reg_Dst
            
     );
 	
