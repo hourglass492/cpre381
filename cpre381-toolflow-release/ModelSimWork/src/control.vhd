@@ -9,7 +9,7 @@ entity control is
      
     opcode				  : in std_logic_vector(0 to 5);
 
-    ALUControl            : out std_logic_vector(0 to 5);
+    --ALUControl            : out std_logic_vector(0 to 5);
     ALUSrc        		  : out std_logic;
     MemtoReg           	  : out std_logic;
     s_DMemWr              : out std_logic;
@@ -43,10 +43,11 @@ architecture controlArch of control is
 begin
 
 	-- still need     branch
-	ALUControl <= opcode;
+	--ALUControl <= opcode;
+	
 	
 	ALUSrc <= '0' when (opcode = "000000") else
-			  '1';
+			  '1';              
 			  
 	MemtoReg <= '1' when (opcode = "100011") else
 			    '0';

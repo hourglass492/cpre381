@@ -24,8 +24,8 @@ begin
 
 	-- asign the extended va;ues
     G1: for j in 0 to N generate
- 	regular(j) <= i_D(0) and not i_control;
-	loadupper(j+N+1) <= i_D(j)
+ 	regular(j) <= i_D(0) and not i_signExtend;
+	loadupper(j+N+1) <= i_D(j);
     loadupper(j) <= '0';
     end generate;
 
@@ -37,7 +37,7 @@ begin
 
     end generate;
 	
-		ALUSrc <= loadupper when (i_loadupper = '0') else
+		o_Q <= loadupper when (i_loadupper = '0') else
 			  regular;
     
   

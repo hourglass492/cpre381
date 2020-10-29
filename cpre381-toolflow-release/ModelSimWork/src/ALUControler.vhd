@@ -34,7 +34,8 @@ begin
 					"1011" when (funct = "100111" AND opcode = "000000")else --ALU nor
 					
 					"1010" when (((funct = "100000" OR funct = "100001") AND opcode = "000000")  --ALU add
-					OR (opcode = "001000" OR opcode = "001001"))else
+					OR (opcode = "001000" OR opcode = "001001" OR opcode = "001111"))else		--on lui, addiu, addi
+
 					
 					"1001" when ((funct = "100010" OR funct = "100011") --ALU sub
 					AND opcode = "000000")else

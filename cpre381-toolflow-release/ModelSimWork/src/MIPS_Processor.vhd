@@ -252,7 +252,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
      
     		opcode				  : in std_logic_vector(0 to 5);
 
-    		ALUControl            : out std_logic_vector(0 to 5);
+    		--ALUControl            : out std_logic_vector(0 to 5);
     		ALUSrc        		  : out std_logic;
     		MemtoReg           	  : out std_logic;
     		s_DMemWr              : out std_logic;
@@ -450,8 +450,6 @@ begin
      
                     opcode			=> instruction(26 to 31),
 
-                    --Not sure why this ishere
-                    --ALUControl            => ALUOp,
                     ALUSrc        		=> ALUSrc,
                     MemtoReg           	=> memToReg,
                     s_DMemWr              => internal_mem_we,
