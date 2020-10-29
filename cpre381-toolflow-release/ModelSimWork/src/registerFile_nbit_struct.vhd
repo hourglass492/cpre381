@@ -140,7 +140,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 	
 	--v0 signal assignment
 	
-	o_v0 <= inter_carry(1);
+	o_v0 <= inter_carry(2);
 
         
 

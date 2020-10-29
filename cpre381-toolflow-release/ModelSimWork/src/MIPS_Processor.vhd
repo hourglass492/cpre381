@@ -66,7 +66,7 @@ architecture structure of MIPS_Processor is
   --       requires below this comment
   --signals
 signal func_select  : std_logic_vector(0 to 5);
-signal internal_reg_we  : std_logic;
+
 
 signal ALU_ib                           : std_logic_vector(0 to N-1);
 --signal ALU_ib                           : std_logic_vector(0 to N-1);
@@ -111,6 +111,9 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         --ctl signals start
             signal regDst                              : std_logic;
+			signal loadUpper                              : std_logic;
+			signal IsUnsigned                              : std_logic;
+			
             signal branch                              : std_logic;
             signal memRead                             : std_logic;
             signal memToReg                            : std_logic;
@@ -234,9 +237,10 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         component extender16bit_flow
             port(  
-            i_control    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
-            i_D          : in std_logic_vector( 0 to 15);     -- Data input
-            o_Q          : out std_logic_vector( 0 to 31)       -- Data  output
+            i_signExtend    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            i_loadupper    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            i_D          		: in std_logic_vector( 0 to 15);     -- Data input
+            o_Q          		: out std_logic_vector( 0 to 31)       -- Data  output
 
             );
         end component;
@@ -338,7 +342,7 @@ begin
         
 
         --instruction bits 15 - 0
-         internal_raw_immidates <= instruction(0 to 15);
+         internal_raw_immidates <= instruction(16 to 31);
 
          func_select <= instruction(0 to 5);
 
@@ -346,9 +350,12 @@ begin
     -- end instruction binary to signals
 
 
+
+	--TODO set the load upper immideate and unsigned ctl
     extender: extender16bit_flow
         port map(
-            i_control    => low,     -- 0 to extend sign, 1 to extend 0's
+            i_signExtend    => IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+			i_loadupper  => loadUpper,
             i_D          => internal_raw_immidates,     -- Data input
             o_Q          => internal_imm 
     );
@@ -362,7 +369,7 @@ begin
             in_select_rs       => rs_select, -- next 3 select the register to pull from for each value
             in_select_rt       => rt_select,
             in_select_rd       => rd_select,
-            i_WE               => internal_reg_we,
+            i_WE               => RegWrite,
             i_CLK              => iCLK,
             i_RST              => iRST,
         
@@ -449,18 +456,21 @@ begin
                     MemtoReg           	=> memToReg,
                     s_DMemWr              => internal_mem_we,
                     s_RegWr               => RegWrite,
-                    --s_Lui                 : out std_logic;
+                    s_Lui                 => loadUpper,
                     RegDst                => regDst
            
     );
+	
+
 
 
     ALUctl: ALUControler
 	port map( 
-        opcode          => instruction(26 to 31),
-        funct           => instruction(0 to 5),
+        opcode          => instruction(0 to 5),
+        funct           => instruction(26 to 31),
 
-        ALUControl                 => ALUOpIn --4 bit
+        ALUControl                 => ALUOpIn, --4 bit
+		IsUnsigned		=> IsUnsigned
     );
 
 
@@ -476,7 +486,7 @@ gen32: for i in 0 to 31 generate
     --TODO
     --THIS IS THE PROBLEM, I think the PC only has 
 	s_NextInstAddr(i) <= PCnumber(31-i);
-	--instruction(31-i) <=  s_Inst(i);
+	instruction(31-i) <=  s_Inst(i);
 end generate;
 
 s_DMemWr <= internal_mem_we;

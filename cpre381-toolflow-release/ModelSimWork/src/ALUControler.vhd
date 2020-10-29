@@ -10,6 +10,7 @@ entity ALUControler is
     opcode				  : in std_logic_vector(0 to 5);
 	funct				  : in std_logic_vector(0 to 5);
 	
+	
     ALUControl           : out std_logic_vector(0 to 3);
 	IsUnsigned               : out std_logic
 	);
@@ -20,17 +21,35 @@ architecture ALUControl_arch of ALUControler is
 
 begin
 
-		ALUControl <= "1111" when ((funct = "100100" and opcode = "000000") OR opcode = "001100")else
-					"1110" when ((funct = "100101" AND opcode = "000000") OR opcode = "001101")else
-					"1101" when ((funct = "100110" AND opcode = "000000") OR opcode = "001110" )else
-					"1100" when (opcode = "101011")else
-					"1011" when (funct = "100111" AND opcode = "000000")else
-					"1010" when (((funct = "100000" OR funct = "100001") AND opcode = "000000") OR (opcode = "001000" OR opcode = "001001"))else
-					"1001" when ((funct = "100010" OR funct = "100011") AND opcode = "000000")else
-					"1000" when (((funct = "101010" OR funct = "101011") AND opcode = "000000") OR (opcode = "001011" OR opcode = "001010"))else
-					"0111" when ((funct = "000000" OR funct = "000100") AND opcode = "000000")else
-					"0101" when ((funct = "000010" OR funct = "000110") AND opcode = "000000")else
-					"0100" when ((funct = "000011" OR funct = "000111") AND opcode = "000000")else
+		ALUControl <= "1111" when ((funct = "100100" and opcode = "000000") --AND
+		OR opcode = "001100")else
+					"1110" when ((funct = "100101" AND opcode = "000000") --ALU or
+					OR opcode = "001101")else
+					
+					"1101" when ((funct = "100110" AND opcode = "000000") --ALU xor
+					OR opcode = "001110" )else
+					
+					"1100" when (opcode = "101011")else -- ALU nand
+					
+					"1011" when (funct = "100111" AND opcode = "000000")else --ALU nor
+					
+					"1010" when (((funct = "100000" OR funct = "100001") AND opcode = "000000")  --ALU add
+					OR (opcode = "001000" OR opcode = "001001"))else
+					
+					"1001" when ((funct = "100010" OR funct = "100011") --ALU sub
+					AND opcode = "000000")else
+					
+					"1000" when (((funct = "101010" OR funct = "101011") AND opcode = "000000") --ALU slt
+					OR (opcode = "001011" OR opcode = "001010"))else
+					
+					"0111" when ((funct = "000000" OR funct = "000100")
+					AND opcode = "000000")else
+					
+					"0101" when ((funct = "000010" OR funct = "000110") 
+					AND opcode = "000000")else
+					
+					"0100" when ((funct = "000011" OR funct = "000111") 
+					AND opcode = "000000")else
 					"0000";	
 
 		IsUnsigned <= '1' when ( ((funct = "100001" OR funct = "100011" OR funct = "101011") AND (opcode = "000000")) OR (opcode = "001011" OR opcode = "001001")) else
