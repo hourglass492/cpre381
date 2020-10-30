@@ -503,8 +503,8 @@ gen32: for i in 0 to 31 generate
 	oALUOut(i) <= ALU_sum(31-i);
 	s_DMemAddr(i) <= ALU_sum(31-i);--????
 	s_DMemData(i) <= internal_rt(31-i);
-	s_DMemOut(i) <= data_read(31-i);
-    s_RegWrData(i) <= register_write_data(31-i);
+	data_read(i) <= s_DMemOut(31-i);
+    s_RegWrData(i) <= s_WDlui(31-i);
     
     --TODO
     --THIS IS THE PROBLEM, I think the PC only has 

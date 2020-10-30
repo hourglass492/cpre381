@@ -22,23 +22,26 @@ architecture ALUControl_arch of ALUControler is
 begin
 
 		ALUControl <= "1111" when ((funct = "100100" and opcode = "000000") --AND
-		OR opcode = "001100")else
+		OR opcode = "001100" )else
 					"1110" when ((funct = "100101" AND opcode = "000000") --ALU or
 					OR opcode = "001101")else
 					
 					"1101" when ((funct = "100110" AND opcode = "000000") --ALU xor
 					OR opcode = "001110" )else
 					
-					"1100" when (opcode = "101011")else -- ALU nand
+					
+					
+					--TODO Need to implement NAND
+					--"1100" when ()else -- ALU nand
 					
 					"1011" when (funct = "100111" AND opcode = "000000")else --ALU nor
 					
 					"1010" when (((funct = "100000" OR funct = "100001") AND opcode = "000000")  --ALU add
-					OR (opcode = "001000" OR opcode = "001001" OR opcode = "001111"))else		--on lui, addiu, addi
+					OR (opcode = "001000" OR opcode = "001001"  or opcode = "100011" OR opcode = "101011"))else		--on lui, addiu, addi, sw, lw
 
 					
-					"1001" when ((funct = "100010" OR funct = "100011") --ALU sub
-					AND opcode = "000000")else
+					"1001" when (((funct = "100010" OR funct = "100011") --ALU sub
+					AND opcode = "000000") OR opcode = "001111")else
 					
 					"1000" when (((funct = "101010" OR funct = "101011") AND opcode = "000000") --ALU slt
 					OR (opcode = "001011" OR opcode = "001010"))else
