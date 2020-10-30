@@ -12,8 +12,9 @@ entity pc is
         i_branch                : in std_logic;
         i_zero                  : in std_logic;
         i_rst                   : in std_logic;
-        i_immedate              : in std_logic_vector(0 to 25);
+        i_immedate              : in std_logic_vector(0 to 31);
         i_CLK                   : in std_logic;
+		i_jr                    : in std_logic;
 
         o_instruction_number    : out std_logic_vector(0 to 31)
 
@@ -29,7 +30,7 @@ architecture pc_arch of pc is
     signal next_pc           : std_logic_vector(0 to data_size);
     signal add_4             : std_logic_vector(0 to data_size);
     signal add_input         : std_logic_vector(0 to data_size);
-    signal branch_or_add     : std_logic;
+    signal branch_and_zero     : std_logic;
     signal shifted_input     : std_logic_vector(0 to data_size);
     signal last_pc           : std_logic_vector(0 to data_size);
 
@@ -95,16 +96,17 @@ begin
 
 
     --TODO we need to fix this for control signals to let it branch if not zero
-    branch_or_add <= i_branch and i_zero;
+    branch_and_zero <= i_branch and i_zero;
+	
+	
+	next_pc <= i_immedate when i_jr = '1'
+	
+		else add_input when branch_and_zero = '1'
+	
+		else add_4;
+		
+	
 
-
-    branch_or_add_mux: mux_nbit_struct 
-        port map(
-            i_a       => add_input,
-            i_b       => add_4,
-            i_select  => branch_or_add,
-            o_z       => next_pc
-    );
 
 
     --TODO I need to figure out how to shift this

@@ -100,6 +100,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             signal register_write_data         : std_logic_vector(0 to N-1);
 			signal s_WDlui					   : std_logic_vector(0 to N-1);
             signal internal_imm                : std_logic_vector(0 to N-1);
+            signal jumpLocation                : std_logic_vector(0 to N-1);
         -- register inputs and immidates end
 
         -- binary blob to signals start
@@ -122,6 +123,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             signal memWrite                            : std_logic;
             signal ALUSrc                              : std_logic;
             signal regWrite                            : std_logic;
+            signal jr                                  : std_logic;
         --ctl signals end 
 
         -- buses start
@@ -255,29 +257,32 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         component control
             port(  
-     
-    		opcode				  : in std_logic_vector(0 to 5);
+					opcode				  : in std_logic_vector(0 to 5);
 
-    		--ALUControl            : out std_logic_vector(0 to 5);
-    		ALUSrc        		  : out std_logic;
-    		MemtoReg           	  : out std_logic;
-    		s_DMemWr              : out std_logic;
-		s_RegWr               : out std_logic;
-		s_Lui                 : out std_logic;
-		RegDst                : out std_logic
+					--ALUControl            : out std_logic_vector(0 to 5);
+					ALUSrc        		  : out std_logic;
+					MemtoReg           	  : out std_logic;
+					s_DMemWr              : out std_logic;
+					s_RegWr               : out std_logic;
+					s_Lui                 : out std_logic;
+					RegDst                : out std_logic;
+					jr                    : out std_logic
 
             );
         end component;
 
         component pc
             port(  
-                i_branch                : in std_logic;
-                i_zero                  : in std_logic;
-                i_rst                   : in std_logic;
-                i_immedate              : in std_logic_vector(0 to 25);
-                i_CLK                   : in std_logic;
-        
-                o_instruction_number    : out std_logic_vector(0 to 31)
+				i_branch                : in std_logic;
+				i_zero                  : in std_logic;
+				i_rst                   : in std_logic;
+				i_immedate              : in std_logic_vector(0 to 31);
+				i_CLK                   : in std_logic;
+				i_jr                    : in std_logic;
+
+				o_instruction_number    : out std_logic_vector(0 to 31)
+
+
 
             );
         end component;
@@ -337,7 +342,10 @@ begin
     -- instruction binary to signals
 
          --rs_select        <= instruction(21 to 25);
+		 --It isn't allways these bytes when it is a sw it is the first register
 		 rs_select        <= s_Inst(25 downto 21);
+		 --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
+		--		s_Inst(25 downto 21)
 
         
          --rt_select        <= instruction(16 to 20);
@@ -451,17 +459,25 @@ begin
 
 
 
+	-- need to be an immideate value for bne, beq, j, and jal, but for jr needs to be the register read
+	-- So I made the pc immedate input a 32 bit value and just appended 0's to the front of the immedate
+	-- given by the instruction and muxed it so if it is a jr we get the rs val which should be the reg	
+	-- we are jumping to
+	jumpLocation <= internal_rs when jr = '1' 
+				else "000000" & instruction(0 to 25);
+					
+					
+				
 
     counter: pc
         port map(  
 
             i_rst                   => iRST,
             i_CLK                   => iClk,
-
-
             i_branch                => branch,
             i_zero                  => zero,
-            i_immedate              => instruction(0 to 25),
+            i_immedate              => jumpLocation,
+			i_jr					=> jr,
 
             o_instruction_number    => PCnumber
 
@@ -480,7 +496,8 @@ begin
                     s_DMemWr              => internal_mem_we,
                     s_RegWr               => RegWrite,
                     s_Lui                 => loadUpper,
-                    RegDst                => reg_Dst
+                    RegDst                => reg_Dst,
+					jr					  => jr
            
     );
 	

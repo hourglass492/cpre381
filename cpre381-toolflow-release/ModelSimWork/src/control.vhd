@@ -15,7 +15,8 @@ entity control is
     s_DMemWr              : out std_logic;
 	s_RegWr               : out std_logic;
 	s_Lui                 : out std_logic;
-	RegDst                : out std_logic
+	RegDst                : out std_logic;
+	jr                    : out std_logic
 	);
 	
 end control;
@@ -47,7 +48,9 @@ begin
 	
 	
 	ALUSrc <= '0' when (opcode = "000000") else
-			  '1';              
+			  '1';   
+
+			  
 			  
 	MemtoReg <= '1' when (opcode = "100011") else
 			    '0';
@@ -62,6 +65,9 @@ begin
 			    '0';
 				
 	s_Lui <= '1' when (opcode = "001111") else
+			    '0';	
+				
+	jr <= '1' when (opcode = "001000") else
 			    '0';
 			  
 end controlArch;
