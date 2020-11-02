@@ -1,22 +1,22 @@
 main:
-	ori $s0, $zero 0x1234
-	j skip
-	li $s0 0xffffffff
-skip:
-	ori $s1 $zero 0x1234
-	beq $s0 $s1 skip2
-	li $s0 0xffffffff
-skip2:
-	jal fun
-	ori $s3 $zero 0x1234
+	#ori $s0, $zero 0x1234
+	#j skip
+	#li $s0 0xffffffff
+#skip:
+	#ori $s1 $zero 0x4321
+#	beq $s0 $s1 skip2
+	#li $s0 0xffffffff
+#skip2:
+	#jal fun
+	#ori $s3 $zero 0x1234
 	
-	beq $s0, $zero exit
+	beq $zero, $zero exit
 	ori $s4 $zero 0x1234
-	j exit
+	#j exit
 
-fun:
-	ori $s2 $zero 0x1234
-	jr $ra
+#fun:
+	#ori $s2 $zero 0x1234
+#	jr $ra
 exit:
 	li   $v0, 10          # system call for exit
       	syscall               # Exit!

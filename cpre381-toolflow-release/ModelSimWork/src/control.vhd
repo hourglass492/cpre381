@@ -16,6 +16,7 @@ entity control is
 	s_RegWr               : out std_logic;
 	s_Lui                 : out std_logic;
 	RegDst                : out std_logic;
+	branch                : out std_logic;
 	jr                    : out std_logic
 	);
 	
@@ -47,7 +48,7 @@ begin
 	--ALUControl <= opcode;
 	
 	
-	ALUSrc <= '0' when (opcode = "000000") else
+	ALUSrc <= '0' when (opcode = "000000" or opcode = "000100" or opcode = "000101") else -- includes the beq and bne
 			  '1';   
 
 			  
@@ -69,5 +70,8 @@ begin
 				
 	jr <= '1' when (opcode = "001000") else
 			    '0';
+				
+	branch<= '1' when ( opcode =  "000010"  or opcode ="000101"  or opcode ="000100"  or opcode ="000011"  or opcode ="000000") else
+				'0';
 			  
 end controlArch;

@@ -266,6 +266,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 					s_RegWr               : out std_logic;
 					s_Lui                 : out std_logic;
 					RegDst                : out std_logic;
+					branch				  : out std_logic;
 					jr                    : out std_logic
 
             );
@@ -273,12 +274,12 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         component pc
             port(  
-				i_branch                : in std_logic;
 				i_zero                  : in std_logic;
 				i_rst                   : in std_logic;
 				i_immedate              : in std_logic_vector(0 to 31);
 				i_CLK                   : in std_logic;
 				i_jr                    : in std_logic;
+				i_branch                : in std_logic;
 
 				o_instruction_number    : out std_logic_vector(0 to 31)
 
@@ -375,7 +376,7 @@ begin
 	--TODO set the load upper immideate and unsigned ctl
     extender: extender16bit_flow
         port map(
-            i_signExtend    => IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+            i_signExtend    => low,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
 			i_loadupper  => loadUpper,
             i_D          => internal_raw_immidates,     -- Data input
             o_Q          => internal_imm 
@@ -464,7 +465,7 @@ begin
 	-- given by the instruction and muxed it so if it is a jr we get the rs val which should be the reg	
 	-- we are jumping to
 	jumpLocation <= internal_rs when jr = '1' 
-				else "000000" & instruction(0 to 25);
+				else "0000" & instruction(6 to 31) & "00"  ;
 					
 					
 				
@@ -474,10 +475,10 @@ begin
 
             i_rst                   => iRST,
             i_CLK                   => iClk,
-            i_branch                => branch,
             i_zero                  => zero,
             i_immedate              => jumpLocation,
 			i_jr					=> jr,
+			i_branch				=> branch,
 
             o_instruction_number    => PCnumber
 
@@ -497,6 +498,7 @@ begin
                     s_RegWr               => RegWrite,
                     s_Lui                 => loadUpper,
                     RegDst                => reg_Dst,
+					branch				=> branch,
 					jr					  => jr
            
     );

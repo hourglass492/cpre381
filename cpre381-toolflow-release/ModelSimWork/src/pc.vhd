@@ -9,12 +9,12 @@ use work.arrayPackage.all;
 
 entity pc is 
     port(  
-        i_branch                : in std_logic;
         i_zero                  : in std_logic;
         i_rst                   : in std_logic;
         i_immedate              : in std_logic_vector(0 to 31);
         i_CLK                   : in std_logic;
 		i_jr                    : in std_logic;
+		i_branch                : in std_logic;
 
         o_instruction_number    : out std_logic_vector(0 to 31)
 
@@ -108,25 +108,25 @@ begin
 	
 
 
-
-    --TODO I need to figure out how to shift this
+	--This was done in the processure now
+     --TODO I need to figure out how to shift this
 	-- shifted_input(31) <= '0';
 	-- shifted_input(30) <= '0';
-	    G1:  for j in 0 to 25 generate
-        		shifted_input(j+4) <= i_immedate(j);
+	    G1:  for j in 0 to 31 generate
+        		shifted_input(31-j) <= i_immedate(j);
     		end generate;
-	    G2:  for j in 26 to 31 generate
-        		shifted_input(j) <= last_pc    (j);
-    		end generate;
+--	    G2:  for j in 26 to 31 generate
+ --       		shifted_input(j) <= last_pc    (j);
+ --   		end generate;
     
-
+ 
 
 
     -- add the input and the shifted value 
     immedate_adder: adder_nbit_struct 
         port map(
             i_a       => add_4,
-            i_b       => shifted_input,
+            i_b       => i_immedate,
 		i_carry		=> '0',
 
             o_sum       => add_input
