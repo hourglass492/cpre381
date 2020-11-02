@@ -13,9 +13,11 @@ entity pc is
         i_rst                   : in std_logic;
         i_immedate              : in std_logic_vector(0 to 31);
         i_CLK                   : in std_logic;
-		i_jr                    : in std_logic;
-		i_branch                : in std_logic;
-
+		beq                     : in std_logic;
+		bne                     : in std_logic;
+		jump                    : in std_logic;
+		
+		
         o_instruction_number    : out std_logic_vector(0 to 31)
 
 
@@ -96,10 +98,10 @@ begin
 
 
     --TODO we need to fix this for control signals to let it branch if not zero
-    branch_and_zero <= i_branch and i_zero;
+    branch_and_zero <= ((i_zero and beq) or (not i_zero and bne)); -- xor b/c it 
 	
 	
-	next_pc <= i_immedate when i_jr = '1'
+	next_pc <= i_immedate when jump = '1'
 	
 		else add_input when branch_and_zero = '1'
 	

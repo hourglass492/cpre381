@@ -1,5 +1,5 @@
 main:
-	#ori $s0, $zero 0x1234
+	ori $s0, $zero 0x1234
 	#j skip
 	#li $s0 0xffffffff
 #skip:
@@ -10,7 +10,7 @@ main:
 	#jal fun
 	#ori $s3 $zero 0x1234
 	
-	beq $zero, $zero exit
+	bne $zero, $s0 exit
 	ori $s4 $zero 0x1234
 	#j exit
 

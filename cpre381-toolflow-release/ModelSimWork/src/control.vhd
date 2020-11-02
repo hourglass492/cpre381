@@ -16,8 +16,12 @@ entity control is
 	s_RegWr               : out std_logic;
 	s_Lui                 : out std_logic;
 	RegDst                : out std_logic;
-	branch                : out std_logic;
-	jr                    : out std_logic
+	beq                   : out std_logic;
+	bne                   : out std_logic;
+	jr                    : out std_logic;
+	jump                  : out std_logic
+	
+	
 	);
 	
 end control;
@@ -59,7 +63,7 @@ begin
 	s_DMemWr <= '1' when (opcode = "101011") else
 			    '0';
 				
-	s_RegWr <= '0' when (opcode = "101011") else
+	s_RegWr <= '0' when (opcode = "101011" or opcode =  "000010"  or opcode ="000011"  or opcode ="000000" or opcode ="000100" or opcode ="000101") else -- not for all branch, jump or sw
 			    '1';
 				
 	RegDst <= '1' when (opcode = "000000") else
@@ -68,10 +72,18 @@ begin
 	s_Lui <= '1' when (opcode = "001111") else
 			    '0';	
 				
-	jr <= '1' when (opcode = "001000") else
+	jr    <= '1' when (opcode = "001000") else
 			    '0';
 				
-	branch<= '1' when ( opcode =  "000010"  or opcode ="000101"  or opcode ="000100"  or opcode ="000011"  or opcode ="000000") else
+	beq <= '1' when ( opcode ="000100" ) else 
+				'0';	
+				
+	bne <= '1' when (  opcode ="000101"  ) else 
+				'0';
+				
+	
+
+	jump <= '1' when ( opcode =  "000010"  or opcode ="000011"  or opcode ="000000") else --For j, jal, and jr
 				'0';
 			  
 end controlArch;

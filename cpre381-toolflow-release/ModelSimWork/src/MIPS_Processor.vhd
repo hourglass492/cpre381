@@ -139,6 +139,13 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
 
 
+		signal 	beq                   :  std_logic;
+		signal	bne                   :  std_logic;
+		signal	jump                  :  std_logic;
+
+
+
+
     
     -- end signal
 	
@@ -257,17 +264,19 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         component control
             port(  
-					opcode				  : in std_logic_vector(0 to 5);
+				opcode				  : in std_logic_vector(0 to 5);
 
-					--ALUControl            : out std_logic_vector(0 to 5);
-					ALUSrc        		  : out std_logic;
-					MemtoReg           	  : out std_logic;
-					s_DMemWr              : out std_logic;
-					s_RegWr               : out std_logic;
-					s_Lui                 : out std_logic;
-					RegDst                : out std_logic;
-					branch				  : out std_logic;
-					jr                    : out std_logic
+				--ALUControl            : out std_logic_vector(0 to 5);
+				ALUSrc        		  : out std_logic;
+				MemtoReg           	  : out std_logic;
+				s_DMemWr              : out std_logic;
+				s_RegWr               : out std_logic;
+				s_Lui                 : out std_logic;
+				RegDst                : out std_logic;
+				beq                   : out std_logic;
+				bne                   : out std_logic;
+				jr                    : out std_logic;
+				jump                  : out std_logic
 
             );
         end component;
@@ -278,10 +287,13 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 				i_rst                   : in std_logic;
 				i_immedate              : in std_logic_vector(0 to 31);
 				i_CLK                   : in std_logic;
-				i_jr                    : in std_logic;
-				i_branch                : in std_logic;
-
+				beq                     : in std_logic;
+				bne                     : in std_logic;
+				jump                    : in std_logic;
+				
+				
 				o_instruction_number    : out std_logic_vector(0 to 31)
+
 
 
 
@@ -477,8 +489,9 @@ begin
             i_CLK                   => iClk,
             i_zero                  => zero,
             i_immedate              => jumpLocation,
-			i_jr					=> jr,
-			i_branch				=> branch,
+			beq                  => beq,
+			bne                  => bne,
+			jump                  => jump,
 
             o_instruction_number    => PCnumber
 
@@ -498,8 +511,13 @@ begin
                     s_RegWr               => RegWrite,
                     s_Lui                 => loadUpper,
                     RegDst                => reg_Dst,
-					branch				=> branch,
-					jr					  => jr
+
+					beq                  => beq,
+					jr                   => jr,
+					bne                  => bne,
+					jump                  => jump
+
+
            
     );
 	
