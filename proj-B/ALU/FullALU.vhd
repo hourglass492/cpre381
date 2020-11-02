@@ -145,7 +145,7 @@ end component;
             LorA             => ctl_AorL,
             i_s       		 => in_ib(0 to 4),
             i_a              => in_ia,
-	    o_a		     => internal_shiftResult
+			o_a		     => internal_shiftResult
         
             );
 
