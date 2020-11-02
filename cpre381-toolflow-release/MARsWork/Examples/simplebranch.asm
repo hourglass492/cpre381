@@ -1,5 +1,6 @@
 main:
-	ori $s0, $zero 0x1234
+	#j exit
+	#ori $s0, $zero 0x1234
 	#j skip
 	#li $s0 0xffffffff
 #skip:
@@ -7,16 +8,17 @@ main:
 #	beq $s0 $s1 skip2
 	#li $s0 0xffffffff
 #skip2:
-	#jal fun
+	jal fun
 	#ori $s3 $zero 0x1234
 	
-	bne $zero, $s0 exit
-	ori $s4 $zero 0x1234
-	#j exit
+	#bne $zero, $s0 exit
+	#ori $s4 $zero 0x1234
+	j exit
 
-#fun:
-	#ori $s2 $zero 0x1234
-#	jr $ra
 exit:
 	li   $v0, 10          # system call for exit
       	syscall               # Exit!
+		
+fun:
+	ori $s2 $zero 0x1234
+	jr $ra

@@ -1,7 +1,10 @@
-[inst #1] ori $16,$0,4660
-Register Write to Reg: 0x10 Val: 0x00001234
-[inst #2] bne $0,$16,1
-[inst #3] addiu $2,$0,10
+[inst #1] jal 4194320
+Register Write to Reg: 0x1F Val: 0x00400004
+[inst #2] ori $18,$0,4660
+Register Write to Reg: 0x12 Val: 0x00001234
+[inst #3] jr $31
+[inst #4] j 4194312
+[inst #5] addiu $2,$0,10
 Register Write to Reg: 0x02 Val: 0x0000000A
-[inst #4] syscall 
+[inst #6] syscall 
 

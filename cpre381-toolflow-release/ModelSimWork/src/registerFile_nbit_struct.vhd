@@ -19,6 +19,7 @@ entity registerFile_nbit_struct is
     i_WE               : in std_logic;
     i_CLK              : in std_logic;
     i_RST              : in std_logic;
+    jal                : in std_logic;
 
 
     o_rt               : out std_logic_vector(0 to N);
@@ -100,7 +101,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
 
 
-    G1: for j in 0 to N generate
+    G1: for j in 0 to N-1 generate
             and_j: andg2
             port map(
 
@@ -113,9 +114,12 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
     end generate;
 
 
+	--Set the write enable for the $ra register
+	write_enable_vector(N) <= jal or (i_WE and inter_select(N));
+
 
     G00: for j in 0 to N generate
-	inter_carry(0)(j) <= ground;
+		inter_carry(0)(j) <= ground;
     end generate;
 
 

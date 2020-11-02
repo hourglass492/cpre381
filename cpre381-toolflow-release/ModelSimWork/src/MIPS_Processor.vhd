@@ -16,6 +16,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity MIPS_Processor is
   generic(N : integer := 32);
@@ -142,6 +143,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 		signal 	beq                   :  std_logic;
 		signal	bne                   :  std_logic;
 		signal	jump                  :  std_logic;
+		signal	jal                  :  std_logic;
 
 
 
@@ -160,6 +162,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
                 i_WE                       : in std_logic;
                 i_CLK                      : in std_logic;
                 i_RST                      : in std_logic;
+				jal                : in std_logic;
             
             
                 o_rt                       : out std_logic_vector(0 to N-1);
@@ -276,6 +279,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 				beq                   : out std_logic;
 				bne                   : out std_logic;
 				jr                    : out std_logic;
+				jal                   : out std_logic;
 				jump                  : out std_logic
 
             );
@@ -398,14 +402,16 @@ begin
 	--LUI implementation
 	s_internal_imm_shifted <= internal_raw_immidates & x"0000";
 	
-	 LUImux: mux_nbit_struct 
-        port map(
-                    i_a         => s_internal_imm_shifted,
-                    i_b         => register_write_data,
-                    i_select    => loadUpper,
-                    o_z         => s_WDlui    
-    );
-
+--	 LUImux: mux_nbit_struct 
+--        port map(
+--                    i_a         => s_internal_imm_shifted,
+--                    i_b         => register_write_data,
+--                    i_select    => loadUpper,
+--                    o_z         => s_WDlui    
+--    );
+	s_WDlui <= s_internal_imm_shifted when (loadUpper = '1') else
+				std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 8, N-1)) when (jal = '1') else
+				register_write_data;
 
 
     -- mux to output the rt data
@@ -418,6 +424,7 @@ begin
             i_WE               => RegWrite,
             i_CLK              => iCLK,
             i_RST              => iRST,
+			jal 				=> jal,
         
         
             o_rt               => internal_rt,
@@ -515,6 +522,7 @@ begin
 					beq                  => beq,
 					jr                   => jr,
 					bne                  => bne,
+					jal					=> jal,
 					jump                  => jump
 
 

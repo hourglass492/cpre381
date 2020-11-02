@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2020.2
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 16:46:52 on Nov 02,2020
+# Start time: 17:23:24 on Nov 02,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -28,9 +28,9 @@ Reading pref.tcl
 # Loading ieee.math_real(body)
 # Loading work.arraypackage
 # Loading work.mips_processor(structure)#1
-# Loading work.mux_nbit_struct(mux_nbit_struct_arch)#1
 # Loading work.registerfile_nbit_struct(registerfile_nbit_struct_arch)#1
 # Loading work.register_nbit_struct(register_nbit_struct_arch)#1
+# Loading work.mux_nbit_struct(mux_nbit_struct_arch)#1
 # Loading work.alu1bit(alu_arch)#1
 # Loading work.bslr(structure)#1
 # Loading work.adder_nbit_struct(adder_nbit_struct_arch)#1
@@ -40,14 +40,13 @@ Reading pref.tcl
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 7  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 10  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Note: Data structure takes 29733112 bytes of memory
-#          Process time 0.17 seconds
-#          stop
-#    Time: 100 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
-# Break in Process P_DUMP_STATE at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# Stopped at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# End time: 16:46:58 on Nov 02,2020, Elapsed time: 0:00:06
-# Errors: 0, Warnings: 4
+#    Time: 0 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Fatal: (vsim-3420) Array lengths do not match. Left is 32 (0 to 31). Right is 31 (30 downto 0).
+#    Time: 0 ns  Iteration: 3  Process: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/line__412 File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+# Fatal error in Architecture structure at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd line 414
+# 
+# HDL call sequence:
+# Stopped at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd 414 Architecture structure
+# 
+# End time: 17:23:29 on Nov 02,2020, Elapsed time: 0:00:05
+# Errors: 1, Warnings: 3

@@ -19,6 +19,7 @@ entity control is
 	beq                   : out std_logic;
 	bne                   : out std_logic;
 	jr                    : out std_logic;
+	jal                   : out std_logic;
 	jump                  : out std_logic
 	
 	
@@ -84,6 +85,10 @@ begin
 	
 
 	jump <= '1' when ( opcode =  "000010"  or opcode ="000011"  or opcode ="000000") else --For j, jal, and jr
+				'0';
+				
+				
+	jal <= '1' when ( opcode =  "000011" ) else --For j, jal, and jr
 				'0';
 			  
 end controlArch;
