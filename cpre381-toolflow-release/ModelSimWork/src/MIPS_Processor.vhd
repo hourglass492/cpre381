@@ -488,6 +488,7 @@ begin
 	-- given by the instruction and muxed it so if it is a jr we get the rs val which should be the reg	
 	-- we are jumping to
 	jumpLocation <= internal_rs when jr = '1' 
+				else internal_imm(2 to 31) & "00"  when (bne = '1' or beq ='1') --signextend
 				else "0000" & instruction(6 to 31) & "00"  ;
 					
 					

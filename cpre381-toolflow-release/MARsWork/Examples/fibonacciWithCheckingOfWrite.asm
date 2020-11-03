@@ -1,7 +1,7 @@
 # Compute several Fibonacci numbers and put in array, then print
 .data
-fibs:.word   0 : 4         # "array" of words to contain fib values
-size: .word  4             # size of "array" (agrees with array declaration)
+fibs:.word   0 : 19         # "array" of words to contain fib values
+size: .word  19             # size of "array" (agrees with array declaration)
 prompt: .asciiz "How many Fibonacci numbers to generate? (2 <= x <= 19)"
 .text
       la   $s0, fibs        # load address of array
