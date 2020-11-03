@@ -66,7 +66,7 @@ begin
 	s_DMemWr <= '1' when (opcode = "101011") else
 			    '0';
 				
-	s_RegWr <= '0' when (opcode = "101011" or opcode =  "000010"  or opcode ="000011"  or opcode ="000000" or opcode ="000100" or opcode ="000101") else -- not for all branch, jump or sw
+	s_RegWr <= '0' when (opcode = "101011" or opcode =  "000010"   or ( opcode ="000000" and funct = "001000") or opcode ="000100" or opcode ="000101") else -- not for all branch, jump or sw
 			    '1';
 				
 	RegDst <= '1' when (opcode = "000000") else
@@ -75,7 +75,7 @@ begin
 	s_Lui <= '1' when (opcode = "001111") else
 			    '0';	
 				
-	jr    <= '1' when (opcode = "001000") else
+	jr    <= '1' when ( opcode ="000000" and funct = "001000") else
 			    '0';
 				
 	beq <= '1' when ( opcode ="000100" ) else 

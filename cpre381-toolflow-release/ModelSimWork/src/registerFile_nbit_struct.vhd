@@ -102,7 +102,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
 
 
-    G1: for j in 0 to N-1 generate
+    G1: for j in 0 to N generate
             and_j: andg2
             port map(
 
@@ -115,8 +115,6 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
     end generate;
 
 
-	--Set the write enable for the $ra register
-	write_enable_vector(N) <= jal or (i_WE and inter_select(N));
 
 
     G00: for j in 0 to N generate

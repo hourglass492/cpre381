@@ -12,14 +12,3 @@
 # //  18 U.S.C. Section 1905.
 # //
 # temp/vsim.wlf opened as dataset "vsim"
-add wave -position insertpoint vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg/*
-add wave -position insertpoint  \
-vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_Inst
-add wave -position insertpoint  \
-vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/iCLK
-add wave -position insertpoint  \
-vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/PCnumber
-add wave -position insertpoint  \
-vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_RegWrData
-add wave -position insertpoint  \
-vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_RegWrAddr

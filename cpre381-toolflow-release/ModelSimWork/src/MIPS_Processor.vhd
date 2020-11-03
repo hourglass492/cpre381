@@ -373,8 +373,9 @@ begin
         -- if statment to select if instruction bits 20-16 or 15-11
          --rd_select        <= instruction(16 to 20) when reg_Dst = '0' else
 		--		 instruction(11 to 15);
-		rd_select        <= s_Inst(20 downto 16) when reg_Dst = '0' else
-				s_Inst(15 downto 11);		 
+		rd_select        <= "11111" when jal = '1' else
+							s_Inst(20 downto 16) when reg_Dst = '0' else
+							s_Inst(15 downto 11);		 
 		
                                         
         
@@ -411,7 +412,7 @@ begin
 --                    o_z         => s_WDlui    
 --    );
 	s_WDlui <= s_internal_imm_shifted when (loadUpper = '1') else
-				std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 8, N-1)) when (jal = '1') else
+				std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (jal = '1') else
 				register_write_data;
 
 
@@ -560,7 +561,7 @@ gen32: for i in 0 to 31 generate
 end generate;
 
 s_DMemWr <= internal_mem_we;
-s_RegWr <= regWrite;
+s_RegWr <= regWrite ;
 
 gen4: for i in 0 to 4 generate
 	s_RegWrAddr(i) <= rd_select(4-i);

@@ -1,5 +1,5 @@
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 10:24:15 on Nov 03,2020
+# Start time: 12:21:38 on Nov 03,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -37,11 +37,1525 @@
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 7  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Note: Data structure takes 30115320 bytes of memory
-#          Process time 0.22 seconds
-#          stop
-#    Time: 480 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
-# Break in Process P_DUMP_STATE at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# Stopped at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# End time: 10:24:23 on Nov 03,2020, Elapsed time: 0:00:08
-# Errors: 0, Warnings: 3
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 21  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 24  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 27  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 30  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 33  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 36  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 39  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 42  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 45  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 2640 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 2640 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 2640 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 2640 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 7 us  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 9620 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 9620 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 9620 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 9620 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 13980 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 16600 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 16600 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 16600 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 16600 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 20960 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 23580 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 23580 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 23580 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 23580 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 27940 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 30560 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 30560 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 30560 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 30560 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 34920 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 37540 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 37540 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 37540 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 37540 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 41900 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 44520 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 44520 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 44520 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 44520 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 48880 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 51500 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 51500 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 51500 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 51500 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 55860 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 58480 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 58480 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 58480 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 58480 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 62840 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 65460 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 65460 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 65460 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 65460 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 69820 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 72440 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 72440 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 72440 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 72440 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 76800 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 79420 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 79420 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 79420 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 79420 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 83780 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 86400 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 86400 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 86400 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 86400 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 90760 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 93380 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 93380 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 93380 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 93380 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 97740 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 100360 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 100360 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 100360 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 100360 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 104720 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 107340 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 107340 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 107340 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 107340 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 111700 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 114320 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 114320 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 114320 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 114320 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 118680 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 121300 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 121300 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 121300 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 121300 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 125660 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 128280 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 128280 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 128280 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 128280 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132640 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 135260 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 135260 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 135260 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 135260 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 139620 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 142240 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 142240 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 142240 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 142240 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 146600 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 149220 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 149220 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 149220 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 149220 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 153580 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 156200 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 156200 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 156200 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 156200 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160560 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 163180 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 163180 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 163180 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 163180 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 167540 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 170160 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 170160 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 170160 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 170160 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 174520 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 177140 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 177140 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 177140 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 177140 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 181500 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 184120 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 184120 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 184120 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 184120 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 188480 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 191100 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 191100 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 191100 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 191100 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 195460 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 198080 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 198080 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 198080 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 198080 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 202440 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 205060 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 205060 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 205060 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 205060 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 209420 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 212040 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 212040 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 212040 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 212040 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 216400 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 219020 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 219020 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 219020 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 219020 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 223380 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 226 us  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 226 us  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 226 us  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 226 us  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 230360 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 232980 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 232980 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 232980 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 232980 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 237340 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 239960 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 239960 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 239960 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 239960 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 244320 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 246940 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 246940 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 246940 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 246940 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 251300 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 253920 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 253920 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 253920 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 253920 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 258280 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 260900 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 260900 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 260900 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 260900 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 265260 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 267880 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 267880 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 267880 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 267880 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 272240 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 274860 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 274860 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 274860 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 274860 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 279220 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 281840 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 281840 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 281840 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 281840 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 286200 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 288820 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 288820 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 288820 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 288820 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 293180 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 295800 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 295800 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 295800 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 295800 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 300160 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 302780 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 302780 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 302780 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 302780 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 307140 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 309760 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 309760 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 309760 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 309760 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 314120 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 316740 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 316740 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 316740 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 316740 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 321100 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 323720 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 323720 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 323720 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 323720 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 328080 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 330700 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 330700 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 330700 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 330700 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 335060 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 337680 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 337680 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 337680 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 337680 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 342040 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 344660 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 344660 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 344660 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 344660 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 349020 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 351640 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 351640 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 351640 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 351640 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 356 us  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 358620 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 358620 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 358620 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 358620 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 362980 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 365600 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 365600 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -2004877236 is not in bounds of subtype NATURAL.
+#    Time: 365600 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -2004877232 is not in bounds of subtype NATURAL.
+#    Time: 365600 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 41  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 44  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 47  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 369960 ns  Iteration: 50  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 372580 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 372580 ns  Iteration: 9  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: (vsim-151) NUMERIC_STD.TO_INTEGER: Value -4194228 is not in bounds of subtype NATURAL.
+#    Time: 372580 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Error: (vsim-86) Argument value -4194224 is not in bounds of subtype NATURAL.
+#    Time: 372580 ns  Iteration: 12  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 376940 ns  Iteration: 13  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 376940 ns  Iteration: 26  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 376940 ns  Iteration: 29  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 376940 ns  Iteration: 32  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 376940 ns  Iteration: 35  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 376940 ns  Iteration: 38  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
