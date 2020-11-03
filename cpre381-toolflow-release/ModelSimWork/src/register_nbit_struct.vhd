@@ -21,7 +21,7 @@ end register_nbit_struct;
 
 architecture register_nbit_struct_arch of register_nbit_struct is
 
-    component dff
+    component dffg
         port(
             i_CLK        : in std_logic;     -- Clock input
             i_RST        : in std_logic;     -- Reset input
@@ -40,7 +40,7 @@ architecture register_nbit_struct_arch of register_nbit_struct is
 
         
         G1: for i in 0 to N generate
-            dff_i: dff 
+            dff_i: dffg 
                 port map(
                     i_CLK      => i_CLK,
                     i_RST      => i_RST,

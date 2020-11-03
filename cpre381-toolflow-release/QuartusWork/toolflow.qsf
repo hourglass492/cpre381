@@ -24,7 +24,6 @@ set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/Model
 set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder.vhd"
 set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder_nbit_struct.vhd"
 set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/andg2.vhd"
-set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/arrayPackage.vhd"
 set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/bsLR.vhd"
 set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/control.vhd"
 set_global_assignment -name VHDL_FILE "U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/decoder5to32_flow.vhd"

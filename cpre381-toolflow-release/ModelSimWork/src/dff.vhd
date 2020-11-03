@@ -18,7 +18,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity dff is
+entity dffg is
 
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
@@ -27,9 +27,9 @@ entity dff is
        i_Default         : in std_logic;     -- Data value input
        o_Q          : out std_logic);   -- Data value output
 
-end dff;
+end dffg;
 
-architecture mixed of dff is
+architecture mixed of dffg is
   signal s_D    : std_logic;    -- Multiplexed input to the FF
   signal s_Q    : std_logic;    -- Output of the FF
 
