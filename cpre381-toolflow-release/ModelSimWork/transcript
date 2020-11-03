@@ -1,5 +1,5 @@
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 17:23:24 on Nov 02,2020
+# Start time: 18:25:20 on Nov 02,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -36,13 +36,15 @@
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 3  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess
+#    Time: 0 ns  Iteration: 7  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ns  Iteration: 10  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
 # ** Fatal: (vsim-3420) Array lengths do not match. Left is 32 (0 to 31). Right is 31 (30 downto 0).
-#    Time: 0 ns  Iteration: 3  Process: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/line__412 File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+#    Time: 60 ns  Iteration: 9  Process: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/line__412 File: U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
 # Fatal error in Architecture structure at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd line 414
 # 
 # HDL call sequence:
 # Stopped at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd 414 Architecture structure
 # 
-# End time: 17:23:29 on Nov 02,2020, Elapsed time: 0:00:05
-# Errors: 1, Warnings: 3
+# End time: 18:25:26 on Nov 02,2020, Elapsed time: 0:00:06
+# Errors: 1, Warnings: 4
