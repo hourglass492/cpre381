@@ -1,5 +1,5 @@
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 19:39:50 on Nov 02,2020
+# Start time: 10:24:15 on Nov 03,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -37,11 +37,11 @@
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 7  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Note: Data structure takes 29984248 bytes of memory
-#          Process time 0.14 seconds
+# ** Note: Data structure takes 30115320 bytes of memory
+#          Process time 0.22 seconds
 #          stop
 #    Time: 480 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
 # Break in Process P_DUMP_STATE at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
 # Stopped at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# End time: 19:39:56 on Nov 02,2020, Elapsed time: 0:00:06
+# End time: 10:24:23 on Nov 03,2020, Elapsed time: 0:00:08
 # Errors: 0, Warnings: 3
