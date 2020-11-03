@@ -33,6 +33,7 @@ architecture pc_arch of pc is
     signal add_4             : std_logic_vector(0 to data_size);
     signal add_input         : std_logic_vector(0 to data_size);
     signal branch_and_zero     : std_logic;
+    signal SetToDefaultVal     : std_logic;
     signal shifted_input     : std_logic_vector(0 to data_size);
     signal last_pc           : std_logic_vector(0 to data_size);
 
@@ -41,7 +42,9 @@ architecture pc_arch of pc is
             i_CLK             : in std_logic;
             i_RST             : in std_logic;
             i_WE              : in std_logic;
-            i_D               : in std_logic_vector(0 to data_size);   
+            i_D               : in std_logic_vector(0 to data_size);  
+            i_Default         : in std_logic_vector(0 to data_size);  
+				
         
             o_Q               : out std_logic_vector(0 to data_size)
             );
@@ -78,12 +81,22 @@ architecture pc_arch of pc is
 
 begin
 
+
+
+
+
+
+
+
+
+
     reg: register_nbit_struct
         port map (
             i_CLK             => i_CLK, 
             i_RST             => i_RST,
             i_WE              => '1',
-            i_D               => next_pc,   
+            i_D               => next_pc,
+			i_Default		  => x"00400000",		
         
             o_Q               => last_pc
             );
@@ -104,6 +117,8 @@ begin
 	next_pc <= i_immedate when jump = '1'
 	
 		else add_input when branch_and_zero = '1'
+		
+		else x"00400000" when i_RST = '1'
 	
 		else add_4;
 		

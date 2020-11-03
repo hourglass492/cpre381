@@ -268,6 +268,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
         component control
             port(  
 				opcode				  : in std_logic_vector(0 to 5);
+				funct				  : in std_logic_vector(0 to 5);
 
 				--ALUControl            : out std_logic_vector(0 to 5);
 				ALUSrc        		  : out std_logic;
@@ -511,6 +512,7 @@ begin
 
      
                     opcode			=> instruction(0 to 5),
+					funct           => instruction(26 to 31),
 					
                     ALUSrc        		=> ALUSrc,
                     MemtoReg           	=> memToReg,

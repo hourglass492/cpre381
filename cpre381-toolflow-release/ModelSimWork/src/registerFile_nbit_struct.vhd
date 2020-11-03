@@ -80,12 +80,13 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
         component register_nbit_struct
             port(
-                i_CLK             : in std_logic;
-                i_RST             : in std_logic;
-                i_WE              : in std_logic;
-                i_D               : in std_logic_vector(0 to N);   
-            
-                o_Q               : out std_logic_vector(0 to N)
+    i_CLK             : in std_logic;
+    i_RST               : in std_logic;
+    i_WE              : in std_logic;
+    i_D               : in std_logic_vector(0 to N);   
+    i_Default         : in std_logic_vector(0 to N);   
+
+    o_Q               : out std_logic_vector(0 to N)
                 );
         end component;
 
@@ -136,6 +137,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
                 i_RST             => i_RST,
                 i_WE              => write_enable_vector(j), --only write when global write is on and this register selected 
                 i_D               => i_rd,   
+				i_Default		  => x"00000000",
             
                 o_Q               => inter_carry(j)
 

@@ -8,6 +8,8 @@ entity control is
   port(
      
     opcode				  : in std_logic_vector(0 to 5);
+    funct				  : in std_logic_vector(0 to 5);
+	
 
     --ALUControl            : out std_logic_vector(0 to 5);
     ALUSrc        		  : out std_logic;
@@ -84,7 +86,7 @@ begin
 				
 	
 
-	jump <= '1' when ( opcode =  "000010"  or opcode ="000011"  or opcode ="000000") else --For j, jal, and jr
+	jump <= '1' when ( opcode =  "000010"  or opcode ="000011"  or( opcode ="000000" and funct = "001000")) else --For j, jal, and jr
 				'0';
 				
 				
