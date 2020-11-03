@@ -5,8 +5,7 @@ entity extender16bit_flow is
     generic(N : integer := 15);
 
   port(  
-            i_signExtend    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
-            i_loadupper    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            zeroExtened    : in std_logic;     -- 0 to extend sign, 1 to extend 0's
             i_D          		: in std_logic_vector( 0 to 15);     -- Data input
             o_Q          		: out std_logic_vector( 0 to 31)       -- Data  output
 
@@ -24,7 +23,7 @@ begin
 
 	-- asign the extended va;ues
     G1: for j in 0 to N generate
- 	regular(j) <= i_D(0) and not i_signExtend;
+ 	regular(j) <= i_D(0) and not zeroExtened;
 	
 	--commented out because this is implemented in the ALU
 	--loadupper(j+N+1) <= i_D(j);

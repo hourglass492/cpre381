@@ -22,7 +22,8 @@ entity control is
 	bne                   : out std_logic;
 	jr                    : out std_logic;
 	jal                   : out std_logic;
-	jump                  : out std_logic
+	jump                  : out std_logic;
+	zeroExtened           : out std_logic
 	
 	
 	);
@@ -90,7 +91,10 @@ begin
 				'0';
 				
 				
-	jal <= '1' when ( opcode =  "000011" ) else --For j, jal, and jr
+	jal <= '1' when ( opcode =  "000011" ) else '0';
+	
+	
+	zeroExtened <= '1' when (  opcode =  "001100"  or opcode ="001101" ) else 
 				'0';
 			  
 end controlArch;

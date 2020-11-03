@@ -144,6 +144,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 		signal	bne                   :  std_logic;
 		signal	jump                  :  std_logic;
 		signal	jal                  :  std_logic;
+		signal	zeroExtened                  :  std_logic;
 
 
 
@@ -255,8 +256,8 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
         component extender16bit_flow
             port(  
-            i_signExtend   		 : in std_logic;     -- 0 to extend sign, 1 to extend 0's
-            i_loadupper   		 : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+            zeroExtened   		 : in std_logic;     -- 0 to extend sign, 1 to extend 0's
+
             i_D          		: in std_logic_vector( 0 to 15);     -- Data input
             o_Q          		: out std_logic_vector( 0 to 31)       -- Data  output
 
@@ -281,7 +282,8 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 				bne                   : out std_logic;
 				jr                    : out std_logic;
 				jal                   : out std_logic;
-				jump                  : out std_logic
+				jump                  : out std_logic;
+				zeroExtened                  : out std_logic
 
             );
         end component;
@@ -394,8 +396,8 @@ begin
 	--TODO set the load upper immideate and unsigned ctl
     extender: extender16bit_flow
         port map(
-            i_signExtend    => low,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
-			i_loadupper  => loadUpper,
+            zeroExtened    => zeroExtened,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+
             i_D          => internal_raw_immidates,     -- Data input
             o_Q          => internal_imm 
     );
@@ -526,7 +528,8 @@ begin
 					jr                   => jr,
 					bne                  => bne,
 					jal					=> jal,
-					jump                  => jump
+					jump                  => jump,
+					zeroExtened                  => zeroExtened
 
 
            
