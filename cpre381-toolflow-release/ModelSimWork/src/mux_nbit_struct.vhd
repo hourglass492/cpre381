@@ -16,7 +16,7 @@ end mux_nbit_struct;
 
 architecture mux_nbit_struct_arch of mux_nbit_struct is
 
-    component mux
+    component muxg
         port(
             i_a             : in std_logic;
             i_b             : in std_logic;
@@ -29,7 +29,7 @@ architecture mux_nbit_struct_arch of mux_nbit_struct is
 
         -- We loop through and instantiate and connect N invg modules
         G1: for i in 0 to N generate
-            mux_i: mux 
+            mux_i: muxg 
                 port map(
                     i_a       => i_a(i),
                     i_b       => i_b(i),

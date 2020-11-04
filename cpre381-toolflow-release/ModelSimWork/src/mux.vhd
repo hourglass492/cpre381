@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity mux is
+entity muxg is
 
   port(
      
@@ -12,9 +12,9 @@ entity mux is
 
 	);
 	
-end mux;
+end muxg;
 
-architecture mux_arch of mux is
+architecture mux_arch of muxg is
 
 
     begin

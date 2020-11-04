@@ -100,8 +100,8 @@ begin
 
     branch_or_add_mux: mux_nbit_struct 
         port map(
-            i_a       => add_4,
-            i_b       => add_input,
+            i_a       => add_input,
+            i_b       => add_4,
             i_select  => branch_or_add,
             o_z       => next_pc
     );
