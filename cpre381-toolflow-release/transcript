@@ -12,3 +12,52 @@
 # //  18 U.S.C. Section 1905.
 # //
 # temp/vsim.wlf opened as dataset "vsim"
+add wave -position insertpoint  \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/iCLK \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/iRST \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/iInstLd \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/iInstAddr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/iInstExt \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/oALUOut \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_DMemWr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_DMemAddr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_DMemData \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_DMemOut \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_RegWr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_RegWrAddr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_RegWrData \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_IMemAddr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_NextInstAddr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_Inst \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/v0 \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_Halt \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/ALU_ib \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/ALU_sum \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/zero \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/internal_mem_we \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/data_read \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/reg_Dst \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/ALUOpIn \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/PCnumber \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/internal_rs \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/internal_rt \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/register_write_data \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_WDlui \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/internal_imm \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/jumpLocation \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/instruction \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/rs_select \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/rt_select \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/rd_select \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/internal_raw_immidates \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/loadUpper \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/memToReg \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/ALUSrc \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/regWrite \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/jr \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/s_internal_imm_shifted \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/beq \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/bne \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/jump \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/jal \
+vsim:/tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/zeroExtened
