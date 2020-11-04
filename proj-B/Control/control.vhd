@@ -9,6 +9,7 @@ entity control is
      
     opcode				  : in std_logic_vector(0 to 5);
 	jr					  : in std_logic;
+	immediateShift		  : in std_logic;
 
     ALUControl            : out std_logic_vector(0 to 5);
     ALUSrc        		  : out std_logic;
@@ -17,6 +18,7 @@ entity control is
 	s_RegWr               : out std_logic;
 	s_Lui                 : out std_logic;
 	o_Branch				  : out std_logic;
+	o_Jump				  : out std_logic;
 	RegDst                : out std_logic
 	);
 	
@@ -48,7 +50,7 @@ begin
 	ALUControl <= opcode;
 	
 	-- 0 for R type BNE and BEQ
-	ALUSrc <= '0' when (opcode = "000000" OR opcode = "000101" OR opcode = "000100") else
+	ALUSrc <= '0' when ((opcode = "000000" OR opcode = "000101" OR opcode = "000100") AND immediateShift = '0') else
 			  '1';
 			  
 	MemtoReg <= '1' when (opcode = "100011") else
@@ -66,7 +68,10 @@ begin
 	s_Lui <= '1' when (opcode = "001111") else
 			    '0';
 	--Branching instructions except jr
-	o_Branch	<= '1' when (opcode = "000010" OR opcode = "000101" OR opcode = "000100" OR opcode = "000011") else
+	o_Branch	<= '1' when (opcode = "000101" OR opcode = "000100" ) else
+			    '0';
+	
+	o_Jump		<= '1' when(opcode = "000010" OR opcode = "000011" OR jr = '1') else
 			    '0';
 			  
 end controlArch;

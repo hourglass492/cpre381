@@ -11,7 +11,8 @@ entity ALUControler is
 	funct				  : in std_logic_vector(0 to 5);
 	
     ALUControl           : out std_logic_vector(0 to 3);
-	IsUnsigned           : out std_logic;
+	IsUnsigned           	: out std_logic;
+	immediateInputNoOpcode	: out std_logic;
 	jr					 : out std_logic
 	);
 	
@@ -40,5 +41,8 @@ begin
 				
 		jr <= '1' when (funct = "001000") else
 				'0';
+				
+		immediateInputNoOpcode <= '1' when (opcode="000000" AND (funct = "000000" OR funct = "000010" OR funct = "000011" ) ) else
+									'0';
 
 end ALUControl_arch;

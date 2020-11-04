@@ -74,6 +74,8 @@ signal PCnumber                         : std_logic_vector(0 to 11);
             signal ALUSrc                              : std_logic;
             signal regWrite                            : std_logic;
 			signal jumpReg                            : std_logic;
+			signal shiftUsingImmediate                            : std_logic;
+			signal jump								   :   std_logic;
         --ctl signals end 
 
         -- buses start
@@ -116,6 +118,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
 	
     		ALUControl           			: out std_logic_vector(0 to 3);
 			IsUnsigned               		: out std_logic;
+			immediateInputNoOpcode	: out std_logic;
 			jr					 : out std_logic
 
 
@@ -202,6 +205,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
      
     		opcode				  : in std_logic_vector(0 to 5);
 			jr					  : in std_logic;
+			immediateShift		  : in std_logic;
 
     		ALUControl            : out std_logic_vector(0 to 5);
     		ALUSrc        		  : out std_logic;
@@ -210,6 +214,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
 			s_RegWr               : out std_logic;
 			s_Lui                 : out std_logic;
 			o_Branch				  : out std_logic;
+			o_Jump				  : out std_logic;
 			RegDst                : out std_logic
 
             );
@@ -356,6 +361,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
      
     	opcode			=> instruction(26 to 31),
 		jr  			=> jumpReg,
+		immediateShift  			=> shiftUsingImmediate,
 
 	--Not sure why this ishere
     	--ALUControl            => ALUOp,
@@ -365,6 +371,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
 	s_RegWr               => RegWrite,
 	--s_Lui                 : out std_logic;
 	o_Branch				=>	branch,
+	--o_Jump				  =>
 	RegDst                => regDst
            
     );
@@ -376,6 +383,7 @@ signal PCnumber                         : std_logic_vector(0 to 11);
         funct           => instruction(0 to 5),
 
         ALUControl                 => ALUOpIn, --4 bit
+		immediateInputNoOpcode	   => shiftUsingImmediate,
 		jr							=> jumpReg
     );
 
