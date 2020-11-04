@@ -36,10 +36,12 @@ end registerFile_nbit_struct;
 architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
         signal inter_select  : std_logic_vector(0 to N);
+
 	signal write_enable_vector : std_logic_vector(0 to N);
 
         --G00: for i in 0 to N generate
           signal inter_carry      : inputVectors;
+          signal resetToVal      : inputVectors;
         --end generate;
 	
 	signal ground : std_logic := '0' ;
@@ -92,7 +94,49 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
 
     begin
 
+
+
+
+		resetToVal(0) <= x"00000000";
+		resetToVal(1) <= x"00000000";
+		resetToVal(2) <= x"00000000";
+		resetToVal(3) <= x"00000000";
+		resetToVal(4) <= x"00000000";
+		resetToVal(5) <= x"00000000";
+		resetToVal(6) <= x"00000000";
+		resetToVal(7) <= x"00000000";
+		resetToVal(8) <= x"00000000";
+		resetToVal(9) <= x"00000000";
+		resetToVal(10) <= x"00000000";
+		resetToVal(11) <= x"00000000";
+		resetToVal(12) <= x"00000000";
+		resetToVal(13) <= x"00000000";
+		resetToVal(14) <= x"00000000";
+		resetToVal(15) <= x"00000000";
+		resetToVal(16) <= x"00000000";
+		resetToVal(17) <= x"00000000";
+		resetToVal(18) <= x"00000000";
+		resetToVal(19) <= x"00000000";
+		resetToVal(20) <= x"00000000";
+		resetToVal(21) <= x"00000000";
+		resetToVal(22) <= x"00000000";
+		resetToVal(23) <= x"00000000";
+		resetToVal(24) <= x"00000000";
+		resetToVal(25) <= x"00000000";
+		resetToVal(26) <= x"00000000";
+		resetToVal(27) <= x"00000000";
+		resetToVal(28) <= x"10008000";
+		resetToVal(29) <= x"7fffeffc";
+		resetToVal(30) <= x"00000000";
+		resetToVal(31) <= x"00000000";
         
+		
+		
+		
+		
+		
+		
+		
     -- Everything but this circuit can scale up YOU MUST REBUILD THIS TO CHANGE N
     inverter: decoder5to32_flow 
         port map(
@@ -135,7 +179,7 @@ architecture registerFile_nbit_struct_arch of registerFile_nbit_struct is
                 i_RST             => i_RST,
                 i_WE              => write_enable_vector(j), --only write when global write is on and this register selected 
                 i_D               => i_rd,   
-				i_Default		  => x"00000000",
+				i_Default		  => resetToVal(j),
             
                 o_Q               => inter_carry(j)
 

@@ -51,12 +51,12 @@ architecture ALU_arch of ALU1bit is
 
     signal internal_adder_carry                : std_logic;
 
-    component add_sub_struct_1bit
+    component adder
         port(
 
           i_a             : in std_logic;
           i_b             : in std_logic;
-          i_select        : in std_logic;
+          --i_select        : in std_logic;
           i_carry         : in std_logic;
           o_sum           : out std_logic;
           o_carry         : out std_logic
@@ -102,11 +102,11 @@ architecture ALU_arch of ALU1bit is
         
     --XXXXXXXXXXXXXXXXXXXXXXXXXX need to do adder select signal
 
-    addSub: add_sub_struct_1bit
+    addSub: adder
         port map(
             i_a             => in_ia,
             i_b             => in_ib,
-            i_select        => ctl_add_sub,
+            --i_select        => ctl_add_sub,
             i_carry         => in_carry,
             o_sum           => internal_result_vector(2),
             o_carry         => internal_adder_carry 

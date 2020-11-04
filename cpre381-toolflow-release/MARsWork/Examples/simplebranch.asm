@@ -3,7 +3,30 @@ main:
 
 	addi $s3 $zero 0xBBBB
 	andi $s3 $zero 0xBBBB
-	ori $s3 $zero 0xBBBB
+	ori $s0 $zero 0xBBBB
+	
+	bne $s0, $zero A
+	
+	
+	ori $s0 $zero 0xBEEF
+
+
+
+A:
+
+	addi $s0 $zero 0x0000
+
+	beq $s0, $zero B
+	
+	
+	ori $s0 $zero 0xBEEF
+
+
+
+B:
+
+
+
 
 	jal fun
 

@@ -43,6 +43,7 @@ architecture ALU32Bit_arch of ALU32Bit is
     signal internal_data	            : std_logic_vector(0 to data_size);
     signal internal_carry             : std_logic_vector(0 to data_size);
     signal internal_slt_signal          : std_logic_vector(0 to data_size);
+    signal ib_inverted_If_subtracting               : std_logic_vector(0 to data_size);
     
     signal nothing	                    : std_logic;
 
@@ -125,13 +126,16 @@ component mux_nbit_struct
     
         
 
+		ib_inverted_If_subtracting <= not in_ib when ctl_adder_carry_in = '1'
+				else in_ib;
+
         --This is outside the loop because it needs ctl_sub as it's carry in
 	--internal_carry(31) <=  ctl_sub;
         ALU1bit_31: ALU1bit 
         port map(
        
             in_ia              => in_ia(31),  
-            in_ib              => in_ib(31),  
+            in_ib              => ib_inverted_If_subtracting(31),  
             in_carry           => ctl_adder_carry_in,
             in_ctl             => in_ctl,
         
@@ -149,7 +153,7 @@ component mux_nbit_struct
             port map(
         
                 in_ia              => in_ia(j),  
-                in_ib              => in_ib(j),  
+                in_ib              => ib_inverted_If_subtracting(j),  
                 in_carry           => internal_carry(j+1),
                 in_ctl             => in_ctl,
             
@@ -162,7 +166,7 @@ component mux_nbit_struct
 
 
 	out_overflow <= internal_data(0) xor internal_carry(0); --Take the most significant bit of data and the carry out
-	out_carry <= not internal_carry(0);
+	out_carry <=  internal_carry(0);
 
 
 
@@ -170,7 +174,7 @@ component mux_nbit_struct
         G2: for j in 0 to data_size-1 generate
             internal_slt_signal(j) <= '0';
         end generate;
-        internal_slt_signal(data_size) <= internal_carry(0);
+        internal_slt_signal(data_size) <= internal_data(0);
 
 
 
