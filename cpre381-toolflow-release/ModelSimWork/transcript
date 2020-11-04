@@ -1,5 +1,5 @@
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 14:53:44 on Nov 04,2020
+# Start time: 15:28:37 on Nov 04,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -61,5 +61,5 @@
 #    Time: 13140 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
 # Break in Process P_DUMP_STATE at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
 # Stopped at U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# End time: 14:53:50 on Nov 04,2020, Elapsed time: 0:00:06
+# End time: 15:28:42 on Nov 04,2020, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 12

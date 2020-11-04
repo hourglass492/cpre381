@@ -74,7 +74,7 @@ message: .asciiz  "The Sorted array is:\n"	 #declare message
 
       	
 	
-	addi $sp, $sp, 100	#move the stack pointer 
+	addi $sp, $sp, 100 	#move the stack pointer 
 	sw $s0, 0($sp)		#store the pointer to the head of array
 	sw $s5, 4($sp)		#store the sive of the array
 	
