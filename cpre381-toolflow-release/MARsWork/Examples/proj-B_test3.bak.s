@@ -1,6 +1,6 @@
 .data
-array:	.word   0 : 8						 #declare array
-N:	.word  8						 		 #declare size N
+array:	.word   0 : 7						 #declare array
+N:	.word  7						 		 #declare size N
 comma:	.asciiz  ", "          			 	 #comma to insert between numbers
 message: .asciiz  "The Sorted array is:\n"	 #declare message
 
@@ -39,23 +39,42 @@ message: .asciiz  "The Sorted array is:\n"	 #declare message
 	sw $t1, 24($s0)
 	lw $t1, 24($s0)
 	
-	addi $t1, $zero, 20
-	sw $t1, 24($s0)
-	lw $t1, 24($s0)
+	addi $t1, $zero, 27
+	sw $t1, 28($s0)
+	lw $t1, 28($s0)
 	
-	addi $t1, $zero, 20
-	sw $t1, 24($s0)
-	lw $t1, 24($s0)
+	addi $t1, $zero, 167
+	sw $t1, 32($s0)
+	lw $t1, 32($s0)
 	
-	addi $t1, $zero, 20
-	sw $t1, 24($s0)
-	lw $t1, 24($s0)
-
+	addi $t1, $zero, 199
+	sw $t1, 36($s0)
+	lw $t1, 36($s0)
+	
+	addi $t1, $zero, 90
+	sw $t1, 40($s0)
+	lw $t1, 40($s0)
+	
+	addi $t1, $zero, 55
+	sw $t1, 44($s0)
+	lw $t1, 44($s0)
+	
+	addi $t1, $zero, 45
+	sw $t1, 48($s0)
+	lw $t1, 48($s0)
+	
+	addi $t1, $zero, 180
+	sw $t1, 52($s0)
+	lw $t1, 52($s0)
+	
+	addi $t1, $zero, 1
+	sw $t1, 56($s0)
+	lw $t1, 56($s0)
 	
 
       	
 	
-	addi $sp, $sp, -8 	#move the stack pointer 
+	addi $sp, $sp, 100 	#move the stack pointer 
 	sw $s0, 0($sp)		#store the pointer to the head of array
 	sw $s5, 4($sp)		#store the sive of the array
 	
