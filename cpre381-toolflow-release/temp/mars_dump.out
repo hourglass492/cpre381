@@ -1,62 +1,26 @@
-[inst #1] lui $1,4097
-Register Write to Reg: 0x01 Val: 0x10010000
-[inst #2] ori $16,$1,0
-Register Write to Reg: 0x10 Val: 0x10010000
-[inst #3] addi $9,$0,10
+[inst #1] addi $9,$0,10
 Register Write to Reg: 0x09 Val: 0x0000000A
-[inst #4] addi $10,$0,20
-Register Write to Reg: 0x0A Val: 0x00000014
-[inst #5] add $11,$9,$10
-Register Write to Reg: 0x0B Val: 0x0000001E
-[inst #6] addiu $11,$0,30
-Register Write to Reg: 0x0B Val: 0x0000001E
-[inst #7] addu $11,$9,$10
-Register Write to Reg: 0x0B Val: 0x0000001E
-[inst #8] and $11,$9,$10
+[inst #2] addi $10,$0,200
+Register Write to Reg: 0x0A Val: 0x000000C8
+[inst #3] add $11,$9,$10
+Register Write to Reg: 0x0B Val: 0x000000D2
+[inst #4] slt $11,$10,$9
 Register Write to Reg: 0x0B Val: 0x00000000
-[inst #9] andi $11,$0,30
-Register Write to Reg: 0x0B Val: 0x00000000
-[inst #10] lui $11,30
-Register Write to Reg: 0x0B Val: 0x001E0000
-[inst #11] sw $9,0($16)
-Memory Write to Addr: 0x10010000 Val: 0x0000000A
-[inst #12] lw $9,0($16)
-Register Write to Reg: 0x09 Val: 0x0000000A
-[inst #13] nor $11,$9,$10
-Register Write to Reg: 0x0B Val: 0xFFFFFFE1
-[inst #14] xor $11,$9,$10
-Register Write to Reg: 0x0B Val: 0x0000001E
-[inst #15] xori $11,$0,100
-Register Write to Reg: 0x0B Val: 0x00000064
-[inst #16] or $11,$9,$10
-Register Write to Reg: 0x0B Val: 0x0000001E
-[inst #17] ori $11,$0,100
-Register Write to Reg: 0x0B Val: 0x00000064
-[inst #18] slt $11,$9,$10
+[inst #5] slt $11,$9,$10
 Register Write to Reg: 0x0B Val: 0x00000001
-[inst #19] slti $11,$9,50
+[inst #6] slti $11,$9,50
 Register Write to Reg: 0x0B Val: 0x00000001
-[inst #20] sltiu $11,$9,50
+[inst #7] slti $11,$10,50
+Register Write to Reg: 0x0B Val: 0x00000000
+[inst #8] sltiu $11,$9,50
 Register Write to Reg: 0x0B Val: 0x00000001
-[inst #21] sltu $11,$9,$10
+[inst #9] sltiu $11,$10,50
+Register Write to Reg: 0x0B Val: 0x00000000
+[inst #10] sltu $11,$9,$10
 Register Write to Reg: 0x0B Val: 0x00000001
-[inst #22] sll $11,$9,4
-Register Write to Reg: 0x0B Val: 0x000000A0
-[inst #23] srl $11,$9,4
+[inst #11] sltu $11,$10,$9
 Register Write to Reg: 0x0B Val: 0x00000000
-[inst #24] sra $11,$9,4
-Register Write to Reg: 0x0B Val: 0x00000000
-[inst #25] sllv $11,$9,$9
-Register Write to Reg: 0x0B Val: 0x00002800
-[inst #26] srlv $11,$9,$9
-Register Write to Reg: 0x0B Val: 0x00000000
-[inst #27] srav $11,$9,$9
-Register Write to Reg: 0x0B Val: 0x00000000
-[inst #28] sub $11,$9,$9
-Register Write to Reg: 0x0B Val: 0x00000000
-[inst #29] subu $11,$9,$9
-Register Write to Reg: 0x0B Val: 0x00000000
-[inst #30] addiu $2,$0,10
+[inst #12] addiu $2,$0,10
 Register Write to Reg: 0x02 Val: 0x0000000A
-[inst #31] syscall 
+[inst #13] syscall 
 
