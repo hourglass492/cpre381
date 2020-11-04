@@ -23,6 +23,7 @@ entity control is
 	jr                    : out std_logic;
 	jal                   : out std_logic;
 	jump                  : out std_logic;
+	varShift			  : out std_logic;
 	zeroExtened           : out std_logic
 	
 	
@@ -59,7 +60,8 @@ begin
 	ALUSrc <= '0' when (opcode = "000000" or opcode = "000100" or opcode = "000101") else -- includes the beq and bne
 			  '1';   
 
-			  
+	varShift <= '1' when (funct = "000100" or funct = "000110" or funct = "000111") else -- only for variable shifts
+			  '0';		  
 			  
 	MemtoReg <= '1' when (opcode = "100011") else
 			    '0';

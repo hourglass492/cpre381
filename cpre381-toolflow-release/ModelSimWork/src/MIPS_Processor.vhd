@@ -125,6 +125,8 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             signal ALUSrc                              : std_logic;
             signal regWrite                            : std_logic;
             signal jr                                  : std_logic;
+			signal varShift								: std_logic;
+			signal shiftValue						   : std_logic_vector(0 to 4);
         --ctl signals end 
 
         -- buses start
@@ -219,6 +221,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
                 in_ia              : in std_logic_vector(0 to N-1);
                 in_ib              : in std_logic_vector(0 to N-1);
                 in_ctl             : in std_logic_vector(0 to 3);
+			    shiftAmount		   : in std_logic_vector(0 to 4);
 
 
                 out_data            : out std_logic_vector(0 to N-1);
@@ -283,6 +286,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 				jr                    : out std_logic;
 				jal                   : out std_logic;
 				jump                  : out std_logic;
+				varShift			  : out std_logic;
 				zeroExtened                  : out std_logic
 
             );
@@ -446,13 +450,15 @@ begin
                     o_z         => ALU_ib    
     );
 
-                
+          shiftValue <= internal_raw_immidates (5 to 9) when (varShift = '0') else
+					internal_rs(27 to 31);       
     ALU: FullALU
 	--generic(N : integer := 31);
         port map(
             in_ia             => internal_rs,
             in_ib             => ALU_ib,
             in_ctl		=> ALUOpIn,
+			shiftAmount => shiftValue,
 			
             out_data          => ALU_sum,
 			out_overflow	  => nothingTwo,
@@ -530,6 +536,7 @@ begin
 					bne                  => bne,
 					jal					=> jal,
 					jump                  => jump,
+					varShift			=> varShift,
 					zeroExtened                  => zeroExtened
 
 

@@ -12,6 +12,7 @@ entity FullALU is
     in_ia              : in std_logic_vector(0 to data_size);
     in_ib              : in std_logic_vector(0 to data_size);
     in_ctl             : in std_logic_vector(0 to 3);
+	shiftAmount		   : in std_logic_vector(0 to 4);
 
 
     out_data            : out std_logic_vector(0 to data_size);
@@ -138,14 +139,14 @@ end component;
 
 
 --barrel Shifter component of ALU
-        BarrelShifter: bsLR 
+           BarrelShifter: bsLR 
         port map(
     
             LorR             => ctl_LorR,
             LorA             => ctl_AorL,
-            i_s       		 => in_ib(0 to 4),
-            i_a              => in_ia,
-	    o_a		     => internal_shiftResult
+            i_s       		 => shiftAmount,
+            i_a              => in_ib,
+			o_a		     => internal_shiftResult
         
             );
 
