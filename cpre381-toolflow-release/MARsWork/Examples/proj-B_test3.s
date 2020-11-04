@@ -1,6 +1,6 @@
 .data
-array:	.word   0 : 6						 #declare array
-N:	.word  6						 		 #declare size N
+array:	.word   0 : 7						 #declare array
+N:	.word  7						 		 #declare size N
 comma:	.asciiz  ", "          			 	 #comma to insert between numbers
 message: .asciiz  "The Sorted array is:\n"	 #declare message
 
@@ -12,64 +12,64 @@ message: .asciiz  "The Sorted array is:\n"	 #declare message
 	#load the array with values
 	addi $t1, $zero, 101
 	sw $t1, 0($s0)
-	lw $t1, 0($t1)
+	lw $t1, 0($s0)
 	
 	addi $t1, $zero, 9
 	sw $t1, 4($s0)
-	lw $t1, 4($t1)
+	lw $t1, 4($s0)
 	
 	
 	addi $t1, $zero, 3
 	sw $t1, 8($s0)
-	lw $t1, 8($t1)
+	lw $t1, 8($s0)
 	
 	addi $t1, $zero, 113
 	sw $t1, 12($s0)
-	lw $t1, 12($t1)
+	lw $t1, 12($s0)
 	
 	addi $t1, $zero, 13
 	sw $t1, 16($s0)
-	lw $t1, 16($t1)
+	lw $t1, 16($s0)
 	
 	addi $t1, $zero, 6
 	sw $t1, 20($s0)
-	lw $t1, 20($t1)
+	lw $t1, 20($s0)
 	
 	addi $t1, $zero, 19
 	sw $t1, 24($s0)
-	lw $t1, 24($t1)
+	lw $t1, 24($s0)
 	
 	addi $t1, $zero, 27
 	sw $t1, 28($s0)
-	lw $t1, 28($t1)
+	lw $t1, 28($s0)
 	
 	addi $t1, $zero, 167
 	sw $t1, 32($s0)
-	lw $t1, 32($t1)
+	lw $t1, 32($s0)
 	
 	addi $t1, $zero, 199
 	sw $t1, 36($s0)
-	lw $t1, 36($t1)
+	lw $t1, 36($s0)
 	
 	addi $t1, $zero, 90
 	sw $t1, 40($s0)
-	lw $t1, 40($t1)
+	lw $t1, 40($s0)
 	
 	addi $t1, $zero, 55
 	sw $t1, 44($s0)
-	lw $t1, 44($t1)
+	lw $t1, 44($s0)
 	
 	addi $t1, $zero, 45
 	sw $t1, 48($s0)
-	lw $t1, 48($t1)
+	lw $t1, 48($s0)
 	
 	addi $t1, $zero, 180
 	sw $t1, 52($s0)
-	lw $t1, 52($t1)
+	lw $t1, 52($s0)
 	
 	addi $t1, $zero, 1
 	sw $t1, 56($s0)
-	lw $t1, 56($t1)
+	lw $t1, 56($s0)
 	
 
       	
