@@ -68,7 +68,7 @@ architecture MEM_WB_arch of MEM_WB is
 	
 	begin
 	RegWrite <= not i_stall;
-	RegReset <= not i_if_flush;
+	RegReset <= i_if_flush;
 	
 	s_Default <= x"00000000";
 	s_Def <= '0';

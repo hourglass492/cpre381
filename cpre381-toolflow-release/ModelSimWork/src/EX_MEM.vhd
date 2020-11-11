@@ -72,7 +72,7 @@ architecture EX_MEM_arch of EX_MEM is
 	
 	begin
 	RegWrite <= not i_stall;
-	RegReset <= not i_if_flush;
+	RegReset <= i_if_flush;
 	
 	s_Default <= x"00000000";
 	s_Def <= '0';

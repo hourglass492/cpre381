@@ -46,7 +46,7 @@ architecture IF_ID_arch of IF_ID is
 	
 	begin
 	RegWrite <= not i_stall;
-	RegReset <= not i_if_flush;
+	RegReset <= i_if_flush;
 	
 	s_Default <= x"00000000";
 	g1: for i in 0 to N generate

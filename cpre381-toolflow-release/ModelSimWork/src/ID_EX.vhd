@@ -83,7 +83,7 @@ architecture ID_EX_arch of ID_EX is
 	
 	begin
 	RegWrite <= not i_stall;
-	RegReset <= not i_if_flush;
+	RegReset <= i_if_flush;
 	
 	s_Default <= x"00000000";
 	s_Def <= '0';
