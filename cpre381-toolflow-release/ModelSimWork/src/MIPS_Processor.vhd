@@ -156,6 +156,112 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 	
 	
     --components
+	
+	--pipeline registers
+	
+		component IF_ID
+			port(
+				i_CLK             		  : in std_logic;
+				i_stall              	  : in std_logic;
+				i_if_flush                : in std_logic;
+				i_instruction             : in std_logic_vector(0 to N);   
+				i_pc         			  : in std_logic_vector(0 to N);   
+
+				o_pc              		  : out std_logic_vector(0 to N);
+				o_instruction	  		  : out std_logic_vector(0 to N)
+				);
+        end component;
+		
+		component ID_EX
+			port(
+				i_CLK             			: in std_logic;
+				i_stall              		: in std_logic;
+				i_if_flush              	: in std_logic;
+				i_RS             			: in std_logic_vector(0 to N);   
+				i_RT         			 	: in std_logic_vector(0 to N);   
+				i_MemtoReg					: in std_logic;
+				i_RegWrite					: in std_logic;
+				i_MemWrite					: in std_logic;
+				i_MemRead					: in std_logic;
+				i_ALUSrc					: in std_logic;
+				i_RegDst					: in std_logic;
+				i_AluOp						: in std_logic_vector(0 to 3);
+				i_ExtendedImmediate			: in std_logic_vector(0 to N);
+				i_RdAddress					: in std_logic_vector(0 to 4);
+				i_RtAddress					: in std_logic_vector(0 to 4);
+				i_RsAddress					: in std_logic_vector(0 to 4);
+
+				o_RT               			: out std_logic_vector(0 to N);
+				o_RS		 	  			: out std_logic_vector(0 to N);
+				o_MemtoReg					: out std_logic;
+				o_RegWrite					: out std_logic;
+				o_MemWrite					: out std_logic;
+				o_MemRead					: out std_logic;
+				o_ALUSrc					: out std_logic;
+				o_RegDst					: out std_logic;
+				o_AluOp						: out std_logic_vector(0 to 3);
+				o_ExtendedImmediate			: out std_logic_vector(0 to N);
+				o_RdAddress					: out std_logic_vector(0 to 4);
+				o_RtAddress					: out std_logic_vector(0 to 4);
+				o_RsAddress					: out std_logic_vector(0 to 4)
+
+				);
+        end component;
+		
+		
+		component EX_MEM
+			port(
+				i_CLK             			: in std_logic;
+				i_stall              		: in std_logic;
+				i_if_flush              	: in std_logic;
+	
+				i_ALUOut             		: in std_logic_vector(0 to N);   
+				i_MuxOut         			: in std_logic_vector(0 to N);   
+				i_MemtoReg					: in std_logic;
+				i_RegWrite					: in std_logic;
+				i_MemWrite					: in std_logic;
+				i_MemRead					: in std_logic;
+				i_WriteAdress				: in std_logic_vector(0 to 4);
+
+				o_MuxOut               		: out std_logic_vector(0 to N);
+				o_ALUOut		 	  		: out std_logic_vector(0 to N);
+				o_MemtoReg					: out std_logic;
+				o_RegWrite					: out std_logic;
+				o_MemWrite					: out std_logic;
+				o_MemRead					: out std_logic;
+				o_WriteAdress				: out std_logic_vector(0 to 4)
+				
+				);
+		end component;
+		
+		
+		component MEM_WB
+			port(
+				i_CLK             			: in std_logic;
+				i_stall              		: in std_logic;
+				i_if_flush              	: in std_logic;
+	
+				i_ALUOut             		: in std_logic_vector(0 to N);   
+				i_MemOut         			: in std_logic_vector(0 to N);   
+				i_MemtoReg					: in std_logic;
+				i_RegWrite					: in std_logic;
+				i_WriteAdress				: in std_logic_vector(0 to 4);
+
+				o_MemOut                	: out std_logic_vector(0 to N);
+				o_ALUOut		 	  		: out std_logic_vector(0 to N);
+				o_MemtoReg					: out std_logic;
+				o_RegWrite					: out std_logic;
+				o_WriteAdress				: out std_logic_vector(0 to 4)
+
+				);
+		end component;
+
+	
+	
+	
+	--regester file
+	
+	
         component registerFile_nbit_struct
             port(
                 i_rd                       : in std_logic_vector(0 to N-1);
@@ -165,7 +271,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
                 i_WE                       : in std_logic;
                 i_CLK                      : in std_logic;
                 i_RST                      : in std_logic;
-				jal                : in std_logic;
+				jal               			: in std_logic;
             
             
                 o_rt                       : out std_logic_vector(0 to N-1);
@@ -182,12 +288,10 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             port(  
 
     			opcode				  : in std_logic_vector(0 to 5);
-			funct				  : in std_logic_vector(0 to 5);
+				funct				  : in std_logic_vector(0 to 5);
 	
     			ALUControl           			: out std_logic_vector(0 to 3);
-			IsUnsigned               		: out std_logic
-
-
+				IsUnsigned               		: out std_logic
 
                 );
         end component;
@@ -344,7 +448,29 @@ begin
 
   s_Halt <='1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
 
-  -- TODO: Implement the rest of your processor below this comment! 
+  -- TODO: Implement the rest of your processor below this comment!
+  
+  
+  
+  
+  
+  
+  -- pipeline registers
+  
+  	IF_ID: IF_IDreg
+			port map(
+				i_CLK			=> iCLK,
+				--TODO-----------------------------------------------------------
+				--wire in the registers
+				i_stall              	  : in std_logic;
+				i_if_flush                : in std_logic;
+				i_instruction             : in std_logic_vector(0 to N);   
+				i_pc         			  : in std_logic_vector(0 to N);   
+
+				o_pc              		  : out std_logic_vector(0 to N);
+				o_instruction	  		  : out std_logic_vector(0 to N)
+				);
+
   
   
   

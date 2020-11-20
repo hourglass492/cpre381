@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2020.2
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 17:53:07 on Nov 04,2020
+# Start time: 20:48:14 on Nov 19,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -41,29 +41,11 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 7  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 21  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 24  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 27  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 30  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 33  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 36  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 39  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 42  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 45  Instance: /tb_simplifiedmipsprocessor/MySimplifiedMIPSProcess/DMem
-# ** Note: Data structure takes 30657392 bytes of memory
-#          Process time 0.67 seconds
+# ** Note: Data structure takes 30002096 bytes of memory
+#          Process time 0.22 seconds
 #          stop
-#    Time: 16220 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
+#    Time: 260 ns  Iteration: 1  Instance: /tb_simplifiedmipsprocessor
 # Break in Process P_DUMP_STATE at U:/cpre381/cpre381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
 # Stopped at U:/cpre381/cpre381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd line 140
-# End time: 17:53:13 on Nov 04,2020, Elapsed time: 0:00:06
-# Errors: 0, Warnings: 12
+# End time: 20:48:21 on Nov 19,2020, Elapsed time: 0:00:07
+# Errors: 0, Warnings: 3
