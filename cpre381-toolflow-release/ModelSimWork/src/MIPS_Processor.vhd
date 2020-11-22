@@ -72,12 +72,12 @@ signal func_select  : std_logic_vector(0 to 5);
 signal ALU_ib                           : std_logic_vector(0 to N-1);
 --signal ALU_ib                           : std_logic_vector(0 to N-1);
 signal ALU_ctl                          : std_logic_vector(0 to 3);
-signal ALU_sum                          : std_logic_vector(0 to N-1);
+signal sum                          : std_logic_vector(0 to N-1);
 signal nothingTwo                       : std_logic;    
 signal nothing                          : std_logic;
 signal zero                             : std_logic;
---signal ALU_sum                         : std_logic_vector(0 to N-1);
-signal ALU_sum_bottom_10                : std_logic_vector(0 to 9);           
+--signal sum                         : std_logic_vector(0 to N-1);
+signal sum_bottom_10                : std_logic_vector(0 to 9);           
 signal internal_mem_we                  : std_logic;     
 signal data_read                        : std_logic_vector(0 to N-1);
 signal reg_Dst							: std_logic;
@@ -99,7 +99,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
             signal internal_rs                 : std_logic_vector(0 to N-1);
             signal internal_rt                 : std_logic_vector(0 to N-1);
             signal register_write_data         : std_logic_vector(0 to N-1);
-			signal s_WDlui					   : std_logic_vector(0 to N-1);
+			signal register_write_back_final					   : std_logic_vector(0 to N-1);
             signal internal_imm                : std_logic_vector(0 to N-1);
             signal jumpLocation                : std_logic_vector(0 to N-1);
         -- register inputs and immidates end
@@ -428,268 +428,383 @@ begin
       iInstAddr when others;
 
 
-  IMem: mem
-    generic map(ADDR_WIDTH => 10,
-                DATA_WIDTH => N)
-    port map(clk  => iCLK,
-             addr => s_IMemAddr(11 downto 2),
-             data => iInstExt,
-             we   => iInstLd,
-             q    => s_Inst);
-  
-  DMem: mem
-    generic map(ADDR_WIDTH => 10,
-                DATA_WIDTH => N)
-    port map(clk  => iCLK,
-             addr => s_DMemAddr(11 downto 2),
-             data => s_DMemData,
-             we   => s_DMemWr,
-             q    => s_DMemOut);
 
-  s_Halt <='1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
+  
 
-  -- TODO: Implement the rest of your processor below this comment!
   
   
-  
-  
-  
-  
-  -- pipeline registers
-  
-  	IF_ID: IF_IDreg
-			port map(
-				i_CLK			=> iCLK,
-				--TODO-----------------------------------------------------------
-				--wire in the registers
-				i_stall              	  : in std_logic;
-				i_if_flush                : in std_logic;
-				i_instruction             : in std_logic_vector(0 to N);   
-				i_pc         			  : in std_logic_vector(0 to N);   
-
-				o_pc              		  : out std_logic_vector(0 to N);
-				o_instruction	  		  : out std_logic_vector(0 to N)
-				);
 
   
   
   
   
-  
-  
-  
-  
- --architecture IntegratedDatapath_arch of MIPS_Processor is
+    --begin the instruction decode section
 
-  
-
-
-
-
-    --begin
-
-   
-    -- instruction binary to signals
-
-         --rs_select        <= instruction(21 to 25);
-		 --It isn't allways these bytes when it is a sw it is the first register
-		 rs_select        <= s_Inst(25 downto 21);
-		 --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
-		--		s_Inst(25 downto 21)
-
-        
-         --rt_select        <= instruction(16 to 20);
-		 rt_select        <= s_Inst(20 downto 16);
-
-
-        -- if statment to select if instruction bits 20-16 or 15-11
-         --rd_select        <= instruction(16 to 20) when reg_Dst = '0' else
-		--		 instruction(11 to 15);
-		rd_select        <= "11111" when jal = '1' else
-							s_Inst(20 downto 16) when reg_Dst = '0' else
-							s_Inst(15 downto 11);		 
-		
-                                        
-        
+        --DO NOT CHANGE ANY OF THESE SIGNALS, THEY ARE NEEDED
+        -- TO HOOK UP WITH THE TEST BENCH
+        IMem: mem
+        generic map(ADDR_WIDTH => 10,
+                    DATA_WIDTH => N)
+        port map(clk  => iCLK,
+                addr => s_IMemAddr(11 downto 2),
+                data => iInstExt,
+                we   => iInstLd,
+                q    => s_Inst);
         
 
-        --instruction bits 15 - 0
-         internal_raw_immidates <= s_Inst(15 downto 0);
-
-         func_select <= s_Inst(5 downto 0);
-
-
-    -- end instruction binary to signals
+        s_Halt <='1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
 
 
 
-	--TODO set the load upper immideate and unsigned ctl
-    extender: extender16bit_flow
+
+
+
+
+
+    -- Instruction Fech
+        IF_ID: IF_IDreg
         port map(
-            zeroExtened    => zeroExtened,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+            i_CLK			=> iCLK,
+            --TODO-----------------------------------------------------------
+            --wire in the registers
+            i_stall              	  : in std_logic;
+            i_if_flush                : in std_logic;
+            i_instruction             : in std_logic_vector(0 to N);   
+            i_pc         			  : in std_logic_vector(0 to N);   
 
-            i_D          => internal_raw_immidates,     -- Data input
-            o_Q          => internal_imm 
-    );
-	
-
-	--LUI implementation
-	s_internal_imm_shifted <= internal_raw_immidates & x"0000";
-	
---	 LUImux: mux_nbit_struct 
---        port map(
---                    i_a         => s_internal_imm_shifted,
---                    i_b         => register_write_data,
---                    i_select    => loadUpper,
---                    o_z         => s_WDlui    
---    );
-	s_WDlui <= s_internal_imm_shifted when (loadUpper = '1') else
-				std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (jal = '1') else
-				register_write_data;
+            o_pc              		  : out std_logic_vector(0 to N);
+            o_instruction	  		  : out std_logic_vector(0 to N)
+            );
 
 
-    -- mux to output the rt data
-    reg: registerFile_nbit_struct
-        port map(
-            i_rd               => s_WDlui, --value to load
-            in_select_rs       => rs_select, -- next 3 select the register to pull from for each value
-            in_select_rt       => rt_select,
-            in_select_rd       => rd_select,
-            i_WE               => RegWrite,
-            i_CLK              => iCLK,
-            i_RST              => iRST,
-			jal 				=> jal,
+
+
+
+
+            
+
+    
+        -- instruction binary to signals
+
+            --rs_select        <= instruction(21 to 25);
+            --It isn't allways these bytes when it is a sw it is the first register
+            rs_select        <= s_Inst(25 downto 21);
+            --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
+            --		s_Inst(25 downto 21)
+
+            
+            --rt_select        <= instruction(16 to 20);
+            rt_select        <= s_Inst(20 downto 16);
+
+
+            -- if statment to select if instruction bits 20-16 or 15-11
+            --rd_select        <= instruction(16 to 20) when reg_Dst = '0' else
+            --		 instruction(11 to 15);
+            rd_select        <= "11111" when jal = '1' else
+                                s_Inst(20 downto 16) when reg_Dst = '0' else
+                                s_Inst(15 downto 11);		 
+            
+                                            
+            
+            
+
+            --instruction bits 15 - 0
+            internal_raw_immidates <= s_Inst(15 downto 0);
+
+            func_select <= s_Inst(5 downto 0);
+
+
+        -- end instruction binary to signals
+
+
+
+
+
+
+        reg: registerFile_nbit_struct
+            port map(
+                i_rd               => register_write_back_final, --value to load
+                in_select_rs       => rs_select, -- next 3 select the register to pull from for each value
+                in_select_rt       => rt_select,
+                in_select_rd       => rd_select,
+                i_WE               => RegWrite,
+                i_CLK              => iCLK,
+                i_RST              => iRST,
+                jal 				=> jal,
+            
+            
+                o_rt               => internal_rt,
+                o_rs               => internal_rs,
+                
+                o_v0			   => v0
+        );
+
+
+
+
+        extender: extender16bit_flow
+            port map(
+                zeroExtened    => zeroExtened,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+
+                i_D          => internal_raw_immidates,     -- Data input
+                o_Q          => internal_imm 
+        );
         
-        
-            o_rt               => internal_rt,
-            o_rs               => internal_rs,
-			
-			o_v0			   => v0
-    );
-
-
-    ALUmux: mux_nbit_struct 
-        port map(
-                    i_a         => internal_imm,
-                    i_b         => internal_rt,
-                    i_select    => ALUsrc,
-                    o_z         => ALU_ib    
-    );
-
-          shiftValue <= internal_raw_immidates (5 to 9) when (varShift = '0') else
-					internal_rs(27 to 31);       
-    ALU: FullALU
-	--generic(N : integer := 31);
-        port map(
-            in_ia             => internal_rs,
-            in_ib             => ALU_ib,
-            in_ctl		=> ALUOpIn,
-			shiftAmount => shiftValue,
-			
-            out_data          => ALU_sum,
-			out_overflow	  => nothingTwo,
-            out_carry         => nothing,-- not useing carry right now
-			out_zero		  => zero
-    );
 
 
 
 
-
-
-
-
-    result_mux: mux_nbit_struct 
---	generic map(N : integer := 31);
-        port map(
-                    i_a         => data_read,
-                    i_b         => ALU_sum,  
-                    i_select    => memToReg,
-                    o_z         => register_write_data    
-    );
-
-
-    G1:  for j in 22 to 31 generate
-        ALU_sum_bottom_10(j-22) <= ALU_sum(j);
-    end generate;
-
-
-
-	-- need to be an immideate value for bne, beq, j, and jal, but for jr needs to be the register read
-	-- So I made the pc immedate input a 32 bit value and just appended 0's to the front of the immedate
-	-- given by the instruction and muxed it so if it is a jr we get the rs val which should be the reg	
-	-- we are jumping to
-	jumpLocation <= internal_rs when jr = '1' 
-				else internal_imm(2 to 31) & "00"  when (bne = '1' or beq ='1') --signextend
-				else "0000" & instruction(6 to 31) & "00"  ;
-					
-					
-				
-
-    counter: pc
+        ctl: control
         port map(  
 
-            i_rst                   => iRST,
-            i_CLK                   => iClk,
-            i_zero                  => zero,
-            i_immedate              => jumpLocation,
-			beq                  => beq,
-			bne                  => bne,
-			jump                  => jump,
+        
+                        opcode			=> instruction(0 to 5),
+                        funct           => instruction(26 to 31),
+                        
+                        ALUSrc        		=> ALUSrc,
+                        MemtoReg           	=> memToReg,
+                        s_DMemWr              => internal_mem_we,
+                        s_RegWr               => RegWrite,
+                        s_Lui                 => loadUpper,
+                        RegDst                => reg_Dst,
 
-            o_instruction_number    => PCnumber
-
-    );
-
-
-
-    ctl: control
-    port map(  
-
-     
-                    opcode			=> instruction(0 to 5),
-					funct           => instruction(26 to 31),
-					
-                    ALUSrc        		=> ALUSrc,
-                    MemtoReg           	=> memToReg,
-                    s_DMemWr              => internal_mem_we,
-                    s_RegWr               => RegWrite,
-                    s_Lui                 => loadUpper,
-                    RegDst                => reg_Dst,
-
-					beq                  => beq,
-					jr                   => jr,
-					bne                  => bne,
-					jal					=> jal,
-					jump                  => jump,
-					varShift			=> varShift,
-					zeroExtened                  => zeroExtened
+                        beq                  => beq,
+                        jr                   => jr,
+                        bne                  => bne,
+                        jal					=> jal,
+                        jump                  => jump,
+                        varShift			=> varShift,
+                        zeroExtened                  => zeroExtened
 
 
-           
-    );
-	
+            
+        );
+
+
+        ALUctl: ALUControler
+        port map( 
+            opcode          => instruction(0 to 5),
+            funct           => instruction(26 to 31),
+
+            ALUControl      => ALUOpIn, --4 bit
+            IsUnsigned		=> IsUnsigned
+        );
+
+
+    
 
 
 
-    ALUctl: ALUControler
-	port map( 
-        opcode          => instruction(0 to 5),
-        funct           => instruction(26 to 31),
 
-        ALUControl                 => ALUOpIn, --4 bit
-		IsUnsigned		=> IsUnsigned
-    );
+
+
+    -- Start Instruction Exicute components
+
+
+        component ID_EX
+        port(
+            i_CLK             			: in std_logic;
+            i_stall              		: in std_logic;
+            i_if_flush              	: in std_logic;
+            i_RS             			: in std_logic_vector(0 to N);   
+            i_RT         			 	: in std_logic_vector(0 to N);   
+            i_MemtoReg					: in std_logic;
+            i_RegWrite					: in std_logic;
+            i_MemWrite					: in std_logic;
+            i_MemRead					: in std_logic;
+            i_ALUSrc					: in std_logic;
+            i_RegDst					: in std_logic;
+            i_AluOp						: in std_logic_vector(0 to 3);
+            i_ExtendedImmediate			: in std_logic_vector(0 to N);
+            i_RdAddress					: in std_logic_vector(0 to 4);
+            i_RtAddress					: in std_logic_vector(0 to 4);
+            i_RsAddress					: in std_logic_vector(0 to 4);
+
+            o_RT               			: out std_logic_vector(0 to N);
+            o_RS		 	  			: out std_logic_vector(0 to N);
+            o_MemtoReg					: out std_logic;
+            o_RegWrite					: out std_logic;
+            o_MemWrite					: out std_logic;
+            o_MemRead					: out std_logic;
+            o_ALUSrc					: out std_logic;
+            o_RegDst					: out std_logic;
+            o_AluOp						: out std_logic_vector(0 to 3);
+            o_ExtendedImmediate			: out std_logic_vector(0 to N);
+            o_RdAddress					: out std_logic_vector(0 to 4);
+            o_RtAddress					: out std_logic_vector(0 to 4);
+            o_RsAddress					: out std_logic_vector(0 to 4)
+
+            );
+        end component;
+
+
+
+
+
+
+        ALUInputmux: mux_nbit_struct 
+            port map(
+                        i_a         => internal_imm,
+                        i_b         => internal_rt,
+                        i_select    => ALUsrc,
+                        o_z         => ALU_ib    
+        );
+
+
+        --The amount we want to shift for shift instructions
+        shiftValue <= internal_raw_immidates (5 to 9) when (varShift = '0') else
+                internal_rs(27 to 31);  
+                        
+                        
+        ALU: FullALU
+        --generic(N : integer := 31);
+            port map(
+                in_ia             => internal_rs,
+                in_ib             => ALU_ib,
+                in_ctl		=> ALUOpIn,
+                shiftAmount => shiftValue,
+                
+                out_data          => sum,
+                out_overflow	  => nothingTwo,--No overflow detection used
+                out_carry         => nothing,-- not useing carry right now
+                out_zero		  => zero
+        );
+
+
+        --LUI implementation
+        ALUsum <= s_internal_imm_shifted <= internal_raw_immidates & x"0000" when (LUI = '1') else
+            sum;
+        
+
+
+
+        -- need to be an immideate value for bne, beq, j, and jal, but for jr needs to be the register read
+        -- So I made the pc immedate input a 32 bit value and just appended 0's to the front of the immedate
+        -- given by the instruction and muxed it so if it is a jr we get the rs val which should be the reg	
+        -- we are jumping to
+        jumpLocation <= internal_rs when jr = '1' 
+                    else internal_imm(2 to 31) & "00"  when (bne = '1' or beq ='1') --signextend
+                    else "0000" & instruction(6 to 31) & "00"  ;
+                        
+                        
+                    
+
+        --This component contains all of the program counter logic
+        counter: pc
+            port map(  
+
+                i_rst                   => iRST,
+                i_CLK                   => iClk,
+                i_zero                  => zero,
+                i_immedate              => jumpLocation,
+                beq                  => beq, --ctl signal
+                bne                  => bne, --ctl signal
+                jump                  => jump, --ctl signal
+
+                o_instruction_number    => PCnumber
+
+        );
+
+
+
+
+
+
+
+    -- Start Mem compnents
+
+
+        --This is the loop that generates the address for the memory
+        G1:  for j in 22 to 31 generate
+            sum_bottom_10(j-22) <= sum(j);
+        end generate;
+
+
+        DMem: mem
+        generic map(ADDR_WIDTH => 10,
+                    DATA_WIDTH => N)
+        port map(clk  => iCLK,
+                 addr => s_DMemAddr(11 downto 2),
+                 data => s_DMemData,
+                 we   => s_DMemWr,
+                 q    => s_DMemOut);
+    
+
+
+
+
+        result_mux: mux_nbit_struct 
+        --	generic map(N : integer := 31);
+            port map(
+                        i_a         => data_read,
+                        i_b         => sum,  
+                        i_select    => memToReg,
+                        o_z         => register_write_data    
+        );
+
+
+
+
+
+        
+    --Start WB
+
+        		
+		component MEM_WB
+        port(
+            i_CLK             			: in std_logic;
+            i_stall              		: in std_logic;
+            i_if_flush              	: in std_logic;
+
+            i_ALUOut             		: in std_logic_vector(0 to N);   
+            i_MemOut         			: in std_logic_vector(0 to N);   
+            i_MemtoReg					: in std_logic;
+            i_RegWrite					: in std_logic;
+            i_WriteAdress				: in std_logic_vector(0 to 4);
+
+            o_MemOut                	: out std_logic_vector(0 to N);
+            o_ALUOut		 	  		: out std_logic_vector(0 to N);
+            o_MemtoReg					: out std_logic;
+            o_RegWrite					: out std_logic;
+            o_WriteAdress				: out std_logic_vector(0 to 4)
+
+            );
+        end component;
+
+
+
+
+
+
+        register_write_back_final <= s_internal_imm_shifted when (loadUpper = '1') else
+                    std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (jal = '1') else
+                    register_write_data;
+
+    --End Proccessor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -- signal remapping
 -- reverse signals
 gen32: for i in 0 to 31 generate
-	oALUOut(i) <= ALU_sum(31-i);
-	s_DMemAddr(i) <= ALU_sum(31-i);--????
+	oALUOut(i) <= sum(31-i);
+	s_DMemAddr(i) <= sum(31-i);--????
 	s_DMemData(i) <= internal_rt(31-i);
 	data_read(i) <= s_DMemOut(31-i);
-    s_RegWrData(i) <= s_WDlui(31-i);
+    s_RegWrData(i) <= register_write_back_final(31-i);
     
     --TODO
     --THIS IS THE PROBLEM, I think the PC only has 
