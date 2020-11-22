@@ -63,6 +63,125 @@ architecture structure of MIPS_Processor is
                     q            : out std_logic_vector((DATA_WIDTH -1) downto 0));
                 end component;
 
+
+
+            
+        -- All signals used in ID
+                -- 1
+                signal ID_zeroExtened                   : std_logic;
+                signal ID_ALUSrc                        : std_logic;
+                signal ID_memToReg                      : std_logic;
+                signal ID_internal_mem_we               : std_logic;
+                signal ID_RegWrite                      : std_logic;
+                signal ID_loadUpper                     : std_logic;
+                signal ID_reg_Dst                       : std_logic;
+                signal ID_beq                           : std_logic;
+                signal ID_jr                            : std_logic;
+                signal ID_bne                           : std_logic;
+                signal ID_jal                           : std_logic;
+                signal ID_jump                          : std_logic;
+                signal ID_varShift                      : std_logic;
+                signal ID_zeroExtened                   : std_logic;
+                signal ID_ALUOpIn                       : std_logic;
+                signal ID_IsUnsigned                    : std_logic;
+
+                -- 4
+                signal ID_ALUOpIn                       : std_logic_vector(0 to 3);
+
+                -- 5
+                signal ID_rs_select                     : std_logic_vector(0 to 4);
+                signal ID_rt_select                     : std_logic_vector(0 to 4);
+                signal ID_rd_select                     : std_logic_vector(0 to 4);
+
+                -- 6
+                signal ID_func_select                   : std_logic_vector(0 to 5);
+
+
+                -- 16                          
+                signal ID_internal_raw_immidates        : std_logic_vector(0 to 15);
+
+                -- 32
+                signal ID_internal_rt                   : std_logic_vector(0 to 31);
+                signal ID_internal_rs                   : std_logic_vector(0 to 31);
+                signal ID_internal_imm                  : std_logic_vector(0 to 31);
+                signal ID_s_Inst                        : std_logic_vector(0 to 31);
+                signal ID_instruction                   : std_logic_vector(0 to 31);
+                signal ID_v0                            : std_logic;
+        --End Signals used
+
+        -- start of all signals used in EX stage
+                -- 1
+                signal EX_ALUSrc            : std_logic;
+                signal EX_MemtoReg          : std_logic;
+                signal EX_s_DMemWr          : std_logic;
+                signal EX_s_RegWr           : std_logic;
+                signal EX_s_Lui             : std_logic;
+                signal EX_RegDst            : std_logic;
+                signal EX_beq               : std_logic;
+                signal EX_bne               : std_logic;
+                signal EX_jr                : std_logic;
+                signal EX_jal               : std_logic;
+                signal EX_jump              : std_logic;
+                signal EX_varShift          : std_logic;
+                signal EX_zeroExtened       : std_logic;
+
+                -- 4
+                EX_AluOp                    : std_logic_vector(0 to 3);
+
+                -- 5
+                EX_RdAddress                : std_logic_vector(0 to 4);
+                EX_shiftValue               : std_logic_vector(0 to 4);
+
+                -- 32
+                signal EX_rt_data                  : std_logic_vector(0 to 31);
+                signal EX_internal_rs              : std_logic_vector(0 to 31);
+                signal EX_internal_imm             : std_logic_vector(0 to 31);
+                signal EX_ALU_ib                   : std_logic_vector(0 to 31);
+                signal EX_sum                      : std_logic_vector(0 to 31);
+                signal EX_ALUsum                   : std_logic_vector(0 to 31);
+                signal PCnumber                    : std_logic_vector(0 to 31);
+                signal EX_jumpLocation             : std_logic_vector(0 to 31);
+
+        -- End of all signals used in EX stage
+
+        --Begin signlas for MEM 
+
+            -- 1
+            signal MEM_MemtoReg             : std_logic;
+            signal MEM_RegWrite             : std_logic;
+            signal MEM_MemWrite             : std_logic;
+            signal MEM_MemRead              : std_logic;
+
+            -- 10
+            signal MEM_WriteAdress          : std_logic_vector(0 to 9);
+            signal MEM_DMem_addr            : std_logic_vector(0 to 9);
+
+            -- 32
+            signal MEM_ALUOut               : std_logic_vector(0 to 31);
+            signal MEM_MemOut               : std_logic_vector(0 to 31);
+
+        --end signlas for MEM 
+
+        --start signals for WB
+            -- 1
+            signal WB_MemtoReg              : std_logic;
+            signal WB_RegWrite              : std_logic;
+
+            -- 4
+            signal WB_rd_select             : std_logic_vector(0 to 3);
+
+
+            -- 32
+            signal WB_MemOut                : std_logic_vector(0 to 31);
+            signal WB_ALUOut                : std_logic_vector(0 to 31);
+        --end signals for WB
+
+
+
+
+
+
+
             -- TODO: You may add any additional signals or components your implementation 
             --       requires below this comment
             --signals
