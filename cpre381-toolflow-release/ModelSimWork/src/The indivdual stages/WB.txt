@@ -1,0 +1,41 @@
+--start signals for WB
+    -- -- 1
+    -- signal WB_MemtoReg              : std_logic;
+    -- signal WB_RegWrite              : std_logic;
+
+    -- -- 4
+    -- signal WB_rd_select             : std_logic_vector(0 to 3);
+
+
+    -- -- 32
+    -- signal WB_MemOut                : std_logic_vector(0 to 31);
+    -- signal WB_ALUOut                : std_logic_vector(0 to 31);
+--end signals for WB
+
+
+
+component MEM_WB
+port(
+    i_CLK             			=> iCLK,
+    i_stall              		=> global_stall,
+    i_if_flush              	=> global_Flush,
+
+    i_ALUOut             		=> MEM_ALUOut, 
+    i_MemOut         			=> MEM_MemOut,
+    i_MemtoReg					=> MEM_MemtoReg,
+    i_RegWrite					=> MEM_RegWrite,
+    i_WriteAdress				=> MEM_WriteAdress,
+
+    o_MemOut                	=> WB_MemOut,
+    o_ALUOut		 	  		=> WB_ALUOut,
+    o_MemtoReg					=> WB_MemtoReg,
+    o_RegWrite					=> WB_RegWrite,
+    o_WriteAdress				=> WB_rd_select
+
+    );
+end component;
+
+
+
+WB_register_write_back_final <= WB_MemOut when (WB_MemtoReg = '1') else
+    WB_ALUOut;

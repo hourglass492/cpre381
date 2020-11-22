@@ -31,122 +31,122 @@ end  MIPS_Processor;
 
 
 architecture structure of MIPS_Processor is
+    --Signals
+            -- Required data memory signals
+            signal s_DMemWr       : std_logic; -- use this signal as the final active high data memory write enable signal
+            signal s_DMemAddr     : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory address input
+            signal s_DMemData     : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory data input
+            signal s_DMemOut      : std_logic_vector(N-1 downto 0); -- use this signal as the data memory output
+            
+            -- Required register file signals 
+            signal s_RegWr        : std_logic; -- use this signal as the final active high write enable input to the register file
+            signal s_RegWrAddr    : std_logic_vector(4 downto 0); -- use this signal as the final destination register address input
+            signal s_RegWrData    : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory data input
 
-  -- Required data memory signals
-  signal s_DMemWr       : std_logic; -- use this signal as the final active high data memory write enable signal
-  signal s_DMemAddr     : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory address input
-  signal s_DMemData     : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory data input
-  signal s_DMemOut      : std_logic_vector(N-1 downto 0); -- use this signal as the data memory output
- 
-  -- Required register file signals 
-  signal s_RegWr        : std_logic; -- use this signal as the final active high write enable input to the register file
-  signal s_RegWrAddr    : std_logic_vector(4 downto 0); -- use this signal as the final destination register address input
-  signal s_RegWrData    : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory data input
+            -- Required IF_instruction memory signals
+            signal s_IMemAddr     : std_logic_vector(N-1 downto 0); -- Do not assign this signal, assign to s_NextInstAddr instead
+            signal s_NextInstAddr : std_logic_vector(N-1 downto 0); -- use this signal as your intended final IF_instruction memory address input.
+            signal s_Inst         : std_logic_vector(N-1 downto 0); -- use this signal as the IF_instruction signal 
 
-  -- Required IF_instruction memory signals
-  signal s_IMemAddr     : std_logic_vector(N-1 downto 0); -- Do not assign this signal, assign to s_NextInstAddr instead
-  signal s_NextInstAddr : std_logic_vector(N-1 downto 0); -- use this signal as your intended final IF_instruction memory address input.
-  signal s_Inst         : std_logic_vector(N-1 downto 0); -- use this signal as the IF_instruction signal 
+            -- Required halt signal -- for simulation
+            signal v0             : std_logic_vector(N-1 downto 0); -- TODO: should be assigned to the output of register 2, used to implement the halt SYSCALL
+            signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. This case happens when the syscall IF_instruction is observed and the V0 register is at 0x0000000A. This signal is active high and should only be asserted after the last register and memory writes before the syscall are guaranteed to be completed.
 
-  -- Required halt signal -- for simulation
-  signal v0             : std_logic_vector(N-1 downto 0); -- TODO: should be assigned to the output of register 2, used to implement the halt SYSCALL
-  signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. This case happens when the syscall IF_instruction is observed and the V0 register is at 0x0000000A. This signal is active high and should only be asserted after the last register and memory writes before the syscall are guaranteed to be completed.
+            component mem is
+                generic(ADDR_WIDTH : integer;
+                        DATA_WIDTH : integer);
+                port(
+                    clk          : in std_logic;
+                    addr         : in std_logic_vector((ADDR_WIDTH-1) downto 0);
+                    data         : in std_logic_vector((DATA_WIDTH-1) downto 0);
+                    we           : in std_logic := '1';
+                    q            : out std_logic_vector((DATA_WIDTH -1) downto 0));
+                end component;
 
-  component mem is
-    generic(ADDR_WIDTH : integer;
-            DATA_WIDTH : integer);
-    port(
-          clk          : in std_logic;
-          addr         : in std_logic_vector((ADDR_WIDTH-1) downto 0);
-          data         : in std_logic_vector((DATA_WIDTH-1) downto 0);
-          we           : in std_logic := '1';
-          q            : out std_logic_vector((DATA_WIDTH -1) downto 0));
-    end component;
-
-  -- TODO: You may add any additional signals or components your implementation 
-  --       requires below this comment
-  --signals
-signal func_select  : std_logic_vector(0 to 5);
-
-
-signal ALU_ib                           : std_logic_vector(0 to N-1);
---signal ALU_ib                           : std_logic_vector(0 to N-1);
-signal ALU_ctl                          : std_logic_vector(0 to 3);
-signal sum                          : std_logic_vector(0 to N-1);
-signal nothingTwo                       : std_logic;    
-signal nothing                          : std_logic;
-signal zero                             : std_logic;
---signal sum                         : std_logic_vector(0 to N-1);
-signal DMem_addr                : std_logic_vector(0 to 9);           
-signal internal_mem_we                  : std_logic;     
-signal data_read                        : std_logic_vector(0 to N-1);
-signal reg_Dst							: std_logic;
-signal ALUOpIn							: std_logic_vector(0 to 3);   
-
-signal PCnumber                         : std_logic_vector(0 to N-1);   
+            -- TODO: You may add any additional signals or components your implementation 
+            --       requires below this comment
+            --signals
+            signal func_select  : std_logic_vector(0 to 5);
 
 
+            signal ALU_ib                           : std_logic_vector(0 to N-1);
+            --signal ALU_ib                           : std_logic_vector(0 to N-1);
+            signal ALU_ctl                          : std_logic_vector(0 to 3);
+            signal sum                          : std_logic_vector(0 to N-1);
+            signal nothingTwo                       : std_logic;    
+            signal nothing                          : std_logic;
+            signal zero                             : std_logic;
+            --signal sum                         : std_logic_vector(0 to N-1);
+            signal DMem_addr                : std_logic_vector(0 to 9);           
+            signal internal_mem_we                  : std_logic;     
+            signal data_read                        : std_logic_vector(0 to N-1);
+            signal reg_Dst							: std_logic;
+            signal ALUOpIn							: std_logic_vector(0 to 3);   
+
+            signal PCnumber                         : std_logic_vector(0 to N-1);   
 
 
 
 
-        --constants start
-            signal high                           :std_logic := '1'  ;
-            signal low                            :std_logic  := '0';
-        --constants end
-
-        -- register inputs and immidates
-            signal internal_rs                 : std_logic_vector(0 to N-1);
-            signal internal_rt                 : std_logic_vector(0 to N-1);
-            signal register_write_data         : std_logic_vector(0 to N-1);
-			signal WB_register_write_back_final					   : std_logic_vector(0 to N-1);
-            signal internal_imm                : std_logic_vector(0 to N-1);
-            signal EX_jumpLocation                : std_logic_vector(0 to N-1);
-        -- register inputs and immidates end
-
-        -- binary blob to signals start
-            signal IF_instruction                    : std_logic_vector(0 to N-1);
-            signal rs_select                   : std_logic_vector(0 to 4);
-            signal rt_select                   : std_logic_vector(0 to 4);
-            signal rd_select                   : std_logic_vector(0 to 4);
-            signal internal_raw_immidates      : std_logic_vector(0 to 15);
-        -- binary blob to signals end
-
-        --ctl signals start
-            signal regDst                              : std_logic;
-			signal loadUpper                              : std_logic;
-			signal IsUnsigned                              : std_logic;
-			
-            signal branch                              : std_logic;
-            signal memRead                             : std_logic;
-            signal memToReg                            : std_logic;
-            signal ALUOp                               : std_logic_vector(0 to 4);
-            signal memWrite                            : std_logic;
-            signal ALUSrc                              : std_logic;
-            signal regWrite                            : std_logic;
-            signal jr                                  : std_logic;
-			signal varShift								: std_logic;
-			signal shiftValue						   : std_logic_vector(0 to 4);
-        --ctl signals end 
-
-        -- buses start
-            signal ALU2ndInput                         : std_logic_vector(0 to N-1);
-            signal programCounter                      : std_logic_vector(0 to N-1);
-            signal ALUOutput                           : std_logic_vector(0 to N-1);
-            signal memoryOutput                        : std_logic_vector(0 to N-1);
-        -- buses end
-		
-		--LUI
-		signal s_internal_imm_shifted					: std_logic_vector(0 to N-1);
-		
 
 
+                    --constants start
+                        signal high                           :std_logic := '1'  ;
+                        signal low                            :std_logic  := '0';
+                    --constants end
 
-		signal 	beq                   :  std_logic;
-		signal	bne                   :  std_logic;
-		signal	jump                  :  std_logic;
-		signal	jal                  :  std_logic;
-		signal	zeroExtened                  :  std_logic;
+                    -- register inputs and immidates
+                        signal internal_rs                 : std_logic_vector(0 to N-1);
+                        signal internal_rt                 : std_logic_vector(0 to N-1);
+                        signal register_write_data         : std_logic_vector(0 to N-1);
+                        signal WB_register_write_back_final					   : std_logic_vector(0 to N-1);
+                        signal internal_imm                : std_logic_vector(0 to N-1);
+                        signal EX_jumpLocation                : std_logic_vector(0 to N-1);
+                    -- register inputs and immidates end
+
+                    -- binary blob to signals start
+                        signal IF_instruction                    : std_logic_vector(0 to N-1);
+                        signal rs_select                   : std_logic_vector(0 to 4);
+                        signal rt_select                   : std_logic_vector(0 to 4);
+                        signal rd_select                   : std_logic_vector(0 to 4);
+                        signal internal_raw_immidates      : std_logic_vector(0 to 15);
+                    -- binary blob to signals end
+
+                    --ctl signals start
+                        signal regDst                              : std_logic;
+                        signal loadUpper                              : std_logic;
+                        signal IsUnsigned                              : std_logic;
+                        
+                        signal branch                              : std_logic;
+                        signal memRead                             : std_logic;
+                        signal memToReg                            : std_logic;
+                        signal ALUOp                               : std_logic_vector(0 to 4);
+                        signal memWrite                            : std_logic;
+                        signal ALUSrc                              : std_logic;
+                        signal regWrite                            : std_logic;
+                        signal jr                                  : std_logic;
+                        signal varShift								: std_logic;
+                        signal shiftValue						   : std_logic_vector(0 to 4);
+                    --ctl signals end 
+
+                    -- buses start
+                        signal ALU2ndInput                         : std_logic_vector(0 to N-1);
+                        signal programCounter                      : std_logic_vector(0 to N-1);
+                        signal ALUOutput                           : std_logic_vector(0 to N-1);
+                        signal memoryOutput                        : std_logic_vector(0 to N-1);
+                    -- buses end
+                    
+                    --LUI
+                    signal s_internal_imm_shifted					: std_logic_vector(0 to N-1);
+                    
+
+
+
+                    signal 	beq                   :  std_logic;
+                    signal	bne                   :  std_logic;
+                    signal	jump                  :  std_logic;
+                    signal	jal                  :  std_logic;
+                    signal	zeroExtened                  :  std_logic;
 
 
 
@@ -157,7 +157,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 	
     --components
 	
-	--pipeline registers
+	    --pipeline registers
 	
 		component IF_ID
 			port(
@@ -300,107 +300,107 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 	
 	
 	
-	--regester file
-	
-	
-        component registerFile_nbit_struct
-            port(
-                i_rd                       : in std_logic_vector(0 to N-1);
-                in_select_rs               : in std_logic_vector(0 to 4);
-                in_select_rt               : in std_logic_vector(0 to 4);
-                in_select_rd               : in std_logic_vector(0 to 4);
-                i_WE                       : in std_logic;
-                i_CLK                      : in std_logic;
-                i_RST                      : in std_logic;
-				jal               			: in std_logic;
-            
-            
-                o_rt                       : out std_logic_vector(0 to N-1);
-                o_rs                       : out std_logic_vector(0 to N-1);
-				
-				o_v0			   			: out std_logic_vector(0 to N-1)
-
-
-                );
-        end component;
-
-
-        component ALUControler
-            port(  
-
-    			opcode				  : in std_logic_vector(0 to 5);
-				funct				  : in std_logic_vector(0 to 5);
-	
-    			ALUControl           			: out std_logic_vector(0 to 3);
-				IsUnsigned               		: out std_logic
-
-                );
-        end component;
-
-
-
-
-            
-        --TODO I don't think I need this
-        component adder_nbit_struct
-            generic(N : integer := 31);
-            port(
+        --regester file
+        
+        
+            component registerFile_nbit_struct
+                port(
+                    i_rd                       : in std_logic_vector(0 to N-1);
+                    in_select_rs               : in std_logic_vector(0 to 4);
+                    in_select_rt               : in std_logic_vector(0 to 4);
+                    in_select_rd               : in std_logic_vector(0 to 4);
+                    i_WE                       : in std_logic;
+                    i_CLK                      : in std_logic;
+                    i_RST                      : in std_logic;
+                    jal               			: in std_logic;
                 
-
-
-                i_a             : in std_logic_vector(0 to N-1);
-                i_b             : in std_logic_vector(0 to N-1);
-                i_carry         : in std_logic;
-                o_sum           : out std_logic_vector(0 to N-1);
-                o_carry         : out std_logic
-
-                );
-            
-        end component;
-
-
-        component FullALU
- 
-            port(
                 
-                in_ia              : in std_logic_vector(0 to N-1);
-                in_ib              : in std_logic_vector(0 to N-1);
-                in_ctl             : in std_logic_vector(0 to 3);
-			    shiftAmount		   : in std_logic_vector(0 to 4);
+                    o_rt                       : out std_logic_vector(0 to N-1);
+                    o_rs                       : out std_logic_vector(0 to N-1);
+                    
+                    o_v0			   			: out std_logic_vector(0 to N-1)
 
 
-                out_data            : out std_logic_vector(0 to N-1);
-                out_overflow        : out std_logic;
-                out_carry           : out std_logic;
-                out_zero            : out std_logic
-
-                );
-            
-        end component;
+                    );
+            end component;
 
 
+            component ALUControler
+                port(  
 
-        component mux_nbit_struct
-            port(
-                i_a             : in std_logic_vector(0 to N-1);
-                i_b             : in std_logic_vector(0 to N-1);
-                i_select        : in std_logic;
-                o_z             : out std_logic_vector(0 to N-1)
+                    opcode				  : in std_logic_vector(0 to 5);
+                    funct				  : in std_logic_vector(0 to 5);
+        
+                    ALUControl           			: out std_logic_vector(0 to 3);
+                    IsUnsigned               		: out std_logic
+
+                    );
+            end component;
 
 
-                );
-        end component;
 
---        component mem
---            port(  
---                signal clk	    : in std_logic;
---                signal addr	    : in std_logic_vector(9 downto 0);
---                signal data	    : in std_logic_vector(N downto 0);
---                signal we		: in std_logic;
---                signal q		: out std_logic_vector(N downto 0)
 
---            );
---        end component;
+                
+            --TODO I don't think I need this
+            component adder_nbit_struct
+                generic(N : integer := 31);
+                port(
+                    
+
+
+                    i_a             : in std_logic_vector(0 to N-1);
+                    i_b             : in std_logic_vector(0 to N-1);
+                    i_carry         : in std_logic;
+                    o_sum           : out std_logic_vector(0 to N-1);
+                    o_carry         : out std_logic
+
+                    );
+                
+            end component;
+
+
+            component FullALU
+    
+                port(
+                    
+                    in_ia              : in std_logic_vector(0 to N-1);
+                    in_ib              : in std_logic_vector(0 to N-1);
+                    in_ctl             : in std_logic_vector(0 to 3);
+                    shiftAmount		   : in std_logic_vector(0 to 4);
+
+
+                    out_data            : out std_logic_vector(0 to N-1);
+                    out_overflow        : out std_logic;
+                    out_carry           : out std_logic;
+                    out_zero            : out std_logic
+
+                    );
+                
+            end component;
+
+
+
+            component mux_nbit_struct
+                port(
+                    i_a             : in std_logic_vector(0 to N-1);
+                    i_b             : in std_logic_vector(0 to N-1);
+                    i_select        : in std_logic;
+                    o_z             : out std_logic_vector(0 to N-1)
+
+
+                    );
+            end component;
+
+        --        component mem
+        --            port(  
+        --                signal clk	    : in std_logic;
+        --                signal addr	    : in std_logic_vector(9 downto 0);
+        --                signal data	    : in std_logic_vector(N downto 0);
+        --                signal we		: in std_logic;
+        --                signal q		: out std_logic_vector(N downto 0)
+
+        --            );
+        --        end component;
 
         component extender16bit_flow
             port(  
@@ -504,6 +504,49 @@ begin
 
     -- IF_Instruction Decode
 
+        --All signals used in this section
+                -- 1
+                -- signal ID_zeroExtened                   : std_logic;
+                -- signal ID_ALUSrc                        : std_logic;
+                -- signal ID_memToReg                      : std_logic;
+                -- signal ID_internal_mem_we               : std_logic;
+                -- signal ID_RegWrite                      : std_logic;
+                -- signal ID_loadUpper                     : std_logic;
+                -- signal ID_reg_Dst                       : std_logic;
+                -- signal ID_beq                           : std_logic;
+                -- signal ID_jr                            : std_logic;
+                -- signal ID_bne                           : std_logic;
+                -- signal ID_jal                           : std_logic;
+                -- signal ID_jump                          : std_logic;
+                -- signal ID_varShift                      : std_logic;
+                -- signal ID_zeroExtened                   : std_logic;
+                -- signal ID_ALUOpIn                       : std_logic;
+                -- signal ID_IsUnsigned                    : std_logic;
+
+                -- 4
+                -- signal ID_ALUOpIn                       : std_logic_vector(0 to 3);
+
+                -- 5
+                -- signal ID_rs_select                     : std_logic_vector(0 to 4);
+                -- signal ID_rt_select                     : std_logic_vector(0 to 4);
+                -- signal ID_rd_select                     : std_logic_vector(0 to 4);
+
+                -- 6
+                -- signal ID_func_select                   : std_logic_vector(0 to 5);
+
+
+                -- 16                          
+                -- signal ID_internal_raw_immidates        : std_logic_vector(0 to 15);
+
+                -- 32
+                -- signal ID_internal_rt                   : std_logic_vector(0 to 31);
+                -- signal ID_internal_rs                   : std_logic_vector(0 to 31);
+                -- signal ID_internal_imm                  : std_logic_vector(0 to 31);
+                -- signal ID_s_Inst                        : std_logic_vector(0 to 31);
+                -- signal ID_instruction                   : std_logic_vector(0 to 31);
+                -- signal ID_v0                            : std_logic;
+        --End Signals used
+        
 
 
 
@@ -521,7 +564,7 @@ begin
             o_IF_instruction	  	  => ID_instruction
             );
 
-        
+
 
 
 
@@ -531,7 +574,7 @@ begin
 
 
         --This could be a problem because we use the down to configuration
-    
+
         -- IF_instruction binary to signals
 
             --rs_select        <= IF_instruction(21 to 25);
@@ -586,7 +629,7 @@ begin
                 o_rt               => ID_internal_rt,
                 o_rs               => ID_internal_rs,
                 
-                o_v0			   => v0
+                o_v0			   => ID_v0 --TODO this needs to be passed through to halt the program at the end
         );
 
 
@@ -599,7 +642,7 @@ begin
 
                 o_Q          => ID_internal_imm 
         );
-        
+
 
 
 
@@ -607,7 +650,7 @@ begin
         ctl: control
         port map(  
 
-        
+
                         opcode			=> ID_s_Inst(0 to 5),
                         funct           => ID_s_Inst(26 to 31),
                         
@@ -641,14 +684,47 @@ begin
         );
 
 
-    
-
-
-
 
 
 
     -- Start IF_Instruction Exicute components --I think I just need to put in the input signals
+
+        -- start of all signals used in EX stage
+                -- -- 1
+                -- signal EX_ALUSrc            : std_logic;
+                -- signal EX_MemtoReg          : std_logic;
+                -- signal EX_s_DMemWr          : std_logic;
+                -- signal EX_s_RegWr           : std_logic;
+                -- signal EX_s_Lui             : std_logic;
+                -- signal EX_RegDst            : std_logic;
+                -- signal EX_beq               : std_logic;
+                -- signal EX_bne               : std_logic;
+                -- signal EX_jr                : std_logic;
+                -- signal EX_jal               : std_logic;
+                -- signal EX_jump              : std_logic;
+                -- signal EX_varShift          : std_logic;
+                -- signal EX_zeroExtened       : std_logic;
+
+                -- -- 4
+                -- EX_AluOp                    : std_logic_vector(0 to 3);
+
+                -- -- 5
+                -- EX_RdAddress                : std_logic_vector(0 to 4);
+                -- EX_shiftValue               : std_logic_vector(0 to 4);
+
+                -- -- 32
+                -- signal EX_rt_data                  : std_logic_vector(0 to 31);
+                -- signal EX_internal_rs              : std_logic_vector(0 to 31);
+                -- signal EX_internal_imm             : std_logic_vector(0 to 31);
+                -- signal EX_ALU_ib                   : std_logic_vector(0 to 31);
+                -- signal EX_sum                      : std_logic_vector(0 to 31);
+                -- signal EX_ALUsum                   : std_logic_vector(0 to 31);
+                -- signal PCnumber                    : std_logic_vector(0 to 31);
+                -- signal EX_jumpLocation             : std_logic_vector(0 to 31);
+
+        -- End of all signals used in EX stage
+
+
 
 
         --TODO There are doubles in this that need to be removed
@@ -688,7 +764,7 @@ begin
 
             o_RT               			=> EX_rt_data;
             o_RS		 	  			=> EX_internal_rs,
-            o_MemRead					=> EX_MemRead,
+            o_MemRead					=> EX_MemRead, --I think we can just delete this value
             o_AluOp						=> EX_AluOp,
             o_ExtendedImmediate			=> EX_internal_imm;
             o_RdAddress					=> EX_RdAddress,
@@ -711,11 +787,6 @@ begin
 
             );
         end component;
-
-
-
-
-
 
 
         ALUInputmux: mux_nbit_struct 
@@ -790,58 +861,97 @@ begin
 
     -- Start Mem compnents -- Done besides for i_MuxOut
 
-        component EX_MEM
-            port(
-                i_CLK             			=> iCLK,
-                i_stall              		=> global_stall,
-                i_if_flush              	=> global_Flush,
+        --Begin signlas for MEM 
 
-                i_ALUOut             		=> EX_ALUsum,   
-                i_MuxOut         			: in std_logic_vector(0 to N);   
-                i_MemtoReg					=> EX_MemtoReg,
-                i_RegWrite					=> EX_s_RegWr,
-                i_MemWrite					=> EX_s_DMemWr,
-                i_MemRead					=> EX_MemRead,
-                i_WriteAdress				=> EX_RdAddress,
+            -- -- 1
+            -- signal MEM_MemtoReg             : std_logic;
+            -- signal MEM_RegWrite             : std_logic;
+            -- signal MEM_MemWrite             : std_logic;
+            -- signal MEM_MemRead              : std_logic;
 
+            -- -- 10
+            -- signal MEM_WriteAdress          : std_logic_vector(0 to 9);
+            -- signal MEM_DMem_addr            : std_logic_vector(0 to 9);
 
-                o_MuxOut               		: out std_logic_vector(0 to N);
-                o_ALUOut		 	  		=> MEM_ALUOut,
-                o_MemtoReg					=> MEM_MemtoReg
-                o_RegWrite					=> MEM_RegWrite,
-                o_MemWrite					=> MEM_MemWrite,
-                o_MemRead					=> MEM_MemRead,
-                o_WriteAdress				=> MEM_WriteAdress
-                
-                );
-        end component;
+            -- -- 32
+            -- signal MEM_ALUOut               : std_logic_vector(0 to 31);
+            -- signal MEM_MemOut               : std_logic_vector(0 to 31);
+
+        --end signlas for MEM 
 
 
-        --This is the loop that generates the address for the memory
-        G1:  for j in 22 to 31 generate
-            MEM_DMem_addr(j-22) <= MEM_ALUOut(j);
-        end generate;
+        s_DMemAddr(i) <= MEM_ALUOut(31-i);--????
+
+        MEM_MemOut(i) <= s_DMemOut(31-i);
 
 
 
-        DMem: mem
-        generic map(ADDR_WIDTH => 10,
-                    DATA_WIDTH => N)
-        port map(clk  => iCLK,
-                 addr => s_DMemAddr(11 downto 2),
-                 data => s_DMemData, --TODO I'm not sure this is mapped correctly
-                 we   => s_DMemWr,
-                 q    => s_DMemOut);
-    
-    
+                component EX_MEM
+                port(
+                    i_CLK             			=> iCLK,
+                    i_stall              		=> global_stall,
+                    i_if_flush              	=> global_Flush,
+
+                    i_ALUOut             		=> EX_ALUsum,   
+                    i_MuxOut         			: in std_logic_vector(0 to N);   
+                    i_MemtoReg					=> EX_MemtoReg,
+                    i_RegWrite					=> EX_s_RegWr,
+                    i_MemWrite					=> EX_s_DMemWr,
+                    i_MemRead					=> EX_MemRead,
+                    i_WriteAdress				=> EX_RdAddress,
+
+
+                    o_MuxOut               		: out std_logic_vector(0 to N);
+                    o_ALUOut		 	  		=> MEM_ALUOut,
+                    o_MemtoReg					=> MEM_MemtoReg
+                    o_RegWrite					=> MEM_RegWrite, -- I don't think this is needed as we can calculate it here
+                    o_MemWrite					=> MEM_MemWrite,
+                    o_MemRead					=> MEM_MemRead,
+                    o_WriteAdress				=> MEM_WriteAdress
+                    
+                    );
+            end component;
+
+
+            --This is the loop that generates the address for the memory
+            G1:  for j in 22 to 31 generate
+                MEM_DMem_addr(j-22) <= MEM_ALUOut(j);
+            end generate;
+
+
+
+            DMem: mem
+            generic map(ADDR_WIDTH => 10,
+                        DATA_WIDTH => N)
+            port map(clk  => iCLK,
+                    addr => s_DMemAddr(11 downto 2),
+                    data => s_DMemData, --TODO I'm not sure this is mapped correctly
+                    we   => s_DMemWr,
+                    q    => s_DMemOut);
+
 
 
 
         
     --Start WB -- I think this is done
 
-        		
-		component MEM_WB
+        --start signals for WB
+            -- -- 1
+            -- signal WB_MemtoReg              : std_logic;
+            -- signal WB_RegWrite              : std_logic;
+
+            -- -- 4
+            -- signal WB_rd_select             : std_logic_vector(0 to 3);
+
+
+            -- -- 32
+            -- signal WB_MemOut                : std_logic_vector(0 to 31);
+            -- signal WB_ALUOut                : std_logic_vector(0 to 31);
+        --end signals for WB
+
+
+
+        component MEM_WB
         port(
             i_CLK             			=> iCLK,
             i_stall              		=> global_stall,
@@ -866,7 +976,6 @@ begin
 
         WB_register_write_back_final <= WB_MemOut when (WB_MemtoReg = '1') else
             WB_ALUOut;
-
     --End Proccessor
 
 

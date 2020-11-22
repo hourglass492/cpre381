@@ -1,0 +1,69 @@
+
+--Begin signlas for MEM 
+
+1
+signal MEM_MemtoReg             : std_logic;
+signal MEM_RegWrite             : std_logic;
+signal MEM_MemWrite             : std_logic;
+signal MEM_MemRead              : std_logic;
+
+10
+signal MEM_WriteAdress          : std_logic_vector(0 to 9);
+signal MEM_DMem_addr            : std_logic_vector(0 to 9);
+
+32
+signal MEM_ALUOut               : std_logic_vector(0 to 31);
+signal MEM_MemOut               : std_logic_vector(0 to 31);
+
+--end signlas for MEM 
+
+
+s_DMemAddr(i) <= MEM_ALUOut(31-i);--????
+
+MEM_MemOut(i) <= s_DMemOut(31-i);
+
+
+
+        component EX_MEM
+        port(
+            i_CLK             			=> iCLK,
+            i_stall              		=> global_stall,
+            i_if_flush              	=> global_Flush,
+
+            i_ALUOut             		=> EX_ALUsum,   
+            i_MuxOut         			: in std_logic_vector(0 to N);   
+            i_MemtoReg					=> EX_MemtoReg,
+            i_RegWrite					=> EX_s_RegWr,
+            i_MemWrite					=> EX_s_DMemWr,
+            i_MemRead					=> EX_MemRead,
+            i_WriteAdress				=> EX_RdAddress,
+
+
+            o_MuxOut               		: out std_logic_vector(0 to N);
+            o_ALUOut		 	  		=> MEM_ALUOut,
+            o_MemtoReg					=> MEM_MemtoReg
+            o_RegWrite					=> MEM_RegWrite, -- I don't think this is needed as we can calculate it here
+            o_MemWrite					=> MEM_MemWrite,
+            o_MemRead					=> MEM_MemRead,
+            o_WriteAdress				=> MEM_WriteAdress
+            
+            );
+    end component;
+
+
+    --This is the loop that generates the address for the memory
+    G1:  for j in 22 to 31 generate
+        MEM_DMem_addr(j-22) <= MEM_ALUOut(j);
+    end generate;
+
+
+
+    DMem: mem
+    generic map(ADDR_WIDTH => 10,
+                DATA_WIDTH => N)
+    port map(clk  => iCLK,
+             addr => s_DMemAddr(11 downto 2),
+             data => s_DMemData, --TODO I'm not sure this is mapped correctly
+             we   => s_DMemWr,
+             q    => s_DMemOut);
+

@@ -1,0 +1,184 @@
+
+-- start of all signals used in EX stage
+        -- -- 1
+        -- signal EX_ALUSrc            : std_logic;
+        -- signal EX_MemtoReg          : std_logic;
+        -- signal EX_s_DMemWr          : std_logic;
+        -- signal EX_s_RegWr           : std_logic;
+        -- signal EX_s_Lui             : std_logic;
+        -- signal EX_RegDst            : std_logic;
+        -- signal EX_beq               : std_logic;
+        -- signal EX_bne               : std_logic;
+        -- signal EX_jr                : std_logic;
+        -- signal EX_jal               : std_logic;
+        -- signal EX_jump              : std_logic;
+        -- signal EX_varShift          : std_logic;
+        -- signal EX_zeroExtened       : std_logic;
+
+        -- -- 4
+        -- EX_AluOp                    : std_logic_vector(0 to 3);
+
+        -- -- 5
+        -- EX_RdAddress                : std_logic_vector(0 to 4);
+        -- EX_shiftValue               : std_logic_vector(0 to 4);
+
+        -- -- 32
+        -- signal EX_rt_data                  : std_logic_vector(0 to 31);
+        -- signal EX_internal_rs              : std_logic_vector(0 to 31);
+        -- signal EX_internal_imm             : std_logic_vector(0 to 31);
+        -- signal EX_ALU_ib                   : std_logic_vector(0 to 31);
+        -- signal EX_sum                      : std_logic_vector(0 to 31);
+        -- signal EX_ALUsum                   : std_logic_vector(0 to 31);
+        -- signal PCnumber                    : std_logic_vector(0 to 31);
+        -- signal EX_jumpLocation             : std_logic_vector(0 to 31);
+
+-- End of all signals used in EX stage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        --TODO There are doubles in this that need to be removed
+        component ID_EX
+        port(
+            i_CLK             			=> iCLK,
+            i_stall              		=> global_stall,
+            i_if_flush              	=> global_Flush,
+
+            ID_internal_rt
+            i_RS             			=> ID_internal_rs,
+            i_RT         			 	=> ID_internal_rt, 
+
+            -- i_MemRead					: in std_logic; -- I think this isn't needed and can just always be 1
+            i_RegDst					=> ID_rd_select,
+            i_AluOp						=> ID_ALUOpIn,
+            i_ExtendedImmediate			=> ID_internal_imm,
+            i_RdAddress					=> ID_rd_select,
+            -- i_RtAddress					: in std_logic_vector(0 to 4); --I don't think these are needed -nicholas
+            -- i_RsAddress					: in std_logic_vector(0 to 4);--I don't think these are needed -nicholas
+
+            i_ALUSrc        		      => ID_ALUSrc
+            i_MemtoReg           	      => ID_MemtoReg
+            i_s_DMemWr                    => ID_s_DMemWr
+            i_s_RegWr                     => ID_s_RegWr
+            i_s_Lui                       => ID_s_Lui
+            i_RegDst                      => ID_RegDst
+            i_beq                         => ID_beq
+            i_bne                         => ID_bne
+            i_jr                          => ID_jr
+            i_jal                         => ID_jal
+            i_jump                        => ID_jump
+            i_varShift			          => ID_varShift
+            i_zeroExtened                 => ID_zeroExtened
+
+
+
+            o_RT               			=> EX_rt_data;
+            o_RS		 	  			=> EX_internal_rs,
+            o_MemRead					=> EX_MemRead, --I think we can just delete this value
+            o_AluOp						=> EX_AluOp,
+            o_ExtendedImmediate			=> EX_internal_imm;
+            o_RdAddress					=> EX_RdAddress,
+            o_RtAddress					: out std_logic_vector(0 to 4); --Don't think we need these -Nicholas
+            o_RsAddress					: out std_logic_vector(0 to 4)  --Don't think we need these -Nicholas
+
+            o_ALUSrc        		      => EX_ALUSrc
+            o_MemtoReg           	      => EX_MemtoReg
+            o_s_DMemWr                    => EX_s_DMemWr
+            o_s_RegWr                     => EX_s_RegWr
+            o_s_Lui                       => EX_s_Lui
+            o_RegDst                      => EX_RegDst -- What is this for?? -Nicholas
+            o_beq                         => EX_beq
+            o_bne                         => EX_bne
+            o_jr                          => EX_jr
+            o_jal                         => EX_jal
+            o_jump                        => EX_jump
+            o_varShift			          => EX_varShift
+            o_zeroExtened                 => EX_zeroExtened
+
+            );
+        end component;
+
+
+
+
+
+
+
+        ALUInputmux: mux_nbit_struct 
+            port map(
+                        i_a         => EX_internal_imm,
+                        i_b         => EX_rt_data,
+                        i_select    => EX_ALUSrc,
+                        o_z         => EX_ALU_ib    
+        );
+
+
+        --The amount we want to shift for shift IF_instructions
+        EX_shiftValue <= EX_internal_imm (5 to 9) when (EX_varShift = '0') else
+            EX_internal_rs(27 to 31);  
+                        
+                        
+        ALU: FullALU
+        --generic(N : integer := 31);
+            port map(
+                in_ia             => EX_internal_rs,
+                in_ib             => EX_ALU_ib,
+                in_ctl		        => EX_AluOp,
+                shiftAmount         => EX_shiftValue,
+                
+                out_data          => EX_sum,
+                out_overflow	  => nothingTwo,--No overflow detection used
+                out_carry         => nothing,-- not useing carry right now
+                out_zero		  => EX_zero
+        );
+
+
+        --LUI implementation and the pc number whe JAL
+        EX_ALUsum <=   internal_raw_immidates & x"0000" when (LUI = '1') else
+                    std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (jal = '1') else
+                    EX_sum;
+        
+
+
+
+        -- need to be an immideate value for bne, beq, j, and jal, but for jr needs to be the register read
+        -- So I made the pc immedate input a 32 bit value and just appended 0's to the front of the immedate
+        -- given by the IF_instruction and muxed it so if it is a jr we get the rs val which should be the reg	
+        -- we are jumping to
+        EX_jumpLocation <= EX_internal_rs when jr = '1' 
+                    else EX_internal_imm(2 to 31) & "00"  when (bne = '1' or beq ='1') --signextend
+                    else "0000" & IF_instruction(6 to 31) & "00" ; --TODO We can't access the IF_instructions for the jump commands
+                        
+                        
+                    
+
+        --This component contains all of the program counter logic
+        counter: pc
+            port map(  
+
+                i_rst                   => iRST,
+                i_CLK                   => iClk,
+                i_zero                  => EX_zero,
+                i_immedate              => EX_jumpLocation,
+                beq                  => EX_beq, --ctl signal
+                bne                  => EX_bne, --ctl signal
+                jump                  => EX_jump, --ctl signal
+
+                o_IF_instruction_number    => PCnumber
+
+        );
+
+
+
+
