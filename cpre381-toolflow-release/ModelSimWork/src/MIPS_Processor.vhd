@@ -43,14 +43,14 @@ architecture structure of MIPS_Processor is
   signal s_RegWrAddr    : std_logic_vector(4 downto 0); -- use this signal as the final destination register address input
   signal s_RegWrData    : std_logic_vector(N-1 downto 0); -- use this signal as the final data memory data input
 
-  -- Required instruction memory signals
+  -- Required IF_instruction memory signals
   signal s_IMemAddr     : std_logic_vector(N-1 downto 0); -- Do not assign this signal, assign to s_NextInstAddr instead
-  signal s_NextInstAddr : std_logic_vector(N-1 downto 0); -- use this signal as your intended final instruction memory address input.
-  signal s_Inst         : std_logic_vector(N-1 downto 0); -- use this signal as the instruction signal 
+  signal s_NextInstAddr : std_logic_vector(N-1 downto 0); -- use this signal as your intended final IF_instruction memory address input.
+  signal s_Inst         : std_logic_vector(N-1 downto 0); -- use this signal as the IF_instruction signal 
 
   -- Required halt signal -- for simulation
   signal v0             : std_logic_vector(N-1 downto 0); -- TODO: should be assigned to the output of register 2, used to implement the halt SYSCALL
-  signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. This case happens when the syscall instruction is observed and the V0 register is at 0x0000000A. This signal is active high and should only be asserted after the last register and memory writes before the syscall are guaranteed to be completed.
+  signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. This case happens when the syscall IF_instruction is observed and the V0 register is at 0x0000000A. This signal is active high and should only be asserted after the last register and memory writes before the syscall are guaranteed to be completed.
 
   component mem is
     generic(ADDR_WIDTH : integer;
@@ -105,7 +105,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
         -- register inputs and immidates end
 
         -- binary blob to signals start
-            signal instruction                    : std_logic_vector(0 to N-1);
+            signal IF_instruction                    : std_logic_vector(0 to N-1);
             signal rs_select                   : std_logic_vector(0 to 4);
             signal rt_select                   : std_logic_vector(0 to 4);
             signal rd_select                   : std_logic_vector(0 to 4);
@@ -164,11 +164,11 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 				i_CLK             		  : in std_logic;
 				i_stall              	  : in std_logic;
 				i_if_flush                : in std_logic;
-				i_instruction             : in std_logic_vector(0 to N);   
+				i_IF_instruction             : in std_logic_vector(0 to N);   
 				i_pc         			  : in std_logic_vector(0 to N);   
 
 				o_pc              		  : out std_logic_vector(0 to N);
-				o_instruction	  		  : out std_logic_vector(0 to N)
+				o_IF_instruction	  		  : out std_logic_vector(0 to N)
 				);
         end component;
 		
@@ -448,7 +448,7 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 				jump                    : in std_logic;
 				
 				
-				o_instruction_number    : out std_logic_vector(0 to 31)
+				o_IF_instruction_number    : out std_logic_vector(0 to 31)
 
 
 
@@ -460,8 +460,8 @@ signal PCnumber                         : std_logic_vector(0 to N-1);
 
 begin
 
-  -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the
-  --memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory.
+  -- TODO: This is required to be your final input to your IF_instruction memory. This provides a feasible method to externally load the
+  --memory module which means that the synthesis tool must assume it knows nothing about the values stored in the IF_instruction memory.
   --If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be
   --all zeros.
   with iInstLd select
@@ -479,7 +479,7 @@ begin
   
   
   
-    --begin the instruction decode section
+    --begin the IF_instruction Fetch section
 
         --DO NOT CHANGE ANY OF THESE SIGNALS, THEY ARE NEEDED
         -- TO HOOK UP WITH THE TEST BENCH
@@ -502,7 +502,11 @@ begin
 
 
 
-    -- Instruction Fech
+    -- IF_Instruction Decode
+
+
+
+
         IF_ID: IF_IDreg
         port map(
             i_CLK			=> iCLK,
@@ -510,13 +514,14 @@ begin
             --wire in the registers
             i_stall              	  => global_stall
             i_if_flush                => global_Flush
-            i_instruction             : in std_logic_vector(0 to N);   
-            i_pc         			  : in std_logic_vector(0 to N);   
+            i_IF_instruction          =>  IF_instruction,
+            -- i_pc         			  : in std_logic_vector(0 to N);   
 
-            o_pc              		  : out std_logic_vector(0 to N);
-            o_instruction	  		  : out std_logic_vector(0 to N)
+            -- o_pc              		  : out std_logic_vector(0 to N); --Pretty sure this isn't needed Nicholas
+            o_IF_instruction	  	  => ID_instruction
             );
 
+        
 
 
 
@@ -524,38 +529,40 @@ begin
 
             
 
-    
-        -- instruction binary to signals
 
-            --rs_select        <= instruction(21 to 25);
+        --This could be a problem because we use the down to configuration
+    
+        -- IF_instruction binary to signals
+
+            --rs_select        <= IF_instruction(21 to 25);
             --It isn't allways these bytes when it is a sw it is the first register
-            rs_select        <= s_Inst(25 downto 21);
+            ID_rs_select        <= ID_s_Inst(25 downto 21);
             --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
             --		s_Inst(25 downto 21)
 
             
-            --rt_select        <= instruction(16 to 20);
-            rt_select        <= s_Inst(20 downto 16);
+            --rt_select        <= IF_instruction(16 to 20);
+            ID_rt_select        <= ID_s_Inst(20 downto 16);
 
 
-            -- if statment to select if instruction bits 20-16 or 15-11
-            --rd_select        <= instruction(16 to 20) when reg_Dst = '0' else
-            --		 instruction(11 to 15);
-            rd_select        <= "11111" when jal = '1' else
-                                s_Inst(20 downto 16) when reg_Dst = '0' else
-                                s_Inst(15 downto 11);		 
+            -- if statment to select if IF_instruction bits 20-16 or 15-11
+            --rd_select        <= IF_instruction(16 to 20) when reg_Dst = '0' else
+            --		 IF_instruction(11 to 15);
+            ID_rd_select        <= "11111" when jal = '1' else
+                                ID_s_Inst(20 downto 16) when reg_Dst = '0' else
+                                ID_s_Inst(15 downto 11);		 
             
                                             
             
             
 
-            --instruction bits 15 - 0
-            internal_raw_immidates <= s_Inst(15 downto 0);
+            --IF_instruction bits 15 - 0
+            ID_internal_raw_immidates <= ID_s_Inst(15 downto 0);
 
-            func_select <= s_Inst(5 downto 0);
+            ID_func_select <= ID_s_Inst(5 downto 0);
 
 
-        -- end instruction binary to signals
+        -- end IF_instruction binary to signals
 
 
 
@@ -568,16 +575,16 @@ begin
                 i_RST              => iRST,
 
                 i_rd               => WB_register_write_back_final, --value to load
-                in_select_rs       => rs_select, -- next 3 select the register to pull from for each value
-                in_select_rt       => rt_select,
+                in_select_rs       => ID_rs_select, -- next 3 select the register to pull from for each value
+                in_select_rt       => ID_rt_select,
                 in_select_rd       => WB_rd_select,
                 i_WE               => WB_RegWrite,
 
-                jal 				=> jal,
+                jal 				=> jal, --TODO we should be able to get rid of this because it is handdled in the EX stage
             
             
-                o_rt               => internal_rt,
-                o_rs               => internal_rs,
+                o_rt               => ID_internal_rt,
+                o_rs               => ID_internal_rs,
                 
                 o_v0			   => v0
         );
@@ -587,10 +594,10 @@ begin
 
         extender: extender16bit_flow
             port map(
-                zeroExtened    => zeroExtened,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+                zeroExtened    => ID_zeroExtened,--IsUnsigned,     -- 0 to extend sign, 1 to extend 0's
+                i_D          => ID_internal_raw_immidates,     -- Data input
 
-                i_D          => internal_raw_immidates,     -- Data input
-                o_Q          => internal_imm 
+                o_Q          => ID_internal_imm 
         );
         
 
@@ -601,23 +608,23 @@ begin
         port map(  
 
         
-                        opcode			=> instruction(0 to 5),
-                        funct           => instruction(26 to 31),
+                        opcode			=> ID_s_Inst(0 to 5),
+                        funct           => ID_s_Inst(26 to 31),
                         
-                        ALUSrc        		=> ALUSrc,
-                        MemtoReg           	=> memToReg,
-                        s_DMemWr              => internal_mem_we,
-                        s_RegWr               => RegWrite,
-                        s_Lui                 => loadUpper,
-                        RegDst                => reg_Dst,
+                        ALUSrc        		=> ID_ALUSrc,
+                        MemtoReg           	=> ID_memToReg,
+                        s_DMemWr              => ID_internal_mem_we,
+                        s_RegWr               => ID_RegWrite,
+                        s_Lui                 => ID_loadUpper,
+                        RegDst                => ID_reg_Dst,
 
-                        beq                  => beq,
-                        jr                   => jr,
-                        bne                  => bne,
-                        jal					=> jal,
-                        jump                  => jump,
-                        varShift			=> varShift,
-                        zeroExtened                  => zeroExtened
+                        beq                  => ID_beq,
+                        jr                   => ID_jr,
+                        bne                  => ID_bne,
+                        jal					=> ID_jal,
+                        jump                  => ID_jump,
+                        varShift			=> ID_varShift,
+                        zeroExtened                  => ID_zeroExtened
 
 
             
@@ -626,11 +633,11 @@ begin
 
         ALUctl: ALUControler
         port map( 
-            opcode          => instruction(0 to 5),
-            funct           => instruction(26 to 31),
+            opcode          => ID_s_Inst(0 to 5),
+            funct           => ID_s_Inst(26 to 31),
 
-            ALUControl      => ALUOpIn, --4 bit
-            IsUnsigned		=> IsUnsigned
+            ALUControl      => ID_ALUOpIn, --4 bit
+            IsUnsigned		=> ID_IsUnsigned
         );
 
 
@@ -641,7 +648,7 @@ begin
 
 
 
-    -- Start Instruction Exicute components --I think I just need to put in the input signals
+    -- Start IF_Instruction Exicute components --I think I just need to put in the input signals
 
 
         --TODO There are doubles in this that need to be removed
@@ -651,20 +658,17 @@ begin
             i_stall              		=> global_stall,
             i_if_flush              	=> global_Flush,
 
+            ID_internal_rt
+            i_RS             			=> ID_internal_rs,
+            i_RT         			 	=> ID_internal_rt, 
 
-            i_RS             			: in std_logic_vector(0 to N);   
-            i_RT         			 	: in std_logic_vector(0 to N);   
-            i_MemtoReg					: in std_logic;
-            i_RegWrite					: in std_logic;
-            i_MemWrite					: in std_logic;
-            i_MemRead					: in std_logic;
-            i_ALUSrc					: in std_logic;
-            i_RegDst					: in std_logic;
-            i_AluOp						: in std_logic_vector(0 to 3);
-            i_ExtendedImmediate			: in std_logic_vector(0 to N);
-            i_RdAddress					: in std_logic_vector(0 to 4);
-            i_RtAddress					: in std_logic_vector(0 to 4);
-            i_RsAddress					: in std_logic_vector(0 to 4);
+            -- i_MemRead					: in std_logic; -- I think this isn't needed and can just always be 1
+            i_RegDst					=> ID_rd_select,
+            i_AluOp						=> ID_ALUOpIn,
+            i_ExtendedImmediate			=> ID_internal_imm,
+            i_RdAddress					=> ID_rd_select,
+            -- i_RtAddress					: in std_logic_vector(0 to 4); --I don't think these are needed -nicholas
+            -- i_RsAddress					: in std_logic_vector(0 to 4);--I don't think these are needed -nicholas
 
             i_ALUSrc        		      => ID_ALUSrc
             i_MemtoReg           	      => ID_MemtoReg
@@ -684,12 +688,7 @@ begin
 
             o_RT               			=> EX_rt_data;
             o_RS		 	  			=> EX_internal_rs,
-            o_MemtoReg					: out std_logic;
-            o_RegWrite					: out std_logic;
-            o_MemWrite					: out std_logic;
             o_MemRead					=> EX_MemRead,
-            o_ALUSrc					: out std_logic;
-            o_RegDst					: out std_logic;
             o_AluOp						=> EX_AluOp,
             o_ExtendedImmediate			=> EX_internal_imm;
             o_RdAddress					=> EX_RdAddress,
@@ -728,7 +727,7 @@ begin
         );
 
 
-        --The amount we want to shift for shift instructions
+        --The amount we want to shift for shift IF_instructions
         EX_shiftValue <= EX_internal_imm (5 to 9) when (EX_varShift = '0') else
             EX_internal_rs(27 to 31);  
                         
@@ -758,11 +757,11 @@ begin
 
         -- need to be an immideate value for bne, beq, j, and jal, but for jr needs to be the register read
         -- So I made the pc immedate input a 32 bit value and just appended 0's to the front of the immedate
-        -- given by the instruction and muxed it so if it is a jr we get the rs val which should be the reg	
+        -- given by the IF_instruction and muxed it so if it is a jr we get the rs val which should be the reg	
         -- we are jumping to
         EX_jumpLocation <= EX_internal_rs when jr = '1' 
                     else EX_internal_imm(2 to 31) & "00"  when (bne = '1' or beq ='1') --signextend
-                    else "0000" & instruction(6 to 31) & "00" ; --TODO We can't access the instructions for the jump commands
+                    else "0000" & IF_instruction(6 to 31) & "00" ; --TODO We can't access the IF_instructions for the jump commands
                         
                         
                     
@@ -779,7 +778,7 @@ begin
                 bne                  => EX_bne, --ctl signal
                 jump                  => EX_jump, --ctl signal
 
-                o_instruction_number    => PCnumber
+                o_IF_instruction_number    => PCnumber
 
         );
 
@@ -884,7 +883,9 @@ begin
         --TODO
         --THIS IS THE PROBLEM, I think the PC only has 
         s_NextInstAddr(i) <= PCnumber(31-i);
-        instruction(31-i) <=  s_Inst(i);
+        IF_instruction(31-i) <=  s_Inst(i);
+        ID_s_Inst(i) <= ID_instruction(31-i);
+
     end generate;
 
     s_DMemWr <= MEM_MemWrite;
