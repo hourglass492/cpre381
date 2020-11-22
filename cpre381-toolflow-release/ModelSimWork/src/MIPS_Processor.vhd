@@ -176,350 +176,259 @@ architecture structure of MIPS_Processor is
             signal WB_ALUOut                : std_logic_vector(0 to 31);
         --end signals for WB
 
+        signal nothingTwo                       : std_logic;    
+        signal nothing                          : std_logic;
+        signal DMem_addr                : std_logic_vector(0 to 9);           
+
+        signal PCnumber                         : std_logic_vector(0 to N-1);   
+
+        signal high                           :std_logic := '1'  ;
+
+        signal low                            :std_logic  := '0';
+
+
+
+
+        -- old signals
+
+            --     -- TODO: You may add any additional signals or components your implementation 
+            --     --       requires below this comment
+            --     --signals
+            --     signal func_select  : std_logic_vector(0 to 5);
+
+
+            --     signal ALU_ib                           : std_logic_vector(0 to N-1);
+            --     --signal ALU_ib                           : std_logic_vector(0 to N-1);
+            --     signal ALU_ctl                          : std_logic_vector(0 to 3);
+            --     signal sum                          : std_logic_vector(0 to N-1);
+            --     signal nothingTwo                       : std_logic;    
+            --     signal nothing                          : std_logic;
+            --     signal zero                             : std_logic;
+            --     --signal sum                         : std_logic_vector(0 to N-1);
+            --     signal DMem_addr                : std_logic_vector(0 to 9);           
+            --     signal internal_mem_we                  : std_logic;     
+            --     signal data_read                        : std_logic_vector(0 to N-1);
+            --     signal reg_Dst							: std_logic;
+            --     signal ALUOpIn							: std_logic_vector(0 to 3);   
+
+            --     signal PCnumber                         : std_logic_vector(0 to N-1);   
 
 
 
 
 
 
-            -- TODO: You may add any additional signals or components your implementation 
-            --       requires below this comment
-            --signals
-            signal func_select  : std_logic_vector(0 to 5);
+            -- --constants start
+            --     signal high                           :std_logic := '1'  ;
+            --     signal low                            :std_logic  := '0';
+            -- --constants end
 
+            -- -- register inputs and immidates
+            --     signal internal_rs                 : std_logic_vector(0 to N-1);
+            --     signal internal_rt                 : std_logic_vector(0 to N-1);
+            --     signal register_write_data         : std_logic_vector(0 to N-1);
+            --     signal WB_register_write_back_final					   : std_logic_vector(0 to N-1);
+            --     signal internal_imm                : std_logic_vector(0 to N-1);
+            --     signal EX_jumpLocation                : std_logic_vector(0 to N-1);
+            -- -- register inputs and immidates end
 
-            signal ALU_ib                           : std_logic_vector(0 to N-1);
-            --signal ALU_ib                           : std_logic_vector(0 to N-1);
-            signal ALU_ctl                          : std_logic_vector(0 to 3);
-            signal sum                          : std_logic_vector(0 to N-1);
-            signal nothingTwo                       : std_logic;    
-            signal nothing                          : std_logic;
-            signal zero                             : std_logic;
-            --signal sum                         : std_logic_vector(0 to N-1);
-            signal DMem_addr                : std_logic_vector(0 to 9);           
-            signal internal_mem_we                  : std_logic;     
-            signal data_read                        : std_logic_vector(0 to N-1);
-            signal reg_Dst							: std_logic;
-            signal ALUOpIn							: std_logic_vector(0 to 3);   
+            -- -- binary blob to signals start
+            --     signal IF_instruction                    : std_logic_vector(0 to N-1);
+            --     signal rs_select                   : std_logic_vector(0 to 4);
+            --     signal rt_select                   : std_logic_vector(0 to 4);
+            --     signal rd_select                   : std_logic_vector(0 to 4);
+            --     signal internal_raw_immidates      : std_logic_vector(0 to 15);
+            -- -- binary blob to signals end
 
-            signal PCnumber                         : std_logic_vector(0 to N-1);   
+            -- --ctl signals start
+            --     signal regDst                              : std_logic;
+            --     signal loadUpper                              : std_logic;
+            --     signal IsUnsigned                              : std_logic;
+                
+            --     signal branch                              : std_logic;
+            --     signal memRead                             : std_logic;
+            --     signal memToReg                            : std_logic;
+            --     signal ALUOp                               : std_logic_vector(0 to 4);
+            --     signal memWrite                            : std_logic;
+            --     signal ALUSrc                              : std_logic;
+            --     signal regWrite                            : std_logic;
+            --     signal jr                                  : std_logic;
+            --     signal varShift								: std_logic;
+            --     signal shiftValue						   : std_logic_vector(0 to 4);
+            -- --ctl signals end 
 
-
-
-
-
-
-                    --constants start
-                        signal high                           :std_logic := '1'  ;
-                        signal low                            :std_logic  := '0';
-                    --constants end
-
-                    -- register inputs and immidates
-                        signal internal_rs                 : std_logic_vector(0 to N-1);
-                        signal internal_rt                 : std_logic_vector(0 to N-1);
-                        signal register_write_data         : std_logic_vector(0 to N-1);
-                        signal WB_register_write_back_final					   : std_logic_vector(0 to N-1);
-                        signal internal_imm                : std_logic_vector(0 to N-1);
-                        signal EX_jumpLocation                : std_logic_vector(0 to N-1);
-                    -- register inputs and immidates end
-
-                    -- binary blob to signals start
-                        signal IF_instruction                    : std_logic_vector(0 to N-1);
-                        signal rs_select                   : std_logic_vector(0 to 4);
-                        signal rt_select                   : std_logic_vector(0 to 4);
-                        signal rd_select                   : std_logic_vector(0 to 4);
-                        signal internal_raw_immidates      : std_logic_vector(0 to 15);
-                    -- binary blob to signals end
-
-                    --ctl signals start
-                        signal regDst                              : std_logic;
-                        signal loadUpper                              : std_logic;
-                        signal IsUnsigned                              : std_logic;
-                        
-                        signal branch                              : std_logic;
-                        signal memRead                             : std_logic;
-                        signal memToReg                            : std_logic;
-                        signal ALUOp                               : std_logic_vector(0 to 4);
-                        signal memWrite                            : std_logic;
-                        signal ALUSrc                              : std_logic;
-                        signal regWrite                            : std_logic;
-                        signal jr                                  : std_logic;
-                        signal varShift								: std_logic;
-                        signal shiftValue						   : std_logic_vector(0 to 4);
-                    --ctl signals end 
-
-                    -- buses start
-                        signal ALU2ndInput                         : std_logic_vector(0 to N-1);
-                        signal programCounter                      : std_logic_vector(0 to N-1);
-                        signal ALUOutput                           : std_logic_vector(0 to N-1);
-                        signal memoryOutput                        : std_logic_vector(0 to N-1);
-                    -- buses end
-                    
-                    --LUI
-                    signal s_internal_imm_shifted					: std_logic_vector(0 to N-1);
-                    
+            -- -- buses start
+            --     signal ALU2ndInput                         : std_logic_vector(0 to N-1);
+            --     signal programCounter                      : std_logic_vector(0 to N-1);
+            --     signal ALUOutput                           : std_logic_vector(0 to N-1);
+            --     signal memoryOutput                        : std_logic_vector(0 to N-1);
+            -- -- buses end
+            
+            -- --LUI
+            -- signal s_internal_imm_shifted					: std_logic_vector(0 to N-1);
+            
 
 
 
-                    signal 	beq                   :  std_logic;
-                    signal	bne                   :  std_logic;
-                    signal	jump                  :  std_logic;
-                    signal	jal                  :  std_logic;
-                    signal	zeroExtened                  :  std_logic;
+            -- signal 	beq                   :  std_logic;
+            -- signal	bne                   :  std_logic;
+            -- signal	jump                  :  std_logic;
+            -- signal	jal                  :  std_logic;
+            -- signal	zeroExtened                  :  std_logic;
 
 
+        -- old signals
 
 
-    
     -- end signal
 	
 	
     --components
 	
 	    --pipeline registers
-	
-		component IF_ID
-			port(
-				i_CLK             		  : in std_logic;
-				i_stall              	  : in std_logic;
-				i_if_flush                : in std_logic;
-				i_IF_instruction             : in std_logic_vector(0 to N);   
-				i_pc         			  : in std_logic_vector(0 to N);   
+        
+            component IF_ID
+                port(
+                    i_CLK             		  : in std_logic;
+                    i_stall              	  : in std_logic;
+                    i_if_flush                : in std_logic;
+                    i_IF_instruction             : in std_logic_vector(0 to N);   
+                    i_pc         			  : in std_logic_vector(0 to N);   
 
-				o_pc              		  : out std_logic_vector(0 to N);
-				o_IF_instruction	  		  : out std_logic_vector(0 to N)
-				);
-        end component;
-		
-		component ID_EX
-			port(
-                i_CLK             			=> iCLK,
-                i_stall              		=> global_stall,
-                i_if_flush              	=> global_Flush,
-    
-    
-                i_RS             			: in std_logic_vector(0 to N);   
-                i_RT         			 	: in std_logic_vector(0 to N);   
-                i_MemtoReg					: in std_logic;
-                i_RegWrite					: in std_logic;
-                i_MemWrite					: in std_logic;
-                i_MemRead					: in std_logic;
-                i_ALUSrc					: in std_logic;
-                i_RegDst					: in std_logic;
-                i_AluOp						: in std_logic_vector(0 to 3);
-                i_ExtendedImmediate			: in std_logic_vector(0 to N);
-                i_RdAddress					: in std_logic_vector(0 to 4);
-                i_RtAddress					: in std_logic_vector(0 to 4);
-                i_RsAddress					: in std_logic_vector(0 to 4);
-                i_ALUSrc        		        : in std_logic;
-                i_MemtoReg           	        : in std_logic;
-                i_s_DMemWr                    : in std_logic;
-                i_s_RegWr                     : in std_logic;
-                i_s_Lui                       : in std_logic;
-                i_RegDst                      : in std_logic;
-                i_beq                         : in std_logic;
-                i_bne                         : in std_logic;
-                i_jr                          : in std_logic;
-                i_jal                         : in std_logic;
-                i_jump                        : in std_logic;
-                i_varShift			        : in std_logic;
-                i_zeroExtened                 : in std_logic
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-                o_RT               			: out std_logic_vector(0 to N);
-                o_RS		 	  			: out std_logic_vector(0 to N);
-                o_MemtoReg					: out std_logic;
-                o_RegWrite					: out std_logic;
-                o_MemWrite					: out std_logic;
-                o_MemRead					: out std_logic;
-                o_ALUSrc					: out std_logic;
-                o_RegDst					: out std_logic;
-                o_AluOp						: out std_logic_vector(0 to 3);
-                o_ExtendedImmediate			: out std_logic_vector(0 to N);
-                o_RdAddress					: out std_logic_vector(0 to 4);
-                o_RtAddress					: out std_logic_vector(0 to 4);
-                o_RsAddress					: out std_logic_vector(0 to 4)
-    
-                o_ALUSrc        		        : out std_logic
-                o_MemtoReg           	        : out std_logic
-                o_s_DMemWr                    : out std_logic
-                o_s_RegWr                     : out std_logic
-                o_s_Lui                       : out std_logic
-                o_RegDst                      : out std_logic
-                o_beq                         : out std_logic
-                o_bne                         : out std_logic
-                o_jr                          : out std_logic
-                o_jal                         : out std_logic
-                o_jump                        : out std_logic
-                o_varShift			        : out std_logic
-                o_zeroExtened                 : out std_logic
-    
-
-				);
-        end component;
-		
-		
-		component EX_MEM
-			port(
-				i_CLK             			: in std_logic;
-				i_stall              		: in std_logic;
-				i_if_flush              	: in std_logic;
-	
-				i_ALUOut             		: in std_logic_vector(0 to N);   
-				i_MuxOut         			: in std_logic_vector(0 to N);   
-				i_MemtoReg					: in std_logic;
-				i_RegWrite					: in std_logic;
-				i_MemWrite					: in std_logic;
-				i_MemRead					: in std_logic;
-				i_WriteAdress				: in std_logic_vector(0 to 4);
-
-				o_MuxOut               		: out std_logic_vector(0 to N);
-				o_ALUOut		 	  		: out std_logic_vector(0 to N);
-				o_MemtoReg					: out std_logic;
-				o_RegWrite					: out std_logic;
-				o_MemWrite					: out std_logic;
-				o_MemRead					: out std_logic;
-				o_WriteAdress				: out std_logic_vector(0 to 4)
-				
-				);
-		end component;
-		
-		
-		component MEM_WB
-			port(
-				i_CLK             			: in std_logic;
-				i_stall              		: in std_logic;
-				i_if_flush              	: in std_logic;
-	
-				i_ALUOut             		: in std_logic_vector(0 to N);   
-				i_MemOut         			: in std_logic_vector(0 to N);   
-				i_MemtoReg					: in std_logic;
-				i_RegWrite					: in std_logic;
-				i_WriteAdress				: in std_logic_vector(0 to 4);
-
-				o_MemOut                	: out std_logic_vector(0 to N);
-				o_ALUOut		 	  		: out std_logic_vector(0 to N);
-				o_MemtoReg					: out std_logic;
-				o_RegWrite					: out std_logic;
-				o_WriteAdress				: out std_logic_vector(0 to 4)
-
-				);
-		end component;
-
-	
-	
-	
-        --regester file
+                    o_pc              		  : out std_logic_vector(0 to N);
+                    o_IF_instruction	  		  : out std_logic_vector(0 to N)
+                    );
+            end component;
+            
+            component ID_EX
+                port(
+                    i_CLK             			=> iCLK,
+                    i_stall              		=> global_stall,
+                    i_if_flush              	=> global_Flush,
         
         
-            component registerFile_nbit_struct
-                port(
-                    i_rd                       : in std_logic_vector(0 to N-1);
-                    in_select_rs               : in std_logic_vector(0 to 4);
-                    in_select_rt               : in std_logic_vector(0 to 4);
-                    in_select_rd               : in std_logic_vector(0 to 4);
-                    i_WE                       : in std_logic;
-                    i_CLK                      : in std_logic;
-                    i_RST                      : in std_logic;
-                    jal               			: in std_logic;
-                
-                
-                    o_rt                       : out std_logic_vector(0 to N-1);
-                    o_rs                       : out std_logic_vector(0 to N-1);
-                    
-                    o_v0			   			: out std_logic_vector(0 to N-1)
-
-
-                    );
-            end component;
-
-
-            component ALUControler
-                port(  
-
-                    opcode				  : in std_logic_vector(0 to 5);
-                    funct				  : in std_logic_vector(0 to 5);
+                    i_RS             			: in std_logic_vector(0 to N);   
+                    i_RT         			 	: in std_logic_vector(0 to N);   
+                    i_MemtoReg					: in std_logic;
+                    i_RegWrite					: in std_logic;
+                    i_MemWrite					: in std_logic;
+                    i_MemRead					: in std_logic;
+                    i_ALUSrc					: in std_logic;
+                    i_RegDst					: in std_logic;
+                    i_AluOp						: in std_logic_vector(0 to 3);
+                    i_ExtendedImmediate			: in std_logic_vector(0 to N);
+                    i_RdAddress					: in std_logic_vector(0 to 4);
+                    i_RtAddress					: in std_logic_vector(0 to 4);
+                    i_RsAddress					: in std_logic_vector(0 to 4);
+                    i_ALUSrc        		        : in std_logic;
+                    i_MemtoReg           	        : in std_logic;
+                    i_s_DMemWr                    : in std_logic;
+                    i_s_RegWr                     : in std_logic;
+                    i_s_Lui                       : in std_logic;
+                    i_RegDst                      : in std_logic;
+                    i_beq                         : in std_logic;
+                    i_bne                         : in std_logic;
+                    i_jr                          : in std_logic;
+                    i_jal                         : in std_logic;
+                    i_jump                        : in std_logic;
+                    i_varShift			        : in std_logic;
+                    i_zeroExtened                 : in std_logic
         
-                    ALUControl           			: out std_logic_vector(0 to 3);
-                    IsUnsigned               		: out std_logic
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                    o_RT               			: out std_logic_vector(0 to N);
+                    o_RS		 	  			: out std_logic_vector(0 to N);
+                    o_MemtoReg					: out std_logic;
+                    o_RegWrite					: out std_logic;
+                    o_MemWrite					: out std_logic;
+                    o_MemRead					: out std_logic;
+                    o_ALUSrc					: out std_logic;
+                    o_RegDst					: out std_logic;
+                    o_AluOp						: out std_logic_vector(0 to 3);
+                    o_ExtendedImmediate			: out std_logic_vector(0 to N);
+                    o_RdAddress					: out std_logic_vector(0 to 4);
+                    o_RtAddress					: out std_logic_vector(0 to 4);
+                    o_RsAddress					: out std_logic_vector(0 to 4)
+        
+                    o_ALUSrc        		        : out std_logic
+                    o_MemtoReg           	        : out std_logic
+                    o_s_DMemWr                    : out std_logic
+                    o_s_RegWr                     : out std_logic
+                    o_s_Lui                       : out std_logic
+                    o_RegDst                      : out std_logic
+                    o_beq                         : out std_logic
+                    o_bne                         : out std_logic
+                    o_jr                          : out std_logic
+                    o_jal                         : out std_logic
+                    o_jump                        : out std_logic
+                    o_varShift			        : out std_logic
+                    o_zeroExtened                 : out std_logic
+        
 
                     );
             end component;
-
-
-
-
-                
-            --TODO I don't think I need this
-            component adder_nbit_struct
-                generic(N : integer := 31);
+            
+            
+            component EX_MEM
                 port(
+                    i_CLK             			: in std_logic;
+                    i_stall              		: in std_logic;
+                    i_if_flush              	: in std_logic;
+        
+                    i_ALUOut             		: in std_logic_vector(0 to N);   
+                    i_MuxOut         			: in std_logic_vector(0 to N);   
+                    i_MemtoReg					: in std_logic;
+                    i_RegWrite					: in std_logic;
+                    i_MemWrite					: in std_logic;
+                    i_MemRead					: in std_logic;
+                    i_WriteAdress				: in std_logic_vector(0 to 4);
+
+                    o_MuxOut               		: out std_logic_vector(0 to N);
+                    o_ALUOut		 	  		: out std_logic_vector(0 to N);
+                    o_MemtoReg					: out std_logic;
+                    o_RegWrite					: out std_logic;
+                    o_MemWrite					: out std_logic;
+                    o_MemRead					: out std_logic;
+                    o_WriteAdress				: out std_logic_vector(0 to 4)
                     
-
-
-                    i_a             : in std_logic_vector(0 to N-1);
-                    i_b             : in std_logic_vector(0 to N-1);
-                    i_carry         : in std_logic;
-                    o_sum           : out std_logic_vector(0 to N-1);
-                    o_carry         : out std_logic
-
                     );
-                
             end component;
-
-
-            component FullALU
-    
+            
+            
+            component MEM_WB
                 port(
-                    
-                    in_ia              : in std_logic_vector(0 to N-1);
-                    in_ib              : in std_logic_vector(0 to N-1);
-                    in_ctl             : in std_logic_vector(0 to 3);
-                    shiftAmount		   : in std_logic_vector(0 to 4);
+                    i_CLK             			: in std_logic;
+                    i_stall              		: in std_logic;
+                    i_if_flush              	: in std_logic;
+        
+                    i_ALUOut             		: in std_logic_vector(0 to N);   
+                    i_MemOut         			: in std_logic_vector(0 to N);   
+                    i_MemtoReg					: in std_logic;
+                    i_RegWrite					: in std_logic;
+                    i_WriteAdress				: in std_logic_vector(0 to 4);
 
-
-                    out_data            : out std_logic_vector(0 to N-1);
-                    out_overflow        : out std_logic;
-                    out_carry           : out std_logic;
-                    out_zero            : out std_logic
-
-                    );
-                
-            end component;
-
-
-
-            component mux_nbit_struct
-                port(
-                    i_a             : in std_logic_vector(0 to N-1);
-                    i_b             : in std_logic_vector(0 to N-1);
-                    i_select        : in std_logic;
-                    o_z             : out std_logic_vector(0 to N-1)
-
+                    o_MemOut                	: out std_logic_vector(0 to N);
+                    o_ALUOut		 	  		: out std_logic_vector(0 to N);
+                    o_MemtoReg					: out std_logic;
+                    o_RegWrite					: out std_logic;
+                    o_WriteAdress				: out std_logic_vector(0 to 4)
 
                     );
             end component;
 
-        --        component mem
-        --            port(  
-        --                signal clk	    : in std_logic;
-        --                signal addr	    : in std_logic_vector(9 downto 0);
-        --                signal data	    : in std_logic_vector(N downto 0);
-        --                signal we		: in std_logic;
-        --                signal q		: out std_logic_vector(N downto 0)
 
-        --            );
-        --        end component;
+        -- end pipeline registers
+	
+	
 
         component extender16bit_flow
             port(  
