@@ -7,60 +7,152 @@ message: .asciiz  "The Sorted array is:\n"	 #declare message
 .text
 	la $s0, array
 	la $s5, N			#s5 gets size
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $s5, 0($s5)		#load value of size
       
 	#load the array with values
 	addi $t1, $zero, 101
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 0($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 0($s0)
 	
 	addi $t1, $zero, 9
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 4($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 4($s0)
 	
 	
 	addi $t1, $zero, 3
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 8($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 8($s0)
 	
 	addi $t1, $zero, 113
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 12($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 12($s0)
 	
 	addi $t1, $zero, 13
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 16($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 16($s0)
 	
 	addi $t1, $zero, 6
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 20($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 20($s0)
 	
 	addi $t1, $zero, 19
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 24($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 24($s0)
 	
 	addi $t1, $zero, 20
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 24($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 24($s0)
 	
 	addi $t1, $zero, 20
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 24($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 24($s0)
 	
 	addi $t1, $zero, 20
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $t1, 24($s0)
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t1, 24($s0)
 
 	
 
       	
 	
-	addi $sp, $sp, -8 	#move the stack pointer 
+	addi $sp, $sp, -8 	#move the stack pointer
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $s0, 0($sp)		#store the pointer to the head of array
 	sw $s5, 4($sp)		#store the sive of the array
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+
 	
 	
 	add $a0, $zero, $s0	#move head pointer to $a0
+	sll $zero, $sero, 0
 	add $a1, $zero, $s5	#move n to $a1
 
 	jal bubblesort		#jump and link to bubblesort algorithm
@@ -77,27 +169,72 @@ bubblesort:
 	beq $a1, 1, endsort		# if N = 1, done
 	add $s1, $zero, $zero	#i = 0
 	add $t0, $zero, $zero
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	addi $s2, $a1, -1		#$s2 = N-1
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	
 while:
 	slt $t0, $s1, $s2		#i < N-1
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	bne $t0, 1, endwhile	#if i < N-1continue. else branch to done
 	
 	#$t1 = i*4
 	add $t1, $s1, $s1
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	add $t1, $t1, $t1
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	add $t1, $a0, $t1
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 
 	lw $t2, 0($t1)		#load t1 with arr[i]
 	
 	addi $t3, $s1, 1	#i+1
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	add $t3, $t3, $t3	#(i+1)*2
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	add $t3, $t3, $t3	#(i+1)*4
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	add $t3, $s0, $t3	#increment
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	lw $t4, 0($t3)		#load value from new addresss
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
       	
 	add $t0, $zero, $zero	#reset $t0 = 0
 	slt $t0, $t4, $t2		#arr[i+1] < arr[i]
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	bne $t0, 1, noswap		#if slt fails, jump to noswap ebcause the elements are in the correct order
 	sw $t2, 0($t3)			#swap i and i+1
 	sw $t4, 0($t1)			#swap i+1 and i
@@ -107,6 +244,10 @@ noswap:
 	
 endwhile:
 	addi $sp, $sp, -12		#move stack pointer
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
+	sll $zero, $sero, 0
 	sw $a0 0($sp)				
 	sw $a1 4($sp)				
 	sw $ra 8($sp)				
