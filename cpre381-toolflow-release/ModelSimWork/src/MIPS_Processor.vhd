@@ -17,6 +17,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.arrayPackage.all;
 
 entity MIPS_Processor is
   generic(N : integer := 32);
@@ -65,10 +66,16 @@ architecture structure of MIPS_Processor is
 
 
 
+
+
+				
+
+				signal IF_instruction                   : std_logic_vector(0 to 31);
+
+
             
         -- All signals used in ID
                 -- 1
-                signal ID_zeroExtened                   : std_logic;
                 signal ID_ALUSrc                        : std_logic;
                 signal ID_memToReg                      : std_logic;
                 signal ID_internal_mem_we               : std_logic;
@@ -82,7 +89,6 @@ architecture structure of MIPS_Processor is
                 signal ID_jump                          : std_logic;
                 signal ID_varShift                      : std_logic;
                 signal ID_zeroExtened                   : std_logic;
-                signal ID_ALUOpIn                       : std_logic;
                 signal ID_IsUnsigned                    : std_logic;
 
                 -- 4
@@ -106,7 +112,7 @@ architecture structure of MIPS_Processor is
                 signal ID_internal_imm                  : std_logic_vector(0 to 31);
                 signal ID_s_Inst                        : std_logic_vector(0 to 31);
                 signal ID_instruction                   : std_logic_vector(0 to 31);
-                signal ID_v0                            : std_logic;
+                signal ID_v0                            : std_logic_vector(0 to 31);
         --End Signals used
 
         -- start of all signals used in EX stage
@@ -124,13 +130,14 @@ architecture structure of MIPS_Processor is
                 signal EX_jump              : std_logic;
                 signal EX_varShift          : std_logic;
                 signal EX_zeroExtened       : std_logic;
+                signal EX_zero			        : std_logic;
 
                 -- 4
-                EX_AluOp                    : std_logic_vector(0 to 3);
+                signal EX_AluOp                    : std_logic_vector(0 to 3);
 
                 -- 5
-                EX_RdAddress                : std_logic_vector(0 to 4);
-                EX_shiftValue               : std_logic_vector(0 to 4);
+                signal EX_RdAddress                : std_logic_vector(0 to 4);
+                signal EX_shiftValue               : std_logic_vector(0 to 4);
 
                 -- 32
                 signal EX_rt_data                  : std_logic_vector(0 to 31);
@@ -139,7 +146,7 @@ architecture structure of MIPS_Processor is
                 signal EX_ALU_ib                   : std_logic_vector(0 to 31);
                 signal EX_sum                      : std_logic_vector(0 to 31);
                 signal EX_ALUsum                   : std_logic_vector(0 to 31);
-                signal PCnumber                    : std_logic_vector(0 to 31);
+              
                 signal EX_jumpLocation             : std_logic_vector(0 to 31);
 
         -- End of all signals used in EX stage
@@ -153,8 +160,8 @@ architecture structure of MIPS_Processor is
             signal MEM_MemRead              : std_logic;
 
             -- 10
-            signal MEM_WriteAdress          : std_logic_vector(0 to 9);
-            signal MEM_DMem_addr            : std_logic_vector(0 to 9);
+            signal MEM_WriteAdress          : std_logic_vector(0 to 4);
+            signal MEM_DMem_addr            : std_logic_vector(0 to 4);
 
             -- 32
             signal MEM_ALUOut               : std_logic_vector(0 to 31);
@@ -168,16 +175,19 @@ architecture structure of MIPS_Processor is
             signal WB_RegWrite              : std_logic;
 
             -- 4
-            signal WB_rd_select             : std_logic_vector(0 to 3);
+            signal WB_rd_select             : std_logic_vector(0 to 4);
 
 
             -- 32
             signal WB_MemOut                : std_logic_vector(0 to 31);
             signal WB_ALUOut                : std_logic_vector(0 to 31);
+            signal WB_register_write_back_final                : std_logic_vector(0 to 31);
         --end signals for WB
 
         signal nothingTwo                       : std_logic;    
         signal nothing                          : std_logic;
+        signal global_stall                          : std_logic;
+        signal global_Flush                          : std_logic;
         signal DMem_addr                : std_logic_vector(0 to 9);           
 
         signal PCnumber                         : std_logic_vector(0 to N-1);   
@@ -293,7 +303,7 @@ architecture structure of MIPS_Processor is
                     i_stall              	  : in std_logic;
                     i_if_flush                : in std_logic;
                     i_IF_instruction             : in std_logic_vector(0 to N);   
-                    i_pc         			  : in std_logic_vector(0 to N);   
+                    --i_pc         			  : in std_logic_vector(0 to N);   
 
                     o_pc              		  : out std_logic_vector(0 to N);
                     o_IF_instruction	  		  : out std_logic_vector(0 to N)
@@ -302,37 +312,36 @@ architecture structure of MIPS_Processor is
             
             component ID_EX
                 port(
-                    i_CLK             			=> iCLK,
-                    i_stall              		=> global_stall,
-                    i_if_flush              	=> global_Flush,
+                    i_CLK             		  : in std_logic;
+                    i_stall              	  : in std_logic;
+                    i_if_flush                : in std_logic;
         
         
                     i_RS             			: in std_logic_vector(0 to N);   
                     i_RT         			 	: in std_logic_vector(0 to N);   
                     i_MemtoReg					: in std_logic;
-                    i_RegWrite					: in std_logic;
-                    i_MemWrite					: in std_logic;
-                    i_MemRead					: in std_logic;
+                    -- i_RegWrite					: in std_logic; Duplicate of i_s_RegWr
+                    --i_MemWrite					: in std_logic;
+                    -- i_MemRead					: in std_logic; --I don't think we need this
                     i_ALUSrc					: in std_logic;
                     i_RegDst					: in std_logic;
                     i_AluOp						: in std_logic_vector(0 to 3);
                     i_ExtendedImmediate			: in std_logic_vector(0 to N);
-                    i_RdAddress					: in std_logic_vector(0 to 4);
-                    i_RtAddress					: in std_logic_vector(0 to 4);
-                    i_RsAddress					: in std_logic_vector(0 to 4);
-                    i_ALUSrc        		        : in std_logic;
-                    i_MemtoReg           	        : in std_logic;
+                    i_RdAddress					: in std_logic_vector(0 to 4); 
+                    --i_RtAddress					: in std_logic_vector(0 to 4); --I don't think these 2 are needed unless we are doing hardward contrloed pipleinings
+                    --i_RsAddress					: in std_logic_vector(0 to 4);
+                  
                     i_s_DMemWr                    : in std_logic;
                     i_s_RegWr                     : in std_logic;
                     i_s_Lui                       : in std_logic;
-                    i_RegDst                      : in std_logic;
+                    
                     i_beq                         : in std_logic;
                     i_bne                         : in std_logic;
                     i_jr                          : in std_logic;
                     i_jal                         : in std_logic;
                     i_jump                        : in std_logic;
                     i_varShift			        : in std_logic;
-                    i_zeroExtened                 : in std_logic
+                    i_zeroExtened                 : in std_logic;
         
         
         
@@ -350,27 +359,27 @@ architecture structure of MIPS_Processor is
                     o_MemtoReg					: out std_logic;
                     o_RegWrite					: out std_logic;
                     o_MemWrite					: out std_logic;
-                    o_MemRead					: out std_logic;
+                    --o_MemRead					: out std_logic;
                     o_ALUSrc					: out std_logic;
                     o_RegDst					: out std_logic;
                     o_AluOp						: out std_logic_vector(0 to 3);
                     o_ExtendedImmediate			: out std_logic_vector(0 to N);
                     o_RdAddress					: out std_logic_vector(0 to 4);
                     o_RtAddress					: out std_logic_vector(0 to 4);
-                    o_RsAddress					: out std_logic_vector(0 to 4)
+                    o_RsAddress					: out std_logic_vector(0 to 4);
         
-                    o_ALUSrc        		        : out std_logic
-                    o_MemtoReg           	        : out std_logic
-                    o_s_DMemWr                    : out std_logic
-                    o_s_RegWr                     : out std_logic
-                    o_s_Lui                       : out std_logic
-                    o_RegDst                      : out std_logic
-                    o_beq                         : out std_logic
-                    o_bne                         : out std_logic
-                    o_jr                          : out std_logic
-                    o_jal                         : out std_logic
-                    o_jump                        : out std_logic
-                    o_varShift			        : out std_logic
+                    
+                    
+                    o_s_DMemWr                    : out std_logic;
+                    o_s_RegWr                     : out std_logic;
+                    o_s_Lui                       : out std_logic;
+                    
+                    o_beq                         : out std_logic;
+                    o_bne                         : out std_logic;
+                    o_jr                          : out std_logic;
+                    o_jal                         : out std_logic;
+                    o_jump                        : out std_logic;
+                    o_varShift			        : out std_logic;
                     o_zeroExtened                 : out std_logic
         
 
@@ -385,11 +394,11 @@ architecture structure of MIPS_Processor is
                     i_if_flush              	: in std_logic;
         
                     i_ALUOut             		: in std_logic_vector(0 to N);   
-                    i_MuxOut         			: in std_logic_vector(0 to N);   
+                    --i_MuxOut         			: in std_logic_vector(0 to N);   
                     i_MemtoReg					: in std_logic;
                     i_RegWrite					: in std_logic;
                     i_MemWrite					: in std_logic;
-                    i_MemRead					: in std_logic;
+                    -- i_MemRead					: in std_logic; -- I don't think we need this
                     i_WriteAdress				: in std_logic_vector(0 to 4);
 
                     o_MuxOut               		: out std_logic_vector(0 to N);
@@ -397,7 +406,7 @@ architecture structure of MIPS_Processor is
                     o_MemtoReg					: out std_logic;
                     o_RegWrite					: out std_logic;
                     o_MemWrite					: out std_logic;
-                    o_MemRead					: out std_logic;
+                    -- o_MemRead					: out std_logic;
                     o_WriteAdress				: out std_logic_vector(0 to 4)
                     
                     );
@@ -441,6 +450,34 @@ architecture structure of MIPS_Processor is
         end component;
 
 
+		component registerFile_nbit_struct
+			-- If you cange n you must remake the decoder function
+		  generic(N : integer := 31);
+		  port(
+			 
+
+
+			i_rd               : in std_logic_vector(0 to N);
+			in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
+			in_select_rt       : in std_logic_vector(0 to log2_Of_num_of_inputs);
+			in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
+			i_WE               : in std_logic;
+			i_CLK              : in std_logic;
+			i_RST              : in std_logic;
+			jal                : in std_logic;
+
+
+			o_rt               : out std_logic_vector(0 to N);
+			o_rs               : out std_logic_vector(0 to N);
+			
+			o_v0			   : out std_logic_vector(0 to N)
+			
+			--TODO jump and link harcode output
+
+			);
+			
+		 end component;
+
 
         component control
             port(  
@@ -464,6 +501,64 @@ architecture structure of MIPS_Processor is
 
             );
         end component;
+
+
+
+
+
+
+
+		component ALUControler
+		  port(
+		  
+			opcode				  : in std_logic_vector(0 to 5);
+			funct				  : in std_logic_vector(0 to 5);
+			
+			
+			ALUControl           : out std_logic_vector(0 to 3);
+			IsUnsigned               : out std_logic
+			);
+			
+		end component;
+
+
+
+
+       component FullALU
+ 
+            port(
+                
+                in_ia              : in std_logic_vector(0 to N-1);
+                in_ib              : in std_logic_vector(0 to N-1);
+                in_ctl             : in std_logic_vector(0 to 3);
+		shiftAmount	   : in std_logic_vector(0 to 4);
+
+
+                out_data            : out std_logic_vector(0 to N-1);
+                out_overflow        : out std_logic;
+                out_carry           : out std_logic;
+                out_zero            : out std_logic
+
+                );
+            
+        end component;
+
+        component mux_nbit_struct
+            port(
+                i_a             : in std_logic_vector(0 to N-1);
+                i_b             : in std_logic_vector(0 to N-1);
+                i_select        : in std_logic;
+                o_z             : out std_logic_vector(0 to N-1)
+
+
+                );
+        end component;
+
+
+
+
+
+
 
         component pc
             port(  
@@ -578,15 +673,15 @@ begin
 
 
 
-        IF_ID: IF_IDreg
+        IF_IDreg: IF_ID
         port map(
             i_CLK			=> iCLK,
             --TODO-----------------------------------------------------------
             --wire in the registers
-            i_stall              	  => global_stall
-            i_if_flush                => global_Flush
+            i_stall              	  => global_stall,
+            i_if_flush                => global_Flush,
             i_IF_instruction          =>  IF_instruction,
-            -- i_pc         			  : in std_logic_vector(0 to N);   
+            --i_pc         		=>    --TODO We need to propigate the PC through to the EX stage for the JAL command
 
             -- o_pc              		  : out std_logic_vector(0 to N); --Pretty sure this isn't needed Nicholas
             o_IF_instruction	  	  => ID_instruction
@@ -605,32 +700,32 @@ begin
 
         -- IF_instruction binary to signals
 
-            --rs_select        <= IF_instruction(21 to 25);
+            --rs_select        <= ID_instruction(21 to 25);
             --It isn't allways these bytes when it is a sw it is the first register
-            ID_rs_select        <= ID_s_Inst(25 downto 21);
+            ID_rs_select        <= ID_instruction(21 to 25); --TODO not sure if these are the correct bits
             --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
             --		s_Inst(25 downto 21)
 
             
-            --rt_select        <= IF_instruction(16 to 20);
-            ID_rt_select        <= ID_s_Inst(20 downto 16);
+            --rt_select        <= ID_instruction(16 to 20);
+            ID_rt_select        <= ID_s_Inst(16 to 20);--TODO not sure if these are the correct bits
 
 
             -- if statment to select if IF_instruction bits 20-16 or 15-11
             --rd_select        <= IF_instruction(16 to 20) when reg_Dst = '0' else
             --		 IF_instruction(11 to 15);
-            ID_rd_select        <= "11111" when jal = '1' else
-                                ID_s_Inst(20 downto 16) when reg_Dst = '0' else
-                                ID_s_Inst(15 downto 11);		 
+            ID_rd_select        <= "11111" when ID_jal = '1' else
+                                ID_instruction(16 to 20) when ID_reg_Dst = '0' else --TODO not sure if these are the correct bits
+                                ID_instruction(11 to 15);		 		--TODO not sure if these are the correct bits
             
                                             
             
             
 
             --IF_instruction bits 15 - 0
-            ID_internal_raw_immidates <= ID_s_Inst(15 downto 0);
+            ID_internal_raw_immidates <= ID_instruction(0 to 15); --TODO not sure if these are the correct bits
 
-            ID_func_select <= ID_s_Inst(5 downto 0);
+            ID_func_select <= ID_instruction(0 to 5); --TODO not sure if these are the correct bits
 
 
         -- end IF_instruction binary to signals
@@ -651,7 +746,7 @@ begin
                 in_select_rd       => WB_rd_select,
                 i_WE               => WB_RegWrite,
 
-                jal 				=> jal, --TODO we should be able to get rid of this because it is handdled in the EX stage
+                jal 				=> low,--jal, --TODO we should be able to get rid of this because it is handdled in the EX stage
             
             
                 o_rt               => ID_internal_rt,
@@ -756,65 +851,65 @@ begin
 
 
         --TODO There are doubles in this that need to be removed
-        component ID_EX
-        port(
+        ID_EXreg: ID_EX
+        port map(
             i_CLK             			=> iCLK,
             i_stall              		=> global_stall,
             i_if_flush              	=> global_Flush,
 
-            ID_internal_rt
+
             i_RS             			=> ID_internal_rs,
             i_RT         			 	=> ID_internal_rt, 
 
             -- i_MemRead					: in std_logic; -- I think this isn't needed and can just always be 1
-            i_RegDst					=> ID_rd_select,
+            i_RegDst					=> ID_reg_Dst,
             i_AluOp						=> ID_ALUOpIn,
             i_ExtendedImmediate			=> ID_internal_imm,
             i_RdAddress					=> ID_rd_select,
             -- i_RtAddress					: in std_logic_vector(0 to 4); --I don't think these are needed -nicholas
             -- i_RsAddress					: in std_logic_vector(0 to 4);--I don't think these are needed -nicholas
 
-            i_ALUSrc        		      => ID_ALUSrc
-            i_MemtoReg           	      => ID_MemtoReg
-            i_s_DMemWr                    => ID_s_DMemWr
-            i_s_RegWr                     => ID_s_RegWr
-            i_s_Lui                       => ID_s_Lui
-            i_RegDst                      => ID_RegDst
-            i_beq                         => ID_beq
-            i_bne                         => ID_bne
-            i_jr                          => ID_jr
-            i_jal                         => ID_jal
-            i_jump                        => ID_jump
-            i_varShift			          => ID_varShift
-            i_zeroExtened                 => ID_zeroExtened
+            i_ALUSrc        		      => ID_ALUSrc,
+            i_MemtoReg           	      => ID_MemtoReg,
+            i_s_DMemWr                    => ID_internal_mem_we,
+            i_s_RegWr                     => ID_RegWrite,
+            i_s_Lui                       => ID_loadUpper,
+            --i_RegDst                      => ID_reg_Dst, -- this is a repeat
+            i_beq                         => ID_beq,
+            i_bne                         => ID_bne,
+            i_jr                          => ID_jr,
+            i_jal                         => ID_jal,
+            i_jump                        => ID_jump,
+            i_varShift			          => ID_varShift,
+            i_zeroExtened                 => ID_zeroExtened,
 
 
 
-            o_RT               			=> EX_rt_data;
+            o_RT               			=> EX_rt_data,
             o_RS		 	  			=> EX_internal_rs,
-            o_MemRead					=> EX_MemRead, --I think we can just delete this value
+            --o_MemRead					=> EX_MemRead, --I think we can just delete this value
             o_AluOp						=> EX_AluOp,
-            o_ExtendedImmediate			=> EX_internal_imm;
+            o_ExtendedImmediate			=> EX_internal_imm,
             o_RdAddress					=> EX_RdAddress,
-            o_RtAddress					: out std_logic_vector(0 to 4); --Don't think we need these -Nicholas
-            o_RsAddress					: out std_logic_vector(0 to 4)  --Don't think we need these -Nicholas
+           -- o_RtAddress					: out std_logic_vector(0 to 4); --Don't think we need these -Nicholas
+           -- o_RsAddress					: out std_logic_vector(0 to 4)  --Don't think we need these -Nicholas
 
-            o_ALUSrc        		      => EX_ALUSrc
-            o_MemtoReg           	      => EX_MemtoReg
-            o_s_DMemWr                    => EX_s_DMemWr
-            o_s_RegWr                     => EX_s_RegWr
-            o_s_Lui                       => EX_s_Lui
-            o_RegDst                      => EX_RegDst -- What is this for?? -Nicholas
-            o_beq                         => EX_beq
-            o_bne                         => EX_bne
-            o_jr                          => EX_jr
-            o_jal                         => EX_jal
-            o_jump                        => EX_jump
-            o_varShift			          => EX_varShift
+            o_ALUSrc        		      => EX_ALUSrc,
+            o_MemtoReg           	      => EX_MemtoReg,
+            o_s_DMemWr                    => EX_s_DMemWr,
+            o_s_RegWr                     => EX_s_RegWr,
+            o_s_Lui                       => EX_s_Lui,
+            o_RegDst                      => EX_RegDst, -- What is this for?? -Nicholas
+            o_beq                         => EX_beq,
+            o_bne                         => EX_bne,
+            o_jr                          => EX_jr,
+            o_jal                         => EX_jal,
+            o_jump                        => EX_jump,
+            o_varShift			          => EX_varShift,
             o_zeroExtened                 => EX_zeroExtened
 
             );
-        end component;
+        
 
 
         ALUInputmux: mux_nbit_struct 
@@ -847,8 +942,8 @@ begin
 
 
         --LUI implementation and the pc number whe JAL
-        EX_ALUsum <=   internal_raw_immidates & x"0000" when (LUI = '1') else
-                    std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (jal = '1') else
+        EX_ALUsum <=   EX_internal_imm(0 to 15) & x"0000" when (EX_s_Lui = '1') else --TODO not sure if those are the correct bits to grab for the imm, should be the lower 16
+                    std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (EX_jal = '1') else
                     EX_sum;
         
 
@@ -858,8 +953,8 @@ begin
         -- So I made the pc immedate input a 32 bit value and just appended 0's to the front of the immedate
         -- given by the IF_instruction and muxed it so if it is a jr we get the rs val which should be the reg	
         -- we are jumping to
-        EX_jumpLocation <= EX_internal_rs when jr = '1' 
-                    else EX_internal_imm(2 to 31) & "00"  when (bne = '1' or beq ='1') --signextend
+        EX_jumpLocation <= EX_internal_rs when EX_jr = '1' 
+                    else EX_internal_imm(2 to 31) & "00"  when (EX_bne = '1' or EX_beq ='1') --signextend
                     else "0000" & IF_instruction(6 to 31) & "00" ; --TODO We can't access the IF_instructions for the jump commands
                         
                         
@@ -908,41 +1003,35 @@ begin
         --end signlas for MEM 
 
 
-        s_DMemAddr(i) <= MEM_ALUOut(31-i);--????
-
-        MEM_MemOut(i) <= s_DMemOut(31-i);
-
-
-
-                component EX_MEM
-                port(
+                EX_MEMReg: EX_MEM
+                port map(
                     i_CLK             			=> iCLK,
                     i_stall              		=> global_stall,
                     i_if_flush              	=> global_Flush,
 
                     i_ALUOut             		=> EX_ALUsum,   
-                    i_MuxOut         			: in std_logic_vector(0 to N);   
+                    --i_MuxOut         			: in std_logic_vector(0 to N);   
                     i_MemtoReg					=> EX_MemtoReg,
                     i_RegWrite					=> EX_s_RegWr,
                     i_MemWrite					=> EX_s_DMemWr,
-                    i_MemRead					=> EX_MemRead,
+                    --i_MemRead					=> EX_MemRead,
                     i_WriteAdress				=> EX_RdAddress,
 
 
-                    o_MuxOut               		: out std_logic_vector(0 to N);
+                    --o_MuxOut               		: out std_logic_vector(0 to N);
                     o_ALUOut		 	  		=> MEM_ALUOut,
-                    o_MemtoReg					=> MEM_MemtoReg
+                    o_MemtoReg					=> MEM_MemtoReg,
                     o_RegWrite					=> MEM_RegWrite, -- I don't think this is needed as we can calculate it here
                     o_MemWrite					=> MEM_MemWrite,
-                    o_MemRead					=> MEM_MemRead,
+                    --o_MemRead					=> MEM_MemRead,
                     o_WriteAdress				=> MEM_WriteAdress
                     
                     );
-            end component;
+    
 
 
             --This is the loop that generates the address for the memory
-            G1:  for j in 22 to 31 generate
+            G111:  for j in 22 to 31 generate
                 MEM_DMem_addr(j-22) <= MEM_ALUOut(j);
             end generate;
 
@@ -969,7 +1058,7 @@ begin
             -- signal WB_RegWrite              : std_logic;
 
             -- -- 4
-            -- signal WB_rd_select             : std_logic_vector(0 to 3);
+            -- signal WB_rd_select             : std_logic_vector(0 to 4);
 
 
             -- -- 32
@@ -979,8 +1068,8 @@ begin
 
 
 
-        component MEM_WB
-        port(
+        MEM_WBReg: MEM_WB
+        port map(
             i_CLK             			=> iCLK,
             i_stall              		=> global_stall,
             i_if_flush              	=> global_Flush,
@@ -998,7 +1087,7 @@ begin
             o_WriteAdress				=> WB_rd_select
 
             );
-        end component;
+
 
 
 
@@ -1011,16 +1100,16 @@ begin
              
 -- signal remapping
     gen32: for i in 0 to 31 generate
-        oALUOut(i) <= sum(31-i);
+        oALUOut(i) <= EX_sum(31-i);
         s_DMemAddr(i) <= MEM_ALUOut(31-i);--????
-        s_DMemData(i) <= internal_rt(31-i);
+        s_DMemData(i) <= ID_internal_rt(31-i);
         MEM_MemOut(i) <= s_DMemOut(31-i);
         s_RegWrData(i) <= WB_register_write_back_final(31-i);
         
         --TODO
         --THIS IS THE PROBLEM, I think the PC only has 
         s_NextInstAddr(i) <= PCnumber(31-i);
-        IF_instruction(31-i) <=  s_Inst(i);
+        IF_instruction(31-i) <=  s_Inst(i); --iInstExt
         ID_s_Inst(i) <= ID_instruction(31-i);
 
     end generate;
