@@ -472,7 +472,7 @@ architecture structure of MIPS_Processor is
 			
 			o_v0			   : out std_logic_vector(0 to N)
 			
-			--TODO jump and link harcode output
+			
 
 			);
 			
@@ -676,8 +676,7 @@ begin
         IF_IDreg: IF_ID
         port map(
             i_CLK			=> iCLK,
-            --TODO-----------------------------------------------------------
-            --wire in the registers
+
             i_stall              	  => global_stall,
             i_if_flush                => global_Flush,
             i_IF_instruction          =>  IF_instruction,
@@ -1106,8 +1105,7 @@ begin
         MEM_MemOut(i) <= s_DMemOut(31-i);
         s_RegWrData(i) <= WB_register_write_back_final(31-i);
         
-        --TODO
-        --THIS IS THE PROBLEM, I think the PC only has 
+
         s_NextInstAddr(i) <= PCnumber(31-i);
         IF_instruction(31-i) <=  s_Inst(i); --iInstExt
         ID_s_Inst(i) <= ID_instruction(31-i);
@@ -1121,7 +1119,7 @@ begin
         s_RegWrAddr(i) <= WB_rd_select(4-i);
     end generate;
 
---Done mapping
+--Done mapsping
 
   
   
