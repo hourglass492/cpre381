@@ -582,6 +582,11 @@ architecture structure of MIPS_Processor is
 
 begin
 
+
+
+	global_stall <= '0';
+    global_Flush   <= '0';
+
   -- TODO: This is required to be your final input to your IF_instruction memory. This provides a feasible method to externally load the
   --memory module which means that the synthesis tool must assume it knows nothing about the values stored in the IF_instruction memory.
   --If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be
