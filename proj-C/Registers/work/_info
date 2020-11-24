@@ -1,0 +1,397 @@
+m255
+K4
+z2
+!s11e vcom 2020.2 2020.04, Apr 19 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dU:/cpre381/cpre381/proj-C/Registers
+T_opt
+!s110 1606177259
+V]_CGA9Qg2HFJDCkK8N_<B1
+04 9 8 work tb_allreg behavior 1
+=1-0050569b4843-5fbc51ea-86-10bc
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0
+n@_opt
+OL;O;2020.2;71
+Eallreg
+Z1 w1606176130
+Z2 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 41
+R0
+Z6 8U:/cpre381/cpre381/proj-C/Registers/AllReg.vhd
+Z7 FU:/cpre381/cpre381/proj-C/Registers/AllReg.vhd
+l0
+L8 1
+VBW`K0I8DLj>0CXiM>Pda03
+!s100 5eUNib1jfnV23h_]NMi`=1
+Z8 OL;C;2020.2;71
+32
+Z9 !s110 1606177238
+!i10b 1
+Z10 !s108 1606177238.000000
+Z11 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/AllReg.vhd|
+Z12 !s107 U:/cpre381/cpre381/proj-C/Registers/AllReg.vhd|
+!i113 0
+Z13 o-work work
+Z14 tExplicit 1 CvgOpt 0
+Aallreg_arch
+R2
+R3
+R4
+R5
+DEx4 work 6 allreg 0 22 BW`K0I8DLj>0CXiM>Pda03
+!i122 41
+l202
+L72 238
+VEoNPSV?V^JK7W2KD;ENF<1
+!s100 N=6Ya=QLedJ:kniX<XdZD0
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Edffg
+Z15 w1604527734
+R4
+R5
+!i122 19
+R0
+Z16 8U:/cpre381/cpre381/proj-C/Registers/dff.vhd
+Z17 FU:/cpre381/cpre381/proj-C/Registers/dff.vhd
+l0
+L21 1
+V1Q`XT=>NTcO=VbCRbUH:M2
+!s100 >gUgIObIo_i_MVC@DL4U31
+R8
+32
+Z18 !s110 1606176431
+!i10b 1
+Z19 !s108 1606176431.000000
+Z20 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/dff.vhd|
+Z21 !s107 U:/cpre381/cpre381/proj-C/Registers/dff.vhd|
+!i113 0
+R13
+R14
+Amixed
+R4
+R5
+DEx4 work 4 dffg 0 22 1Q`XT=>NTcO=VbCRbUH:M2
+!i122 19
+l36
+L32 29
+V5Ch2U>Jz=@GWAReQLzeG?2
+!s100 Ehb:XJYbceDl=4`WSKM?20
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R13
+R14
+Eex_mem
+Z22 w1606177182
+R4
+R5
+!i122 40
+R0
+Z23 8U:/cpre381/cpre381/proj-C/Registers/EX_MEM.vhd
+Z24 FU:/cpre381/cpre381/proj-C/Registers/EX_MEM.vhd
+l0
+L5 1
+V9UjNAP3fk]]lFcg:ldZbz3
+!s100 B^laH4P1RC6=M`hI=TSCA0
+R8
+32
+Z25 !s110 1606177237
+!i10b 1
+Z26 !s108 1606177236.000000
+Z27 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/EX_MEM.vhd|
+Z28 !s107 U:/cpre381/cpre381/proj-C/Registers/EX_MEM.vhd|
+!i113 0
+R13
+R14
+Aex_mem_arch
+R4
+R5
+DEx4 work 6 ex_mem 0 22 9UjNAP3fk]]lFcg:ldZbz3
+!i122 40
+l73
+L34 176
+V:z1P@?BJ`43gUZXG2_kLj2
+!s100 XHe4DJDc>:K`VmMK@ULC51
+R8
+32
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 0
+R13
+R14
+Eid_ex
+Z29 w1606177150
+R4
+R5
+!i122 38
+R0
+Z30 8U:/cpre381/cpre381/proj-C/Registers/ID_EX.vhd
+Z31 FU:/cpre381/cpre381/proj-C/Registers/ID_EX.vhd
+l0
+L5 1
+VPChQ6Y_E6d3dBWk<^fDOG3
+!s100 7nOBTbIj]EaPgVz;7QWI01
+R8
+32
+Z32 !s110 1606177233
+!i10b 1
+Z33 !s108 1606177233.000000
+Z34 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/ID_EX.vhd|
+Z35 !s107 U:/cpre381/cpre381/proj-C/Registers/ID_EX.vhd|
+!i113 0
+R13
+R14
+Aid_ex_arch
+R4
+R5
+DEx4 work 5 id_ex 0 22 PChQ6Y_E6d3dBWk<^fDOG3
+!i122 38
+l84
+L45 250
+VlCQ5o0eUzzBgzhRPk31F00
+!s100 _gIc9ZoJ8[ofdO;e?=h2@3
+R8
+32
+R32
+!i10b 1
+R33
+R34
+R35
+!i113 0
+R13
+R14
+Eif_id
+Z36 w1606176807
+R4
+R5
+!i122 39
+R0
+Z37 8U:/cpre381/cpre381/proj-C/Registers/IF_ID.vhd
+Z38 FU:/cpre381/cpre381/proj-C/Registers/IF_ID.vhd
+l0
+L5 1
+VPm^T32WgSMCh=6f>NBg;<3
+!s100 L0;;ATD^mAKQCJ>7eMKL[0
+R8
+32
+Z39 !s110 1606177235
+!i10b 1
+Z40 !s108 1606177235.000000
+Z41 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/IF_ID.vhd|
+Z42 !s107 U:/cpre381/cpre381/proj-C/Registers/IF_ID.vhd|
+!i113 0
+R13
+R14
+Aif_id_arch
+R4
+R5
+DEx4 work 5 if_id 0 22 Pm^T32WgSMCh=6f>NBg;<3
+!i122 39
+l47
+L23 65
+VJECY[QXKgJ=WZ3?bTj;_M0
+!s100 `3JDH>8>9o;0gP^GN4K4i3
+R8
+32
+R39
+!i10b 1
+R40
+R41
+R42
+!i113 0
+R13
+R14
+Emem_wb
+R22
+R4
+R5
+!i122 37
+R0
+Z43 8U:/cpre381/cpre381/proj-C/Registers/MEM_WB.vhd
+Z44 FU:/cpre381/cpre381/proj-C/Registers/MEM_WB.vhd
+l0
+L5 1
+V:b:j;=OQ3TGUjo>:>mX8Y3
+!s100 [kaZ0ZL3;@c5gNj?L_Q8f3
+R8
+32
+Z45 !s110 1606177231
+!i10b 1
+Z46 !s108 1606177230.000000
+Z47 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/MEM_WB.vhd|
+Z48 !s107 U:/cpre381/cpre381/proj-C/Registers/MEM_WB.vhd|
+!i113 0
+R13
+R14
+Amem_wb_arch
+R4
+R5
+DEx4 work 6 mem_wb 0 22 :b:j;=OQ3TGUjo>:>mX8Y3
+!i122 37
+l70
+L31 151
+V0ZKeI7R=O`icdjc<[QIHz0
+!s100 >6_z;2NCk_bkX`je<Sd?H0
+R8
+32
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 0
+R13
+R14
+Eregister_nbit_struct
+Z49 w1605061874
+R4
+R5
+!i122 20
+R0
+Z50 8U:/cpre381/cpre381/proj-C/Registers/register_nbit_struct.vhd
+Z51 FU:/cpre381/cpre381/proj-C/Registers/register_nbit_struct.vhd
+l0
+L4 1
+VV[W=Od^`S284^QKafd><:3
+!s100 [[[A=0gk1FSh2oQ^Q>VSS3
+R8
+32
+Z52 !s110 1606176432
+!i10b 1
+Z53 !s108 1606176432.000000
+Z54 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/register_nbit_struct.vhd|
+Z55 !s107 U:/cpre381/cpre381/proj-C/Registers/register_nbit_struct.vhd|
+!i113 0
+R13
+R14
+Aregister_nbit_struct_arch
+R4
+R5
+DEx4 work 20 register_nbit_struct 0 22 V[W=Od^`S284^QKafd><:3
+!i122 20
+l37
+L22 38
+V9QZX5f6G8=nO>cd]VCYak2
+!s100 RFYgOkTLUjY>9HeTPQ0>13
+R8
+32
+R52
+!i10b 1
+R53
+R54
+R55
+!i113 0
+R13
+R14
+Etb_allreg
+Z56 w1606176055
+R3
+R4
+R5
+!i122 42
+R0
+Z57 8U:/cpre381/cpre381/proj-C/Registers/ALLReg_tb.vhd
+Z58 FU:/cpre381/cpre381/proj-C/Registers/ALLReg_tb.vhd
+l0
+L6 1
+VZ3dOPI<az4>?eYoLbN43J3
+!s100 DWg1RZkWMQeJO<gAkWJLh1
+R8
+32
+Z59 !s110 1606177241
+!i10b 1
+Z60 !s108 1606177241.000000
+Z61 !s90 -reportprogress|300|-work|work|U:/cpre381/cpre381/proj-C/Registers/ALLReg_tb.vhd|
+Z62 !s107 U:/cpre381/cpre381/proj-C/Registers/ALLReg_tb.vhd|
+!i113 0
+R13
+R14
+Abehavior
+R3
+R4
+R5
+DEx4 work 9 tb_allreg 0 22 Z3dOPI<az4>?eYoLbN43J3
+!i122 42
+l140
+Z63 L10 322
+VP<=0c3n4oW4ITBgLa^EKK2
+!s100 4k<d?XK;7W6[0>=Pn9=^A3
+R8
+32
+R59
+!i10b 1
+R60
+R61
+R62
+!i113 0
+R13
+R14
+Etb_integrateddatapath
+Z64 w1606174534
+R3
+R4
+R5
+!i122 13
+R0
+R57
+R58
+l0
+L6 1
+VfMTc;@cF05QAFD@k^LbS11
+!s100 W;jbOL@Vbio<VI4MV8^@O1
+R8
+32
+Z65 !s110 1606174572
+!i10b 1
+Z66 !s108 1606174571.000000
+R61
+R62
+!i113 0
+R13
+R14
+Abehavior
+R3
+R4
+R5
+DEx4 work 21 tb_integrateddatapath 0 22 fMTc;@cF05QAFD@k^LbS11
+!i122 13
+l140
+R63
+VQomG?IdB4z5_;Pl;iAU?j3
+!s100 3XDmk6lY;S2Wm@1KGzPKd2
+R8
+32
+R65
+!i10b 1
+R66
+R61
+R62
+!i113 0
+R13
+R14
