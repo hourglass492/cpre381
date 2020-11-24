@@ -12,19 +12,19 @@ entity EX_MEM is
     i_if_flush              	: in std_logic;
 	
     i_ALUOut             			: in std_logic_vector(0 to 31);   
-    i_MuxOut         			 	: in std_logic_vector(0 to 31);   
+    --i_MuxOut         			 	: in std_logic_vector(0 to 31);   
 	i_MemtoReg					: in std_logic;
 	i_RegWrite					: in std_logic;
 	i_MemWrite					: in std_logic;
-	i_MemRead					: in std_logic;
+	--i_MemRead					: in std_logic;
 	i_WriteAdress				: in std_logic_vector(0 to 4);
 
-    o_MuxOut               			: out std_logic_vector(0 to 31);
+    --o_MuxOut               			: out std_logic_vector(0 to 31);
 	o_ALUOut		 	  			: out std_logic_vector(0 to 31);
 	o_MemtoReg					: out std_logic;
 	o_RegWrite					: out std_logic;
 	o_MemWrite					: out std_logic;
-	o_MemRead					: out std_logic;
+	--o_MemRead					: out std_logic;
 	o_WriteAdress					: out std_logic_vector(0 to 4)
 
 	);
@@ -108,17 +108,17 @@ architecture EX_MEM_arch of EX_MEM is
 
                         );
 						
-			MuxOut: register_nbit_struct 
-                port map(
-                    i_CLK      => i_CLK,
-                    i_RST      => RegReset,
-                    i_WE       => RegWrite,
-                    i_D        => i_MuxOut,
-                    i_Default    => s_Default,
+			-- MuxOut: register_nbit_struct 
+            --     port map(
+            --         i_CLK      => i_CLK,
+            --         i_RST      => RegReset,
+            --         i_WE       => RegWrite,
+            --         i_D        => i_MuxOut,
+            --         i_Default    => s_Default,
 
-                    o_Q        => s_MuxOut
+            --         o_Q        => s_MuxOut
 
-                        );
+            --             );
 						
 			
 			WriteAdress: register_nbit_struct 
@@ -176,23 +176,23 @@ architecture EX_MEM_arch of EX_MEM is
 
                         );	
 						
-			MemRead: dffg 
+			-- MemRead: dffg 
 			
-                port map(
-                    i_CLK      => i_CLK,
-                    i_RST      => RegReset,
-                    i_WE       => RegWrite,
-                    i_D        => i_MemRead,
-                    i_Default    => s_Def,
+            --     port map(
+            --         i_CLK      => i_CLK,
+            --         i_RST      => RegReset,
+            --         i_WE       => RegWrite,
+            --         i_D        => i_MemRead,
+            --         i_Default    => s_Def,
 
-                    o_Q        => s_MemRead
+            --         o_Q        => s_MemRead
 
-                        );	
+            --             );	
 
 
                   
 						
-			o_MuxOut <= s_Stall and s_MuxOut;
+			-- o_MuxOut <= s_Stall and s_MuxOut;
 			o_ALUOut <= s_Stall and s_ALUOut;
 			o_WriteAdress <= s_Stall5 and s_WriteAdress;
 
@@ -200,7 +200,7 @@ architecture EX_MEM_arch of EX_MEM is
 			o_MemtoReg <= s_Stall1 and s_MemtoReg;
 			o_RegWrite <= s_Stall1 and s_RegWrite;
 			o_MemWrite <= s_Stall1 and s_MemWrite;
-			o_MemRead <= s_Stall1 and s_MemRead;
+			-- o_MemRead <= s_Stall1 and s_MemRead;
 
 		
 			 

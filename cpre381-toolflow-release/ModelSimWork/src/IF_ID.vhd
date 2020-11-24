@@ -11,9 +11,9 @@ entity IF_ID is
     i_stall              	  : in std_logic;
     i_if_flush                : in std_logic;
     i_instruction             : in std_logic_vector(0 to 31);   
-    i_pc         			  : in std_logic_vector(0 to 31);   
+    -- i_pc         			  : in std_logic_vector(0 to 31);   
 
-    o_pc              		  : out std_logic_vector(0 to 31);
+    -- o_pc              		  : out std_logic_vector(0 to 31);
 	o_instruction	  		  : out std_logic_vector(0 to 31)
 
 	);
@@ -67,20 +67,20 @@ architecture IF_ID_arch of IF_ID is
 
                         );
 						
-			PC: register_nbit_struct 
-                port map(
-                    i_CLK      => i_CLK,
-                    i_RST      => RegReset,
-                    i_WE       => RegWrite,
-                    i_D        => i_pc,
-                    i_Default    => s_Default,
+			-- PC: register_nbit_struct 
+            --     port map(
+            --         i_CLK      => i_CLK,
+            --         i_RST      => RegReset,
+            --         i_WE       => RegWrite,
+            --         i_D        => i_pc,
+            --         i_Default    => s_Default,
 
-                    o_Q        => s_PC
+            --         o_Q        => s_PC
 
-                        );
+            --             );
 						
 						
-			o_pc <= s_Stall and s_PC;
+			-- o_pc <= s_Stall and s_PC;
 			o_instruction <= s_Stall and s_instruction;
 
 

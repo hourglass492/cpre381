@@ -320,7 +320,6 @@ architecture structure of MIPS_Processor is
                     i_RS             			: in std_logic_vector(0 to N);   
                     i_RT         			 	: in std_logic_vector(0 to N);   
                     i_MemtoReg					: in std_logic;
-                    -- i_RegWrite					: in std_logic; Duplicate of i_s_RegWr
                     --i_MemWrite					: in std_logic;
                     -- i_MemRead					: in std_logic; --I don't think we need this
                     i_ALUSrc					: in std_logic;
