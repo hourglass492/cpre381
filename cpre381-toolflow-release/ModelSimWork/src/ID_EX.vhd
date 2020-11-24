@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 
 
 entity ID_EX is
-  
+  generic(N : integer := 31);
   port(
      
     
@@ -126,18 +126,18 @@ architecture ID_EX_arch of ID_EX is
         process (i_CLK, i_if_flush, i_stall)
         begin
           if (i_if_flush = '1') then
-            o_RT                        <= '0';
-            o_RS                        <= '0';
+            o_RT                        <= x"00000000";
+            o_RS                        <= x"00000000";
             o_MemtoReg                  <= '0';
             o_RegWrite                  <= '0';
             o_MemWrite                  <= '0';
             o_ALUSrc                    <= '0';
             o_RegDst                    <= '0';
-            o_AluOp                     <= '0';
-            o_ExtendedImmediate         <= '0';
-            o_RdAddress                 <= '0';
-            o_RtAddress                 <= '0';
-            o_RsAddress                 <= '0';
+            o_AluOp                     <= "0000";
+            o_ExtendedImmediate         <= x"00000000";
+            o_RdAddress                 <= "00000";
+            --o_RtAddress                 <= '0';
+            --o_RsAddress                 <= '0';
             o_s_DMemWr                  <= '0';
             o_s_RegWr                   <= '0';
             o_s_Lui                     <= '0';
@@ -152,15 +152,15 @@ architecture ID_EX_arch of ID_EX is
             o_RT                        <= i_RT;
             o_RS                        <= i_RS;
             o_MemtoReg                  <= i_MemtoReg;
-            o_RegWrite                  <= i_RegWrite;
-            o_MemWrite                  <= i_MemWrite;
+            o_s_RegWr                   <= i_s_RegWr;
+            o_s_RegWr                  <= i_s_RegWr;
             o_ALUSrc                    <= i_ALUSrc;
             o_RegDst                    <= i_RegDst;
             o_AluOp                     <= i_AluOp;
             o_ExtendedImmediate         <= i_ExtendedImmediate;
             o_RdAddress                 <= i_RdAddress;
-            o_RtAddress                 <= i_RtAddress;
-            o_RsAddress                 <= i_RsAddress;
+            --o_RtAddress                 <= i_RtAddress;
+            --o_RsAddress                 <= i_RsAddress;
             o_s_DMemWr                  <= i_s_DMemWr;
             o_s_RegWr                   <= i_s_RegWr;
             o_s_Lui                     <= i_s_Lui;

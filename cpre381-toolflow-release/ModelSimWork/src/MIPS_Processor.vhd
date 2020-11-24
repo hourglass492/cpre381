@@ -160,8 +160,8 @@ architecture structure of MIPS_Processor is
             signal MEM_MemRead              : std_logic;
 
             -- 10
-            signal MEM_WriteAdress          : std_logic_vector(0 to 4);
-            signal MEM_DMem_addr            : std_logic_vector(0 to 4);
+            signal MEM_RD_WriteAdress          : std_logic_vector(0 to 4);
+            signal MEM_DMem_addr            : std_logic_vector(0 to 9);
 
             -- 32
             signal MEM_ALUOut               : std_logic_vector(0 to 31);
@@ -302,11 +302,11 @@ architecture structure of MIPS_Processor is
                     i_CLK             		  : in std_logic;
                     i_stall              	  : in std_logic;
                     i_if_flush                : in std_logic;
-                    i_IF_instruction             : in std_logic_vector(0 to N);   
-                    --i_pc         			  : in std_logic_vector(0 to N);   
+                    i_instruction             : in std_logic_vector(0 to 31);   
+                    --i_pc         			  : in std_logic_vector(0 to 31);   
 
-                    o_pc              		  : out std_logic_vector(0 to N);
-                    o_IF_instruction	  		  : out std_logic_vector(0 to N)
+                    --o_pc              		  : out std_logic_vector(0 to 31);
+                    o_instruction	  		  : out std_logic_vector(0 to 31)
                     );
             end component;
             
@@ -317,15 +317,15 @@ architecture structure of MIPS_Processor is
                     i_if_flush                : in std_logic;
         
         
-                    i_RS             			: in std_logic_vector(0 to N);   
-                    i_RT         			 	: in std_logic_vector(0 to N);   
+                    i_RS             			: in std_logic_vector(0 to 31);   
+                    i_RT         			 	: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
                     --i_MemWrite					: in std_logic;
                     -- i_MemRead					: in std_logic; --I don't think we need this
                     i_ALUSrc					: in std_logic;
                     i_RegDst					: in std_logic;
                     i_AluOp						: in std_logic_vector(0 to 3);
-                    i_ExtendedImmediate			: in std_logic_vector(0 to N);
+                    i_ExtendedImmediate			: in std_logic_vector(0 to 31);
                     i_RdAddress					: in std_logic_vector(0 to 4); 
                     --i_RtAddress					: in std_logic_vector(0 to 4); --I don't think these 2 are needed unless we are doing hardward contrloed pipleinings
                     --i_RsAddress					: in std_logic_vector(0 to 4);
@@ -353,8 +353,8 @@ architecture structure of MIPS_Processor is
         
         
         
-                    o_RT               			: out std_logic_vector(0 to N);
-                    o_RS		 	  			: out std_logic_vector(0 to N);
+                    o_RT               			: out std_logic_vector(0 to 31);
+                    o_RS		 	  			: out std_logic_vector(0 to 31);
                     o_MemtoReg					: out std_logic;
                     o_RegWrite					: out std_logic;
                     o_MemWrite					: out std_logic;
@@ -362,7 +362,7 @@ architecture structure of MIPS_Processor is
                     o_ALUSrc					: out std_logic;
                     o_RegDst					: out std_logic;
                     o_AluOp						: out std_logic_vector(0 to 3);
-                    o_ExtendedImmediate			: out std_logic_vector(0 to N);
+                    o_ExtendedImmediate			: out std_logic_vector(0 to 31);
                     o_RdAddress					: out std_logic_vector(0 to 4);
                     o_RtAddress					: out std_logic_vector(0 to 4);
                     o_RsAddress					: out std_logic_vector(0 to 4);
@@ -392,21 +392,21 @@ architecture structure of MIPS_Processor is
                     i_stall              		: in std_logic;
                     i_if_flush              	: in std_logic;
         
-                    i_ALUOut             		: in std_logic_vector(0 to N);   
-                    --i_MuxOut         			: in std_logic_vector(0 to N);   
+                    i_ALUOut             		: in std_logic_vector(0 to 31);   
+                    --i_MuxOut         			: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
                     i_RegWrite					: in std_logic;
                     i_MemWrite					: in std_logic;
                     -- i_MemRead					: in std_logic; -- I don't think we need this
                     i_WriteAdress				: in std_logic_vector(0 to 4);
 
-                    o_MuxOut               		: out std_logic_vector(0 to N);
-                    o_ALUOut		 	  		: out std_logic_vector(0 to N);
+                    --o_MuxOut               		: out std_logic_vector(0 to N);
+                    o_ALUOut		 	  		: out std_logic_vector(0 to 31);
                     o_MemtoReg					: out std_logic;
                     o_RegWrite					: out std_logic;
                     o_MemWrite					: out std_logic;
                     -- o_MemRead					: out std_logic;
-                    o_WriteAdress				: out std_logic_vector(0 to 4)
+                    o_WriteAdress				: out std_logic_vector(0 to 4)--This is the RD address
                     
                     );
             end component;
@@ -418,14 +418,14 @@ architecture structure of MIPS_Processor is
                     i_stall              		: in std_logic;
                     i_if_flush              	: in std_logic;
         
-                    i_ALUOut             		: in std_logic_vector(0 to N);   
-                    i_MemOut         			: in std_logic_vector(0 to N);   
+                    i_ALUOut             		: in std_logic_vector(0 to 31);   
+                    i_MemOut         			: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
                     i_RegWrite					: in std_logic;
                     i_WriteAdress				: in std_logic_vector(0 to 4);
 
-                    o_MemOut                	: out std_logic_vector(0 to N);
-                    o_ALUOut		 	  		: out std_logic_vector(0 to N);
+                    o_MemOut                	: out std_logic_vector(0 to 31);
+                    o_ALUOut		 	  		: out std_logic_vector(0 to 31);
                     o_MemtoReg					: out std_logic;
                     o_RegWrite					: out std_logic;
                     o_WriteAdress				: out std_logic_vector(0 to 4)
@@ -456,7 +456,7 @@ architecture structure of MIPS_Processor is
 			 
 
 
-			i_rd               : in std_logic_vector(0 to N);
+			i_rd               : in std_logic_vector(0 to 31);
 			in_select_rs       : in std_logic_vector(0 to log2_Of_num_of_inputs);
 			in_select_rt       : in std_logic_vector(0 to log2_Of_num_of_inputs);
 			in_select_rd       : in std_logic_vector(0 to log2_Of_num_of_inputs);
@@ -466,10 +466,10 @@ architecture structure of MIPS_Processor is
 			jal                : in std_logic;
 
 
-			o_rt               : out std_logic_vector(0 to N);
-			o_rs               : out std_logic_vector(0 to N);
+			o_rt               : out std_logic_vector(0 to 31);
+			o_rs               : out std_logic_vector(0 to 31);
 			
-			o_v0			   : out std_logic_vector(0 to N)
+			o_v0			   : out std_logic_vector(0 to 31)
 			
 			
 
@@ -570,7 +570,7 @@ architecture structure of MIPS_Processor is
 				jump                    : in std_logic;
 				
 				
-				o_IF_instruction_number    : out std_logic_vector(0 to 31)
+				o_instruction_number    : out std_logic_vector(0 to 31)
 
 
 
@@ -678,11 +678,11 @@ begin
 
             i_stall              	  => global_stall,
             i_if_flush                => global_Flush,
-            i_IF_instruction          =>  IF_instruction,
+            i_instruction          =>  IF_instruction,
             --i_pc         		=>    --TODO We need to propigate the PC through to the EX stage for the JAL command
 
             -- o_pc              		  : out std_logic_vector(0 to N); --Pretty sure this isn't needed Nicholas
-            o_IF_instruction	  	  => ID_instruction
+            o_instruction	  	  => ID_instruction
             );
 
 
@@ -970,7 +970,7 @@ begin
                 bne                  => EX_bne, --ctl signal
                 jump                  => EX_jump, --ctl signal
 
-                o_IF_instruction_number    => PCnumber
+                o_instruction_number    => PCnumber
 
         );
 
@@ -991,7 +991,7 @@ begin
             -- signal MEM_MemRead              : std_logic;
 
             -- -- 10
-            -- signal MEM_WriteAdress          : std_logic_vector(0 to 9);
+            -- signal MEM_RD_WriteAdress          : std_logic_vector(0 to 4);
             -- signal MEM_DMem_addr            : std_logic_vector(0 to 9);
 
             -- -- 32
@@ -1022,7 +1022,7 @@ begin
                     o_RegWrite					=> MEM_RegWrite, -- I don't think this is needed as we can calculate it here
                     o_MemWrite					=> MEM_MemWrite,
                     --o_MemRead					=> MEM_MemRead,
-                    o_WriteAdress				=> MEM_WriteAdress
+                    o_WriteAdress				=> MEM_RD_WriteAdress
                     
                     );
     
@@ -1076,7 +1076,7 @@ begin
             i_MemOut         			=> MEM_MemOut,
             i_MemtoReg					=> MEM_MemtoReg,
             i_RegWrite					=> MEM_RegWrite,
-            i_WriteAdress				=> MEM_WriteAdress,
+            i_WriteAdress				=> MEM_RD_WriteAdress,
 
             o_MemOut                	=> WB_MemOut,
             o_ALUOut		 	  		=> WB_ALUOut,

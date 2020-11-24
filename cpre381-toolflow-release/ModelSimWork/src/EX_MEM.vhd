@@ -67,6 +67,7 @@ architecture EX_MEM_arch of EX_MEM is
 	Signal RegWrite, RegReset, s_Def, s_MemtoReg, s_RegWrite, s_MemWrite, s_MemRead, s_ALUSrc, s_RegDst, s_Stall1	: std_logic;
 	Signal s_Def4, s_AluOp, s_Stall4  : std_logic_vector(0 to 3);
 	Signal s_Def5, s_WriteAdress, s_RtAddress, s_RsAddress, s_Stall5  : std_logic_vector(0 to 4);
+	Signal s_Stall10 : std_logic_vector(0 to 9);
 	Signal s_ExtendedImmediate, s_ALUOut, s_MuxOut, s_Stall, s_Default  : std_logic_vector(0 to 31);
 	
 	
@@ -90,6 +91,9 @@ architecture EX_MEM_arch of EX_MEM is
 
 	g3: for i in 0 to 4 generate
 		s_Stall5(i) <= RegWrite;
+	end generate;
+	g4: for i in 0 to 9 generate
+		s_Stall10(i) <= RegWrite;
 	end generate;
 	
 	s_Stall1 <= RegWrite;
