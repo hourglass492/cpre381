@@ -705,21 +705,21 @@ begin
 
             --rs_select        <= ID_instruction(21 to 25);
             --It isn't allways these bytes when it is a sw it is the first register
-            ID_rs_select        <= ID_instruction(6 to 10); --TODO not sure if these are the correct bits 6 to 10				
+            ID_rs_select        <= ID_instruction(6 to 10); --TOXDO not sure if these are the correct bits 6 to 10				
             --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
             --		s_Inst(25 downto 21)
 
             
             --rt_select        <= ID_instruction(16 to 20);
-            ID_rt_select        <= ID_instruction(11 to 15);--TODO not sure if these are the correct bits 11 to 15								 I think this is correct now
+            ID_rt_select        <= ID_instruction(11 to 15);--TOXDO not sure if these are the correct bits 11 to 15								 I think this is correct now
 
 
             -- if statment to select if IF_instruction bits 20-16 or 15-11
             --rd_select        <= IF_instruction(16 to 20) when reg_Dst = '0' else
             --		 IF_instruction(11 to 15);
             ID_rd_select        <= "11111" when ID_jal = '1' else
-                                ID_instruction(11 to 15) when ID_reg_Dst = '0' else --TODO not sure if these are the correct bits		 I think this is correct now
-                                ID_instruction(16 to 20);		 		--TODO not sure if these are the correct bits					 I think this is correct now
+                                ID_instruction(11 to 15) when ID_reg_Dst = '0' else --TOXDO not sure if these are the correct bits		 I think this is correct now
+                                ID_instruction(16 to 20);		 		--TOXDO not sure if these are the correct bits					 I think this is correct now
             
                                             
             
@@ -728,7 +728,7 @@ begin
             --IF_instruction bits 15 - 0
             ID_internal_raw_immidates <= ID_instruction(16 to 31); --I think this is correct now
 
-            ID_func_select <= ID_instruction(26 to 31); --TODO not sure if these are the correct bits I think this is correct now
+            ID_func_select <= ID_instruction(26 to 31); --TOXDO not sure if these are the correct bits I think this is correct now
 
 
         -- end IF_instruction binary to signals
@@ -902,7 +902,7 @@ begin
             o_s_DMemWr                    => EX_s_DMemWr,
             o_s_RegWr                     => EX_s_RegWr,
             o_s_Lui                       => EX_s_Lui,
-            o_RegDst                      => EX_RegDst, -- What is this for?? -Nicholas
+            o_RegDst                      => EX_RegDst, 
             o_beq                         => EX_beq,
             o_bne                         => EX_bne,
             o_jr                          => EX_jr,
@@ -945,8 +945,8 @@ begin
 
 
         --LUI implementation and the pc number whe JAL
-        EX_ALUsum <=   EX_internal_imm(0 to 15) & x"0000" when (EX_s_Lui = '1') else --TODO not sure if those are the correct bits to grab for the imm, should be the lower 16
-                    std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) + 4, N)) when (EX_jal = '1') else
+        EX_ALUsum <=     x"0000" & EX_internal_imm(16 to 31) when (EX_s_Lui = '1') else --TODO not sure if those are the correct bits to grab for the imm, should be the lower 16
+                    std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) -4 , N)) when (EX_jal = '1') else --TODO this simply takes what it guesses the pc would be rather then actual pc, need to pass the pc through for this to work properly
                     EX_sum;
         
 
