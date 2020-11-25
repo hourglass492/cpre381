@@ -585,7 +585,7 @@ begin
 
 
 	global_stall <= '0';
-    global_Flush   <= '0';
+    global_Flush   <= iRST;
 
   -- TODO: This is required to be your final input to your IF_instruction memory. This provides a feasible method to externally load the
   --memory module which means that the synthesis tool must assume it knows nothing about the values stored in the IF_instruction memory.
@@ -705,30 +705,30 @@ begin
 
             --rs_select        <= ID_instruction(21 to 25);
             --It isn't allways these bytes when it is a sw it is the first register
-            ID_rs_select        <= ID_instruction(21 to 25); --TODO not sure if these are the correct bits
+            ID_rs_select        <= ID_instruction(6 to 10); --TODO not sure if these are the correct bits 6 to 10				
             --rs_select <= s_Inst(20 downto 16) when reg_Dst = '0' else
             --		s_Inst(25 downto 21)
 
             
             --rt_select        <= ID_instruction(16 to 20);
-            ID_rt_select        <= ID_s_Inst(16 to 20);--TODO not sure if these are the correct bits
+            ID_rt_select        <= ID_instruction(11 to 15);--TODO not sure if these are the correct bits 11 to 15								 I think this is correct now
 
 
             -- if statment to select if IF_instruction bits 20-16 or 15-11
             --rd_select        <= IF_instruction(16 to 20) when reg_Dst = '0' else
             --		 IF_instruction(11 to 15);
             ID_rd_select        <= "11111" when ID_jal = '1' else
-                                ID_instruction(16 to 20) when ID_reg_Dst = '0' else --TODO not sure if these are the correct bits
-                                ID_instruction(11 to 15);		 		--TODO not sure if these are the correct bits
+                                ID_instruction(11 to 15) when ID_reg_Dst = '0' else --TODO not sure if these are the correct bits		 I think this is correct now
+                                ID_instruction(16 to 20);		 		--TODO not sure if these are the correct bits					 I think this is correct now
             
                                             
             
             
 
             --IF_instruction bits 15 - 0
-            ID_internal_raw_immidates <= ID_instruction(0 to 15); --TODO not sure if these are the correct bits
+            ID_internal_raw_immidates <= ID_instruction(16 to 31); --I think this is correct now
 
-            ID_func_select <= ID_instruction(0 to 5); --TODO not sure if these are the correct bits
+            ID_func_select <= ID_instruction(26 to 31); --TODO not sure if these are the correct bits I think this is correct now
 
 
         -- end IF_instruction binary to signals
@@ -777,8 +777,8 @@ begin
         port map(  
 
 
-                        opcode			=> ID_s_Inst(0 to 5),
-                        funct           => ID_s_Inst(26 to 31),
+                        opcode			=> ID_instruction(0 to 5),
+                        funct           => ID_instruction(26 to 31),
                         
                         ALUSrc        		=> ID_ALUSrc,
                         MemtoReg           	=> ID_memToReg,
@@ -802,8 +802,8 @@ begin
 
         ALUctl: ALUControler
         port map( 
-            opcode          => ID_s_Inst(0 to 5),
-            funct           => ID_s_Inst(26 to 31),
+            opcode          => ID_instruction(0 to 5),
+            funct           => ID_instruction(26 to 31),
 
             ALUControl      => ID_ALUOpIn, --4 bit
             IsUnsigned		=> ID_IsUnsigned

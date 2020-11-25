@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2020.2
 
 # vsim -c tb_SimplifiedMIPSProcessor -do "modelsim_framework2.do" 
-# Start time: 13:31:29 on Nov 24,2020
+# Start time: 12:10:52 on Nov 25,2020
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2020.2 Apr 19 2020
 # //
@@ -44,6 +44,6 @@ Reading pref.tcl
 
 vish lost connection to vsim process.
 ** Fatal: Exiting VSIM license process.
-simulator: Unexpected EOF on RPC channel sock000000000691DCB0
+simulator: Unexpected EOF on RPC channel sock00000000069E1900
 Kernel lost connection to front end process.
-simulator: Unexpected EOF on RPC channel sock000000000691D830
+simulator: Unexpected EOF on RPC channel sock00000000069E1480
