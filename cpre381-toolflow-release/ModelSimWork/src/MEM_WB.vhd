@@ -14,13 +14,15 @@ entity MEM_WB is
 	
     i_ALUOut             			: in std_logic_vector(0 to 31);   
     i_MemOut         			 	: in std_logic_vector(0 to 31);   
-	i_MemtoReg					: in std_logic;
+    i_MemtoReg					: in std_logic;
+    i_syscall                   : in std_logic;
 	i_RegWrite					: in std_logic;
 	i_WriteAdress				: in std_logic_vector(0 to 4);
 
     o_MemOut                			: out std_logic_vector(0 to 31);
 	o_ALUOut		 	  			: out std_logic_vector(0 to 31);
-	o_MemtoReg					: out std_logic;
+    o_MemtoReg					: out std_logic;
+    o_syscall                   : out std_logic;
 	o_RegWrite					: out std_logic;
 	o_WriteAdress					: out std_logic_vector(0 to 4)
 
@@ -67,7 +69,33 @@ architecture MEM_WB_arch of MEM_WB is
 	Signal s_ExtendedImmediate, s_ALUOut, s_MemOut, s_Stall, s_Default  : std_logic_vector(0 to 31);
 	
 	
-	begin
+    begin
+        
+
+        process (i_CLK, i_if_flush, i_stall)
+        begin
+          if (i_if_flush = '1') then
+            o_syscall                   <= '0';
+
+          elsif (rising_edge(i_CLK) and i_stall = '0') then
+
+            o_syscall                   <= i_syscall;
+
+
+            
+          end if;
+      
+        end process;
+
+
+
+
+
+
+
+
+
+
 	RegWrite <= not i_stall;
 	RegReset <= i_if_flush;
 	

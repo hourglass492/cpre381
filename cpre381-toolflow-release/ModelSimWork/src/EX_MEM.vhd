@@ -14,14 +14,16 @@ entity EX_MEM is
     i_ALUOut             			: in std_logic_vector(0 to 31);   
     --i_MuxOut         			 	: in std_logic_vector(0 to 31);   
 	i_MemtoReg					: in std_logic;
-	i_RegWrite					: in std_logic;
+    i_RegWrite					: in std_logic;
+    i_syscall                   : in std_logic;
 	i_MemWrite					: in std_logic;
 	--i_MemRead					: in std_logic;
 	i_WriteAdress				: in std_logic_vector(0 to 4);
 
     --o_MuxOut               			: out std_logic_vector(0 to 31);
 	o_ALUOut		 	  			: out std_logic_vector(0 to 31);
-	o_MemtoReg					: out std_logic;
+    o_MemtoReg					: out std_logic;
+    o_syscall                   : out std_logic;
 	o_RegWrite					: out std_logic;
 	o_MemWrite					: out std_logic;
 	--o_MemRead					: out std_logic;
@@ -71,7 +73,33 @@ architecture EX_MEM_arch of EX_MEM is
 	Signal s_ExtendedImmediate, s_ALUOut, s_MuxOut, s_Stall, s_Default  : std_logic_vector(0 to 31);
 	
 	
-	begin
+    begin
+        
+        process (i_CLK, i_if_flush, i_stall)
+        begin
+          if (i_if_flush = '1') then
+            o_syscall                   <= '0';
+
+          elsif (rising_edge(i_CLK) and i_stall = '0') then
+
+            o_syscall                   <= i_syscall;
+
+
+            
+          end if;
+      
+        end process;
+
+
+
+
+
+
+
+
+
+
+
 	RegWrite <= not i_stall;
 	RegReset <= i_if_flush;
 	

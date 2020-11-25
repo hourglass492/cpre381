@@ -28,6 +28,7 @@ entity ID_EX is
     i_s_DMemWr                    : in std_logic;
     i_s_RegWr                     : in std_logic;
     i_s_Lui                       : in std_logic;
+    i_syscall                   : in std_logic;
     
     i_beq                         : in std_logic;
     i_bne                         : in std_logic;
@@ -53,6 +54,7 @@ entity ID_EX is
     o_MemtoReg					: out std_logic;
     o_RegWrite					: out std_logic;
     o_MemWrite					: out std_logic;
+    o_syscall                   : out std_logic;
     --o_MemRead					: out std_logic;
     o_ALUSrc					: out std_logic;
     o_RegDst					: out std_logic;
@@ -132,6 +134,7 @@ architecture ID_EX_arch of ID_EX is
             o_RegWrite                  <= '0';
             o_MemWrite                  <= '0';
             o_ALUSrc                    <= '0';
+            o_syscall                   <= '0';
             o_RegDst                    <= '0';
             o_AluOp                     <= "0000";
             o_ExtendedImmediate         <= x"00000000";
@@ -152,6 +155,7 @@ architecture ID_EX_arch of ID_EX is
             o_RT                        <= i_RT;
             o_RS                        <= i_RS;
             o_MemtoReg                  <= i_MemtoReg;
+            o_syscall                   <= i_syscall;
             o_s_RegWr                   <= i_s_RegWr;
             o_s_RegWr                  <= i_s_RegWr;
             o_ALUSrc                    <= i_ALUSrc;

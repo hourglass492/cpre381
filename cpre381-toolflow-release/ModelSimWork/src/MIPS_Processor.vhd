@@ -90,6 +90,7 @@ architecture structure of MIPS_Processor is
                 signal ID_varShift                      : std_logic;
                 signal ID_zeroExtened                   : std_logic;
                 signal ID_IsUnsigned                    : std_logic;
+                signal ID_syscal                        : std_logic;
 
                 -- 4
                 signal ID_ALUOpIn                       : std_logic_vector(0 to 3);
@@ -131,6 +132,7 @@ architecture structure of MIPS_Processor is
                 signal EX_varShift          : std_logic;
                 signal EX_zeroExtened       : std_logic;
                 signal EX_zero			        : std_logic;
+                signal EX_syscal                : std_logic;
 
                 -- 4
                 signal EX_AluOp                    : std_logic_vector(0 to 3);
@@ -158,6 +160,7 @@ architecture structure of MIPS_Processor is
             signal MEM_RegWrite             : std_logic;
             signal MEM_MemWrite             : std_logic;
             signal MEM_MemRead              : std_logic;
+            signal MEM_syscal                : std_logic;
 
             -- 10
             signal MEM_RD_WriteAdress          : std_logic_vector(0 to 4);
@@ -173,6 +176,7 @@ architecture structure of MIPS_Processor is
             -- 1
             signal WB_MemtoReg              : std_logic;
             signal WB_RegWrite              : std_logic;
+            signal WB_syscal                : std_logic;
 
             -- 4
             signal WB_rd_select             : std_logic_vector(0 to 4);
@@ -320,6 +324,7 @@ architecture structure of MIPS_Processor is
                     i_RS             			: in std_logic_vector(0 to 31);   
                     i_RT         			 	: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
+                    i_syscall                   : in std_logic;
                     --i_MemWrite					: in std_logic;
                     -- i_MemRead					: in std_logic; --I don't think we need this
                     i_ALUSrc					: in std_logic;
@@ -356,6 +361,7 @@ architecture structure of MIPS_Processor is
                     o_RT               			: out std_logic_vector(0 to 31);
                     o_RS		 	  			: out std_logic_vector(0 to 31);
                     o_MemtoReg					: out std_logic;
+                    o_syscall                   : out std_logic;
                     o_RegWrite					: out std_logic;
                     o_MemWrite					: out std_logic;
                     --o_MemRead					: out std_logic;
@@ -395,6 +401,7 @@ architecture structure of MIPS_Processor is
                     i_ALUOut             		: in std_logic_vector(0 to 31);   
                     --i_MuxOut         			: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
+                    i_syscall                   : in std_logic;
                     i_RegWrite					: in std_logic;
                     i_MemWrite					: in std_logic;
                     -- i_MemRead					: in std_logic; -- I don't think we need this
@@ -403,6 +410,7 @@ architecture structure of MIPS_Processor is
                     --o_MuxOut               		: out std_logic_vector(0 to N);
                     o_ALUOut		 	  		: out std_logic_vector(0 to 31);
                     o_MemtoReg					: out std_logic;
+                    o_syscall                   : out std_logic;
                     o_RegWrite					: out std_logic;
                     o_MemWrite					: out std_logic;
                     -- o_MemRead					: out std_logic;
@@ -421,11 +429,13 @@ architecture structure of MIPS_Processor is
                     i_ALUOut             		: in std_logic_vector(0 to 31);   
                     i_MemOut         			: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
+                    i_syscall                   : in std_logic;
                     i_RegWrite					: in std_logic;
                     i_WriteAdress				: in std_logic_vector(0 to 4);
 
                     o_MemOut                	: out std_logic_vector(0 to 31);
                     o_ALUOut		 	  		: out std_logic_vector(0 to 31);
+                    o_syscall                   : out std_logic;
                     o_MemtoReg					: out std_logic;
                     o_RegWrite					: out std_logic;
                     o_WriteAdress				: out std_logic_vector(0 to 4)
@@ -620,7 +630,10 @@ begin
                 q    => s_Inst);
         
 
-        s_Halt <='1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") and (v0 = "00000000000000000000000000001010") else '0';
+
+
+
+        s_Halt <='1' when WB_syscal and (v0 = "00000000000000000000000000001010") else '0';
 
 
 
@@ -731,6 +744,8 @@ begin
             ID_func_select <= ID_instruction(26 to 31); --TOXDO not sure if these are the correct bits I think this is correct now
 
 
+            ID_syscal <= '1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") else
+                '0';
         -- end IF_instruction binary to signals
 
 
@@ -869,6 +884,7 @@ begin
             i_AluOp						=> ID_ALUOpIn,
             i_ExtendedImmediate			=> ID_internal_imm,
             i_RdAddress					=> ID_rd_select,
+            i_syscall                   => ID_syscal,
             -- i_RtAddress					: in std_logic_vector(0 to 4); --I don't think these are needed -nicholas
             -- i_RsAddress					: in std_logic_vector(0 to 4);--I don't think these are needed -nicholas
 
@@ -889,9 +905,11 @@ begin
 
 
             o_RT               			=> EX_rt_data,
+            
             o_RS		 	  			=> EX_internal_rs,
             --o_MemRead					=> EX_MemRead, --I think we can just delete this value
             o_AluOp						=> EX_AluOp,
+            o_syscall                   => EX_syscal,
             o_ExtendedImmediate			=> EX_internal_imm,
             o_RdAddress					=> EX_RdAddress,
            -- o_RtAddress					: out std_logic_vector(0 to 4); --Don't think we need these -Nicholas
@@ -1015,6 +1033,7 @@ begin
                     i_ALUOut             		=> EX_ALUsum,   
                     --i_MuxOut         			: in std_logic_vector(0 to N);   
                     i_MemtoReg					=> EX_MemtoReg,
+                    i_syscall                   => EX_syscal,
                     i_RegWrite					=> EX_s_RegWr,
                     i_MemWrite					=> EX_s_DMemWr,
                     --i_MemRead					=> EX_MemRead,
@@ -1024,6 +1043,7 @@ begin
                     --o_MuxOut               		: out std_logic_vector(0 to N);
                     o_ALUOut		 	  		=> MEM_ALUOut,
                     o_MemtoReg					=> MEM_MemtoReg,
+                    o_syscall                   => MEM_syscal,
                     o_RegWrite					=> MEM_RegWrite, -- I don't think this is needed as we can calculate it here
                     o_MemWrite					=> MEM_MemWrite,
                     --o_MemRead					=> MEM_MemRead,
@@ -1079,11 +1099,13 @@ begin
 
             i_ALUOut             		=> MEM_ALUOut, 
             i_MemOut         			=> MEM_MemOut,
+            oisyscall                   => MEM_syscal,
             i_MemtoReg					=> MEM_MemtoReg,
             i_RegWrite					=> MEM_RegWrite,
             i_WriteAdress				=> MEM_RD_WriteAdress,
 
             o_MemOut                	=> WB_MemOut,
+            o_syscall                   => WB_syscal,
             o_ALUOut		 	  		=> WB_ALUOut,
             o_MemtoReg					=> WB_MemtoReg,
             o_RegWrite					=> WB_RegWrite,
