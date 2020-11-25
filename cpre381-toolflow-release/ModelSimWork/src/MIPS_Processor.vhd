@@ -111,7 +111,7 @@ architecture structure of MIPS_Processor is
                 signal ID_internal_rt                   : std_logic_vector(0 to 31);
                 signal ID_internal_rs                   : std_logic_vector(0 to 31);
                 signal ID_internal_imm                  : std_logic_vector(0 to 31);
-                signal ID_s_Inst                        : std_logic_vector(0 to 31);
+                signal ID_s_Inst                        : std_logic_vector(31 downto 0);
                 signal ID_instruction                   : std_logic_vector(0 to 31);
                 signal ID_v0                            : std_logic_vector(0 to 31);
         --End Signals used
@@ -633,7 +633,7 @@ begin
 
 
 
-        s_Halt <='1' when WB_syscal and (v0 = "00000000000000000000000000001010") else '0';
+        s_Halt <='1' when ((WB_syscal = '1') and (v0 = "00000000000000000000000000001010")) else '0';
 
 
 
@@ -744,7 +744,7 @@ begin
             ID_func_select <= ID_instruction(26 to 31); --TOXDO not sure if these are the correct bits I think this is correct now
 
 
-            ID_syscal <= '1' when (s_Inst(31 downto 26) = "000000") and (s_Inst(5 downto 0) = "001100") else
+            ID_syscal <= '1' when (ID_s_Inst(31 downto 26) = "000000") and (ID_s_Inst(5 downto 0) = "001100") else
                 '0';
         -- end IF_instruction binary to signals
 
@@ -770,7 +770,7 @@ begin
                 o_rt               => ID_internal_rt,
                 o_rs               => ID_internal_rs,
                 
-                o_v0			   => ID_v0 --TODO this needs to be passed through to halt the program at the end
+                o_v0			   => v0 
         );
 
 
@@ -1099,7 +1099,7 @@ begin
 
             i_ALUOut             		=> MEM_ALUOut, 
             i_MemOut         			=> MEM_MemOut,
-            oisyscall                   => MEM_syscal,
+            i_syscall                   => MEM_syscal,
             i_MemtoReg					=> MEM_MemtoReg,
             i_RegWrite					=> MEM_RegWrite,
             i_WriteAdress				=> MEM_RD_WriteAdress,
