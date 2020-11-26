@@ -1,0 +1,1415 @@
+m255
+K4
+z2
+!s11e vcom 2020.2 2020.04, Apr 19 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src
+T_opt
+!s110 1604516714
+VZe3WJW8Xe3_3c@La81I;N0
+Z1 04 8 13 work alu32bit alu32bit_arch 1
+=1-0050569b398f-5fa2fb68-209-f84
+Z2 o-quiet -auto_acc_if_foreign -work work
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;2020.2;71
+R0
+T_opt1
+!s110 1604516698
+VV;21EIh5>CZ[L4Y1h2hP]0
+04 7 8 work alu1bit alu_arch 1
+=1-0050569b398f-5fa2fb59-30d-2ae8
+R2
+R3
+n@_opt1
+R4
+R0
+T_opt2
+!s110 1604522103
+V9oc;[V5ha=`zJbfHzIA0j2
+R1
+=1-0050569b398f-5fa31076-2a9-2dc8
+R2
+R3
+n@_opt2
+R4
+Eadd_sub_struct_1bit
+Z5 w1603733744
+Z6 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z7 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 32
+R0
+Z8 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/add_sub_struct_1bit.vhd
+Z9 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/add_sub_struct_1bit.vhd
+l0
+L4 1
+VcaOD8NFeFR?4BH:nZ<>UC3
+!s100 F3AGikPh4N8Xi9GV;V;NZ1
+Z10 OL;C;2020.2;71
+32
+Z11 !s110 1604516646
+!i10b 1
+Z12 !s108 1604516645.000000
+Z13 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/add_sub_struct_1bit.vhd|
+Z14 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/add_sub_struct_1bit.vhd|
+!i113 0
+Z15 o-work work
+Z16 tExplicit 1 CvgOpt 0
+Aadd_sub_struct_1bit_arch
+R6
+R7
+DEx4 work 19 add_sub_struct_1bit 0 22 caOD8NFeFR?4BH:nZ<>UC3
+!i122 32
+l46
+L20 59
+VJ<<3bg6j07>TQ3c^U4j6A0
+!s100 8]fiUbS1X]=G6D?NOj`A]2
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 0
+R15
+R16
+Eadder
+R5
+R6
+R7
+!i122 33
+R0
+Z17 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder.vhd
+Z18 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder.vhd
+l0
+L4 1
+VToFnz^=>A1?f]Doo7QkFi0
+!s100 benc0ma1j>]Eilg5Bd6H00
+R10
+32
+R11
+!i10b 1
+Z19 !s108 1604516646.000000
+Z20 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder.vhd|
+Z21 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder.vhd|
+!i113 0
+R15
+R16
+Aadder_arch
+R6
+R7
+DEx4 work 5 adder 0 22 ToFnz^=>A1?f]Doo7QkFi0
+!i122 33
+l46
+L18 71
+VR3UXf44JzKffgCYO:j;2?1
+!s100 d1oJFGMM:hH>IajIB@l@U2
+R10
+32
+R11
+!i10b 1
+R19
+R20
+R21
+!i113 0
+R15
+R16
+Eadder_nbit_struct
+Z22 w1603733743
+R6
+R7
+!i122 34
+R0
+Z23 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder_nbit_struct.vhd
+Z24 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder_nbit_struct.vhd
+l0
+L4 1
+VHWGml:`j8AQ7TllohgR0O2
+!s100 ]2KBK?7[W4;5ZRPj6gTLM1
+R10
+32
+R11
+!i10b 1
+R19
+Z25 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder_nbit_struct.vhd|
+Z26 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/adder_nbit_struct.vhd|
+!i113 0
+R15
+R16
+Aadder_nbit_struct_arch
+R6
+R7
+DEx4 work 17 adder_nbit_struct 0 22 HWGml:`j8AQ7TllohgR0O2
+!i122 34
+l34
+L20 41
+V8U991TQNDThJAb8[2V8QV0
+!s100 EcYLP@H3P0Q3f8CTf[T612
+R10
+32
+R11
+!i10b 1
+R19
+R25
+R26
+!i113 0
+R15
+R16
+Ealu1bit
+Z27 w1604516593
+Z28 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R6
+R7
+!i122 35
+R0
+Z29 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU1bit.vhd
+Z30 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU1bit.vhd
+l0
+L7 1
+VUIjg34J2;l@o^cDKLWzhm3
+!s100 cNJL3MHM>ERKM^OVUeX]g0
+R10
+32
+Z31 !s110 1604516647
+!i10b 1
+R19
+Z32 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU1bit.vhd|
+Z33 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU1bit.vhd|
+!i113 0
+R15
+R16
+Aalu_arch
+R28
+R6
+R7
+DEx4 work 7 alu1bit 0 22 UIjg34J2;l@o^cDKLWzhm3
+!i122 35
+l69
+L25 112
+VF9P^@YGj99]7enXkRo82h1
+!s100 X?LbIgKR3D<_Tg_bW]kBQ0
+R10
+32
+R31
+!i10b 1
+R19
+R32
+R33
+!i113 0
+R15
+R16
+Ealu32bit
+Z34 w1604513261
+Z35 DPx4 work 12 arraypackage 0 22 jozgoZ`<RMQK<Wbm:iRV=3
+Z36 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+R28
+R6
+R7
+!i122 36
+R0
+Z37 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU32Bit.vhd
+Z38 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU32Bit.vhd
+l0
+L22 1
+V6>bJA5Ld:L8H]K8`zO7lR3
+!s100 Y^nVeU3PlZ?E63Qa:FIDi3
+R10
+32
+R31
+!i10b 1
+Z39 !s108 1604516647.000000
+Z40 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU32Bit.vhd|
+Z41 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALU32Bit.vhd|
+!i113 0
+R15
+R16
+Aalu32bit_arch
+R35
+R36
+R28
+R6
+R7
+DEx4 work 8 alu32bit 0 22 6>bJA5Ld:L8H]K8`zO7lR3
+!i122 36
+l113
+L40 154
+V><:V<TUlJVjGL7LG7E?eg2
+!s100 4<InSXkS7IIDNL1FmJ5`n2
+R10
+32
+R31
+!i10b 1
+R39
+R40
+R41
+!i113 0
+R15
+R16
+Ealucontroler
+Z42 w1604080342
+R36
+R28
+R6
+R7
+!i122 37
+R0
+Z43 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALUControler.vhd
+Z44 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALUControler.vhd
+l0
+L7 1
+VP3NY9f2]GKa0VohNfNXi72
+!s100 ca;UC7U_D@J;?c6C7lH<z3
+R10
+32
+R31
+!i10b 1
+R39
+Z45 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALUControler.vhd|
+Z46 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ALUControler.vhd|
+!i113 0
+R15
+R16
+Aalucontrol_arch
+R36
+R28
+R6
+R7
+DEx4 work 12 alucontroler 0 22 P3NY9f2]GKa0VohNfNXi72
+!i122 37
+l22
+L20 43
+Vie:4NAGZUjJc?lWFX3R[:1
+!s100 Sg:3f6aK0i:;>k=h8kL_W2
+R10
+32
+R31
+!i10b 1
+R39
+R45
+R46
+!i113 0
+R15
+R16
+Eandg2
+R22
+R6
+R7
+!i122 38
+R0
+Z47 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/andg2.vhd
+Z48 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/andg2.vhd
+l0
+Z49 L23 1
+VQ@<<<@nlJ=eiIl4BJDFzW2
+!s100 YT?bGzEmcFo:DlnoC^B4_0
+R10
+32
+Z50 !s110 1604516648
+!i10b 1
+R39
+Z51 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/andg2.vhd|
+Z52 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/andg2.vhd|
+!i113 0
+R15
+R16
+Adataflow
+R6
+R7
+DEx4 work 5 andg2 0 22 Q@<<<@nlJ=eiIl4BJDFzW2
+!i122 38
+l32
+Z53 L31 6
+VJVOzCk?IH:iJ5bCRU`CK13
+!s100 I`@Z@UBObS]<7m8bPgKUS1
+R10
+32
+R50
+!i10b 1
+R39
+R51
+R52
+!i113 0
+R15
+R16
+Parraypackage
+R6
+R7
+!i122 36
+R34
+R0
+R37
+R38
+l0
+L4 1
+VjozgoZ`<RMQK<Wbm:iRV=3
+!s100 [5PX]JLSQRnWEm`m1MDDS0
+R10
+32
+R31
+!i10b 1
+R39
+R40
+R41
+!i113 0
+R15
+R16
+Ebslr
+R22
+R6
+R7
+!i122 39
+R0
+Z54 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/bsLR.vhd
+Z55 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/bsLR.vhd
+l0
+L4 1
+VeVI_a>LI]eLN;g5b44LMR0
+!s100 Z:6]Li;KFm6Y?h<YJ?[5G3
+R10
+32
+R50
+!i10b 1
+Z56 !s108 1604516648.000000
+Z57 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/bsLR.vhd|
+Z58 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/bsLR.vhd|
+!i113 0
+R15
+R16
+Astructure
+R6
+R7
+DEx4 work 4 bslr 0 22 eVI_a>LI]eLN;g5b44LMR0
+!i122 39
+l31
+L12 93
+V=MN;K9YD4RLlXX1WcDKbl3
+!s100 z7^jcXCAeQT8fioBlbeIo1
+R10
+32
+R50
+!i10b 1
+R56
+R57
+R58
+!i113 0
+R15
+R16
+Econtrol
+Z59 w1604432771
+R36
+R28
+R6
+R7
+!i122 40
+R0
+Z60 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/control.vhd
+Z61 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/control.vhd
+l0
+L7 1
+V_@j]W2H<?M6`SOYLST>0Y3
+!s100 [:Y2EMEWDo1M1m>S`HC^60
+R10
+32
+R50
+!i10b 1
+R56
+Z62 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/control.vhd|
+Z63 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/control.vhd|
+!i113 0
+R15
+R16
+Acontrolarch
+R36
+R28
+R6
+R7
+DEx4 work 7 control 0 22 _@j]W2H<?M6`SOYLST>0Y3
+!i122 40
+l53
+L52 49
+VoGNa_a@Ceo0[z^>M`O8672
+!s100 UWcL^hV6WHSl6]ZN9X5mK3
+R10
+32
+R50
+!i10b 1
+R56
+R62
+R63
+!i113 0
+R15
+R16
+Econtrolstotest
+R5
+R36
+R28
+R6
+R7
+!i122 41
+R0
+Z64 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ControlsToTest.vhd
+Z65 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ControlsToTest.vhd
+l0
+L8 1
+V^5:MXoV;EL]AC02nWb>o:0
+!s100 QQ9F2[AbHlnG46:mIoCKK0
+R10
+32
+Z66 !s110 1604516649
+!i10b 1
+Z67 !s108 1604516649.000000
+Z68 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ControlsToTest.vhd|
+Z69 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/ControlsToTest.vhd|
+!i113 0
+R15
+R16
+Acontrolstotest_arch
+R36
+R28
+R6
+R7
+DEx4 work 14 controlstotest 0 22 ^5:MXoV;EL]AC02nWb>o:0
+!i122 41
+l64
+L30 63
+V0cn`>83XZIQzOMM`m47U_1
+!s100 i1VnXKaO23lA?613MY0Y_3
+R10
+32
+R66
+!i10b 1
+R67
+R68
+R69
+!i113 0
+R15
+R16
+Edecoder5to32_flow
+R22
+R6
+R7
+!i122 42
+R0
+Z70 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/decoder5to32_flow.vhd
+Z71 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/decoder5to32_flow.vhd
+l0
+L6 1
+VIZR4z=WdmBb5[^EdHeQVo0
+!s100 elTCl8`@ac871NgPiC>>?2
+R10
+32
+R66
+!i10b 1
+R67
+Z72 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/decoder5to32_flow.vhd|
+Z73 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/decoder5to32_flow.vhd|
+!i113 0
+R15
+R16
+Adecoder5to32_flow_arch
+R6
+R7
+DEx4 work 17 decoder5to32_flow 0 22 IZR4z=WdmBb5[^EdHeQVo0
+!i122 42
+l18
+L15 40
+VaPCSQdDm=M<[PKSC[dLUL0
+!s100 B?e7?fCLWiAglgWdTm9JR0
+R10
+32
+R66
+!i10b 1
+R67
+R72
+R73
+!i113 0
+R15
+R16
+Edffg
+Z74 w1604437203
+R6
+R7
+!i122 43
+R0
+Z75 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/dff.vhd
+Z76 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/dff.vhd
+l0
+Z77 L21 1
+V1Q`XT=>NTcO=VbCRbUH:M2
+!s100 >gUgIObIo_i_MVC@DL4U31
+R10
+32
+R66
+!i10b 1
+R67
+Z78 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/dff.vhd|
+Z79 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/dff.vhd|
+!i113 0
+R15
+R16
+Amixed
+R6
+R7
+DEx4 work 4 dffg 0 22 1Q`XT=>NTcO=VbCRbUH:M2
+!i122 43
+l36
+L32 29
+V5Ch2U>Jz=@GWAReQLzeG?2
+!s100 Ehb:XJYbceDl=4`WSKM?20
+R10
+32
+R66
+!i10b 1
+R67
+R78
+R79
+!i113 0
+R15
+R16
+Eextender16bit_flow
+Z80 w1604429688
+R6
+R7
+!i122 44
+R0
+Z81 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/extender16bit_flow.vhd
+Z82 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/extender16bit_flow.vhd
+l0
+L4 1
+VARS5ZF;@2=]>G0RiNGKSA2
+!s100 z:JE4hPa?TD^=;dJk1kDi1
+R10
+32
+Z83 !s110 1604516650
+!i10b 1
+R67
+Z84 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/extender16bit_flow.vhd|
+Z85 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/extender16bit_flow.vhd|
+!i113 0
+R15
+R16
+Aextender16bit_flow_arch
+R6
+R7
+DEx4 work 18 extender16bit_flow 0 22 ARS5ZF;@2=]>G0RiNGKSA2
+!i122 44
+l20
+L15 31
+VMn5G:7YACT[n4D4gaPoZk3
+!s100 _c>OM4bRaiNIBc;U0QN`@2
+R10
+32
+R83
+!i10b 1
+R67
+R84
+R85
+!i113 0
+R15
+R16
+Efullalu
+Z86 w1603929338
+R35
+R36
+R28
+R6
+R7
+!i122 45
+R0
+Z87 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/FullALU.vhd
+Z88 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/FullALU.vhd
+l0
+L8 1
+VnhPLmJ=2Iz4]_fG6j9b?D2
+!s100 @1`3Mg=YiIgczbO1iNTUP1
+R10
+32
+R83
+!i10b 1
+Z89 !s108 1604516650.000000
+Z90 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/FullALU.vhd|
+Z91 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/FullALU.vhd|
+!i113 0
+R15
+R16
+Afullalu_arch
+R35
+R36
+R28
+R6
+R7
+DEx4 work 7 fullalu 0 22 nhPLmJ=2Iz4]_fG6j9b?D2
+!i122 45
+l96
+L26 141
+VM]X1223RS=KQR82O5?i9;3
+!s100 kS_jlnY>lE:Tdf9HU;e9H2
+R10
+32
+R83
+!i10b 1
+R89
+R90
+R91
+!i113 0
+R15
+R16
+Eintegrateddatapath
+Z92 w1603561256
+R35
+R36
+R28
+R6
+R7
+!i122 46
+R0
+Z93 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/IntegratedDatapath.vhd
+Z94 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/IntegratedDatapath.vhd
+l0
+L8 1
+V_@`3D1FL_D;GK]FePPmVH2
+!s100 dd==8gFmEQzbBR[z_4o5G2
+R10
+32
+Z95 !s110 1604516651
+!i10b 1
+R89
+Z96 !s90 -reportprogress|300|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/IntegratedDatapath.vhd|
+Z97 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/IntegratedDatapath.vhd|
+!i113 0
+R15
+R16
+Aintegrateddatapath_arch
+R35
+R36
+R28
+R6
+R7
+DEx4 work 18 integrateddatapath 0 22 _@`3D1FL_D;GK]FePPmVH2
+!i122 46
+l231
+L20 360
+V[XKA6S@TF9dz3D6cU`8FG2
+!s100 Z4Zma^LY<I[]HWi1G;FmK3
+R10
+32
+R95
+!i10b 1
+R89
+R96
+R97
+!i113 0
+R15
+R16
+Einvg
+R22
+R6
+R7
+!i122 47
+R0
+Z98 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/invg.vhd
+Z99 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/invg.vhd
+l0
+R49
+VQ?6hb9ePk@>kZZ9k]hNSO3
+!s100 _XK?_^5z0Rm1<k12?;5R?2
+R10
+32
+R95
+!i10b 1
+Z100 !s108 1604516651.000000
+Z101 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/invg.vhd|
+Z102 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/invg.vhd|
+!i113 0
+R15
+R16
+Adataflow
+R6
+R7
+DEx4 work 4 invg 0 22 Q?6hb9ePk@>kZZ9k]hNSO3
+!i122 47
+l31
+L30 6
+Vch>li:oKYZkCO5]GamViK1
+!s100 bk7I76o8e1LURdoZEQb8H0
+R10
+32
+R95
+!i10b 1
+R100
+R101
+R102
+!i113 0
+R15
+R16
+Emem
+Z103 w1603733739
+R28
+R6
+R7
+!i122 48
+R0
+Z104 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mem.vhd
+Z105 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mem.vhd
+l0
+L8 1
+VVZmF13E[ahLTP`DPg=NBH2
+!s100 7[hDmkRVN5;9iob_eMb3]3
+R10
+32
+R95
+!i10b 1
+R100
+Z106 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mem.vhd|
+Z107 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mem.vhd|
+!i113 0
+R15
+R16
+Artl
+R28
+R6
+R7
+DEx4 work 3 mem 0 22 VZmF13E[ahLTP`DPg=NBH2
+!i122 48
+l37
+L27 24
+V`6^NbPhKNmSBg:`:Un8;g3
+!s100 OI8_3><BhDkT3l3n8`OXd3
+R10
+32
+R95
+!i10b 1
+R100
+R106
+R107
+!i113 0
+R15
+R16
+Emips_processor
+Z108 w1604436470
+R28
+R6
+R7
+!i122 49
+R0
+Z109 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+Z110 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd
+l0
+R77
+VcA9aQTcTS8=RJ=n;9BEEc2
+!s100 <HZ:VL;UFX11OW9JncoET3
+R10
+32
+Z111 !s110 1604516652
+!i10b 1
+Z112 !s108 1604516652.000000
+Z113 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd|
+Z114 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/MIPS_Processor.vhd|
+!i113 0
+R15
+R16
+Astructure
+R28
+R6
+R7
+DEx4 work 14 mips_processor 0 22 cA9aQTcTS8=RJ=n;9BEEc2
+!i122 49
+l312
+L33 550
+Vd3T1F=aDcOo`ij6ZUW2kT1
+!s100 1Wm5e2WW^h1iTXI=Lm5d@1
+R10
+32
+R111
+!i10b 1
+R112
+R113
+R114
+!i113 0
+R15
+R16
+Emux2
+R22
+R6
+R7
+!i122 53
+R0
+Z115 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux2.vhd
+Z116 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux2.vhd
+l0
+L4 1
+VU^1kimY^?2k`:<g:jGV6l1
+!s100 <<4K6bh4:7WL?5IMe=EP=2
+R10
+32
+Z117 !s110 1604516653
+!i10b 1
+Z118 !s108 1604516653.000000
+Z119 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux2.vhd|
+Z120 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux2.vhd|
+!i113 0
+R15
+R16
+Abehavioral
+R6
+R7
+DEx4 work 4 mux2 0 22 U^1kimY^?2k`:<g:jGV6l1
+!i122 53
+l12
+L11 4
+VSiETIUz;gN5ZKl[VTPSOf1
+!s100 j>30H4GJCHm9llUjMeZf`2
+R10
+32
+R117
+!i10b 1
+R118
+R119
+R120
+!i113 0
+R15
+R16
+Emux_nbit_nbitto1_struct
+R22
+R35
+R36
+R28
+R6
+R7
+!i122 51
+R0
+Z121 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_nbitto1_struct.vhd
+Z122 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_nbitto1_struct.vhd
+l0
+L20 1
+VEmi<JPJP5<b2heQ2iR9H61
+!s100 Id`1JkWHfBK<IWN4IGTYU1
+R10
+32
+R117
+!i10b 1
+R112
+Z123 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_nbitto1_struct.vhd|
+Z124 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_nbitto1_struct.vhd|
+!i113 0
+R15
+R16
+Amux_nbit_nbitto1_struct_arch
+R35
+R36
+R28
+R6
+R7
+DEx4 work 23 mux_nbit_nbitto1_struct 0 22 Emi<JPJP5<b2heQ2iR9H61
+!i122 51
+l74
+L47 108
+VaB2G=6a[jQ]^YbNJVaXKG2
+!s100 21ZjEc`m^?60nEJQSL?jW1
+R10
+32
+R117
+!i10b 1
+R112
+R123
+R124
+!i113 0
+R15
+R16
+Emux_nbit_struct
+Z125 w1604513717
+R6
+R7
+!i122 52
+R0
+Z126 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_struct.vhd
+Z127 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_struct.vhd
+l0
+L4 1
+VPVReK<O9FEm1_:m9E@N^K0
+!s100 ;6>I9?;9@m6g_aiRoAa0T0
+R10
+32
+R117
+!i10b 1
+R118
+Z128 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_struct.vhd|
+Z129 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux_nbit_struct.vhd|
+!i113 0
+R15
+R16
+Amux_nbit_struct_arch
+R6
+R7
+DEx4 work 15 mux_nbit_struct 0 22 PVReK<O9FEm1_:m9E@N^K0
+!i122 52
+l28
+L17 26
+ViaN@PYKFj6m3?i>1?zj?11
+!s100 jZl7_elkYSC5=U9kcMFMe2
+R10
+32
+R117
+!i10b 1
+R118
+R128
+R129
+!i113 0
+R15
+R16
+Emuxg
+Z130 w1604513686
+R6
+R7
+!i122 50
+R0
+Z131 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux.vhd
+Z132 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux.vhd
+l0
+L4 1
+VY>[fKQ;L9]B@0HLOM1Jb;0
+!s100 <WjLfO^JT_07Cz;5[SU8O1
+R10
+32
+R111
+!i10b 1
+R112
+Z133 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux.vhd|
+Z134 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/mux.vhd|
+!i113 0
+R15
+R16
+Amux_arch
+R6
+R7
+DEx4 work 4 muxg 0 22 Y>[fKQ;L9]B@0HLOM1Jb;0
+!i122 50
+l20
+L17 11
+V2PhQJe<N@h>oS9Ja:0XV@1
+!s100 ?8jnV9;YX`2Fjl@AS8f;H0
+R10
+32
+R111
+!i10b 1
+R112
+R133
+R134
+!i113 0
+R15
+R16
+Enandg
+Z135 w1603734196
+R6
+R7
+!i122 54
+R0
+Z136 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/nandg.vhd
+Z137 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/nandg.vhd
+l0
+R49
+VoOHW?ini8cWIAHbh^oC:S1
+!s100 ek[90meJR@SkWE=[L<[8N1
+R10
+32
+Z138 !s110 1604516654
+!i10b 1
+R118
+Z139 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/nandg.vhd|
+Z140 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/nandg.vhd|
+!i113 0
+R15
+R16
+Adataflow
+R6
+R7
+DEx4 work 5 nandg 0 22 oOHW?ini8cWIAHbh^oC:S1
+!i122 54
+l32
+R53
+V_b;m[em8mRDf5PE9Z5odz0
+!s100 DRd^6R:6<k87@;38^aG^D1
+R10
+32
+R138
+!i10b 1
+R118
+R139
+R140
+!i113 0
+R15
+R16
+Eorg2
+R22
+R6
+R7
+!i122 55
+R0
+Z141 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/org2.vhd
+Z142 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/org2.vhd
+l0
+R49
+VRgKUMS7h=BXRmVDdXe=[i3
+!s100 ;C23gd[m>G1k`R]<0A=1Y2
+R10
+32
+R138
+!i10b 1
+Z143 !s108 1604516654.000000
+Z144 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/org2.vhd|
+Z145 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/org2.vhd|
+!i113 0
+R15
+R16
+Adataflow
+R6
+R7
+DEx4 work 4 org2 0 22 RgKUMS7h=BXRmVDdXe=[i3
+!i122 55
+l32
+R53
+VAd^eG4i8_aV4CfEL^O1C`3
+!s100 Ne3XdHCTS;:TbUTY<a>S<1
+R10
+32
+R138
+!i10b 1
+R143
+R144
+R145
+!i113 0
+R15
+R16
+Epc
+Z146 w1604367523
+R35
+R36
+R28
+R6
+R7
+!i122 56
+R0
+Z147 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/pc.vhd
+Z148 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/pc.vhd
+l0
+L10 1
+Vo7N3X::nHzRAf>BGbo_^92
+!s100 [L_j81007n=QiE:KFkS@G1
+R10
+32
+R138
+!i10b 1
+R143
+Z149 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/pc.vhd|
+Z150 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/pc.vhd|
+!i113 0
+R15
+R16
+Apc_arch
+R35
+R36
+R28
+R6
+R7
+DEx4 work 2 pc 0 22 o7N3X::nHzRAf>BGbo_^92
+!i122 56
+l82
+L30 142
+V`W^CKX2c]_fN`;V10=lI71
+!s100 =ZV7V7ScdzSHk@A:TCelQ3
+R10
+32
+R138
+!i10b 1
+R143
+R149
+R150
+!i113 0
+R15
+R16
+Eregister_nbit_struct
+Z151 w1604437234
+R6
+R7
+!i122 57
+R0
+Z152 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/register_nbit_struct.vhd
+Z153 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/register_nbit_struct.vhd
+l0
+L4 1
+VV[W=Od^`S284^QKafd><:3
+!s100 [[[A=0gk1FSh2oQ^Q>VSS3
+R10
+32
+Z154 !s110 1604516655
+!i10b 1
+R143
+Z155 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/register_nbit_struct.vhd|
+Z156 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/register_nbit_struct.vhd|
+!i113 0
+R15
+R16
+Aregister_nbit_struct_arch
+R6
+R7
+DEx4 work 20 register_nbit_struct 0 22 V[W=Od^`S284^QKafd><:3
+!i122 57
+l37
+L22 38
+V9QZX5f6G8=nO>cd]VCYak2
+!s100 RFYgOkTLUjY>9HeTPQ0>13
+R10
+32
+R154
+!i10b 1
+R143
+R155
+R156
+!i113 0
+R15
+R16
+Eregisterfile_nbit_struct
+Z157 w1604425492
+R35
+R36
+R28
+R6
+R7
+!i122 58
+R0
+Z158 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/registerFile_nbit_struct.vhd
+Z159 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/registerFile_nbit_struct.vhd
+l0
+L8 1
+VV9n2b6LT5F6D2Fg;aC;?82
+!s100 m2k@T97a_GSgD4EQd58382
+R10
+32
+R154
+!i10b 1
+Z160 !s108 1604516655.000000
+Z161 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/registerFile_nbit_struct.vhd|
+Z162 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/registerFile_nbit_struct.vhd|
+!i113 0
+R15
+R16
+Aregisterfile_nbit_struct_arch
+R35
+R36
+R28
+R6
+R7
+DEx4 work 24 registerfile_nbit_struct 0 22 V9n2b6LT5F6D2Fg;aC;?82
+!i122 58
+l93
+L36 153
+V3oHY]1K<CeENG[eCNQOTW2
+!s100 X?:I3;iXi5<i>COoX5a662
+R10
+32
+R154
+!i10b 1
+R160
+R161
+R162
+!i113 0
+R15
+R16
+Ereverse
+R22
+R6
+R7
+!i122 59
+R0
+Z163 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/reverse.vhd
+Z164 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/reverse.vhd
+l0
+L5 1
+V5h?ZW`:4`oHH=<Gh9fDY]2
+!s100 N46_d`J3?@Ej]J2Y4nl1L2
+R10
+32
+R154
+!i10b 1
+R160
+Z165 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/reverse.vhd|
+Z166 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/reverse.vhd|
+!i113 0
+R15
+R16
+Abehavioral
+R6
+R7
+DEx4 work 7 reverse 0 22 5h?ZW`:4`oHH=<Gh9fDY]2
+!i122 59
+l12
+L11 6
+V;A8S>g=4H<hd7QOaE2<9I2
+!s100 7GTT`>zmXRG^XQhSmHnST0
+R10
+32
+R154
+!i10b 1
+R160
+R165
+R166
+!i113 0
+R15
+R16
+Etb_controls
+R22
+R28
+R6
+R7
+!i122 60
+R0
+Z167 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_Controls.vhd
+Z168 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_Controls.vhd
+l0
+L5 1
+VBOhYMN4W05^eMLQ<Nnn2Q1
+!s100 ]P2`U>K17dDgSP>Xmn]GQ0
+R10
+32
+Z169 !s110 1604516656
+!i10b 1
+R160
+Z170 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_Controls.vhd|
+Z171 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_Controls.vhd|
+!i113 0
+R15
+R16
+Abehavior
+R28
+R6
+R7
+DEx4 work 11 tb_controls 0 22 BOhYMN4W05^eMLQ<Nnn2Q1
+!i122 60
+l37
+L9 168
+V?D:^?5KN`Mz]=;zP_jGHm2
+!s100 :b^k7_?d8_G_6WPN3_2Jg3
+R10
+32
+R169
+!i10b 1
+R160
+R170
+R171
+!i113 0
+R15
+R16
+Etb_integrateddatapath
+Z172 w1603129237
+R28
+R6
+R7
+!i122 61
+R0
+Z173 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_IntegratedDatapath.vhd
+Z174 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_IntegratedDatapath.vhd
+l0
+L6 1
+VfMTc;@cF05QAFD@k^LbS11
+!s100 W;jbOL@Vbio<VI4MV8^@O1
+R10
+32
+R169
+!i10b 1
+Z175 !s108 1604516656.000000
+Z176 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_IntegratedDatapath.vhd|
+Z177 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_IntegratedDatapath.vhd|
+!i113 0
+R15
+R16
+Abehavior
+R28
+R6
+R7
+DEx4 work 21 tb_integrateddatapath 0 22 fMTc;@cF05QAFD@k^LbS11
+!i122 61
+l40
+L10 802
+VIUWn0T7Snk;cWo8Z1XVZ12
+!s100 MA8FblK@V<ia9_g<Vf7zi3
+R10
+32
+R169
+!i10b 1
+R175
+R176
+R177
+!i113 0
+R15
+R16
+Etb_simplifiedmipsprocessor
+w1604422276
+DPx3 std 3 env 0 22 d?`1ck@NdeD@H3RZG7FgZ2
+DPx4 ieee 16 std_logic_textio 0 22 ^l:n6VFdg74Q?CKDhjD]D3
+R6
+R7
+!i122 62
+R0
+8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd
+FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd
+l0
+L25 1
+V_Sk49gG_<nDjh_nG^ZfVO2
+!s100 U@Wch0EJRK5@:W:0E@<RU1
+R10
+32
+Z178 !s110 1604516657
+!i10b 1
+R175
+!s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|
+!s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/tb_SimplifiedMIPSProcessor.vhd|
+!i113 0
+R15
+R16
+Exorg2
+R22
+R6
+R7
+!i122 63
+R0
+Z179 8U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/xorg2.vhd
+Z180 FU:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/xorg2.vhd
+l0
+R49
+V;hb`C0MKik;h36`3`SzM60
+!s100 [hI[mXFH4_j16U;>U1Lfn2
+R10
+32
+R178
+!i10b 1
+Z181 !s108 1604516657.000000
+Z182 !s90 -reportprogress|30|-work|work|U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/xorg2.vhd|
+Z183 !s107 U:/CPRE381/cpre381-toolflow-release/ModelSimWork/src/xorg2.vhd|
+!i113 0
+R15
+R16
+Adataflow
+R6
+R7
+DEx4 work 5 xorg2 0 22 ;hb`C0MKik;h36`3`SzM60
+!i122 63
+l32
+R53
+VbmLohbkYjJQ`?EHUY>LoL1
+!s100 Z6[FAPS4fBLB`F?OO<AY72
+R10
+32
+R178
+!i10b 1
+R181
+R182
+R183
+!i113 0
+R15
+R16
