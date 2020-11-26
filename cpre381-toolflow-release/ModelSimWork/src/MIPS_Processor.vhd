@@ -944,7 +944,7 @@ begin
 
 
         --The amount we want to shift for shift IF_instructions
-        EX_shiftValue <= EX_internal_imm (5 to 9) when (EX_varShift = '0') else
+        EX_shiftValue <= EX_internal_imm (21 to 25) when (EX_varShift = '0') else
             EX_internal_rs(27 to 31);  
                         
                         
@@ -1032,7 +1032,7 @@ begin
                     i_if_flush              	=> global_Flush,
 
                     i_ALUOut             		=> EX_ALUsum,   
-                    i_MuxOut         			=> EX_rt_data,  
+                    i_MuxOut         		=>	EX_rt_data,  
                     i_MemtoReg					=> EX_MemtoReg,
                     i_syscall                   => EX_syscal,
                     i_RegWrite					=> EX_s_RegWr,
