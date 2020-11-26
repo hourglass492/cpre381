@@ -12,7 +12,7 @@ entity EX_MEM is
     i_if_flush              	: in std_logic;
 	
     i_ALUOut             			: in std_logic_vector(0 to 31);   
-    --i_MuxOut         			 	: in std_logic_vector(0 to 31);   
+    i_MuxOut         			 	: in std_logic_vector(0 to 31);   
 	i_MemtoReg					: in std_logic;
     i_RegWrite					: in std_logic;
     i_syscall                   : in std_logic;
@@ -20,7 +20,7 @@ entity EX_MEM is
 	--i_MemRead					: in std_logic;
 	i_WriteAdress				: in std_logic_vector(0 to 4);
 
-    --o_MuxOut               			: out std_logic_vector(0 to 31);
+    o_MuxOut               			: out std_logic_vector(0 to 31);
 	o_ALUOut		 	  			: out std_logic_vector(0 to 31);
     o_MemtoReg					: out std_logic;
     o_syscall                   : out std_logic;
@@ -140,17 +140,17 @@ architecture EX_MEM_arch of EX_MEM is
 
                         );
 						
-			-- MuxOut: register_nbit_struct 
-            --     port map(
-            --         i_CLK      => i_CLK,
-            --         i_RST      => RegReset,
-            --         i_WE       => RegWrite,
-            --         i_D        => i_MuxOut,
-            --         i_Default    => s_Default,
+			MuxOut: register_nbit_struct 
+                port map(
+                    i_CLK      => i_CLK,
+                    i_RST      => RegReset,
+                    i_WE       => RegWrite,
+                    i_D        => i_MuxOut,
+                    i_Default    => s_Default,
 
-            --         o_Q        => s_MuxOut
+                    o_Q        => s_MuxOut
 
-            --             );
+                        );
 						
 			
 			WriteAdress: register_nbit_struct 
@@ -224,7 +224,7 @@ architecture EX_MEM_arch of EX_MEM is
 
                   
 						
-			-- o_MuxOut <= s_Stall and s_MuxOut;
+			o_MuxOut <= s_Stall and s_MuxOut;
 			o_ALUOut <= s_Stall and s_ALUOut;
 			o_WriteAdress <= s_Stall5 and s_WriteAdress;
 

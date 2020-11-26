@@ -168,6 +168,7 @@ architecture structure of MIPS_Processor is
 
             -- 32
             signal MEM_ALUOut               : std_logic_vector(0 to 31);
+            signal MEM_rt                   : std_logic_vector(0 to 31);
             signal MEM_MemOut               : std_logic_vector(0 to 31);
 
         --end signlas for MEM 
@@ -399,7 +400,7 @@ architecture structure of MIPS_Processor is
                     i_if_flush              	: in std_logic;
         
                     i_ALUOut             		: in std_logic_vector(0 to 31);   
-                    --i_MuxOut         			: in std_logic_vector(0 to 31);   
+                    i_MuxOut         			: in std_logic_vector(0 to 31);   
                     i_MemtoReg					: in std_logic;
                     i_syscall                   : in std_logic;
                     i_RegWrite					: in std_logic;
@@ -407,7 +408,7 @@ architecture structure of MIPS_Processor is
                     -- i_MemRead					: in std_logic; -- I don't think we need this
                     i_WriteAdress				: in std_logic_vector(0 to 4);
 
-                    --o_MuxOut               		: out std_logic_vector(0 to N);
+                    o_MuxOut               		: out std_logic_vector(0 to 31);
                     o_ALUOut		 	  		: out std_logic_vector(0 to 31);
                     o_MemtoReg					: out std_logic;
                     o_syscall                   : out std_logic;
@@ -1031,7 +1032,7 @@ begin
                     i_if_flush              	=> global_Flush,
 
                     i_ALUOut             		=> EX_ALUsum,   
-                    --i_MuxOut         			: in std_logic_vector(0 to N);   
+                    i_MuxOut         			EX_rt_data,  
                     i_MemtoReg					=> EX_MemtoReg,
                     i_syscall                   => EX_syscal,
                     i_RegWrite					=> EX_s_RegWr,
@@ -1040,7 +1041,7 @@ begin
                     i_WriteAdress				=> EX_RdAddress,
 
 
-                    --o_MuxOut               		: out std_logic_vector(0 to N);
+                    o_MuxOut               		=> MEM_rt,
                     o_ALUOut		 	  		=> MEM_ALUOut,
                     o_MemtoReg					=> MEM_MemtoReg,
                     o_syscall                   => MEM_syscal,
@@ -1127,7 +1128,7 @@ begin
     gen32: for i in 0 to 31 generate
         oALUOut(i) <= EX_sum(31-i);
         s_DMemAddr(i) <= MEM_ALUOut(31-i);--????
-        s_DMemData(i) <= ID_internal_rt(31-i);
+        s_DMemData(i) <= MEM_rt(31-i);
         MEM_MemOut(i) <= s_DMemOut(31-i);
         s_RegWrData(i) <= WB_register_write_back_final(31-i);
         
