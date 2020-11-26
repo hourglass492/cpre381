@@ -2,7 +2,13 @@
 array:	.word   0 : 15
 
 .text
-	la $s0, array
+	lui $1, 4097
+	addi $0, $0, 0
+	addi $0, $0, 0
+	addi $0, $0, 0
+	addi $0, $0, 0
+	addi $0, $0, 0
+	ori $16, $1,0
 
 	addi $0, $0, 0
 	addi $0, $0, 0

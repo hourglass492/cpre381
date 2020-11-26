@@ -963,7 +963,7 @@ begin
 
 
         --LUI implementation and the pc number whe JAL
-        EX_ALUsum <=     x"0000" & EX_internal_imm(16 to 31) when (EX_s_Lui = '1') else --TODO not sure if those are the correct bits to grab for the imm, should be the lower 16
+        EX_ALUsum <=  EX_internal_imm(16 to 31) & x"0000" when (EX_s_Lui = '1') else --TODO not sure if those are the correct bits to grab for the imm, should be the lower 16
                     std_logic_vector(to_unsigned(to_integer(unsigned(PCnumber )) -4 , N)) when (EX_jal = '1') else --TODO this simply takes what it guesses the pc would be rather then actual pc, need to pass the pc through for this to work properly
                     EX_sum;
         
