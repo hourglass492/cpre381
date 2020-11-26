@@ -132,6 +132,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "iCLK",
+					"strict" : false
+				},
+				{
+					"name" : "iRST",
+					"strict" : false
+				},
+				{
 					"name" : "iInstAddr[6]",
 					"strict" : false
 				},
@@ -176,15 +184,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[26]",
-					"strict" : false
-				},
-				{
-					"name" : "iCLK",
-					"strict" : false
-				},
-				{
-					"name" : "iRST",
+					"name" : "iInstExt[15]",
 					"strict" : false
 				},
 				{
@@ -192,11 +192,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "iInstExt[28]",
+					"strict" : false
+				},
+				{
 					"name" : "iInstExt[29]",
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[28]",
+					"name" : "iInstExt[31]",
 					"strict" : false
 				},
 				{
@@ -204,7 +208,27 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[31]",
+					"name" : "iInstExt[17]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstExt[16]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstExt[19]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstExt[20]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstExt[18]",
+					"strict" : false
+				},
+				{
+					"name" : "iInstExt[26]",
 					"strict" : false
 				},
 				{
@@ -232,31 +256,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[17]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstExt[16]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstExt[19]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstExt[20]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstExt[18]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstExt[15]",
-					"strict" : false
-				},
-				{
-					"name" : "iInstExt[24]",
+					"name" : "iInstExt[21]",
 					"strict" : false
 				},
 				{
@@ -268,7 +268,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "iInstExt[21]",
+					"name" : "iInstExt[24]",
 					"strict" : false
 				},
 				{

@@ -3,99 +3,115 @@
 # CprE 381 toolflow Timing dump
 #
 
-FMax: 24.48mhz Clk Constraint: 20.00ns Slack: -20.85ns
+FMax: 45.01mhz Clk Constraint: 20.00ns Slack: -2.21ns
 
 The path is given below
 
  ===================================================================
- From Node    : pc:counter|register_nbit_struct:reg|dffg:\G1:25:dff_i|s_Q
- To Node      : registerFile_nbit_struct:reg|register_nbit_struct:\G0:18:register_j|dffg:\G1:0:dff_i|s_Q
+ From Node    : pc:counter|register_nbit_struct:reg|dffg:\G1:29:dff_i|s_Q
+ To Node      : pc:counter|register_nbit_struct:reg|dffg:\G1:1:dff_i|s_Q
  Launch Clock : iCLK
  Latch Clock  : iCLK
  Data Arrival Path:
  Total (ns)  Incr (ns)     Type  Element
  ==========  ========= ==  ====  ===================================
       0.000      0.000           launch edge time
-      3.083      3.083  R        clock network delay
-      3.315      0.232     uTco  pc:counter|register_nbit_struct:reg|dffg:\G1:25:dff_i|s_Q
-      3.315      0.000 FF  CELL  counter|reg|\G1:25:dff_i|s_Q|q
-      3.662      0.347 FF    IC  s_IMemAddr[6]~0|datad
-      3.787      0.125 FF  CELL  s_IMemAddr[6]~0|combout
-      6.119      2.332 FF    IC  IMem|ram~37630|dataa
-      6.543      0.424 FF  CELL  IMem|ram~37630|combout
-      7.243      0.700 FF    IC  IMem|ram~37631|datad
-      7.393      0.150 FR  CELL  IMem|ram~37631|combout
-      8.672      1.279 RR    IC  IMem|ram~37634|datac
-      8.959      0.287 RR  CELL  IMem|ram~37634|combout
-      9.164      0.205 RR    IC  IMem|ram~37637|datad
-      9.303      0.139 RF  CELL  IMem|ram~37637|combout
-     11.812      2.509 FF    IC  IMem|ram~37669|datac
-     12.093      0.281 FF  CELL  IMem|ram~37669|combout
-     12.327      0.234 FF    IC  IMem|ram~37712|datac
-     12.608      0.281 FF  CELL  IMem|ram~37712|combout
-     14.782      2.174 FF    IC  IMem|ram~37755|datab
-     15.186      0.404 FF  CELL  IMem|ram~37755|combout
-     15.415      0.229 FF    IC  IMem|ram~38267|datad
-     15.540      0.125 FF  CELL  IMem|ram~38267|combout
-     16.985      1.445 FF    IC  ALUctl|ALUControl~12|datac
-     17.266      0.281 FF  CELL  ALUctl|ALUControl~12|combout
-     17.856      0.590 FF    IC  ALUctl|ALUControl~13|datac
-     18.137      0.281 FF  CELL  ALUctl|ALUControl~13|combout
-     18.439      0.302 FF    IC  ALUctl|ALUControl~28|datab
-     18.831      0.392 FR  CELL  ALUctl|ALUControl~28|combout
-     19.863      1.032 RR    IC  ALU|ctl_sll~0|dataa
-     20.245      0.382 RF  CELL  ALU|ctl_sll~0|combout
-     20.500      0.255 FF    IC  ALU|ctl_LorR~0|datac
-     20.761      0.261 FR  CELL  ALU|ctl_LorR~0|combout
-     21.866      1.105 RR    IC  ALU|BarrelShifter|\G1:9:mux1i|O~0|datab
-     22.309      0.443 RF  CELL  ALU|BarrelShifter|\G1:9:mux1i|O~0|combout
-     23.054      0.745 FF    IC  ALU|BarrelShifter|\G1:9:mux1i|O~1|datac
-     23.335      0.281 FF  CELL  ALU|BarrelShifter|\G1:9:mux1i|O~1|combout
-     23.591      0.256 FF    IC  ALU|BarrelShifter|\G2:7:mux2i|O~0|datac
-     23.872      0.281 FF  CELL  ALU|BarrelShifter|\G2:7:mux2i|O~0|combout
-     26.736      2.864 FF    IC  ALU|BarrelShifter|\G16:3:mux16i|O~5|datad
-     26.861      0.125 FF  CELL  ALU|BarrelShifter|\G16:3:mux16i|O~5|combout
-     27.096      0.235 FF    IC  ALU|BarrelShifter|\G16:3:mux16i|O~6|datac
-     27.377      0.281 FF  CELL  ALU|BarrelShifter|\G16:3:mux16i|O~6|combout
-     27.609      0.232 FF    IC  ALU|BarrelShifter|\G16:3:mux16i|O~7|datac
-     27.890      0.281 FF  CELL  ALU|BarrelShifter|\G16:3:mux16i|O~7|combout
-     28.140      0.250 FF    IC  ALU|finalMux|\G1:28:mux_i|o_z~0|datad
-     28.265      0.125 FF  CELL  ALU|finalMux|\G1:28:mux_i|o_z~0|combout
-     28.492      0.227 FF    IC  ALU|finalMux|\G1:28:mux_i|o_z~1|datad
-     28.617      0.125 FF  CELL  ALU|finalMux|\G1:28:mux_i|o_z~1|combout
-     31.025      2.408 FF    IC  DMem|ram~33027|datab
-     31.417      0.392 FR  CELL  DMem|ram~33027|combout
-     32.921      1.504 RR    IC  DMem|ram~33028|datad
-     33.076      0.155 RR  CELL  DMem|ram~33028|combout
-     35.233      2.157 RR    IC  DMem|ram~33029|datab
-     35.651      0.418 RR  CELL  DMem|ram~33029|combout
-     35.856      0.205 RR    IC  DMem|ram~33032|datad
-     35.995      0.139 RF  CELL  DMem|ram~33032|combout
-     37.305      1.310 FF    IC  DMem|ram~33064|dataa
-     37.705      0.400 FF  CELL  DMem|ram~33064|combout
-     39.341      1.636 FF    IC  DMem|ram~33107|datad
-     39.466      0.125 FF  CELL  DMem|ram~33107|combout
-     39.743      0.277 FF    IC  DMem|ram~33150|dataa
-     40.167      0.424 FF  CELL  DMem|ram~33150|combout
-     40.402      0.235 FF    IC  DMem|ram~33321|datac
-     40.683      0.281 FF  CELL  DMem|ram~33321|combout
-     40.914      0.231 FF    IC  DMem|ram~33492|datac
-     41.195      0.281 FF  CELL  DMem|ram~33492|combout
-     41.617      0.422 FF    IC  s_WDlui[0]~2|datac
-     41.898      0.281 FF  CELL  s_WDlui[0]~2|combout
-     42.126      0.228 FF    IC  s_WDlui[0]~3|datad
-     42.276      0.150 FR  CELL  s_WDlui[0]~3|combout
-     43.907      1.631 RR    IC  reg|\G0:18:register_j|\G1:0:dff_i|s_Q|asdata
-     44.313      0.406 RR  CELL  registerFile_nbit_struct:reg|register_nbit_struct:\G0:18:register_j|dffg:\G1:0:dff_i|s_Q
+      3.095      3.095  R        clock network delay
+      3.327      0.232     uTco  pc:counter|register_nbit_struct:reg|dffg:\G1:29:dff_i|s_Q
+      3.327      0.000 FF  CELL  counter|reg|\G1:29:dff_i|s_Q|q
+      3.696      0.369 FF    IC  s_IMemAddr[2]~2|datad
+      3.821      0.125 FF  CELL  s_IMemAddr[2]~2|combout
+      6.189      2.368 FF    IC  IMem|ram~44670|datab
+      6.582      0.393 FF  CELL  IMem|ram~44670|combout
+      6.809      0.227 FF    IC  IMem|ram~44671|datad
+      6.934      0.125 FF  CELL  IMem|ram~44671|combout
+      8.514      1.580 FF    IC  IMem|ram~44679|datad
+      8.639      0.125 FF  CELL  IMem|ram~44679|combout
+      8.866      0.227 FF    IC  IMem|ram~44690|datad
+      8.991      0.125 FF  CELL  IMem|ram~44690|combout
+     10.793      1.802 FF    IC  IMem|ram~44701|datad
+     10.943      0.150 FR  CELL  IMem|ram~44701|combout
+     11.147      0.204 RR    IC  IMem|ram~44702|datad
+     11.302      0.155 RR  CELL  IMem|ram~44702|combout
+     11.508      0.206 RR    IC  IMem|ram~44745|datad
+     11.663      0.155 RR  CELL  IMem|ram~44745|combout
+     11.867      0.204 RR    IC  IMem|ram~44916|datad
+     12.022      0.155 RR  CELL  IMem|ram~44916|combout
+     12.742      0.720 RR    IC  IMem|ram~45087|datad
+     12.897      0.155 RR  CELL  IMem|ram~45087|combout
+     13.124      0.227 RR    IC  counter|immedate_adder|\G1:29:adder_i|org2_1|o_z~0|datad
+     13.279      0.155 RR  CELL  counter|immedate_adder|\G1:29:adder_i|org2_1|o_z~0|combout
+     13.483      0.204 RR    IC  counter|immedate_adder|\G1:29:adder_i|org2_1|o_z~1|datad
+     13.638      0.155 RR  CELL  counter|immedate_adder|\G1:29:adder_i|org2_1|o_z~1|combout
+     13.864      0.226 RR    IC  counter|immedate_adder|\G1:28:adder_i|org2_1|o_z~0|datad
+     14.019      0.155 RR  CELL  counter|immedate_adder|\G1:28:adder_i|org2_1|o_z~0|combout
+     14.246      0.227 RR    IC  counter|immedate_adder|\G1:27:adder_i|org2_1|o_z~0|datad
+     14.401      0.155 RR  CELL  counter|immedate_adder|\G1:27:adder_i|org2_1|o_z~0|combout
+     14.628      0.227 RR    IC  counter|immedate_adder|\G1:26:adder_i|org2_1|o_z~0|datad
+     14.783      0.155 RR  CELL  counter|immedate_adder|\G1:26:adder_i|org2_1|o_z~0|combout
+     15.190      0.407 RR    IC  counter|immedate_adder|\G1:25:adder_i|org2_1|o_z~0|datad
+     15.345      0.155 RR  CELL  counter|immedate_adder|\G1:25:adder_i|org2_1|o_z~0|combout
+     15.573      0.228 RR    IC  counter|immedate_adder|\G1:24:adder_i|org2_1|o_z~0|datad
+     15.728      0.155 RR  CELL  counter|immedate_adder|\G1:24:adder_i|org2_1|o_z~0|combout
+     15.955      0.227 RR    IC  counter|immedate_adder|\G1:23:adder_i|org2_1|o_z~0|datad
+     16.110      0.155 RR  CELL  counter|immedate_adder|\G1:23:adder_i|org2_1|o_z~0|combout
+     16.337      0.227 RR    IC  counter|immedate_adder|\G1:22:adder_i|org2_1|o_z~0|datad
+     16.492      0.155 RR  CELL  counter|immedate_adder|\G1:22:adder_i|org2_1|o_z~0|combout
+     16.719      0.227 RR    IC  counter|immedate_adder|\G1:21:adder_i|org2_1|o_z~0|datad
+     16.874      0.155 RR  CELL  counter|immedate_adder|\G1:21:adder_i|org2_1|o_z~0|combout
+     17.101      0.227 RR    IC  counter|immedate_adder|\G1:20:adder_i|org2_1|o_z~0|datad
+     17.256      0.155 RR  CELL  counter|immedate_adder|\G1:20:adder_i|org2_1|o_z~0|combout
+     17.486      0.230 RR    IC  counter|immedate_adder|\G1:19:adder_i|org2_1|o_z~0|datad
+     17.641      0.155 RR  CELL  counter|immedate_adder|\G1:19:adder_i|org2_1|o_z~0|combout
+     17.865      0.224 RR    IC  counter|immedate_adder|\G1:18:adder_i|org2_1|o_z~0|datac
+     18.152      0.287 RR  CELL  counter|immedate_adder|\G1:18:adder_i|org2_1|o_z~0|combout
+     18.381      0.229 RR    IC  counter|immedate_adder|\G1:17:adder_i|org2_1|o_z~0|datad
+     18.536      0.155 RR  CELL  counter|immedate_adder|\G1:17:adder_i|org2_1|o_z~0|combout
+     18.750      0.214 RR    IC  counter|immedate_adder|\G1:16:adder_i|org2_1|o_z~0|datad
+     18.905      0.155 RR  CELL  counter|immedate_adder|\G1:16:adder_i|org2_1|o_z~0|combout
+     19.292      0.387 RR    IC  counter|immedate_adder|\G1:15:adder_i|org2_1|o_z~0|datad
+     19.447      0.155 RR  CELL  counter|immedate_adder|\G1:15:adder_i|org2_1|o_z~0|combout
+     19.658      0.211 RR    IC  counter|immedate_adder|\G1:14:adder_i|org2_1|o_z~0|datad
+     19.813      0.155 RR  CELL  counter|immedate_adder|\G1:14:adder_i|org2_1|o_z~0|combout
+     20.024      0.211 RR    IC  counter|immedate_adder|\G1:13:adder_i|org2_1|o_z~0|datad
+     20.179      0.155 RR  CELL  counter|immedate_adder|\G1:13:adder_i|org2_1|o_z~0|combout
+     20.392      0.213 RR    IC  counter|immedate_adder|\G1:12:adder_i|org2_1|o_z~0|datad
+     20.547      0.155 RR  CELL  counter|immedate_adder|\G1:12:adder_i|org2_1|o_z~0|combout
+     20.972      0.425 RR    IC  counter|immedate_adder|\G1:11:adder_i|org2_1|o_z~0|datad
+     21.127      0.155 RR  CELL  counter|immedate_adder|\G1:11:adder_i|org2_1|o_z~0|combout
+     21.355      0.228 RR    IC  counter|immedate_adder|\G1:10:adder_i|org2_1|o_z~0|datad
+     21.510      0.155 RR  CELL  counter|immedate_adder|\G1:10:adder_i|org2_1|o_z~0|combout
+     21.737      0.227 RR    IC  counter|immedate_adder|\G1:9:adder_i|org2_1|o_z~0|datad
+     21.892      0.155 RR  CELL  counter|immedate_adder|\G1:9:adder_i|org2_1|o_z~0|combout
+     22.119      0.227 RR    IC  counter|immedate_adder|\G1:8:adder_i|org2_1|o_z~0|datad
+     22.274      0.155 RR  CELL  counter|immedate_adder|\G1:8:adder_i|org2_1|o_z~0|combout
+     22.501      0.227 RR    IC  counter|immedate_adder|\G1:7:adder_i|org2_1|o_z~0|datad
+     22.656      0.155 RR  CELL  counter|immedate_adder|\G1:7:adder_i|org2_1|o_z~0|combout
+     22.884      0.228 RR    IC  counter|immedate_adder|\G1:6:adder_i|org2_1|o_z~0|datad
+     23.039      0.155 RR  CELL  counter|immedate_adder|\G1:6:adder_i|org2_1|o_z~0|combout
+     23.265      0.226 RR    IC  counter|immedate_adder|\G1:5:adder_i|org2_1|o_z~0|datad
+     23.420      0.155 RR  CELL  counter|immedate_adder|\G1:5:adder_i|org2_1|o_z~0|combout
+     23.643      0.223 RR    IC  counter|immedate_adder|\G1:4:adder_i|org2_1|o_z~0|datac
+     23.930      0.287 RR  CELL  counter|immedate_adder|\G1:4:adder_i|org2_1|o_z~0|combout
+     24.143      0.213 RR    IC  counter|immedate_adder|\G1:3:adder_i|org2_1|o_z~0|datad
+     24.298      0.155 RR  CELL  counter|immedate_adder|\G1:3:adder_i|org2_1|o_z~0|combout
+     24.524      0.226 RR    IC  counter|next_pc[1]~28|datad
+     24.679      0.155 RR  CELL  counter|next_pc[1]~28|combout
+     24.885      0.206 RR    IC  counter|next_pc[1]~29|datad
+     25.024      0.139 RF  CELL  counter|next_pc[1]~29|combout
+     25.258      0.234 FF    IC  counter|next_pc[1]~32|datac
+     25.539      0.281 FF  CELL  counter|next_pc[1]~32|combout
+     25.539      0.000 FF    IC  counter|reg|\G1:1:dff_i|s_Q|d
+     25.643      0.104 FF  CELL  pc:counter|register_nbit_struct:reg|dffg:\G1:1:dff_i|s_Q
  Data Required Path:
  Total (ns)  Incr (ns)     Type  Element
  ==========  ========= ==  ====  ===================================
      20.000     20.000           latch edge time
-     23.432      3.432  R        clock network delay
-     23.464      0.032           clock pessimism removed
-     23.444     -0.020           clock uncertainty
-     23.462      0.018     uTsu  registerFile_nbit_struct:reg|register_nbit_struct:\G0:18:register_j|dffg:\G1:0:dff_i|s_Q
- Data Arrival Time  :    44.313
- Data Required Time :    23.462
- Slack              :   -20.851 (VIOLATED)
+     23.422      3.422  R        clock network delay
+     23.430      0.008           clock pessimism removed
+     23.410     -0.020           clock uncertainty
+     23.428      0.018     uTsu  pc:counter|register_nbit_struct:reg|dffg:\G1:1:dff_i|s_Q
+ Data Arrival Time  :    25.643
+ Data Required Time :    23.428
+ Slack              :    -2.215 (VIOLATED)
  ===================================================================
