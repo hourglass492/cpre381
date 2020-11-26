@@ -1032,7 +1032,7 @@ begin
                     i_if_flush              	=> global_Flush,
 
                     i_ALUOut             		=> EX_ALUsum,   
-                    i_MuxOut         			EX_rt_data,  
+                    i_MuxOut         			=> EX_rt_data,  
                     i_MemtoReg					=> EX_MemtoReg,
                     i_syscall                   => EX_syscal,
                     i_RegWrite					=> EX_s_RegWr,
