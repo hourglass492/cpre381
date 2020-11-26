@@ -127,7 +127,7 @@ architecture ID_EX_arch of ID_EX is
 
         process (i_CLK, i_if_flush, i_stall)
         begin
-          if (i_if_flush = '1') then
+          if (i_if_flush = '1' or i_stall = '1') then
             o_RT                        <= x"00000000";
             o_RS                        <= x"00000000";
             o_MemtoReg                  <= '0';
